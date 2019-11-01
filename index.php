@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="Kurzbeschreibung">
         <link rel="stylesheet" href="assets/css/design.css">
-        <link rel="shortcut icon" type="image/png" href="assets\images\ailogo.png">
+        <link rel="shortcut icon" type="image/png" href="/DWP-GWP-Project/assets/images/ailogo.png">
     </head>
     <? include 'navMenuBar.php';?>
     <body>
