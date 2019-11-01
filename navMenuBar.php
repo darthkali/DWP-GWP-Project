@@ -3,7 +3,7 @@
         <ul>
             <li><a href="#" title="">Intern <i class="fa fa-caret-down"></i></a>
                 <ul>
-                    <li><a href="/DWP-GWP-Project/pages/login.php" title="">Login</a>
+                    <li><a href="/FSAI-Site/pages/login.php" title="">Login</a>
                     <li><a href="#" title="">Profil</a>
                     <li><a href="#" title="">Nutzerverwaltung</a>
                 </ul>
@@ -17,7 +17,6 @@
             <li><a href="#" title="">Fotos</a></li>
             <li><a href="#" title="Unsere Veranstaltungen">Events</a></li>
             <li><a href="/FSAI-Site/pages/vorlage.php" title="Das sind wir">Über uns</a></li>
-            <li><a href="#" title="Startseite">Startseite</a></li>
+            <li><a href="/FSAI-Site/" title="Startseite">Startseite</a></li>
         </ul>
     </nav>
-
