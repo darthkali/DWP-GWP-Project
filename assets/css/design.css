@@ -18,7 +18,7 @@ nav {
     width: 100%;
     background: #334D66;    /* backgroundcolor from the navigation bar */
     font-size: 16px;
-    padding-right: 50px;    /*space right border*/
+    padding-right: 60px;    /*space to right border*/
 }
 
 /* ref links in the navigationbar */
