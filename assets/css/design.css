@@ -18,6 +18,7 @@ nav {
     width: 100%;
     background: #334D66;    /* backgroundcolor from the navigation bar */
     font-size: 16px;
+    padding-right: 50px;    /*space right border*/
 }
 
 /* ref links in the navigationbar */
@@ -25,7 +26,7 @@ nav a {
     display: block;
     color: #fff;            /* set the font color from the links */
     text-decoration: none;  /* delete underline from the links */
-    padding: 20px;          /* space around the boxes */
+    padding: 25px;          /* space around the boxes */
 }
 
 /* color selected navigation section */
@@ -35,7 +36,7 @@ nav a:hover {
 
 nav ul li {
     position: relative;
-    float: left;        /* set the Bar to the left side - sections from left to right */
+    float: right;        /* set the Bar to the left side - sections from left to right */
     list-style: none;   /* delete list Points */
     transition: 0.5s;   /* color fade-in */
 }
@@ -44,7 +45,7 @@ nav ul ul {
     display:none;               /* dont show the submenue */
     position: absolute;
     background: #334D66;
-    z-index: 1;
+    z-index: 1;                 /*no plan*/
 }
 
 nav ul ul li {
@@ -60,4 +61,12 @@ nav ul li:hover > ul {
     display:block;
 }
 
-/* ----------------------------------   next section   ---------------------------------- */
+/* ----------------------------------   Image   ---------------------------------- */
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
