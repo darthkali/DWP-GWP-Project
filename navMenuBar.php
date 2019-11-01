@@ -4,7 +4,7 @@
 
 
 
-            <li><a href="#" title="">Intern <i class="fa fa-caret-down"></i></a>
+            <li><a title="">Intern <i class="fa fa-caret-down"></i></a>
                 <ul>
                     <li><a href="/DWP-GWP-Project/pages/login.php" title="">Login</a>
                     <li><a href="#" title="">Profil</a>
@@ -14,7 +14,7 @@
 
 
 
-            <li><a href="#" title="">Mitglieder <i class="fa fa-caret-down"></i></a>
+            <li><a title="">Mitglieder <i class="fa fa-caret-down"></i></a>
                 <ul>
                     <li><a href="#" title="">Aktuelle Mitglieder</a>
                     <li><a href="#" title="">Archivierte Mitglieder</a>
@@ -27,4 +27,3 @@
             <li><a href="#" title="Startseite">Startseite</a></li>
         </ul>
     </nav>
-

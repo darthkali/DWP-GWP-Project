@@ -76,8 +76,20 @@ footer {
 
     padding: 10px;
     color: #fff;
-    position:absolute;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background: #334D66;
+}
+
+.footer_img{
+
+    padding-right: 15px;
+}
+
+.footer_space_text {
+
+    padding-right: 15px;
+    color: #fff;
+    text-decoration: none;
 }

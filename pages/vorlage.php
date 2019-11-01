@@ -10,7 +10,7 @@
 
 <body>
 
-<? include 'header.php';?>
+<? include 'navMenuBar.php';?>
 <h1 align="center" >sfhskdbvhkjsbhkvbsdklvbksdbvkibvkbsdijvbksdbvksdbkvbsdbvkj</h1>
 <img class="center" src="assets/images/gruppe.jpg">
 <? include 'footer.php';?>
