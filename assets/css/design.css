@@ -1,0 +1,63 @@
+/* backgroundcolor from the Main Page */
+body {
+    background: white;
+}
+
+/* adjustments for all Elements */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------   navigationbar   ---------------------------------- */
+
+nav {
+    float: right;
+    width: 100%;
+    background: #334D66;    /* backgroundcolor from the navigation bar */
+    font-size: 16px;
+}
+
+/* ref links in the navigationbar */
+nav a {
+    display: block;
+    color: #fff;            /* set the font color from the links */
+    text-decoration: none;  /* delete underline from the links */
+    padding: 20px;          /* space around the boxes */
+}
+
+/* color selected navigation section */
+nav a:hover {
+    background: #60B0FF;
+}
+
+nav ul li {
+    position: relative;
+    float: left;        /* set the Bar to the left side - sections from left to right */
+    list-style: none;   /* delete list Points */
+    transition: 0.5s;   /* color fade-in */
+}
+
+nav ul ul {
+    display:none;               /* dont show the submenue */
+    position: absolute;
+    background: #334D66;
+    z-index: 1;
+}
+
+nav ul ul li {
+    float: none;
+    width: 200px;
+}
+
+nav ul ul li a {
+    padding: 10px 20px;
+}
+
+nav ul li:hover > ul {
+    display:block;
+}
+
+/* ----------------------------------   next section   ---------------------------------- */
