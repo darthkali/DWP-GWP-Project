@@ -15,5 +15,4 @@
         <img class="center" src="assets/images/gruppe.jpg">
         <? include 'footer.php';?>
     </body>
-
 </html>

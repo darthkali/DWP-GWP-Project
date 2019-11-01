@@ -70,3 +70,14 @@ nav ul li:hover > ul {
     margin-right: auto;
     width: 50%;
 }
+/* ----------------------------------   Footer   ---------------------------------- */
+
+footer {
+
+    padding: 10px;
+    color: #fff;
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    background: #334D66;
+}
