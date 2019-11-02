@@ -23,14 +23,14 @@ nav, section, footer {display: block;}
 
 nav {
     top:0px;
+    height: 60px;
     position:fixed !important; /*fixed the Navigationbar on the Top*/
     position:absolute;
     float: right;
-    height: 70px;
     width: 100%;
     background: #334D66;    /* backgroundcolor from the navigation bar */
     font-size: 16px;
-    padding-right: 60px;    /*space to right border*/
+    padding-right: 120px;    /*space to right border*/
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
 }
 
@@ -39,14 +39,16 @@ nav a {
     display: block;
     color: #fff;            /* set the font color from the links */
     text-decoration: none;  /* delete underline from the links */
-    padding: 25px;          /* space around the boxes */
+    padding: 20px;          /* space around the boxes */
+
 }
 
 /* color selected navigation section */
 nav a:hover {
     background: #60B0FF;
-    height: 70px;
+    height: 60px;
 }
+
 
 nav ul li {
     position: relative;
@@ -64,14 +66,17 @@ nav ul ul {
 nav ul ul li {
     float: none;
     width: 200px;
+
 }
 
 nav ul ul li a {
     padding: 10px 20px;
+
 }
 
 nav ul li:hover > ul {
     display:block;
+    vertical-align: center;
 }
 
 /* ----------------------------------   Image   ---------------------------------- */
@@ -114,19 +119,18 @@ footer {
 
 /* ----------------------------------   Content   ---------------------------------- */
 div#Content {
-    top:70px;
-    height: calc(100% - 100px);
-    position:relative;
+    top: 60px;
+    height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
+    position: relative;
     overflow:auto;
-    width:70%;
-    background: wheat;
+    padding: 10px;
 }
 
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 div#SitePicture {
-    top:70px;
-    height: calc(100% - 100px);
-    position:relative;
+    top: 60px;
+    height: calc(100% - 100px); /* calculate the Height from the Picture - Size from the Window - (height Nav-Bar + height Footer) */
+    position: relative;
     overflow:hidden;
     width:30%;
     float: left;
