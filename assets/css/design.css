@@ -120,15 +120,16 @@ div#FooterLeft a{
     margin-right: 10px;
 }
 
-div#FooterMiddle {
+div#FooterMiddle{
     float: left;
     width: 34%;
     text-align: center;
+    font-size: 16px;
 }
 
 div#FooterMiddle img{
     height: 16px;
-    font-size: 16px;
+    margin-bottom: -2px;    /* Fix --> img same line as text*/
 }
 
 div#FooterRight{
