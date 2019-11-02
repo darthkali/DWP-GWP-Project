@@ -16,11 +16,11 @@
         </li>
         <li><a href="#" title="">Fotos</a></li>
         <li><a href="#" title="Unsere Veranstaltungen">Events</a></li>
-        <li><a href="/FSAI-Site/pages/vorlage.php" title="Das sind wir">Über uns</a></li>
+        <li><a href="/FSAI-Site/pages/ueberUns.php" title="Das sind wir">Über uns</a></li>
         <li><a href="/FSAI-Site/" title="Startseite">Startseite</a></li>
     </ul>
 
-    <div id="NavContent" >
+    <div id="NavContent">
         <img src="/FSAI-Site/assets/images/ailogo_groß.png">
         Fachschaftsrat Angewandte Informatik
     </div>

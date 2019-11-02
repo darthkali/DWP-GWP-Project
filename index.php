@@ -10,7 +10,7 @@
     </head>
         <? include 'navMenuBar.php';?>
     <body>
-        <div id="Content">
+        <div id="Content" class="fadeInIndexPage">
 
 
         <h1 align="center" >Das sind Wir! Zumindets ein Teil davon!</h1>

@@ -1,6 +1,6 @@
 /* backgroundcolor from the Main Page */
 html, body {
-    background: white;
+    background: #E6E6E6;
     height:100%;
     margin:0;
     padding:0;
@@ -165,7 +165,25 @@ div#SitePicture img {
     height: 100%;
     width: 100%;
 }
+/* ----------------------------------   Animation  ---------------------------------- */
+.fadeInIndexPage {
+    animation: animationFadeIn ease 3s;
+}
+
+.fadeIn {
+    animation: animationFadeIn ease 3s;
+}
+
+.fadeIn h1{
+    text-align: center;
+}
 
 
-
-
+@keyframes animationFadeIn{
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
