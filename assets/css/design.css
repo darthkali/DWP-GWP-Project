@@ -1,12 +1,20 @@
 /* backgroundcolor from the Main Page */
-body {
+html, body {
     background: white;
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow: hidden;   /* hide the scrollbar, if content grows over the page size */
+
 }
 
-/* adjustments for all Elements */
+nav, section, footer {display: block;}
+
+/* adjustments for all Elements - set the default parameters for all browsers to Null*/
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
@@ -14,12 +22,16 @@ body {
 /* ----------------------------------   Navigationbar   ---------------------------------- */
 
 nav {
+    top:0px;
+    position:fixed !important; /*fixed the Navigationbar on the Top*/
+    position:absolute;
     float: right;
+    height: 70px;
     width: 100%;
     background: #334D66;    /* backgroundcolor from the navigation bar */
     font-size: 16px;
     padding-right: 60px;    /*space to right border*/
-    position:fixed;         /*fixed the Navigationbar on the Top*/
+    z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
 }
 
 /* ref links in the navigationbar */
@@ -33,6 +45,7 @@ nav a {
 /* color selected navigation section */
 nav a:hover {
     background: #60B0FF;
+    height: 70px;
 }
 
 nav ul li {
@@ -46,7 +59,6 @@ nav ul ul {
     display:none;               /* dont show the submenue */
     position: absolute;
     background: #334D66;
-    z-index: 1;                 /*no plan*/
 }
 
 nav ul ul li {
@@ -71,16 +83,20 @@ nav ul li:hover > ul {
     margin-right: auto;
     width: 50%;
 }
+
+
 /* ----------------------------------   Footer   ---------------------------------- */
 
 footer {
 
     padding: 10px;
     color: #fff;
-    position:fixed;         /*fixed the Footerbar on the Bottom*/
-    bottom: 0;
+    position:absolute;         /*fixed the Footerbar on the Bottom*/
+    bottom: 0px;
+    height:40px;
     width: 100%;
     background: #334D66;
+    z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
 }
 
 .footer_img{
@@ -96,11 +112,29 @@ footer {
     text-decoration: none;
 }
 
-/* ----------------------------------   Linker Bildbereich   ---------------------------------- */
-.leftPicture img {
-    position: fixed;
-    top: auto;
-    height: 100vh;
-
+/* ----------------------------------   Content   ---------------------------------- */
+div#Content {
+    top:70px;
+    height: calc(100% - 100px);
+    position:relative;
+    overflow:auto;
+    width:70%;
+    background: wheat;
 }
+
+/* ----------------------------------   Site - Picture   ---------------------------------- */
+div#SitePicture {
+    top:70px;
+    height: calc(100% - 100px);
+    position:relative;
+    overflow:hidden;
+    width:30%;
+    float: left;
+}
+
+div#SitePicture img {
+    height: 100%;
+    width: 100%;
+}
+
 

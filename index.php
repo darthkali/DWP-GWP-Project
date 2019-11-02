@@ -6,6 +6,7 @@
         <meta name="description" content="Kurzbeschreibung">
         <link rel="stylesheet" href="assets/css/design.css">
         <link rel="shortcut icon" type="image/png" href="assets/images/ailogo.png">
+
     </head>
         <? include 'navMenuBar.php';?>
     <body>
