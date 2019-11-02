@@ -8,8 +8,8 @@
         Fachschaftsrat Angewandte Informatik
     </div>
     <div id="FooterRight">
-        <a href="https://www.instagram.com"> <img align="right" src="/FSAI-Site/assets/images/instalogo.png" class="footer_img"></a>
-        <a href="https://www.twitter.com"> <img align="right" src="/FSAI-Site/assets/images/twitterlogo.png" class="footer_img"></a>
-        <a href="https://www.facebook.com"> <img align="right" src="/FSAI-Site/assets/images/facebooklogo.png" class="footer_img"></a>
+        <a  target="_blank" href="https://www.instagram.com"> <img align="right" src="/FSAI-Site/assets/images/instalogo.png" class="footer_img"></a>
+        <a  target="_blank" href="https://www.twitter.com"> <img align="right" src="/FSAI-Site/assets/images/twitterlogo.png" class="footer_img"></a>
+        <a  target="_blank" href="https://www.facebook.com"> <img align="right" src="/FSAI-Site/assets/images/facebooklogo.png" class="footer_img"></a>
     </div>
 </footer>

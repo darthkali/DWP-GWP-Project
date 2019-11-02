@@ -14,26 +14,24 @@
 
 <div id="SitePicture">
     <img class="center" src="/FSAI-Site/assets/images/laptop.jpg">
-</div >
+</div>
 
-<div id="Content"  class="fadeIn">
+<div id="Content" class="fadeIn">
     <div>
         <h1>Über Uns</h1>
     </div>
     <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        Seit der Gründung im Jahre 1995 haben wir uns zu einem innovativen und schlagkräftigen Softwareunternehmen entwickelt. Unternehmen jeder Größe und aus allen Branchen setzen unsere Programme zur Berechnung von Planzeiten und zur Optimierung ihrer Produktion ein.
 
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+        Durch Kundennähe und dauerhafte Geschäftsbeziehungen kennen wir sehr genau die Anforderungen an eine exakte und schnelle Ermittlung von Plan- und Sollzeiten. Dieses Know-how hift uns, unsere Marktposition im Bereich der Planzeitermittlung weiter auszubauen und zu stärken. Es bildet auch die Grundlage für die Entwicklung weiterer, adaptiver Softwaresysteme. Die Vorteile exakter Zeiten und deren Nutzung auch in allen nachfolgenden Systemen helfen uns, die Kundenzufriedenheit weiter zu erhöhen.
+    <br>
+        Qualifizierte Mitarbeiter mit umfangreicher Erfahrung in der Fertigungstechnik stellen eine kontinuierliche Weiterentwicklung der Software sicher. Eine Kombination versierter Praktiker mit jungen Hochschulabsolventen sorgt für innovative und an der Praxis orientierte Lösungen.
 
-        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+        Unterstützt werden diese Entwicklungen durch eine enge Kooperation mit Universitäten, Fachhochschulen und industrienahen Wissenschafts- und Forschungseinrichtungen.
 
-        Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-
-        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
-
-        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur
+        Die wichtigste Basis einer Kalkulation oder eines Arbeitsplanes sind präzise ermittelte Planzeiten. Genau dafür sorgen wir. In der HSi-Technologiebasis stehen fertige Verfahrensbausteine bereit, die bereits Schnitt- und Zeitwerte enthalten. In wenigen Tagen können wir die Technologiebasis auf Ihr Unternehmen feinabstimmen.
     </p>
-</div >
+</div>
 <? include '../footer.php';?>
 </body>
 

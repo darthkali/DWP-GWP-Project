@@ -151,6 +151,15 @@ div#Content {
     padding: 10px;
 }
 
+div#Content p{
+
+    font-size: 16px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 25px;
+    text-align: center;
+}
+
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 div#SitePicture {
     top: 60px;
@@ -177,7 +186,6 @@ div#SitePicture img {
 .fadeIn h1{
     text-align: center;
 }
-
 
 @keyframes animationFadeIn{
     0% {
