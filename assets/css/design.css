@@ -30,7 +30,7 @@ nav {
     width: 100%;
     background: #334D66;    /* backgroundcolor from the navigation bar */
     font-size: 16px;
-    padding-right: 120px;    /*space to right border*/
+    padding-right: 60px;    /*space to right border*/
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
 }
 
@@ -79,6 +79,21 @@ nav ul li:hover > ul {
     vertical-align: center;
 }
 
+/* Topic inside the Navigationbar */
+div#NavContent {
+    height: 60px;
+    font-size: 25px;
+    color:white;
+    padding: 10px;
+}
+
+div#NavContent img {
+    height: 100%;
+    vertical-align: middle;
+}
+
+
+
 /* ----------------------------------   Image   ---------------------------------- */
 
 
@@ -124,6 +139,7 @@ div#Content {
     position: relative;
     overflow:auto;
     padding: 10px;
+
 }
 
 /* ----------------------------------   Site - Picture   ---------------------------------- */
@@ -140,5 +156,7 @@ div#SitePicture img {
     height: 100%;
     width: 100%;
 }
+
+
 
 

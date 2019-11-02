@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <nav>
         <ul>
             <li><a href="#" title="">Intern <i class="fa fa-caret-down"></i></a>
@@ -20,5 +21,12 @@
             <li><a href="/FSAI-Site/pages/vorlage.php" title="Das sind wir">Über uns</a></li>
             <li><a href="/FSAI-Site/" title="Startseite">Startseite</a></li>
         </ul>
+
+    <div id="NavContent" >
+        <img src="/FSAI-Site/assets/images/ailogo_groß.png">
+        Fachschaftsrat Angewandte Informatik
+
+
+    </div>
     </nav>
 
