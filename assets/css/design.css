@@ -109,14 +109,36 @@ footer {
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
 }
 
-.footer_img{
-    padding-right: 15px;
+div#FooterLeft {
+    float: left;
+    width: 33%;
 }
 
-.footer_space_text {
-    padding-right: 15px;
-    color: #fff;
+div#FooterLeft a{
     text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+div#FooterMiddle {
+    float: left;
+    width: 34%;
+    text-align: center;
+}
+
+div#FooterMiddle img{
+    height: 16px;
+    font-size: 16px;
+}
+
+div#FooterRight{
+    float: right;
+    width: 33%;
+}
+
+div#FooterRight a img {
+    height: 16px;
+    margin-left: 10px;
 }
 
 /* ----------------------------------   Content   ---------------------------------- */

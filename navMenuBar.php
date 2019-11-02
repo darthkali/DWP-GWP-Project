@@ -19,6 +19,7 @@
         <li><a href="/FSAI-Site/pages/vorlage.php" title="Das sind wir">Über uns</a></li>
         <li><a href="/FSAI-Site/" title="Startseite">Startseite</a></li>
     </ul>
+
     <div id="NavContent" >
         <img src="/FSAI-Site/assets/images/ailogo_groß.png">
         Fachschaftsrat Angewandte Informatik
