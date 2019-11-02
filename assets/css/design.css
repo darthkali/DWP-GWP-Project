@@ -155,8 +155,14 @@ div#Content div h1{
     margin: 20px;
 }
 
-div#Content p{
+div#Content ul{
+    list-style-type: disc;
+    font-size: 23px;
+    margin-top: 15px;
+    margin-left: 36%;
+}
 
+div#Content p{
     font-size: 26px;
     margin-left: 100px;
     margin-right: 100px;
@@ -187,8 +193,12 @@ div#SitePicture img {
     animation: animationFadeIn ease 3s;
 }
 
-.fadeIn h1{
+.fadeIn h1 {
     text-align: center;
+}
+
+.fadeInImg {
+    animation: animationFadeIn ease 1.5s;
 }
 
 @keyframes animationFadeIn{

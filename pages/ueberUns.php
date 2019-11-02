@@ -12,13 +12,13 @@
 
 <? include '../navMenuBar.php';?>
 
-<div id="SitePicture">
+<div id="SitePicture" class="fadeInImg">
     <img class="center" src="/FSAI-Site/assets/images/laptop.jpg">
 </div>
 
 <div id="Content" class="fadeIn">
     <div>
-        <h1>Über Uns</h1>
+        <h1>Das sind wir, der Fachschaftsrat!</h1>
     </div>
     <p>
         <br>
@@ -38,7 +38,6 @@
         Wir wünschen euch viel Spaß beim durchstöbern unsere Seite.
         <br><br>
         Euer FSR Informatik
-
     </p>
 </div>
 <? include '../footer.php';?>
