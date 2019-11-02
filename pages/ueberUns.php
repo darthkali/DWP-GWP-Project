@@ -21,15 +21,24 @@
         <h1>Über Uns</h1>
     </div>
     <p>
-        Seit der Gründung im Jahre 1995 haben wir uns zu einem innovativen und schlagkräftigen Softwareunternehmen entwickelt. Unternehmen jeder Größe und aus allen Branchen setzen unsere Programme zur Berechnung von Planzeiten und zur Optimierung ihrer Produktion ein.
+        <br>
+        Liebe Studierende, liebe Studieninteressierte,
+        <br><br>
+        wir freuen uns, dass ihr unsere Website gefunden habt.
+        Wir der Fachschaftsrate Angewandte Informatik sind die Vertretung für alle Studierenden, die Informatik an der Fachhochschule Erfurt studieren.
+        <br>
+        Wann immer ihr Fragen oder Probleme habt, sind wir mit einem offenen Ohr für euch da und setzen uns für eure Belange ein.
+        Außerdem organisieren wir diverse Veranstaltungen, wie z.B. den Wintermarkt, das Bergfest, Hack Your Environment, um euer Studentenleben abwechslungsreicher und spannend zu gestalten.
+        <br>
+        Da wir fast ausschließlich im Sommersemester 2019 in die Fachschaft gewählt wurden, sind wir ein neuer FSR und stehen noch am Anfang unseres Weges. In unseren regelmäßigen Treffen nehmen wir uns organisatorischen Dingen und euren Belangen aller Art an.
+        <br>
+        Auf dieser Website möchten wir euch über unsere Tätigkeiten informieren und euch auf dem Laufenden halten.
+        Für alle Studieninteressierten beantworten wir außerdem alle Fragen rund ums Studium.
+        <br>
+        Wir wünschen euch viel Spaß beim durchstöbern unsere Seite.
+        <br><br>
+        Euer FSR Informatik
 
-        Durch Kundennähe und dauerhafte Geschäftsbeziehungen kennen wir sehr genau die Anforderungen an eine exakte und schnelle Ermittlung von Plan- und Sollzeiten. Dieses Know-how hift uns, unsere Marktposition im Bereich der Planzeitermittlung weiter auszubauen und zu stärken. Es bildet auch die Grundlage für die Entwicklung weiterer, adaptiver Softwaresysteme. Die Vorteile exakter Zeiten und deren Nutzung auch in allen nachfolgenden Systemen helfen uns, die Kundenzufriedenheit weiter zu erhöhen.
-    <br>
-        Qualifizierte Mitarbeiter mit umfangreicher Erfahrung in der Fertigungstechnik stellen eine kontinuierliche Weiterentwicklung der Software sicher. Eine Kombination versierter Praktiker mit jungen Hochschulabsolventen sorgt für innovative und an der Praxis orientierte Lösungen.
-
-        Unterstützt werden diese Entwicklungen durch eine enge Kooperation mit Universitäten, Fachhochschulen und industrienahen Wissenschafts- und Forschungseinrichtungen.
-
-        Die wichtigste Basis einer Kalkulation oder eines Arbeitsplanes sind präzise ermittelte Planzeiten. Genau dafür sorgen wir. In der HSi-Technologiebasis stehen fertige Verfahrensbausteine bereit, die bereits Schnitt- und Zeitwerte enthalten. In wenigen Tagen können wir die Technologiebasis auf Ihr Unternehmen feinabstimmen.
     </p>
 </div>
 <? include '../footer.php';?>

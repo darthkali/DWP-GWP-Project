@@ -151,13 +151,17 @@ div#Content {
     padding: 10px;
 }
 
+div#Content div h1{
+    margin: 20px;
+}
+
 div#Content p{
 
-    font-size: 16px;
+    font-size: 26px;
     margin-left: 100px;
     margin-right: 100px;
     margin-top: 25px;
-    text-align: center;
+    text-align: justify;
 }
 
 /* ----------------------------------   Site - Picture   ---------------------------------- */
