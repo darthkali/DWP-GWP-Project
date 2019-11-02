@@ -5,16 +5,15 @@ html, body {
     margin:0;
     padding:0;
     overflow: hidden;   /* hide the scrollbar, if content grows over the page size */
-
 }
 
 nav, section, footer {display: block;}
 
 /* adjustments for all Elements - set the default parameters for all browsers to Null*/
 * {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
+    margin: 0;
+    padding: 0;
+    border: 0;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
@@ -22,7 +21,7 @@ nav, section, footer {display: block;}
 /* ----------------------------------   Navigationbar   ---------------------------------- */
 
 nav {
-    top:0px;
+    top:0;
     height: 60px;
     position:fixed !important; /*fixed the Navigationbar on the Top*/
     position:absolute;
@@ -40,7 +39,6 @@ nav a {
     color: #fff;            /* set the font color from the links */
     text-decoration: none;  /* delete underline from the links */
     padding: 20px;          /* space around the boxes */
-
 }
 
 /* color selected navigation section */
@@ -66,12 +64,10 @@ nav ul ul {
 nav ul ul li {
     float: none;
     width: 200px;
-
 }
 
 nav ul ul li a {
     padding: 10px 20px;
-
 }
 
 nav ul li:hover > ul {
@@ -92,11 +88,7 @@ div#NavContent img {
     vertical-align: middle;
 }
 
-
-
 /* ----------------------------------   Image   ---------------------------------- */
-
-
 .center {
     display: block;
     margin-left: auto;
@@ -104,15 +96,13 @@ div#NavContent img {
     width: 50%;
 }
 
-
 /* ----------------------------------   Footer   ---------------------------------- */
 
 footer {
-
     padding: 10px;
     color: #fff;
     position:absolute;         /*fixed the Footerbar on the Bottom*/
-    bottom: 0px;
+    bottom: 0;
     height:40px;
     width: 100%;
     background: #334D66;
@@ -120,13 +110,10 @@ footer {
 }
 
 .footer_img{
-
     padding-right: 15px;
-
 }
 
 .footer_space_text {
-
     padding-right: 15px;
     color: #fff;
     text-decoration: none;
@@ -139,7 +126,6 @@ div#Content {
     position: relative;
     overflow:auto;
     padding: 10px;
-
 }
 
 /* ----------------------------------   Site - Picture   ---------------------------------- */
