@@ -29,5 +29,5 @@
             <p>Quelle: Erstellt mit dem Impressum Generator von AdSimple in Kooperation mit 123familie.de</p>
         </div>
     </body>
-        <? include '../footer.php';?>
+    <? include '../footer.php';?>
 </html>
