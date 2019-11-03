@@ -50,7 +50,7 @@ nav a:hover {
 
 nav ul li {
     position: relative;
-    float: right;        /* set the Bar to the left side - sections from left to right */
+    float: right;        /* set the Bar to the left side - sections from left to right<3 */
     list-style: none;   /* delete list Points */
     transition: 0.5s;   /* color fade-in */
 }
@@ -173,6 +173,7 @@ div#Content ul{
 }
 
 div#Content div {
+    background-color: red;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -189,10 +190,50 @@ div#Content p{
     font-size: 16px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 25px;
+    margin-top: 50px;
     text-align: justify;
 }
 
+/* ----------------------------------   Content Events   ---------------------------------- */
+
+/*Bin ni+och am testen, ich versuche so viel wie möglich selbst raus zu finden und so wenig wie möglich zu googlen, deswegen sieht das alles vielleicht nicht ganz so geil aus*/
+
+div#ContentEvents{
+    background-color: #BDBDBD !important;
+    height: 164px !important;
+    width: 1020px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+div#ContentEvents div{
+    height: 144px;
+}
+
+div#ContentEventsImg{
+    margin-top: 10px !important;
+    margin-left: 10px !important;
+    margin-right: 0px !important;
+    background-color: green !important;
+    float: left;
+    width: 256px !important;
+}
+
+div#ContentEventsImg img{
+    height: 100%!important;
+    width: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+div#ContentEventsText{
+    margin-top: 10px !important;
+    margin-left: 0px !important;
+    margin-right: 10px !important;
+    background-color: blue !important;
+    float: right;
+    width: 744px !important;
+}
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 div#SitePicture {
     top: 60px;

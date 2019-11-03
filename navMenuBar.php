@@ -15,7 +15,7 @@
             </ul>
         </li>
         <li><a href="#" title="">Fotos</a></li>
-        <li><a href="events.php" title="Unsere Veranstaltungen">Events</a></li>
+        <li><a href="/FSAI-Site/pages/events.php" title="Unsere Veranstaltungen">Events</a></li>
         <li><a href="/FSAI-Site/pages/ueberUns.php" title="Das sind wir">Über uns</a></li>
        <!--  <li><a href="/FSAI-Site/" title="Startseite">Startseite</a></li> -->
     </ul>
