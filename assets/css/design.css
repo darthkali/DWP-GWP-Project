@@ -80,12 +80,27 @@ div#NavContent {
     height: 60px;
     font-size: 25px;
     color:white;
-    padding: 10px;
+    white-space: normal;
+    overflow: hidden;
 }
 
 div#NavContent img {
     height: 100%;
     vertical-align: middle;
+    padding: 5px;
+
+}
+
+div#NavContent a {
+    display: inline;
+    text-decoration: none;  /* delete underline from the links */
+    vertical-align: middle;
+}
+
+/* color selected navigation section */
+div#NavContent a:hover {
+    background: none;
+    color: #b3d2ff;            /* set the font color from the links */
 }
 
 /* ----------------------------------   Image   ---------------------------------- */
