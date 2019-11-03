@@ -80,12 +80,27 @@ div#NavContent {
     height: 60px;
     font-size: 25px;
     color:white;
-    padding: 10px;
+    white-space: normal;
+    overflow: hidden;
 }
 
 div#NavContent img {
     height: 100%;
     vertical-align: middle;
+    padding: 5px;
+
+}
+
+div#NavContent a {
+    display: inline;
+    text-decoration: none;  /* delete underline from the links */
+    vertical-align: middle;
+}
+
+/* color selected navigation section */
+div#NavContent a:hover {
+    background: none;
+    color: #b3d2ff;            /* set the font color from the links */
 }
 
 /* ----------------------------------   Image   ---------------------------------- */
@@ -174,9 +189,9 @@ div#Content div h1{
 }
 
 div#Content p{
-    font-size: 26px;
-    margin-left: 100px;
-    margin-right: 100px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-top: 25px;
     text-align: justify;
 }
