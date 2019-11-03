@@ -151,15 +151,26 @@ div#Content {
     padding: 10px;
 }
 
-div#Content div h1{
-    margin: 20px;
-}
-
 div#Content ul{
     list-style-type: disc;
     font-size: 23px;
     margin-top: 15px;
     margin-left: 36%;
+}
+
+div#Content div {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+div#Content div a{
+    font-size: 26px;
+    text-align: justify;
+
+}
+
+div#Content div h1{
+    margin: 20px;
 }
 
 div#Content p{

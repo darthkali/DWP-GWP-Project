@@ -28,7 +28,7 @@
         Wir der Fachschaftsrate Angewandte Informatik sind die Vertretung für alle Studierenden, die Informatik an der Fachhochschule Erfurt studieren.
         <br>
         Wann immer ihr Fragen oder Probleme habt, sind wir mit einem offenen Ohr für euch da und setzen uns für eure Belange ein.
-        Außerdem organisieren wir diverse Veranstaltungen, wie z.B. den Wintermarkt, das Bergfest, Hack Your Environment, um euer Studentenleben abwechslungsreicher und spannend zu gestalten.
+        Außerdem organisieren wir diverse Veranstaltungen mit, wie z.B. den Wintermarkt, das Bergfest, Hack Your Environment, um euer Studentenleben abwechslungsreicher und spannend zu gestalten.
         <br>
         Da wir fast ausschließlich im Sommersemester 2019 in die Fachschaft gewählt wurden, sind wir ein neuer FSR und stehen noch am Anfang unseres Weges. In unseren regelmäßigen Treffen nehmen wir uns organisatorischen Dingen und euren Belangen aller Art an.
         <br>
