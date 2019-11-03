@@ -21,9 +21,11 @@
             </div>
             <div id="ContentEvents">
                 <div id="ContentEventsImg">
-                    <img src="/FSAI-Site/assets/images/gruppe.jpg" align="center">
+                    <img src="/FSAI-Site/assets/images/gruppe.jpg">
                 </div>
-                <div id="ContentEventsText"><p></p></div>
+                <div id="ContentEventsText">
+
+                </div>
             </div>
         </div>
     </body>
