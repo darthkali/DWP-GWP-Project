@@ -168,20 +168,17 @@ div#Content {
 
 div#Content ul{
     list-style-type: disc;
-    font-size: 23px;
     margin-top: 15px;
     margin-left: 36%;
 }
 
 div#Content div {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 div#Content div a{
-    font-size: 26px;
     text-align: justify;
-
 }
 
 div#Content div h1{
