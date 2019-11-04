@@ -191,7 +191,7 @@ div#Content p{
     font-size: 16px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: justify;
 }
 
@@ -255,12 +255,22 @@ div#SitePicture img {
 
 form {
     width: 500px;
-    top:50px;
-    margin: 15% auto 15% auto;
+    margin-right: auto;
+    margin-left: auto;
+
+    position: relative;
+    top: 45%;
+    -webkit-transform: translateY(-45%);
+    -ms-transform: translateY(-45%);
+    transform: translateY(-45%);
 }
 
 form h1{
-    margin:30px;
+    text-align: center;
+}
+
+form h5{
+    text-align: center;
 }
 
 form img{
@@ -271,7 +281,7 @@ input {
     display: block;
     background-color: #ffffff;
     width: 100%;
-    height: 50px;
+    height: 40px;
     font-size: 20px;
     padding: 12px 20px;
     margin: 5px 0 5px;
@@ -284,7 +294,8 @@ input {
 label {
     float: left;
     text-align: left;
-    background-color: #644f2d;
+    margin-top: 20px;
+    margin-bottom: 5px;
 }
 
 .button {

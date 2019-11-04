@@ -4,7 +4,7 @@
         <li><a href="#" title="">Intern <i class="fa fa-caret-down"></i></a>
             <ul>
                 <li><a href="/FSAI-Site/pages/login.php" title="">Login</a>
-                <li><a href="#" title="">Profil</a>
+                <li><a href="/FSAI-Site/pages/profil.php" title="">Profil</a>
                 <li><a href="#" title="">Nutzerverwaltung</a>
             </ul>
         </li>

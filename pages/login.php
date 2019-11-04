@@ -18,11 +18,13 @@
         <div id="Content" class="fadeIn">
             <form>
                 <h1>Mitgliederlogin</h1>
-                NUTZERNAME<br>
+                <h5>Bitte einloggen um dein Profil zu sehen!</h5>
+                <label for="username">NUTZERNAME </label>
                 <input type = "text";id="username" name="username">
-                <br>
-                PASSWORT<br>
+
+                <label for="password">PASSWORT </label>
                 <input type = "password"; id="password" name="password">
+
                 <img src="/FSAI-Site/assets/images/loginIcon.png">
             </form>
         </div>
