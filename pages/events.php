@@ -20,12 +20,7 @@
                 <h1>Unsere Events</h1>
             </div>
             <div id="ContentEvents">
-                <div id="ContentEventsImg">
-                    <img src="/FSAI-Site/assets/images/gruppe.jpg">
-                </div>
-                <div id="ContentEventsText">
-
-                </div>
+                <img src="/FSAI-Site/assets/images/gruppe.jpg">
             </div>
         </div>
     </body>

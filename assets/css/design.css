@@ -159,10 +159,12 @@ div#FooterRight a img {
 
 /* ----------------------------------   Content   ---------------------------------- */
 div#Content {
+    background: mediumvioletred;
+    width: 70%;
     top: 60px;
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
-    overflow:auto;
+    overflow: auto;
     padding: 10px;
 }
 
@@ -200,39 +202,15 @@ div#Content p{
 
 div#ContentEvents{
     background-color: #BDBDBD !important;
-    height: 164px !important;
-    width: 1020px;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    height: 25% !important;
+    margin-left: 2% !important;
+    margin-right: 2% !important;
+    margin-bottom: 10px;
 }
 
-div#ContentEvents div{
-    height: 144px;
-}
-
-div#ContentEventsImg{
-    margin-top: 10px !important;
-    margin-left: 10px !important;
-    margin-right: 0px !important;
-    background-color: green !important;
-    float: left;
-    width: 256px !important;
-}
-
-div#ContentEventsImg img{
-    height: 100%!important;
-    width: auto !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-div#ContentEventsText{
-    margin-top: 10px !important;
-    margin-left: 0px !important;
-    margin-right: 10px !important;
-    background-color: blue !important;
-    float: right;
-    width: 744px !important;
+div#ContentEvents img{
+    margin: 1%;
+    height: 90%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 div#SitePicture {
