@@ -10,6 +10,24 @@
 
     <body>
         <? include '../navMenuBar.php';?>
+
+        <div id="SitePicture" class="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/key.jpg">
+        </div>
+
+        <div id="Content" class="fadeIn">
+            <form>
+                <h1>Mitgliederlogin</h1>
+                NUTZERNAME<br>
+                <input type = "text";id="username" name="username">
+                <br>
+                PASSWORT<br>
+                <input type = "password"; id="password" name="password">
+                <img src="/FSAI-Site/assets/images/loginIcon.png">
+            </form>
+        </div>
+
+
         <? include '../footer.php';?>
     </body>
 </html>

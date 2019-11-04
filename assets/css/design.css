@@ -159,7 +159,7 @@ div#FooterRight a img {
 
 /* ----------------------------------   Content   ---------------------------------- */
 div#Content {
-    background: mediumvioletred;
+    background: #ffffff;
     width: 70%;
     top: 60px;
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
@@ -175,7 +175,6 @@ div#Content ul{
 }
 
 div#Content div {
-    background-color: red;
     margin-left: 50px;
     margin-right: 50px;
 }
@@ -251,3 +250,46 @@ div#SitePicture img {
         opacity:1;
     }
 }
+
+/* ----------------------------------   Formularfelder  ---------------------------------- */
+
+form {
+    width: 500px;
+    top:50px;
+    margin: 15% auto 15% auto;
+}
+
+form h1{
+    margin:30px;
+}
+
+form img{
+    float: right;
+    margin-top: 20px;
+}
+input {
+    display: block;
+    background-color: #ffffff;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    padding: 12px 20px;
+    margin: 5px 0 5px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CECECE;
+}
+
+label {
+    float: left;
+    text-align: left;
+    background-color: #644f2d;
+}
+
+.button {
+    float: right;
+    margin-top: 3em;
+    background-color: #a1f861;
+}
+
