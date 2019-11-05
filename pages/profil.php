@@ -21,20 +21,24 @@
         <h1>Meine Daten</h1>
         <h5>Hier kannst du deine Daten ändern!</h5>
 
-        <label for="username">VORNAME </label>
-        <input type = "text" id="username" name="username">
+        <label for="frontname">VORNAME </label>
+        <input type = "text" id="frontname" name="frontname">
 
-        <label for="username">NACHNAME </label>
-        <input type = "text" id="username" name="username">
+        <label for="rearname">NACHNAME </label>
+        <input type = "text" id="rearname" name="rearname">
 
-        <label for="username">GEBURTSDATUM </label>
-        <input type = "text" id="username" name="username">
+        <label for="email">EMAIL </label>
+        <input type = "email" id="email" name="email">
+
+        <label for="dateOfBirth">GEBURTSDATUM </label>
+        <input type = "date" id="dateOfBirth" name="dateOfBirth">
 
         <label for="username">NUTZERNAME </label>
         <input type = "text" id="username" name="username">
 
-        <label for="username">BESCHREIBUNG </label>
-        <input type = "text" id="username" name="username">
+        <label for="description">BESCHREIBUNG </label>
+        <textarea name=“description” cols=“44” rows=“5”></textarea>
+
         <a href="/FSAI-Site/pages/profil.php" title="ycsdvsd">
             ÄNDERUNGEN SPEICHERN<i class="fa fa-floppy-o" aria-hidden="true"></i>
         </a>

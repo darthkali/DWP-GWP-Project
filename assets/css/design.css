@@ -174,10 +174,8 @@ form {
     margin-right: auto;
     margin-left: auto;
     position: relative;
-    top:45%;
-    -webkit-transform: translateY(-45%);
-    -ms-transform: translateY(-45%);
-    transform: translateY(-45%);
+    top:5%;
+
 
 }
 
@@ -225,6 +223,18 @@ input {
     border-style: solid;
     border-width: 1px;
     border-color: #CECECE;
+
+}
+
+/* redesign the Date-Type for Input-Fields */
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
 }
 
 label {
@@ -234,4 +244,19 @@ label {
     margin-bottom: 5px;
 }
 
+
+textarea {
+    display: block;
+    background-color: #ffffff;
+    width: 100%;
+    min-height: 300px;
+    font-size: 20px;
+    padding: 12px 20px;
+    margin: 5px 0 5px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CECECE;
+    resize: vertical;
+}
 
