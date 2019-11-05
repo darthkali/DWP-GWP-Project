@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="description" content="Kurzbeschreibung">
     <link rel="stylesheet" href="../assets/css/design.css">
+    <link rel="stylesheet" href="../assets/css/navigation.css">
     <link rel="shortcut icon" type="image/png" href="/DWP-GWP-Project/assets/images/ailogo.png">
 </head>
 
