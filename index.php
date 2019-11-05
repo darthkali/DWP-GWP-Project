@@ -13,9 +13,7 @@
     <body>
         <? include 'navMenuBar.php';?>
         <div id="Content" class="fadeInIndexPage">
-            <div>
                 <h1 align="center" >Das sind Wir! Zumindets ein Teil davon!</h1>
-            </div>
             <img class="center" src="assets/images/gruppe.jpg">
         </div>
     </body>

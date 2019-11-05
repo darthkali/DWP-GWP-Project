@@ -11,11 +11,12 @@
                 <li><a href="#" title="">Archivierte Mitglieder</a>
             </ul>
         </li>
-        <li><a href="#" title="">Intern <i class="fa fa-caret-down"></i></a>
+        <li><a href="#" title=""><i class="fa fa-user" aria-hidden="true" sizes="62x62"></i> <i class="fa fa-caret-down"></i></a>
             <ul>
-                <li><a href="/FSAI-Site/pages/login.php" title="">Login</a>
-                <li><a href="/FSAI-Site/pages/profil.php" title="">Profil</a>
-                <li><a href="#" title="">Nutzerverwaltung</a>
+                <li><a href="/FSAI-Site/pages/login.php" title="">Login</a></li>
+                <li><a href="/FSAI-Site/pages/profil.php" title="">Profil</a></li>
+                <li><a href="#" title="">Nutzerverwaltung</a></li>
+                <li><a href="#" title="">Abmelden</a></li>
             </ul>
         </li>
     </ul>

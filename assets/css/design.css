@@ -190,12 +190,30 @@ form img{
 }
 
 form a{
-    font-size: 20px;
+    font-size: 16px;
     text-align: right;
     float: right;
     color: black;
     text-decoration: none;  /* delete underline from the links */
     padding: 10px 0 10px;
+}
+
+form button{
+    font-size: 16px;
+    text-align: center;
+    float: right;
+    background-color: #003F70;
+    margin: 5px 0 5px 10px;
+    padding: 10px;
+    text-decoration: none;  /* delete underline from the links */
+    color: white;
+    border-radius:10px;
+
+}
+
+form button:hover{
+
+    color: #60B0FF;
 }
 
 form i{
@@ -205,21 +223,33 @@ form i{
 
 form a:hover  {
      color: #60B0FF;
-     i:hover
  }
 
 input, textarea {
     display: block;
     background-color: #ffffff;
     width: 100%;
-    height: 40px;
+    height: 50px;
     font-size: 20px;
     padding: 12px 20px;
     margin: 5px 0 5px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);*/
     border-style: solid;
     border-width: 1px;
     border-color: #CECECE;
+    border-radius: 3px;
+}
+
+input:hover{
+    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+
+}
+
+input:focus{
+    border-left: solid;
+    border-left-width: 4px;
+    border-left-color: #2e62ff;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 textarea {

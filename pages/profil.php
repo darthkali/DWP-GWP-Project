@@ -39,9 +39,10 @@
         <label for="description">BESCHREIBUNG </label>
         <textarea name=“description” cols=“44” rows=“5”></textarea>
 
-        <a href="/FSAI-Site/pages/profil.php" title="ycsdvsd">
-            ÄNDERUNGEN SPEICHERN<i class="fa fa-floppy-o" aria-hidden="true"></i>
-        </a>
+        <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit">Passwort Ändern</button>
+        <button type="reset"> Verwerfen</button>
+        <button type="submit">Bild Ändern</button>
 
     </form>
 </div>

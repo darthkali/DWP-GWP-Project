@@ -25,9 +25,7 @@
 
                 <label for="password">PASSWORT </label>
                 <input type = "password" id="password" name="password">
-                <a href="/FSAI-Site/pages/profil.php" title="ycsdvsd">
-                    LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
-                </a>
+                <button type="submit">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
             </form>
         </div>
 
