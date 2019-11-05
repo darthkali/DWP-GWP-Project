@@ -167,7 +167,6 @@ div#SitePicture img {
 }
 
 /* ----------------------------------   Formularfelder  ---------------------------------- */
-
 form {
     width: 80%;
     max-width: 40em;
@@ -175,8 +174,6 @@ form {
     margin-left: auto;
     position: relative;
     top:5%;
-
-
 }
 
 form h1{
@@ -211,7 +208,7 @@ form a:hover  {
      i:hover
  }
 
-input {
+input, textarea {
     display: block;
     background-color: #ffffff;
     width: 100%;
@@ -223,7 +220,11 @@ input {
     border-style: solid;
     border-width: 1px;
     border-color: #CECECE;
+}
 
+textarea {
+    height: 300px;
+    resize: vertical;
 }
 
 /* redesign the Date-Type for Input-Fields */
@@ -243,20 +244,3 @@ label {
     margin-top: 20px;
     margin-bottom: 5px;
 }
-
-
-textarea {
-    display: block;
-    background-color: #ffffff;
-    width: 100%;
-    min-height: 300px;
-    font-size: 20px;
-    padding: 12px 20px;
-    margin: 5px 0 5px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border-style: solid;
-    border-width: 1px;
-    border-color: #CECECE;
-    resize: vertical;
-}
-
