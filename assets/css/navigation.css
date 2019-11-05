@@ -2,6 +2,7 @@
 nav {
     position:absolute;
     width: 100%;
+    height: 60px;
     background: #334D66;    /* backgroundcolor from the navigation bar */
     font-size: 16px;
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
@@ -12,6 +13,8 @@ nav a {
     color: #fff;            /* set the font color from the links */
     text-decoration: none;  /* delete underline from the links */
     padding: 20px;          /* space around the boxes */
+    height: 100%;           /* height from the Navigationbar */
+
 }
 
 nav ul {
@@ -28,13 +31,17 @@ nav ul li {
     height: 100%;       /* height from the Navigationbar */
 }
 
+nav ul li:hover{            /* hover over the main Nav Items */
+    background: #60B0FF;
+    height: 100%;
+
+}
+
+/* Submenue */
 nav ul li ul{
     display:none;           /* dont show the submenue */
     position: absolute;     /* put the submenue absolute to the main Item freom the navigationbar */
-}
-
-nav ul li:hover{            /* hover over the main Nav Items */
-    background: #60B0FF;
+    height: 100%;
 }
 
 nav ul li:hover > ul{       /* hover over the Items from the submenue */
