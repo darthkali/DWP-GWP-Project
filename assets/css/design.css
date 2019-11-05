@@ -254,12 +254,13 @@ div#SitePicture img {
 /* ----------------------------------   Formularfelder  ---------------------------------- */
 
 form {
-    width: 500px;
+    width: 80%;
+    max-width: 40em;
     margin-right: auto;
     margin-left: auto;
 
     position: relative;
-    top: 45%;
+    top:45%;
     -webkit-transform: translateY(-45%);
     -ms-transform: translateY(-45%);
     transform: translateY(-45%);
@@ -277,6 +278,26 @@ form img{
     float: right;
     margin-top: 20px;
 }
+
+form a{
+    font-size: 20px;
+    text-align: right;
+    float: right;
+    color: black;
+    text-decoration: none;  /* delete underline from the links */
+    padding: 10px 0 10px;
+}
+
+form i{
+    color: #60B0FF;
+    margin-left: 5px;
+}
+
+form a:hover  {
+     color: #60B0FF;
+     i:hover
+ }
+
 input {
     display: block;
     background-color: #ffffff;
@@ -298,9 +319,4 @@ label {
     margin-bottom: 5px;
 }
 
-.button {
-    float: right;
-    margin-top: 3em;
-    background-color: #a1f861;
-}
 
