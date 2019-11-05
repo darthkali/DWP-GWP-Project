@@ -1,22 +1,23 @@
-# DWP GWP Projekt
-
-Beschreibung hinzufügen
-Das ist ein Test
+# Webseite des Fachschaftsrates der Angewandten Informatik
+Im Rahmen des Projektes zum Thema Grundlagen und Dynamische Webentwicklung haben wir uns entschieden eine Webseite für den FSR AI zu erstellen.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Hier erfahren Sie wie Sie die Webseite auf Ihrem System INstallieren und starten können.
 
-### Prerequisites
+### Voraussetzungen
 
-What things you need to install the software and how to install them
+Was wird für die Installation / Ausführung der Webseite benötigt.
 
 ```
-Give examples
+Xammp
+mySQL
+Internet Browser
 ```
 
 ### Installing
 
+TODO
 A step by step series of examples that tell you how to get a development env running
 
 Say what the step will be
@@ -33,35 +34,13 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [PHP-Storm](https://www.jetbrains.com/phpstorm/) - IDE für HTML, CSS und PHP
+* [Web-Storm](https://www.jetbrains.com/webstorm/) - IDE für JavaScript
+* [Adobe XD](https://www.adobe.com/de/products/xd.html) - Tool für die Erstellung des Designs
+* [Lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diegramme / Charts / ...
+
 
 ## Contributing
 
