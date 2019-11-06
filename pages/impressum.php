@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="description" content="Impressum">
         <link rel="stylesheet" href="../assets/css/design.css">
-        <link rel="stylesheet" href="../assets/css/navigation.css">
         <link rel="shortcut icon" type="image/png" href="../assets/images/ailogo.png">
     </head>
     <body>
@@ -14,7 +13,9 @@
             <img class="center" src="/FSAI-Site/assets/images/code.png">
         </div>
         <div id="Content" class="fadeIn">
-            <h1>Impressum</h1>
+            <div>
+                <h1>Impressum</h1>
+            </div>
             <p>Informationspflicht laut § 5 TMG.</p>
 
             <p>Fachschaftsrat Angewandte Informatik</p>

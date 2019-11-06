@@ -11,7 +11,6 @@
 
     <body>
         <? include '../navMenuBar.php';?>
-
         <div id="SitePicture" class="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/programmer.png">
         </div>
@@ -71,5 +70,5 @@
             <p><small>Quelle: Datenschutz-Konfigurator von <a href="http://www.mein-datenschutzbeauftragter.de" target="_blank">mein-datenschutzbeauftragter.de</a></small></p>
         </div>
     </body>
-        <? include '../footer.php';?>
+    <? include '../footer.php';?>
 </html>

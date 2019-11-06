@@ -17,5 +17,5 @@
             <img class="center" src="assets/images/gruppe.jpg">
         </div>
     </body>
-        <? include 'footer.php';?>
+    <? include 'footer.php';?>
 </html>
