@@ -22,35 +22,7 @@
             </div>
             <div id="ContentEvents">
                 <img src="/FSAI-Site/assets/images/gruppe.jpg">
-                <a href="#"><h2>Hack Your Environment 2019!</h2></a>
-                <p>HYE19 ist ein von Studenten organisiertes Coding-Event, welches in der Fachhochschule
-                in Erfurt statt fand. Das Ziel des Events ist, dass junge und motivierte Leute sich im Coden
-                versuchen können. Dabei ist es egal, ob man schon viel oder erst wenig Erfahrung im programmieren
-                hat.</p>
-            </div>
-            <div id="ContentEvents">
-                <img src="/FSAI-Site/assets/images/landschaft.png">
-                <a href="#"><h2>Hack Your Environment 2019!</h2></a>
-                <p>HYE19 ist ein von Studenten organisiertes Coding-Event, welches in der Fachhochschule
-                    in Erfurt statt fand. Das Ziel des Events ist, dass junge und motivierte Leute sich im Coden
-                    versuchen können. Dabei ist es egal, ob man schon viel oder erst wenig Erfahrung im programmieren
-                    hat.</p>
-            </div>
-            <div id="ContentEvents">
-                <img src="/FSAI-Site/assets/images/landschaft.png">
-                <a href="#"><h2>Hack Your Environment 2019!</h2></a>
-                <p>HYE19 ist ein von Studenten organisiertes Coding-Event, welches in der Fachhochschule
-                    in Erfurt statt fand. Das Ziel des Events ist, dass junge und motivierte Leute sich im Coden
-                    versuchen können. Dabei ist es egal, ob man schon viel oder erst wenig Erfahrung im programmieren
-                    hat.</p>
-            </div>
-            <div id="ContentEvents">
-                <img src="/FSAI-Site/assets/images/landschaft.png">
-                <a href="#"><h2>Hack Your Environment 2019!</h2></a>
-                <p>HYE19 ist ein von Studenten organisiertes Coding-Event, welches in der Fachhochschule
-                    in Erfurt statt fand. Das Ziel des Events ist, dass junge und motivierte Leute sich im Coden
-                    versuchen können. Dabei ist es egal, ob man schon viel oder erst wenig Erfahrung im programmieren
-                    hat.</p>
+                <a href="#Event'"><h2>Hack Your Environment 2019</h2></a>
             </div>
         </div>
     </body>

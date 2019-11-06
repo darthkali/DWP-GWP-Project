@@ -120,8 +120,20 @@ div#ContentEvents{
 }
 
 div#ContentEvents img{
-    margin: 1%;
-    height: 90%;
+    padding: 1%;
+    height: 100%;
+}
+
+div#ContentEvents a{
+    margin: 1% ;
+    text-decoration: none;
+    color: black;
+    width: 60%;
+}
+
+div#ContentEvents p{
+    padding: 1%;
+    width: 70%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 div#SitePicture {
