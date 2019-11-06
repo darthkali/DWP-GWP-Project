@@ -14,7 +14,7 @@
             <img class="center" src="/FSAI-Site/assets/images/code.png">
         </div>
         <div id="Content" class="fadeIn">
-            <p><h1>Impressum</h1></p>
+            <h1>Impressum</h1>
             <p>Informationspflicht laut § 5 TMG.</p>
 
             <p>Fachschaftsrat Angewandte Informatik</p>

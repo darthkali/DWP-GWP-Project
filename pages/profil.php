@@ -40,9 +40,10 @@
         <textarea name=“description” cols=“44” rows=“5”></textarea>
 
         <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-        <button type="submit">Passwort Ändern</button>
+        <button type="button">Passwort Ändern</button>
         <button type="reset"> Verwerfen</button>
-        <button type="submit">Bild Ändern</button>
+        <button type="button">Bild Ändern</button>
+
 
     </form>
 </div>

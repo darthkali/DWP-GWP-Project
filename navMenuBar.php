@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="/FSAI-Site/pages/login.php" title="">Login</a></li>
                 <li><a href="/FSAI-Site/pages/profil.php" title="">Profil</a></li>
-                <li><a href="#" title="">Nutzerverwaltung</a></li>
+                <li><a href="/FSAI-Site/pages/userManagement.php" title="">Nutzerverwaltung</a></li>
                 <li><a href="#" title="">Abmelden</a></li>
             </ul>
         </li>

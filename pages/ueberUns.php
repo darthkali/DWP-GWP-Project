@@ -17,9 +17,7 @@
         </div>
 
         <div id="Content" class="fadeIn">
-            <div>
-                <h1>Das sind wir, der Fachschaftsrat!</h1>
-            </div>
+            <h1>Das sind wir, der Fachschaftsrat!</h1>
             <p> Liebe Studierende, liebe Studieninteressierte,
                 <br><br>
                 wir freuen uns, dass ihr unsere Website gefunden habt.

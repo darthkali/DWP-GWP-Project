@@ -16,9 +16,8 @@
             <img class="center" src="/FSAI-Site/assets/images/programmer.png">
         </div>
         <div id="Content" class="fadeIn">
-            <div>
                 <h1>Datenschutzerklärung</h1>
-            </div>
+
             <p><strong>Allgemeiner Hinweis und Pflichtinformationen</strong></p>
             <p><strong>Benennung der verantwortlichen Stelle</strong></p>
             <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>

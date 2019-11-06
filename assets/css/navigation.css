@@ -2,25 +2,26 @@
 nav {
     position:absolute;
     width: 100%;
-    height: 60px;
+    height: 70px;
     background: #334D66;    /* background-color from the navigation bar */
     font-size: 16px;
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
 }
 
 nav a {
-    display: block;
+    display: inline-block;
     color: #fff;            /* set the font color from the links */
     text-decoration: none;  /* delete underline from the links */
-    padding: 20px;          /* space around the boxes */
+    padding: 25px;          /* space around the boxes */
     height: 100%;           /* height from the Navigationbar */
+
 
 }
 
 nav ul {
     float: right;           /* put the Nav to the right side */
     height: 100%;           /* height from the Navigationbar */
-    margin-right: 100px;    /* margin to the right side, to get space for the submenue */
+    margin-right: 200px;    /* margin to the right side, to get space for the submenue */
 }
 
 nav ul li {
@@ -34,7 +35,6 @@ nav ul li {
 nav ul li:hover{            /* hover over the main Nav Items */
     background: #60B0FF;
     height: 100%;
-
 }
 
 /* Submenue */
@@ -42,11 +42,12 @@ nav ul li ul{
     display:none;           /* dont show the submenue */
     position: absolute;     /* put the submenue absolute to the main Item freom the navigationbar */
     height: 100%;
+
 }
 
 nav ul li:hover > ul{       /* hover over the Items from the submenue */
     display:block;
-    height: 70%;
+    height: 60%;
 }
 
 nav ul li ul li{
@@ -61,18 +62,18 @@ nav ul li ul li a{      /* ref links from the submenue */
 /* ----------------------------------   Navigationbar #Content   ---------------------------------- */
 /* Topic inside the Navigationbar */
 div#NavContent {
-    height: 60px;
+    height: 100%;
+    padding: 10px;
     font-size: 25px;
     color:white;
-    white-space: normal;
+    white-space: nowrap;
     overflow: hidden;
+    margin-left: 200px;    /* margin to the right side, to get space for the submenue */
 }
 
 div#NavContent img {
     height: 100%;
     vertical-align: middle;
-    padding: 5px;
-
 }
 
 div#NavContent a {
@@ -84,5 +85,6 @@ div#NavContent a {
 /* color selected navigation section */
 div#NavContent a:hover {
     background: none;
-    color: #b3d2ff;            /* set the font color from the links */
+    color: #60B0FF;            /* set the font color from the links */
 }
+

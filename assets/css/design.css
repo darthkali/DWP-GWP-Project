@@ -75,12 +75,11 @@ div#FooterRight a img {
 /* ----------------------------------   Content   ---------------------------------- */
 div#Content {
     background: #ffffff;
-    width: 70%;
     top: 60px;
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
-    padding: 10px;
+    padding: 30px 25px 50px 25px;
 }
 
 div#Content ul{
@@ -104,8 +103,6 @@ div#Content div h1{
 
 div#Content p{
     font-size: 16px;
-    margin-left: 50px;
-    margin-right: 50px;
     margin-top: 20px;
     text-align: justify;
 }
@@ -173,7 +170,6 @@ form {
     margin-right: auto;
     margin-left: auto;
     position: relative;
-    top:5%;
 }
 
 form h1{
@@ -225,7 +221,7 @@ form a:hover  {
      color: #60B0FF;
  }
 
-input, textarea {
+form input, form textarea {
     display: block;
     background-color: #ffffff;
     width: 100%;
@@ -240,19 +236,19 @@ input, textarea {
     border-radius: 3px;
 }
 
-input:hover{
+form input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
 
 }
 
-input:focus{
+form input:focus{
     border-left: solid;
     border-left-width: 4px;
     border-left-color: #2e62ff;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
-textarea {
+form textarea {
     height: 300px;
     resize: vertical;
 }
@@ -268,9 +264,50 @@ textarea {
     opacity: 0;
 }
 
-label {
+form label {
     float: left;
     text-align: left;
     margin-top: 20px;
     margin-bottom: 5px;
 }
+
+
+/* ----------------------------------   Tabelle   ---------------------------------- */
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto 0 auto;
+    border-style: groove;
+    border-width: 1px;
+
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+
+tr:hover, tr:nth-child(even):hover{
+    background-color: #60B0FF;
+    color:white;
+ }
+
+tr:nth-child(even){
+    background-color: #f2f2f2
+}
+
+th {
+    background-color: #334D66;
+    color: white;
+}
+
+table input{
+    display: inline;
+    padding: 5px;
+}
+
+table input:hover{
+    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
