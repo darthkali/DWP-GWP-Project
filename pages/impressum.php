@@ -2,10 +2,8 @@
 <html lang="de">
     <head>
         <title>Impressum</title>
-        <meta charset="UTF-8">
         <meta name="description" content="Impressum">
-        <link rel="stylesheet" href="../assets/css/design.css">
-        <link rel="shortcut icon" type="image/png" href="../assets/images/ailogo.png">
+        <? include_once '../head.php';?>
     </head>
     <body>
         <? include '../navMenuBar.php';?>

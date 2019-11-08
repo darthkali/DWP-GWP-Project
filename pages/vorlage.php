@@ -2,11 +2,8 @@
 <html lang="de">
 <head>
     <title>Fachschaftsrat</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Kurzbeschreibung">
-    <link rel="stylesheet" href="../assets/css/design.css">
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <link rel="shortcut icon" type="image/png" href="../assets\images\ailogo.png">
+    <meta name="description" content="Login">
+    <? include_once '../head.php';?>
 </head>
 
 <body>

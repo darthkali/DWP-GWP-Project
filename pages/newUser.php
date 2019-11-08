@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <title>Profil</title>
-    <meta name="description" content="Profil">
-    <? include_once '../head.php';?>
-</head>
+
+    <head>
+        <title>Neuen Nutzer anlegen</title>
+        <meta name="description" content="Neuen Nutzer anlegen">
+        <? include_once 'head.php';?>
+    </head>
 
 
 <body>

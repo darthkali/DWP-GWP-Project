@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <title>Profil</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Kurzbeschreibung">
-    <link rel="stylesheet" href="../assets/css/design.css">
-    <link rel="stylesheet" href="../assets/css/navigation.css">
-    <link rel="shortcut icon" type="image/png" href="/DWP-GWP-Project/assets/images/ailogo.png">
+    <title>Nutzerverwaltung</title>
+    <meta name="description" content="Nutzerverwaltung">
+    <? include_once '../head.php';?>
 </head>
 
 <body>
