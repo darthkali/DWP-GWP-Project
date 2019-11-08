@@ -197,43 +197,13 @@ form img{
     margin-top: 20px;
 }
 
-form a{
-    font-size: 16px;
-    text-align: right;
-    float: right;
-    color: black;
-    text-decoration: none;  /* delete underline from the links */
-    padding: 10px 0 10px;
-}
 
-form button{
-    font-size: 16px;
-    text-align: center;
-    float: right;
-    background-color: #003F70;
-    margin: 5px 0 5px 10px;
-    padding: 10px;
-    text-decoration: none;  /* delete underline from the links */
-    color: white;
-    border-radius:10px;
-
-}
-
-form button:hover{
-
-    color: #60B0FF;
-}
-
-form i{
-    color: #60B0FF;
-    margin-left: 5px;
-}
 
 form a:hover  {
      color: #60B0FF;
  }
 
-form input, form textarea {
+form input, form textarea, form select {
     display: block;
     background-color: #ffffff;
     width: 100%;
@@ -253,7 +223,7 @@ form input:hover{
 
 }
 
-form input:focus{
+form input:focus, form select:focus{
     border-left: solid;
     border-left-width: 4px;
     border-left-color: #2e62ff;
@@ -264,6 +234,13 @@ form textarea {
     height: 300px;
     resize: vertical;
 }
+
+
+form i{
+    color: #60B0FF;
+    margin-left: 10px;
+}
+
 
 /* redesign the Date-Type for Input-Fields */
 [type="date"] {
@@ -282,6 +259,29 @@ form label {
     margin-top: 20px;
     margin-bottom: 5px;
 }
+
+
+
+
+/* ----------------------------------   Button   ---------------------------------- */
+
+button{
+    font-size: 16px;
+    text-align: center;
+    float: right;
+    background-color: #003F70;
+    margin: 5px 0 5px 10px;
+    padding: 10px;
+    text-decoration: none;  /* delete underline from the links */
+    color: white;
+    border-radius:10px;
+
+}
+
+button:hover{
+    color: #60B0FF;
+}
+
 
 
 /* ----------------------------------   Tabelle   ---------------------------------- */
@@ -322,4 +322,5 @@ table input{
 table input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
 }
+
 

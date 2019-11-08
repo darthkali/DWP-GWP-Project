@@ -24,33 +24,27 @@ function validInput($str, $check)
 function printTable($content, $borderIsVisible = true)
 {
 
+
     $rows = count($content);
     $cols = count($content[0]);
 
-    if($cols != 6)
-    {
-        echo 'Fehler';
-    }
-    else
-    {
-
         $border = $borderIsVisible ? 'border ="1"' : '';
         $html = '<table ' . $border . '>';
+        $html .= '<tr>'.
+                     '<th>Vorname</th>'.
+                     '<th>Nachname</th>'.
+                     '<th>GebDatum</th>'.
+                     '<th>Funktion FSR</th>'.
+                     '<th>Rolle</th>'.
+                     '<th>Optionen</th>'.
+                 '</tr>';
 
-        $html .= '<tr>';
-        for($col = 0; $col < $cols; ++$col)
-        {
-            $html .= '<th>';
-            $html .= isset($content[0][$col]) ? $content[0][$col] : '---';
-            $html .= '</th>';
-        }
-        $html .= '</tr>';
 
-        for($row = 1; $row < $rows; ++$row)
+        for($row = 0; $row < $rows; ++$row)
         {
 
             $html .= '<tr>';
-            for($col = 0; $col < $cols - 1; ++$col)
+            for($col = 0; $col < $cols; ++$col)
             {
                 $html .= '<td>';
                 $html .= isset($content[$row][$col]) ? $content[$row][$col] : '---';
@@ -69,5 +63,18 @@ function printTable($content, $borderIsVisible = true)
         }
         $html .= '</table>';
         echo $html;
+
+}
+
+function createContent($path)
+{
+    $content = [];
+    $keys = ['$frontname', '$rearname', '$dateOfBirth', '$functionFSR', '$role'];
+    $file = fopen($path, 'r');
+
+    while ($line = fgets($file)) {
+        $content[] = array_combine($keys, explode(',', $line));
     }
+    fclose($file);
+    return $content;
 }

@@ -1,4 +1,5 @@
 <? include '../helper/functions.php';?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -19,7 +20,6 @@
     <?
 
     $myArray = array(
-        array('Vorname','Nachname', 'GebDatum','Funktion FSR', 'Rolle' ,'Optionen'),
         array('Danny','Steinbrecher', '24.12.1989', 'Sprecher', 'Admin'),
         array('Anton','Bespablov','','Finanzer','User'),
         array('Frieder','Ullmann','','stellv. Finanzer','User'),
@@ -34,9 +34,13 @@
         array('Timo','Weiß','','Archiviertes Mitglied','User'),
 
     );
-
     printTable($myArray);
     ?>
+
+
+
+    <a href="newUser.php"> <button type="button">neuen Nutzer anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+
 </div>
 
 

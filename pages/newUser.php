@@ -4,7 +4,7 @@
     <head>
         <title>Neuen Nutzer anlegen</title>
         <meta name="description" content="Neuen Nutzer anlegen">
-        <? include_once 'head.php';?>
+        <? include_once '../head.php';?>
     </head>
 
 
@@ -17,8 +17,7 @@
 
 <div id="Content" class="fadeIn">
     <form autocomplete= "off">
-        <h1>Meine Daten</h1>
-        <h5>Hier kannst du deine Daten ändern!</h5>
+        <h1>Neuen Nutzer anlegen</h1>
 
         <label for="frontname">VORNAME </label>
         <input type = "text" id="frontname" name="frontname">
@@ -32,16 +31,24 @@
         <label for="dateOfBirth">GEBURTSDATUM </label>
         <input type = "date" id="dateOfBirth" name="dateOfBirth">
 
-        <label for="username">NUTZERNAME </label>
-        <input type = "text" id="username" name="username">
+        <label for="functionFSR">FUNKTION IM FSR </label>
+        <select name="functionFSR" id="functionFSR">
+            <option>Sprecher</option>
+            <option>stellv. Sprecher</option>
+            <option>Finanzer</option>
+            <option>stellv. Finanzer</option>
+            <option selected>Mitglied</option>
+            <option>archiviertes Mitglied</option>
+        </select>
 
-        <label for="description">BESCHREIBUNG </label>
-        <textarea name=“description” cols=“44” rows=“5”></textarea>
+        <label for="role">ROLLE </label>
+        <select name="role" id="role">
+            <option>Admin</option>
+            <option selected>User</option>
+        </select>
 
-        <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-        <button type="button">Passwort Ändern</button>
-        <button type="reset"> Verwerfen</button>
-        <button type="button">Bild Ändern</button>
+        <button type="submit">Anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <a href="userManagement.php"> <button type="button">Abbrechen</button></a>
 
 
     </form>
