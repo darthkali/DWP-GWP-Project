@@ -2,9 +2,9 @@
 <nav>
     <ul>
         <!--  <li><a href="/FSAI-Site/" title="Startseite">Startseite</a></li> -->
-        <li><a href="/FSAI-Site/pages/ueberUns.php" title="Das sind wir">Über uns</a></li>
         <li><a href="/FSAI-Site/pages/events.php" title="Unsere Veranstaltungen">Events</a></li>
-        <li><a href="#" title="">Fotos</a></li>
+        <li><a href="/FSAI-Site/pages/ueberUns.php" title="Das sind wir">Über uns</a></li>
+        <li><a href="#" title="">Kontakt</a></li>
         <li><a href="#" title="">Mitglieder <i class="fa fa-caret-down"></i></a>
             <ul>
                 <li><a href="#" title="">Aktuelle Mitglieder</a>
@@ -16,6 +16,7 @@
                 <li><a href="/FSAI-Site/pages/login.php" title="">Login</a></li>
                 <li><a href="/FSAI-Site/pages/profil.php" title="">Profil</a></li>
                 <li><a href="/FSAI-Site/pages/userManagement.php" title="">Nutzerverwaltung</a></li>
+                <li><a href="/FSAI-Site/pages/eventManagement.php" title="">Eventverwaltung</a></li>
                 <li><a href="#" title="">Abmelden</a></li>
             </ul>
         </li>
