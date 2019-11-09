@@ -60,28 +60,34 @@ nav ul li ul li a{      /* ref links from the submenue */
 /* ----------------------------------   Navigationbar #Content   ---------------------------------- */
 /* Topic inside the Navigationbar */
 div#NavContent {
+    display: block;
     height: 100%;
-    padding: 10px;
-    font-size: 25px;
+    font-size: 2em;
     color:white;
     white-space: nowrap;
-    overflow: hidden;
+    padding: 10px;
+    margin-left: 20px;
+
+}
+div#NavContent h4{
+    vertical-align: 9px;
+    display: inline;
+    margin-left: 10px;
 }
 
 div#NavContent img {
-    height: 100%;
-    vertical-align: middle;
+    height: 90%;
+    display: inline;
 }
 
 div#NavContent a {
     display: inline;
     text-decoration: none;  /* delete underline from the links */
-    vertical-align: middle;
+    padding: 0;          /* space around the boxes */
 }
 
 /* color selected navigation section */
 div#NavContent a:hover {
-    background: none;
     color: #60B0FF;            /* set the font color from the links */
 }
 

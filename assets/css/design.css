@@ -35,8 +35,9 @@ footer {
     bottom: 0;
     height:40px;
     width: 100%;
-    background: #334D66;
+    background: #333333;
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
+    vertical-align: middle;
 }
 
 div#FooterLeft {
@@ -48,6 +49,10 @@ div#FooterLeft a{
     text-decoration: none;
     color: white;
     margin-right: 10px;
+}
+
+div#FooterLeft a:hover{
+    color: #60B0FF;
 }
 
 div#FooterMiddle{
@@ -69,7 +74,7 @@ div#FooterRight{
 
 div#FooterRight a img {
     height: 16px;
-    margin-left: 10px;
+    margin: 2px 10px 0 10px;
 }
 
 /* ----------------------------------   Content   ---------------------------------- */

@@ -21,10 +21,18 @@
         </li>
     </ul>
     <div id="NavContent">
+
+
         <a href="/FSAI-Site/" title="Startseite">
             <img src="/FSAI-Site/assets/images/ailogo_groß.png" alt="AiLogo">
-            Fachschaftsrat Angewandte Informatik
+            <h4>Fachschaftsrat</h4>
+
+
+
         </a>
+
+
+
     </div>
 </nav>
 
