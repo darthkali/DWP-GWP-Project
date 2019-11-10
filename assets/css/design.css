@@ -154,12 +154,6 @@ div#ContentEvents p{
     width: 100%;
 }
 
-@media screen and (max-width: 950px) {
-
-    .SitePicture {
-        display: none ;
-    }
-}
 /* ----------------------------------   Animation  ---------------------------------- */
 .fadeInIndexPage {
     animation: animationFadeIn ease 3s;

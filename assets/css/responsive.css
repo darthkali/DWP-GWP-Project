@@ -1,0 +1,52 @@
+@media screen and (max-width: 950px) {
+    .topnav{
+        padding-right: 0;    /* margin to the right side, to get space for the submenue */
+    }
+
+    .topnavfloat{
+        width:100%;
+    }
+
+    .topnav a, .dropdown .dropbtn {
+        float: none;
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.NavContent{
+        display: none;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
+
+    /* ----------------------------------   Site - Picture   ---------------------------------- */
+    .SitePicture {
+        display: none ;
+    }
+}
