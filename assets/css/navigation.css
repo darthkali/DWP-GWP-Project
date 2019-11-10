@@ -80,19 +80,17 @@
         width:100%;
     }
 
-
-
     .topnav a, .dropdown .dropbtn {
         float: none;
         display: none;
     }
+
     .topnav a.icon {
         float: right;
         display: block;
     }
-}
 
-@media screen and (max-width: 950px) {
+
     .topnav.responsive {
         position: relative;
     }
@@ -111,6 +109,7 @@
         display: block;
         text-align: left;
     }
+
     .topnav.responsive .dropdown {float: none;}
     .topnav.responsive .dropdown-content {position: relative;}
     .topnav.responsive .dropdown .dropbtn {
@@ -137,7 +136,6 @@
     vertical-align: 9px;
     display: inline;
     margin-left: 10px;
-
 }
 
 .NavContent img {
