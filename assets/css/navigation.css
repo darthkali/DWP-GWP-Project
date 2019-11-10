@@ -1,93 +1,157 @@
-/* ----------------------------------   Navigation-Bar   ---------------------------------- */
-nav {
-    position:absolute;
-    width: 100%;
-    height: 70px;
-    background: #334D66;    /* background-color from the navigation bar */
-    font-size: 16px;
-    z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
+.topnav {
+    overflow: hidden;
+    background-color: #334D66;
+    padding-right: 120px;    /* margin to the right side, to get space for the submenue */
+    width:100%;
+    float:right;
+    display: block;
 }
 
-nav a {
-    display: inline-block;
-    color: #fff;            /* set the font color from the links */
-    text-decoration: none;  /* delete underline from the links */
-    padding: 25px;          /* space around the boxes */
-    height: 100%;           /* height from the Navigationbar */
+.topnavfloat{
+    float:right;
 }
 
-nav ul {
-    float: right;           /* put the Nav to the right side */
-    height: 100%;           /* height from the Navigationbar */
-    margin-right: 100px;    /* margin to the right side, to get space for the submenue */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-nav ul li {
-    position: relative;
-    float: left;        /* set the Meue horizontal and from left to right */
-    list-style: none;   /* delete list Points */
-    transition: 0.3s;   /* color fade-in */
-    height: 100%;       /* height from the Navigationbar */
+.topnav .icon {
+    display: none;
 }
 
-nav ul li:hover{            /* hover over the main Nav Items */
-    background: #60B0FF;
+.dropdown {
+    float: left;
+    overflow: hidden;
     height: 100%;
 }
 
-/* Submenue */
-nav ul li ul{
-    display:none;           /* dont show the submenue */
-    position: absolute;     /* put the submenue absolute to the main Item freom the navigationbar */
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
     height: 100%;
 }
 
-nav ul li:hover > ul{       /* hover over the Items from the submenue */
-    display:block;
-    height: 60%;
+.topnav a, .dropbtn {
+    padding: 20px;          /* space around the boxes */
 }
 
-nav ul li ul li{
-    width: 200px;
-    background: #334D66;    /* backgroundcolor from the submenue */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333333;
+    min-width: 160px;
+    z-index: 1;
 }
 
-nav ul li ul li a{      /* ref links from the submenue */
-    padding: 10px;      /* space around the boxes */
-    width: 100%;
+.dropdown-content a {
+    float: none;
+
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover {
+    background-color: #60B0FF;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 950px) {
+    .topnav{
+        padding-right: 0;    /* margin to the right side, to get space for the submenue */
+    }
+
+    .topnavfloat{
+        width:100%;
+    }
+
+
+
+    .topnav a, .dropdown .dropbtn {
+        float: none;
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.NavContent{
+        display: none;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .topnav.responsive .dropdown {float: none;}
+    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown .dropbtn {
+        display: block;
+        width: 100%;
+        text-align: left;
+    }
 }
 
 /* ----------------------------------   Navigationbar #Content   ---------------------------------- */
 /* Topic inside the Navigationbar */
-div#NavContent {
+.NavContent {
     display: block;
-    height: 100%;
+    height: 60px;
     font-size: 2em;
     color:white;
     white-space: nowrap;
     padding: 10px;
     margin-left: 20px;
+    width:100%;
 
 }
-div#NavContent h4{
+.NavContent h4{
     vertical-align: 9px;
     display: inline;
     margin-left: 10px;
+
 }
 
-div#NavContent img {
-    height: 90%;
+.NavContent img {
     display: inline;
+    height: 100%;
 }
 
-div#NavContent a {
+.NavContent a {
     display: inline;
     text-decoration: none;  /* delete underline from the links */
-    padding: 0;          /* space around the boxes */
+    color: white;
 }
 
 /* color selected navigation section */
-div#NavContent a:hover {
+.NavContent a:hover {
     color: #60B0FF;            /* set the font color from the links */
 }
-

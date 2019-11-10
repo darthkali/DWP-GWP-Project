@@ -18,6 +18,7 @@ nav, section, footer {display: block;}
     box-sizing: border-box;
 }
 
+
 /* ----------------------------------   Image   ---------------------------------- */
 .center {
     display: block;
@@ -80,7 +81,6 @@ div#FooterRight a img {
 /* ----------------------------------   Content   ---------------------------------- */
 div#Content {
     background: #ffffff;
-    top: 60px;
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
@@ -142,7 +142,6 @@ div#ContentEvents p{
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 div#SitePicture {
-    top: 60px;
     height: calc(100% - 100px); /* calculate the Height from the Picture - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow:hidden;
@@ -270,7 +269,7 @@ form label {
 
 /* ----------------------------------   Button   ---------------------------------- */
 
-button{
+form button{
     font-size: 16px;
     text-align: center;
     float: right;
@@ -283,7 +282,7 @@ button{
 
 }
 
-button:hover{
+form button:hover{
     color: #60B0FF;
 }
 
