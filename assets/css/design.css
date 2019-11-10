@@ -141,7 +141,7 @@ div#ContentEvents p{
     width: 70%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
-div#SitePicture {
+.SitePicture {
     height: calc(100% - 100px); /* calculate the Height from the Picture - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow:hidden;
@@ -149,9 +149,16 @@ div#SitePicture {
     float: left;
 }
 
-div#SitePicture img {
+.SitePicture img {
     height: 100%;
     width: 100%;
+}
+
+@media screen and (max-width: 950px) {
+
+    .SitePicture {
+        display: none ;
+    }
 }
 /* ----------------------------------   Animation  ---------------------------------- */
 .fadeInIndexPage {

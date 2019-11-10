@@ -9,7 +9,7 @@
     <body>
         <? include '../navMenuBar.php';?>
 
-        <div id="SitePicture" class="fadeInImg">
+        <div class="SitePicture" class="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/laptop.jpg">
         </div>
 
