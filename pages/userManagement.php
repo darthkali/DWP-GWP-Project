@@ -16,10 +16,18 @@
 </div>
 
 <div id="Content" class="fadeIn">
+
+
     <h1>Nutzerverwaltung</h1>
+
+
+
+
+
+
     <?
 
-    $myArray = array(
+    $activeUsers = array(
         array('Danny','Steinbrecher', '24.12.1989', 'Sprecher', 'Admin'),
         array('Anton','Bespablov','','Finanzer','User'),
         array('Frieder','Ullmann','','stellv. Finanzer','User'),
@@ -31,15 +39,26 @@
         array('Michael','Hopp','','Mitglied','User'),
         array('Sarah','Stefan','','Mitglied','User'),
         array('Niclas','Jarowsky','','Mitglied','Admin'),
+
+
+    );
+    $notActiveUsers = array(
+
         array('Timo','Weiß','','Archiviertes Mitglied','User'),
 
     );
-    printTable($myArray);
-    ?>
-
-
+?>
 
     <a href="newUser.php"> <button type="button">neuen Nutzer anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+    <br><br>
+    <h3>Aktive Nutzer</h3>
+        <? printTable($activeUsers);   ?>
+    <br>
+    <h3>Archivierte Nutzer</h3>
+        <?printTable($notActiveUsers);   ?>
+
+
+
 
 </div>
 

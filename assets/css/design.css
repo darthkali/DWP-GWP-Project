@@ -265,17 +265,18 @@ form label {
     margin-bottom: 5px;
 }
 
-
+form button{
+    float: right;
+    margin: 5px 0 5px 10px;
+}
 
 
 /* ----------------------------------   Button   ---------------------------------- */
 
-form button{
+div#Content button{
     font-size: 16px;
     text-align: center;
-    float: right;
     background-color: #003F70;
-    margin: 5px 0 5px 10px;
     padding: 10px;
     text-decoration: none;  /* delete underline from the links */
     color: white;
@@ -283,8 +284,12 @@ form button{
 
 }
 
-form button:hover{
+div#Content button:hover{
     color: #60B0FF;
+}
+
+div#Content button i{
+    margin: 0 5px 0 5px;
 }
 
 
@@ -293,8 +298,8 @@ form button:hover{
 
 table {
     border-collapse: collapse;
-    width: 80%;
-    margin: 20px auto 0 auto;
+    width: 100%;
+    margin: 0px auto 0 auto;
     border-style: groove;
     border-width: 1px;
 
@@ -327,5 +332,7 @@ table input{
 table input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
 }
+
+
 
 
