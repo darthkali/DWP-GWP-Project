@@ -5,14 +5,11 @@
         <meta name="description" content="Über Uns">
         <? include_once '../head.php';?>
     </head>
-
     <body>
         <? include '../navMenuBar.php';?>
-
         <div class="SitePicture" class="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/laptop.jpg">
         </div>
-
         <div id="Content" class="fadeIn">
             <h1>Das sind wir, der Fachschaftsrat!</h1>
             <p> Liebe Studierende, liebe Studieninteressierte,
@@ -33,6 +30,6 @@
                 Euer FSR Informatik
             </p>
         </div>
+        <? include '../footer.php';?>
     </body>
-    <? include '../footer.php';?>
 </html>

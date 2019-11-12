@@ -154,7 +154,7 @@ div#ContentEvents p{
     }
 }
 
-/* ----------------------------------   Formularfelder  ---------------------------------- */
+/* ----------------------------------   Form Fields  ---------------------------------- */
 form {
     width: 80%;
     max-width: 40em;
@@ -176,11 +176,9 @@ form img{
     margin-top: 20px;
 }
 
-
-
 form a:hover  {
      color: #60B0FF;
- }
+}
 
 form input, form textarea, form select {
     display: block;
@@ -198,7 +196,6 @@ form input, form textarea, form select {
 
 form input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
-
 }
 
 form input:focus, form select:focus{
@@ -213,7 +210,6 @@ form textarea {
     resize: vertical;
 }
 
-
 form i{
     color: #60B0FF;
     margin-left: 10px;
@@ -224,18 +220,20 @@ form [type="file"] {
     border-style: none;
      color: #60B0FF;
  }
+
 form [type="file"]:hover {
     box-shadow: none;
-
 }
 
 /* redesign the Date-Type for Input-Fields */
 form [type="date"] {
     background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
 }
+
 form [type="date"]::-webkit-inner-spin-button {
     display: none;
 }
+
 form [type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
@@ -252,9 +250,7 @@ form button{
     margin: 5px 0 5px 10px;
 }
 
-
 /* ----------------------------------   Button   ---------------------------------- */
-
 div#Content button{
     font-size: 16px;
     text-align: center;
@@ -263,7 +259,6 @@ div#Content button{
     text-decoration: none;  /* delete underline from the links */
     color: white;
     border-radius:10px;
-
 }
 
 div#Content button:hover{
@@ -274,17 +269,13 @@ div#Content button i{
     margin: 0 5px 0 5px;
 }
 
-
-
 /* ----------------------------------   Tabelle   ---------------------------------- */
-
 table {
     border-collapse: collapse;
     width: 100%;
     margin: 0px auto 0 auto;
     border-style: groove;
     border-width: 1px;
-
 }
 
 th, td {
@@ -295,7 +286,7 @@ th, td {
 tr:hover, tr:nth-child(even):hover{
     background-color: #60B0FF;
     color:white;
- }
+}
 
 tr:nth-child(even){
     background-color: #f2f2f2
@@ -340,7 +331,6 @@ table input:hover{
     width: 90%;
     margin: 10px auto 10px auto;
     text-align: justify;
-
 }
 
 

@@ -11,9 +11,7 @@
             <img class="center" src="/FSAI-Site/assets/images/code.png">
         </div>
         <div id="Content" class="fadeIn">
-            <div>
-                <h1>Impressum</h1>
-            </div>
+            <h1>Impressum</h1>
             <p>Informationspflicht laut § 5 TMG.</p>
 
             <p>Fachschaftsrat Angewandte Informatik</p>
@@ -27,6 +25,6 @@
 
             <p>Quelle: Erstellt mit dem Impressum Generator von AdSimple in Kooperation mit 123familie.de</p>
         </div>
+        <? include '../footer.php';?>
     </body>
-    <? include '../footer.php';?>
 </html>

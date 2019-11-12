@@ -5,7 +5,6 @@
         <meta name="description" content="Datenschutz">
         <? include_once '../head.php';?>
     </head>
-
     <body>
         <? include '../navMenuBar.php';?>
         <div class="SitePicture" class="fadeInImg">
@@ -66,6 +65,6 @@
                 Datenschutzerklärung separat behandelt.</p>
             <small>Quelle: Datenschutz-Konfigurator von <a href="http://www.mein-datenschutzbeauftragter.de" target="_blank">mein-datenschutzbeauftragter.de</a></small>
         </div>
+        <? include '../footer.php';?>
     </body>
-    <? include '../footer.php';?>
 </html>

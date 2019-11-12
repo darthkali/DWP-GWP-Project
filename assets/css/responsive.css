@@ -1,12 +1,7 @@
 @media(max-width: 950px) {
-    .topnav{
-        padding-right: 0;    /* margin to the right side, to get space for the submenue */
-    }
-
-    .topnavfloat{
-        width:100%;
-    }
-
+    /* ----------------------------------   Navigation   ---------------------------------- */
+    .topnav{padding-right: 0;    /* margin to the right side, to get space for the submenu */}
+    .topnavfloat{width:100%;}
     .topnav a, .dropdown .dropbtn {
         float: none;
         display: none;
@@ -17,20 +12,14 @@
         display: block;
     }
 
-
-    .topnav.responsive {
-        position: relative;
-    }
+    .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
     }
 
-    .topnav.NavContent{
-        display: none;
-    }
-
+    .topnav.NavContent{ display: none;}
     .topnav.responsive a {
         float: none;
         display: block;
@@ -46,33 +35,13 @@
     }
 
     /* ----------------------------------   Site - Picture   ---------------------------------- */
-    .SitePicture {
-        display: none ;
-    }
+    .SitePicture {display: none ;}
 
-    .NavContent {
-        font-size: 1.8em;
-    }
+    /* ----------------------------------  NavContent   ---------------------------------- */
+    .NavContent {font-size: 1.8em;}
 }
 
 /* ----------------------------------   pictureRaster   ---------------------------------- */
-
-
-
-@media (max-width: 1200px) {
-    .pictureRaster ul {
-        grid-template-columns: repeat(auto-fill, calc(100% / 3));
-    }
-}
-
-@media (max-width: 950px) {
-    .pictureRaster ul{
-        grid-template-columns: repeat(auto-fill, calc(100%/2 ));
-    }
-}
-
-@media (max-width: 700px) {
-    .pictureRaster ul{
-        grid-template-columns: repeat(auto-fill, 100%);
-    }
-}
+@media (max-width: 1200px){.pictureRaster ul{grid-template-columns: repeat(auto-fill, calc(100% / 3));}}    /* 3 Columns */
+@media (max-width: 950px) {.pictureRaster ul{grid-template-columns: repeat(auto-fill, calc(100% / 2));}}    /* 2 Columns */
+@media (max-width: 700px) {.pictureRaster ul{grid-template-columns: repeat(auto-fill, 100%);}}              /* 1 Column  */
