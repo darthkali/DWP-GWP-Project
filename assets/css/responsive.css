@@ -1,4 +1,4 @@
-@media screen and (max-width: 950px) {
+@media(max-width: 950px) {
     .topnav{
         padding-right: 0;    /* margin to the right side, to get space for the submenue */
     }
@@ -48,6 +48,10 @@
     /* ----------------------------------   Site - Picture   ---------------------------------- */
     .SitePicture {
         display: none ;
+    }
+
+    .NavContent {
+        font-size: 1.8em;
     }
 }
 
