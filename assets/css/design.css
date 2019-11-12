@@ -79,12 +79,35 @@ div#FooterRight a img {
 }
 
 /* ----------------------------------   Content   ---------------------------------- */
-div#Content {
+.Content {
     background: #ffffff;
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
     padding: 10px 20px 10px 20px;
+}
+
+.Content h1{
+    text-align: center;
+}
+
+/* ----------------------------------   Button   ---------------------------------- */
+.Content button{
+    font-size: 16px;
+    text-align: center;
+    background-color: #003F70;
+    padding: 10px;
+    text-decoration: none;  /* delete underline from the links */
+    color: white;
+    border-radius:10px;
+}
+
+.Content button:hover{
+    color: #60B0FF;
+}
+
+.Content button i{
+    margin: 0 5px 0 5px;
 }
 /* ----------------------------------   Content Events   ---------------------------------- */
 
@@ -129,19 +152,18 @@ div#ContentEvents p{
 }
 
 /* ----------------------------------   Animation  ---------------------------------- */
-.fadeInIndexPage {
+div#fadeInIndexPage {
     animation: animationFadeIn ease 3s;
 }
 
-.fadeIn {
+div#fadeIn {
     animation: animationFadeIn ease 3s;
 }
 
-.fadeIn h1 {
-    text-align: center;
-}
 
-.fadeInImg {
+
+
+div#fadeInImg {
     animation: animationFadeIn ease 1.5s;
 }
 
@@ -250,24 +272,7 @@ form button{
     margin: 5px 0 5px 10px;
 }
 
-/* ----------------------------------   Button   ---------------------------------- */
-div#Content button{
-    font-size: 16px;
-    text-align: center;
-    background-color: #003F70;
-    padding: 10px;
-    text-decoration: none;  /* delete underline from the links */
-    color: white;
-    border-radius:10px;
-}
 
-div#Content button:hover{
-    color: #60B0FF;
-}
-
-div#Content button i{
-    margin: 0 5px 0 5px;
-}
 
 /* ----------------------------------   Tabelle   ---------------------------------- */
 table {

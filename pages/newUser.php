@@ -7,10 +7,10 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
+        <div class="SitePicture" id="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/matrix.jpg" alt="ProfilPageImage">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
             <form autocomplete= "off">
                 <h1>Neuen Nutzer anlegen</h1>
 

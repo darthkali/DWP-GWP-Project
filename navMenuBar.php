@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn"><i class="fa fa-user" aria-hidden="true" sizes="62x62"></i>
+                <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"></i>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
@@ -39,7 +39,7 @@
 
 <script>
     function myFunction() {
-        var x = document.getElementById("myTopnav");
+        const x = document.getElementById("myTopnav");
         if (x.className === "topnav") {
             x.className += " responsive";
         } else {

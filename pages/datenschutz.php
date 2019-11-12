@@ -7,10 +7,10 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
-            <img class="center" src="/FSAI-Site/assets/images/programmer.png">
+        <div class="SitePicture" id="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/programmer.png" alt="Picture Dataprotection">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
                 <h1>Datenschutzerklärung</h1>
 
             <p><strong>Allgemeiner Hinweis und Pflichtinformationen</strong></p>

@@ -7,9 +7,9 @@
 
     <body>
         <? include 'navMenuBar.php';?>
-        <div id="Content" class="fadeInIndexPage">
+        <div class="Content" id="fadeInIndexPage">
             <div class="pictureRaster">
-                <h1 align="center" >Herzlich Willkommen beim Fachschaftsrat der Angewandten Informatik</h1>
+                <h1>Herzlich Willkommen beim Fachschaftsrat der Angewandten Informatik</h1>
                 <p>
                     Alle Studierenden der Fachrichtung bilden die Fachschaft, aus deren Mitte die Vertreter für den Fachschaftsrat (FSR) gewählt werden. Wird speziell von der Fachschaft (FS) gesprochen, ist meist der Fachschaftsrat gemeint, d.h. die Gruppe von Studenten, die sich aktiv für die Interessen der Studierenden einsetzt.
                 </p>

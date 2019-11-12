@@ -7,14 +7,14 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
-            <img class="center" src="/FSAI-Site/assets/images/laptop.jpg">
+        <div class="SitePicture" id="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/laptop.jpg" alt="Bild Eventseite">
         </div>
 
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
             <h1>Unsere Events</h1>
             <div id="ContentEvents">
-                <img src="/FSAI-Site/assets/images/gruppe.jpg">
+                <img src="/FSAI-Site/assets/images/gruppe.jpg" alt="Eventbild">
                 <a href="#Event'"><h2>Hack Your Environment 2019</h2></a>
             </div>
         </div>

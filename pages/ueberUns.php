@@ -7,8 +7,8 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
-            <img class="center" src="/FSAI-Site/assets/images/laptop.jpg">
+        <div class="SitePicture" id="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/laptop.jpg" alt="Bild Über Uns Seite">
         </div>
         <div id="Content" class="fadeIn">
             <h1>Das sind wir, der Fachschaftsrat!</h1>

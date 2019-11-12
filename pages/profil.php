@@ -7,10 +7,10 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
+        <div class="SitePicture" id="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/matrix.jpg" alt="ProfilPageImage">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
             <form autocomplete= "off">
                 <h1>Meine Daten</h1>
                 <h5>Hier kannst du deine Daten ändern!</h5>
@@ -40,8 +40,8 @@
                 <input type = "file"  accept=".jpg, .jpeg, .png" id="picture" name="picture">
 
                 <!-- description -->
-                <label for="description">BESCHREIBUNG </label>
-                <textarea name=“description” cols=“44” rows=“5”></textarea>
+                <label for="description">BESCHREIBUNG  </label>
+                    <textarea name="description" id="description" cols="44" rows="5"></textarea>
 
                 <!-- buttons -->
                 <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

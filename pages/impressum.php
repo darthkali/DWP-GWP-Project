@@ -7,10 +7,10 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
-            <img class="center" src="/FSAI-Site/assets/images/code.png">
+        <div class="SitePicture" id="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/code.png" alt="Bild Impressum">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
             <h1>Impressum</h1>
             <p>Informationspflicht laut § 5 TMG.</p>
 

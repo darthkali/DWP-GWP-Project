@@ -7,10 +7,10 @@
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div class="SitePicture" class="fadeInImg">
+        <div class="SitePicture" id="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/matrix.jpg" alt="ProfilPageImage">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
             <h1>Eventverwaltung</h1>
             <?
             $myArray = array(
