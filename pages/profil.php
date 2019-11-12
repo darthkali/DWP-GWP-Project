@@ -34,8 +34,13 @@
         <label for="username">NUTZERNAME </label>
         <input type = "text" id="username" name="username">
 
+        <label for="picture">BILD </label>
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="picture" name="picture">
+
         <label for="description">BESCHREIBUNG </label>
         <textarea name=“description” cols=“44” rows=“5”></textarea>
+
+
 
         <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         <button type="button">Passwort Ändern</button>

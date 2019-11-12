@@ -190,7 +190,6 @@ form input, form textarea, form select {
     font-size: 18px;
     padding: 12px 20px;
     margin: 5px 0 5px;
-    /*box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);*/
     border-style: solid;
     border-width: 1px;
     border-color: #CECECE;
@@ -220,15 +219,24 @@ form i{
     margin-left: 10px;
 }
 
+form [type="file"] {
+    padding: 0;
+    border-style: none;
+     color: #60B0FF;
+ }
+form [type="file"]:hover {
+    box-shadow: none;
+
+}
 
 /* redesign the Date-Type for Input-Fields */
-[type="date"] {
+form [type="date"] {
     background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
 }
-[type="date"]::-webkit-inner-spin-button {
+form [type="date"]::-webkit-inner-spin-button {
     display: none;
 }
-[type="date"]::-webkit-calendar-picker-indicator {
+form [type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
 
