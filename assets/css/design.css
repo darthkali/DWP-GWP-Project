@@ -84,34 +84,8 @@ div#Content {
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
-    padding: 30px 25px 50px 25px;
+    padding: 10px 20px 10px 20px;
 }
-
-div#Content ul{
-    list-style-type: disc;
-    margin-top: 15px;
-    margin-left: 36%;
-}
-
-div#Content div {
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-div#Content div a{
-    text-align: justify;
-}
-
-div#Content div h1{
-    margin: 20px;
-}
-
-div#Content p{
-    font-size: 16px;
-    margin-top: 20px;
-    text-align: justify;
-}
-
 /* ----------------------------------   Content Events   ---------------------------------- */
 
 /*Bin noch am testen, ich versuche so viel wie möglich selbst raus zu finden und so wenig wie möglich zu googlen, deswegen sieht das alles vielleicht nicht ganz so geil aus*/
@@ -333,6 +307,33 @@ table input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
 }
 
+
+/* ----------------------------------   pictureRaster   ---------------------------------- */
+.pictureRaster{
+    margin: 30px auto 0 auto;
+    width:80%;
+}
+
+.pictureRaster ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, calc(100%/6));
+    grid-auto-rows: 200px;
+    list-style: none;
+}
+
+.pictureRaster ul  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+}
+
+.pictureRaster p{
+    width: 90%;
+    margin: 10px auto 10px auto;
+    text-align: justify;
+
+}
 
 
 
