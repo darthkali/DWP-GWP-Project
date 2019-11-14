@@ -113,24 +113,24 @@ div#FooterRight a img {
 /* ----------------------------------   Content Events   ---------------------------------- */
 .ContentEvents{
     background-color: #BDBDBD !important;
-    margin-left: 2% !important;
-    margin-right: 2% !important;
-    margin-top: 2%;
+    margin: 2% 2% 0 2%;
+    padding:1%;
     overflow: hidden;
 }
 
 .ContentEvents img{
-    padding: 1%;
     width: 30%;
     float: left;
+    margin-right: 1%;
+    margin-bottom: 1%;
 }
 
 .ContentEvents h2{
-    padding: 1%;
+
 }
 
 .ContentEvents p{
-    padding: 1%;
+    margin-top: 1%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 .SitePicture {
