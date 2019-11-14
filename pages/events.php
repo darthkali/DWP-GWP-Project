@@ -16,6 +16,7 @@
             <div class="ContentEvents">
                 <img src="/FSAI-Site/assets/images/PictureRaster/pictureraster_12.jpg" alt="Eventbild">
                 <h2>Hack Your Environment 2019</h2>
+                <p>25.-27.10.2019 Fachhochschule Erfurt</p>
                 <p>Alle Studierenden der Fachrichtung bilden die Fachschaft,
                     aus deren Mitte die Vertreter für den Fachschaftsrat (FSR) gewählt werden.
                     Wird speziell von der Fachschaft (FS) gesprochen, ist meist der Fachschaftsrat gemeint,
@@ -30,6 +31,7 @@
             <div class="ContentEvents">
                 <img src="/FSAI-Site/assets/images/PictureRaster/pictureraster_12.jpg" alt="Eventbild">
                 <h2>Hack Your Environment 2019</h2>
+                <p>25.-27.10.2019 Fachhochschule Erfurt</p>
                 <p>Alle Studierenden der Fachrichtung bilden die Fachschaft,
                     aus deren Mitte die Vertreter für den Fachschaftsrat (FSR) gewählt werden.
                     Wird speziell von der Fachschaft (FS) gesprochen, ist meist der Fachschaftsrat gemeint,

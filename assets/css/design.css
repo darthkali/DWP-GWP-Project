@@ -114,15 +114,13 @@ div#FooterRight a img {
 .ContentEvents{
     background-color: #BDBDBD !important;
     margin: 2% 2% 0 2%;
-    padding:1%;
+    padding: 1%;
     overflow: hidden;
 }
 
 .ContentEvents img{
     width: 30%;
-    float: left;
-    margin-right: 1%;
-    margin-bottom: 1%;
+    float: right;
 }
 
 .ContentEvents h2{
@@ -130,7 +128,7 @@ div#FooterRight a img {
 }
 
 .ContentEvents p{
-    margin-top: 1%;
+    margin-bottom: 1%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 .SitePicture {
@@ -331,6 +329,11 @@ table input:hover{
     width: 90%;
     margin: 10px auto 10px auto;
     text-align: justify;
+}
+
+/* ----------------------------------   UeberUnsPage   ---------------------------------- */
+.usPage h1{
+    margin-bottom: 1%;
 }
 
 
