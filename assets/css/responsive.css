@@ -27,11 +27,16 @@
     }
 
     .topnav.responsive .dropdown {float: none;}
-    .topnav.responsive .dropdown-content {position: relative;}
+    .topnav.responsive .dropdown-content {
+        position: relative;
+        margin-left: 0;
+        width:auto;
+    }
     .topnav.responsive .dropdown .dropbtn {
         display: block;
         width: 100%;
         text-align: left;
+
     }
 
     /* ----------------------------------   Site - Picture   ---------------------------------- */

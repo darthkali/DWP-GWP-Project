@@ -1,7 +1,7 @@
 .topnav {
     overflow: hidden;
     background-color: #334D66;
-    padding-right: 120px;    /* margin to the right side, to get space for the submenue */
+    padding-right: 20px;    /* margin to the right side, to get space for the submenue */
     width:100%;
     float:right;
     display: block;
@@ -28,6 +28,7 @@
     float: left;
     overflow: hidden;
     height: 100%;
+
 }
 
 .dropdown .dropbtn {
@@ -39,6 +40,7 @@
     font-family: inherit;
     margin: 0;
     height: 100%;
+    width: 70px;
 }
 
 .topnav a, .dropbtn {
@@ -47,10 +49,13 @@
 
 .dropdown-content {
     display: none;
+    width:180px;
     position: absolute;
     background-color: #333333;
     min-width: 160px;
     z-index: 1;
+    margin-left: -110px;
+
 }
 
 .dropdown-content a {
@@ -59,6 +64,7 @@
     text-decoration: none;
     display: block;
     text-align: left;
+
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover {
@@ -68,6 +74,7 @@
 
 .dropdown:hover .dropdown-content {
     display: block;
+
 }
 
 
