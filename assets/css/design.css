@@ -125,18 +125,12 @@ div#FooterRight a img {
     float: left;
 }
 
-.ContentEvents a {
-    padding-top: 1%;
-    width: 100%;
-    text-decoration: none;
-    color: black;
-    width: auto;
-    float: left;
+.ContentEvents h2{
+    padding: 1%;
 }
 
 .ContentEvents p{
     padding: 1%;
-    width: 100%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 .SitePicture {
