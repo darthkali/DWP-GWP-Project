@@ -74,8 +74,9 @@ div#FooterRight{
 }
 
 div#FooterRight a img {
+    float: right;
     height: 16px;
-    margin: 2px 10px 0 10px;
+    margin-left: 10px;
 }
 
 /* ----------------------------------   Content   ---------------------------------- */
@@ -110,32 +111,32 @@ div#FooterRight a img {
     margin: 0 5px 0 5px;
 }
 /* ----------------------------------   Content Events   ---------------------------------- */
-
-/*Bin noch am testen, ich versuche so viel wie möglich selbst raus zu finden und so wenig wie möglich zu googlen, deswegen sieht das alles vielleicht nicht ganz so geil aus*/
-
-div#ContentEvents{
+.ContentEvents{
     background-color: #BDBDBD !important;
-    height: 25% !important;
     margin-left: 2% !important;
     margin-right: 2% !important;
-    margin-bottom: 10px;
+    margin-top: 2%;
+    overflow: hidden;
 }
 
-div#ContentEvents img{
+.ContentEvents img{
     padding: 1%;
-    height: 100%;
+    width: 30%;
+    float: left;
 }
 
-div#ContentEvents a{
-    margin: 1% ;
+.ContentEvents a {
+    padding-top: 1%;
+    width: 100%;
     text-decoration: none;
     color: black;
-    width: 60%;
+    width: auto;
+    float: left;
 }
 
-div#ContentEvents p{
+.ContentEvents p{
     padding: 1%;
-    width: 70%;
+    width: 100%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 .SitePicture {
