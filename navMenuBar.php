@@ -5,15 +5,8 @@
         <a href="/FSAI-Site/pages/events.php" title="Unsere Veranstaltungen">Events</a>
         <a href="/FSAI-Site/pages/ueberUns.php" title="Das sind wir">Über uns</a>
         <a href="#" title="">Kontakt</a>
-        <div class="dropdown">
-            <button class="dropbtn">Mitglieder
-                <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#" title="">Aktuelle Mitglieder</a>
-                <a href="#" title="">Archivierte Mitglieder</a>
-            </div>
-        </div>
+        <a href="/FSAI-Site/pages/user.php" title="">Mitglieder</a>
+
         <div class="dropdown">
                 <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"></i>
                 <i class="fa fa-caret-down"></i>

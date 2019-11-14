@@ -10,7 +10,7 @@
         <div class="SitePicture" id="fadeInImg">
             <img class="center" src="/FSAI-Site/assets/images/laptop.jpg" alt="Bild Über Uns Seite">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
             <h1>Das sind wir, der Fachschaftsrat!</h1>
             <p> Liebe Studierende, liebe Studieninteressierte,
                 <br><br>
