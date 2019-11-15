@@ -2,19 +2,15 @@
 <html lang="de">
     <head>
         <title>Datenschutz</title>
-        <meta charset="UTF-8">
         <meta name="description" content="Datenschutz">
-        <link rel="stylesheet" href="../assets/css/design.css">
-        <link rel="stylesheet" href="../assets/css/navigation.css">
-        <link rel="shortcut icon" type="image/png" href="../assets/images/ailogo.png">
+        <? include_once '../head.php';?>
     </head>
-
     <body>
         <? include '../navMenuBar.php';?>
-        <div id="SitePicture" class="fadeInImg">
-            <img class="center" src="/FSAI-Site/assets/images/programmer.png">
+        <div class="SitePicture" id="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/programmer.png" alt="Picture Dataprotection">
         </div>
-        <div id="Content" class="fadeIn">
+        <div class="Content" id="fadeIn">
                 <h1>Datenschutzerklärung</h1>
 
             <p><strong>Allgemeiner Hinweis und Pflichtinformationen</strong></p>
@@ -67,8 +63,8 @@
             <p>Das Setzen von Cookies, die zur Ausübung elektronischer Kommunikationsvorgänge oder der Bereitstellung bestimmter, von Ihnen erwünschter Funktionen (z.B. Warenkorb) notwendig sind, erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Als Betreiber dieser
                 Website haben wir ein berechtigtes Interesse an der Speicherung von Cookies zur technisch fehlerfreien und reibungslosen Bereitstellung unserer Dienste. Sofern die Setzung anderer Cookies (z.B. für Analyse-Funktionen) erfolgt, werden diese in dieser
                 Datenschutzerklärung separat behandelt.</p>
-            <p><small>Quelle: Datenschutz-Konfigurator von <a href="http://www.mein-datenschutzbeauftragter.de" target="_blank">mein-datenschutzbeauftragter.de</a></small></p>
+            <small>Quelle: Datenschutz-Konfigurator von <a href="http://www.mein-datenschutzbeauftragter.de" target="_blank">mein-datenschutzbeauftragter.de</a></small>
         </div>
+        <? include '../footer.php';?>
     </body>
-    <? include '../footer.php';?>
 </html>

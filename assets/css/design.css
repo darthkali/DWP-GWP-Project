@@ -18,6 +18,7 @@ nav, section, footer {display: block;}
     box-sizing: border-box;
 }
 
+
 /* ----------------------------------   Image   ---------------------------------- */
 .center {
     display: block;
@@ -35,8 +36,9 @@ footer {
     bottom: 0;
     height:40px;
     width: 100%;
-    background: #334D66;
+    background: #333333;
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
+    vertical-align: middle;
 }
 
 div#FooterLeft {
@@ -48,6 +50,10 @@ div#FooterLeft a{
     text-decoration: none;
     color: white;
     margin-right: 10px;
+}
+
+div#FooterLeft a:hover{
+    color: #60B0FF;
 }
 
 div#FooterMiddle{
@@ -68,76 +74,64 @@ div#FooterRight{
 }
 
 div#FooterRight a img {
+    float: right;
     height: 16px;
     margin-left: 10px;
 }
 
 /* ----------------------------------   Content   ---------------------------------- */
-div#Content {
+.Content {
     background: #ffffff;
-    top: 60px;
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
-    padding: 30px 25px 50px 25px;
+    padding: 10px 20px 10px 20px;
 }
 
-div#Content ul{
-    list-style-type: disc;
-    margin-top: 15px;
-    margin-left: 36%;
+.Content h1{
+    text-align: center;
 }
 
-div#Content div {
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-div#Content div a{
-    text-align: justify;
-}
-
-div#Content div h1{
-    margin: 20px;
-}
-
-div#Content p{
+/* ----------------------------------   Button   ---------------------------------- */
+.Content button{
     font-size: 16px;
-    margin-top: 20px;
-    text-align: justify;
+    text-align: center;
+    background-color: #003F70;
+    padding: 10px;
+    text-decoration: none;  /* delete underline from the links */
+    color: white;
+    border-radius:10px;
 }
 
+.Content button:hover{
+    color: #60B0FF;
+}
+
+.Content button i{
+    margin: 0 5px 0 5px;
+}
 /* ----------------------------------   Content Events   ---------------------------------- */
-
-/*Bin noch am testen, ich versuche so viel wie möglich selbst raus zu finden und so wenig wie möglich zu googlen, deswegen sieht das alles vielleicht nicht ganz so geil aus*/
-
-div#ContentEvents{
+.ContentEvents{
     background-color: #BDBDBD !important;
-    height: 25% !important;
-    margin-left: 2% !important;
-    margin-right: 2% !important;
-    margin-bottom: 10px;
-}
-
-div#ContentEvents img{
+    margin: 2% 2% 0 2%;
     padding: 1%;
-    height: 100%;
+    overflow: hidden;
 }
 
-div#ContentEvents a{
-    margin: 1% ;
-    text-decoration: none;
-    color: black;
-    width: 60%;
+.ContentEvents img{
+    width: 30%;
+    float: right;
 }
 
-div#ContentEvents p{
-    padding: 1%;
-    width: 70%;
+.ContentEvents h2{
+
+}
+
+.ContentEvents p{
+    margin-bottom: 1%;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
-div#SitePicture {
-    top: 60px;
+.SitePicture {
     height: calc(100% - 100px); /* calculate the Height from the Picture - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow:hidden;
@@ -145,24 +139,24 @@ div#SitePicture {
     float: left;
 }
 
-div#SitePicture img {
+.SitePicture img {
     height: 100%;
     width: 100%;
 }
+
 /* ----------------------------------   Animation  ---------------------------------- */
-.fadeInIndexPage {
+div#fadeInIndexPage {
     animation: animationFadeIn ease 3s;
 }
 
-.fadeIn {
+div#fadeIn {
     animation: animationFadeIn ease 3s;
 }
 
-.fadeIn h1 {
-    text-align: center;
-}
 
-.fadeInImg {
+
+
+div#fadeInImg {
     animation: animationFadeIn ease 1.5s;
 }
 
@@ -175,7 +169,7 @@ div#SitePicture img {
     }
 }
 
-/* ----------------------------------   Formularfelder  ---------------------------------- */
+/* ----------------------------------   Form Fields  ---------------------------------- */
 form {
     width: 80%;
     max-width: 40em;
@@ -197,51 +191,18 @@ form img{
     margin-top: 20px;
 }
 
-form a{
-    font-size: 16px;
-    text-align: right;
-    float: right;
-    color: black;
-    text-decoration: none;  /* delete underline from the links */
-    padding: 10px 0 10px;
-}
-
-form button{
-    font-size: 16px;
-    text-align: center;
-    float: right;
-    background-color: #003F70;
-    margin: 5px 0 5px 10px;
-    padding: 10px;
-    text-decoration: none;  /* delete underline from the links */
-    color: white;
-    border-radius:10px;
-
-}
-
-form button:hover{
-
-    color: #60B0FF;
-}
-
-form i{
-    color: #60B0FF;
-    margin-left: 5px;
-}
-
 form a:hover  {
      color: #60B0FF;
- }
+}
 
-form input, form textarea {
+form input, form textarea, form select {
     display: block;
     background-color: #ffffff;
     width: 100%;
     height: 50px;
-    font-size: 20px;
+    font-size: 18px;
     padding: 12px 20px;
     margin: 5px 0 5px;
-    /*box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);*/
     border-style: solid;
     border-width: 1px;
     border-color: #CECECE;
@@ -250,10 +211,9 @@ form input, form textarea {
 
 form input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
-
 }
 
-form input:focus{
+form input:focus, form select:focus{
     border-left: solid;
     border-left-width: 4px;
     border-left-color: #2e62ff;
@@ -265,14 +225,31 @@ form textarea {
     resize: vertical;
 }
 
+form i{
+    color: #60B0FF;
+    margin-left: 10px;
+}
+
+form [type="file"] {
+    padding: 0;
+    border-style: none;
+     color: #60B0FF;
+ }
+
+form [type="file"]:hover {
+    box-shadow: none;
+}
+
 /* redesign the Date-Type for Input-Fields */
-[type="date"] {
+form [type="date"] {
     background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
 }
-[type="date"]::-webkit-inner-spin-button {
+
+form [type="date"]::-webkit-inner-spin-button {
     display: none;
 }
-[type="date"]::-webkit-calendar-picker-indicator {
+
+form [type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
 }
 
@@ -283,16 +260,20 @@ form label {
     margin-bottom: 5px;
 }
 
+form button{
+    float: right;
+    margin: 5px 0 5px 10px;
+}
+
+
 
 /* ----------------------------------   Tabelle   ---------------------------------- */
-
 table {
     border-collapse: collapse;
-    width: 80%;
-    margin: 20px auto 0 auto;
+    width: 100%;
+    margin: 0px auto 0 auto;
     border-style: groove;
     border-width: 1px;
-
 }
 
 th, td {
@@ -303,7 +284,7 @@ th, td {
 tr:hover, tr:nth-child(even):hover{
     background-color: #60B0FF;
     color:white;
- }
+}
 
 tr:nth-child(even){
     background-color: #f2f2f2
@@ -321,5 +302,76 @@ table input{
 
 table input:hover{
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ----------------------------------   pictureRaster   ---------------------------------- */
+.pictureRaster{
+    margin: 30px auto 0 auto;
+    width:80%;
+}
+
+.pictureRaster ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, calc(100%/6));
+    grid-auto-rows: 200px;
+    list-style: none;
+}
+
+.pictureRaster ul  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    padding: 3px;
+}
+
+.pictureRaster p{
+    width: 90%;
+    margin: 10px auto 10px auto;
+    text-align: justify;
+}
+
+/* ----------------------------------   UeberUnsPage   ---------------------------------- */
+.usPage h1{
+    margin-bottom: 1%;
+}
+
+
+/* ----------------------------------   UserPage   ---------------------------------- */
+.userPageBox{
+    width: 100%;
+    max-width: 50em;
+    margin-left:auto ;
+    margin-right: auto;
+}
+
+.userBox{
+    display: block;
+    width: 100%;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CECECE;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.userBox:hover{
+    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.userBox p{
+
+}
+
+.userBox img{
+    width: 20%;
+    float: right;
+    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+}
+
+.userBox h1{
+    font-size: 20px;
+    text-align: left;
 }
 

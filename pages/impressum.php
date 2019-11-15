@@ -2,20 +2,16 @@
 <html lang="de">
     <head>
         <title>Impressum</title>
-        <meta charset="UTF-8">
         <meta name="description" content="Impressum">
-        <link rel="stylesheet" href="../assets/css/design.css">
-        <link rel="shortcut icon" type="image/png" href="../assets/images/ailogo.png">
+        <? include_once '../head.php';?>
     </head>
     <body>
         <? include '../navMenuBar.php';?>
-        <div id="SitePicture" class="fadeInImg">
-            <img class="center" src="/FSAI-Site/assets/images/code.png">
+        <div class="SitePicture" id="fadeInImg">
+            <img class="center" src="/FSAI-Site/assets/images/code.png" alt="Bild Impressum">
         </div>
-        <div id="Content" class="fadeIn">
-            <div>
-                <h1>Impressum</h1>
-            </div>
+        <div class="Content" id="fadeIn">
+            <h1>Impressum</h1>
             <p>Informationspflicht laut § 5 TMG.</p>
 
             <p>Fachschaftsrat Angewandte Informatik</p>
@@ -29,6 +25,6 @@
 
             <p>Quelle: Erstellt mit dem Impressum Generator von AdSimple in Kooperation mit 123familie.de</p>
         </div>
+        <? include '../footer.php';?>
     </body>
-    <? include '../footer.php';?>
 </html>

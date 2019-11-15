@@ -1,90 +1,114 @@
-/* ----------------------------------   Navigation-Bar   ---------------------------------- */
-nav {
-    position:absolute;
-    width: 100%;
-    height: 70px;
-    background: #334D66;    /* background-color from the navigation bar */
-    font-size: 16px;
-    z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
+.topnav {
+    overflow: hidden;
+    background-color: #334D66;
+    padding-right: 20px;    /* margin to the right side, to get space for the submenue */
+    width:100%;
+    float:right;
+    display: block;
 }
 
-nav a {
-    display: inline-block;
-    color: #fff;            /* set the font color from the links */
-    text-decoration: none;  /* delete underline from the links */
-    padding: 25px;          /* space around the boxes */
-    height: 100%;           /* height from the Navigationbar */
-
-
+.topnavfloat{
+    float:right;
 }
 
-nav ul {
-    float: right;           /* put the Nav to the right side */
-    height: 100%;           /* height from the Navigationbar */
-    margin-right: 200px;    /* margin to the right side, to get space for the submenue */
+.topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-nav ul li {
-    position: relative;
-    float: left;        /* set the Meue horizontal and from left to right */
-    list-style: none;   /* delete list Points */
-    transition: 0.3s;   /* color fade-in */
-    height: 100%;       /* height from the Navigationbar */
+.topnav .icon {
+    display: none;
 }
 
-nav ul li:hover{            /* hover over the main Nav Items */
-    background: #60B0FF;
-    height: 100%;
-}
-
-/* Submenue */
-nav ul li ul{
-    display:none;           /* dont show the submenue */
-    position: absolute;     /* put the submenue absolute to the main Item freom the navigationbar */
+.dropdown {
+    float: left;
+    overflow: hidden;
     height: 100%;
 
 }
 
-nav ul li:hover > ul{       /* hover over the Items from the submenue */
-    display:block;
-    height: 60%;
+.dropdown .dropbtn {
+    font-size: 17px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    height: 100%;
+    width: 70px;
 }
 
-nav ul li ul li{
-    width: 200px;
-    background: #334D66;    /* backgroundcolor from the submenue */
+.topnav a, .dropbtn {
+    padding: 20px;          /* space around the boxes */
 }
 
-nav ul li ul li a{      /* ref links from the submenue */
-    padding: 10px;      /* space around the boxes */
+.dropdown-content {
+    display: none;
+    width:180px;
+    position: absolute;
+    background-color: #333333;
+    min-width: 160px;
+    z-index: 1;
+    margin-left: -110px;
+
 }
+
+.dropdown-content a {
+    float: none;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover {
+    background-color: #60B0FF;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+
+}
+
 
 /* ----------------------------------   Navigationbar #Content   ---------------------------------- */
 /* Topic inside the Navigationbar */
-div#NavContent {
-    height: 100%;
-    padding: 10px;
-    font-size: 25px;
+.NavContent {
+    display: block;
+    height: 60px;
+    font-size: 2em;
     color:white;
     white-space: nowrap;
-    overflow: hidden;
-    margin-left: 200px;    /* margin to the right side, to get space for the submenue */
+    padding: 10px;
+    margin-left: 10px;
+    width:100%;
 }
 
-div#NavContent img {
+.NavContent h4{
+    vertical-align: 9px;
+    display: inline;
+    margin-left: 10px;
+}
+
+.NavContent img {
+    display: inline;
     height: 100%;
-    vertical-align: middle;
 }
 
-div#NavContent a {
+.NavContent a {
     display: inline;
     text-decoration: none;  /* delete underline from the links */
-    vertical-align: middle;
+    color: white;
 }
 
 /* color selected navigation section */
-div#NavContent a:hover {
-    background: none;
+.NavContent a:hover {
     color: #60B0FF;            /* set the font color from the links */
 }
-
