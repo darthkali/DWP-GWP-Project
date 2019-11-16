@@ -14,7 +14,8 @@
             <?php
             //create a grid with random pictures from a directory on the server
             // image folder
-            $alledateien = scandir("assets\images\PictureRaster");
+            $alledateien = scandir("assets/images/PictureRaster");
+
 
             // delete the array indexes with '.' and '..'
             foreach ($alledateien as $delete => &$val) { // Ausgabeschleife
@@ -31,7 +32,8 @@
 
             // print the pictures which has selected before with the '$rand_keys'
             foreach ($rand_keys as $datei) { // Ausgabeschleife
-                $html ='<li><img src="/FSAI-Site/assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
+                $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
+
                 echo $html;
             }
             ?>

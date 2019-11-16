@@ -21,52 +21,52 @@ $page=isset($_GET['p']) ? $_GET['p']:'start';
         {
         // Navigation-----------------------------------------
             case 'start':
-                include(VIEWPATH.'start.php');
+                include(PAGEPATH.'start.php');
                 break;
             case 'event':
-                include(VIEWPATH.'events.php');
+                include(PAGEPATH.'events.php');
                 break;
             case 'aboutUs':
-                include(VIEWPATH.'aboutUs.php');
+                include(PAGEPATH.'aboutUs.php');
                 break;
             case 'contact':
-                include(VIEWPATH.'contact.php');
+                include(PAGEPATH.'contact.php');
                 break;
             case 'users':
-                include(VIEWPATH.'users.php');
+                include(PAGEPATH.'users.php');
                 break;
 
             // login-----------------------------------------
             case 'login':
-                include(VIEWPATH.'login.php');
+                include(PAGEPATH.'login.php');
                 break;
             case 'profil':
-                include(VIEWPATH.'profil.php');
+                include(PAGEPATH.'profil.php');
                 break;
             case 'userManagement':
-                include(VIEWPATH.'userManagement.php');
+                include(PAGEPATH.'userManagement.php');
                 break;
             case 'newUser':
-                include(VIEWPATH.'newUser.php');
+                include(PAGEPATH.'newUser.php');
                 break;
             case 'eventManagement':
-                include(VIEWPATH.'eventManagement.php');
+                include(PAGEPATH.'eventManagement.php');
                 break;
             case 'logOut':
-                include(VIEWPATH.'logOut.php');
+                include(PAGEPATH.'logOut.php');
                 break;
 
             // Footer-----------------------------------------
             case 'impressum':
-                include(VIEWPATH.'impressum.php');
+                include(PAGEPATH.'impressum.php');
                 break;
             case 'dataProtection':
-                include(VIEWPATH.'dataProtection.php');
+                include(PAGEPATH.'dataProtection.php');
                 break;
 
             // Error-----------------------------------------
             default:
-                echo 'Error 404';
+                include(PAGEPATH.'error.php');
                 break;
         }
 
