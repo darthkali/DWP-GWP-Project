@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="/FSAI-Site/assets/images/matrix.jpg" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets\images\matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">
@@ -23,7 +23,9 @@
     );
     ?>
 
-    <a href="newUser.php"> <button type="button">neuen Nutzer anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=newUser"> <button type="button">neuen Nutzer anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+
+
     <br><br>
     <h3>Aktive Nutzer</h3>
         <? printTable($activeUsers);   ?>

@@ -1,6 +1,7 @@
 
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="/FSAI-Site/assets/images/laptop.jpg" alt="Bild Über Uns Seite">
+    <img class="center" src="<?=ROOTPATH.'assets/images/laptop.jpg'?>" alt="Bild Über Uns Seite">
+
 </div>
 <div class="Content" id="fadeIn">
     <div class="usPage">

@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="/FSAI-Site/assets/images/team.jpg" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets\images\team.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">

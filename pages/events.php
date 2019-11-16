@@ -1,11 +1,12 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="/FSAI-Site/assets/images/laptop.jpg" alt="Bild Eventseite">
+    <img class="center" src="<?=ROOTPATH.'assets/images/laptop.jpg'?>" alt="Bild Eventseite">
 </div>
 
 <div class="Content" id="fadeIn">
     <h1>Unsere Events</h1>
     <div class="ContentEvents">
-        <img src="/FSAI-Site/assets/images/PictureRaster/pictureraster_12.jpg" alt="Eventbild">
+        <img src="<?=ROOTPATH.'assets/images/PictureRaster/pictureraster_12.jpg'?>" alt="Eventbild">
+
         <h2>Hack Your Environment 2019</h2>
         <p>25.-27.10.2019 Fachhochschule Erfurt</p>
         <p>Alle Studierenden der Fachrichtung bilden die Fachschaft,
@@ -20,7 +21,7 @@
     </div>
 
     <div class="ContentEvents">
-        <img src="/FSAI-Site/assets/images/PictureRaster/pictureraster_12.jpg" alt="Eventbild">
+        <img src="<?=ROOTPATH.'assets/images/PictureRaster/pictureraster_12.jpg'?>" alt="Eventbild">
         <h2>Hack Your Environment 2019</h2>
         <p>25.-27.10.2019 Fachhochschule Erfurt</p>
         <p>Alle Studierenden der Fachrichtung bilden die Fachschaft,

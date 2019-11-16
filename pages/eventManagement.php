@@ -1,6 +1,6 @@
 
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="/FSAI-Site/assets/images/matrix.jpg" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
     <h1>Eventverwaltung</h1>
