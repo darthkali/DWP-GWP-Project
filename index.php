@@ -1,4 +1,6 @@
-<? require_once './core/config.php';
+<?
+require_once './core/config.php';
+require_once './core/functions.php';
 $page=isset($_GET['p']) ? $_GET['p']:'start';
 
 ?>
