@@ -1,7 +1,7 @@
 <footer>
     <div id="FooterLeft">
-        <a href="/FSAI-Site/pages/impressum.php">Impressum</a>
-        <a href="/FSAI-Site/pages/datenschutz.php">Datenschutz</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=impressum">Impressum</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=dataProtection">Datenschutz</a>
     </div>
     <div id="FooterMiddle">
         Fachschaftsrat Angewandte Informatik
@@ -12,3 +12,4 @@
         <a target="_blank" href="https://www.facebook.com/Fachschaft-Angewandte-Informatik-102233907862322/"> <img src="/FSAI-Site/assets/images/facebook.png" class="footer_img" alt="Facebook"></a>
     </div>
 </footer>
+

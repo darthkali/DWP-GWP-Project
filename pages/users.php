@@ -1,13 +1,3 @@
-<? include '../helper/functions.php';?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Mitglieder</title>
-    <meta name="description" content="Mitglieder">
-    <? include_once '../head.php';?>
-</head>
-<body>
-<? include '../navMenuBar.php';?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="/FSAI-Site/assets/images/team.jpg" alt="ProfilPageImage">
 </div>
@@ -151,11 +141,4 @@
         </p>
     </div>
     </div>
-
-
-
-
 </div>
-<? include '../footer.php';?>
-</body>
-</html>

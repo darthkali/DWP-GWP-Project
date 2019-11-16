@@ -1,52 +1,73 @@
+<? require_once './core/config.php';
+$page=isset($_GET['p']) ? $_GET['p']:'start';
+
+?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
         <title>Fachschaftsrat</title>
-        <? include_once 'head.php';?>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/FSAI-Site/assets/css/design.css">
+        <link rel="stylesheet" href="/FSAI-Site/assets/css/navigation.css">
+        <link rel="stylesheet" href="/FSAI-Site/assets/css/responsive.css">
+        <link rel="shortcut icon" type="image/png" href="/FSAI-Site/assets/images/ailogo_groß.png">
     </head>
 
     <body>
-        <? include 'navMenuBar.php';?>
-        <div class="Content" id="fadeInIndexPage">
-            <div class="pictureRaster">
-                <h1>Herzlich Willkommen beim Fachschaftsrat der Angewandten Informatik</h1>
-                <p>
-                    Alle Studierenden der Fachrichtung bilden die Fachschaft, aus deren Mitte die Vertreter für den Fachschaftsrat (FSR) gewählt werden. Wird speziell von der Fachschaft (FS) gesprochen, ist meist der Fachschaftsrat gemeint, d.h. die Gruppe von Studenten, die sich aktiv für die Interessen der Studierenden einsetzt.
-                </p>
-                <p>
-                    Die Fachschaft kümmert sich um die Kommunikation der Studenten untereinander und zwischen der Studenten- und Professorenschaft. Besonderes Engagement gilt der Gestaltung des studentischen Lebens, sowie der Einflussnahme auf die Entwicklung der FH und unseres Studienganges durch die Mitarbeit in den Gremien.
-                </p>
-                <p>
-                    Die Fachschaft organisiert und veranstaltet Parties zu besonderen Anlässen, z.B. zum Semesteranfang oder das Bergfest. Weiterhin beteiligen sich Fachschaftmitglieder als studentische Ansprechpartner am "Tag der offenen Tür" und arbeiten eng mit dem StuRa zusammen.
-                </p>
-                <ul>
-                    <?php
-                    //create a grid with random pictures from a directory on the server
-                    // image folder
-                    $alledateien = scandir("assets\images\PictureRaster");
+    <?
+    include 'navMenuBar.php';
+        switch($page)
+        {
+        // Navigation-----------------------------------------
+            case 'start':
+                include(VIEWPATH.'start.php');
+                break;
+            case 'event':
+                include(VIEWPATH.'events.php');
+                break;
+            case 'aboutUs':
+                include(VIEWPATH.'aboutUs.php');
+                break;
+            case 'contact':
+                include(VIEWPATH.'contact.php');
+                break;
+            case 'users':
+                include(VIEWPATH.'users.php');
+                break;
 
-                    // delete the array indexes with '.' and '..'
-                    foreach ($alledateien as $delete => &$val) { // Ausgabeschleife
-                        if($alledateien[$delete] == "." or $alledateien[$delete] == '..'){
-                            unset($alledateien[$delete]);
-                        }
-                    }
+            // login-----------------------------------------
+            case 'login':
+                include(VIEWPATH.'login.php');
+                break;
+            case 'profil':
+                include(VIEWPATH.'profil.php');
+                break;
+            case 'userManagement':
+                include(VIEWPATH.'userManagement.php');
+                break;
+            case 'eventManagement':
+                include(VIEWPATH.'eventManagement.php');
+                break;
+            case 'logOut':
+                include(VIEWPATH.'logOut.php');
+                break;
 
-                    // random order of the array
-                    shuffle($alledateien);
+            // Footer-----------------------------------------
+            case 'impressum':
+                include(VIEWPATH.'impressum.php');
+                break;
+            case 'dataProtection':
+                include(VIEWPATH.'dataProtection.php');
+                break;
 
-                    // pics 12 random indexes from the Array
-                    $rand_keys = array_rand($alledateien, 18);
+            // Error-----------------------------------------
+            default:
+                echo 'Error 404';
+                break;
+        }
 
-                    // print the pictures which has selected before with the '$rand_keys'
-                    foreach ($rand_keys as $datei) { // Ausgabeschleife
-                        $html ='<li><img src="/FSAI-Site/assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
-                        echo $html;
-                    }
-                    ?>
-                </ul>
-            </div>
-        </div>
-        <? include 'footer.php';?>
+    include 'footer.php';
+        ?>
     </body>
 </html>
