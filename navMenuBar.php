@@ -12,11 +12,15 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=login">Login</a>
-                <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=profil">Profil</a>
-                <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=userManagement">Nutzerverwaltung</a>
-                <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=eventManagement">Eventverwaltung</a>
-                <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=logOut">Abmelden</a>
+
+                <? if(!$loggedIn){?>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=login">Login</a>
+                <? } else { ?>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=profil">Profil</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=userManagement">Nutzerverwaltung</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=eventManagement">Eventverwaltung</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=logOut">Abmelden</a>
+                <?}?>
             </div>
         </div>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>

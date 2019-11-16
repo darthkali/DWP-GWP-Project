@@ -3,11 +3,14 @@ require_once './core/config.php';
 require_once './core/functions.php';
 $page=isset($_GET['p']) ? $_GET['p']:'start';
 
+
+$loggedIn = true;
+$title =$page;
 ?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <title>Fachschaftsrat</title>
+        <title><?=$title?></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/design.css'?>">
