@@ -4,15 +4,21 @@
             "firstName": "Danny",
             "lastName": "Steinbrecher",
             "email": "danny.steinbrecher@fh-erfurt.de",
+            "dateOfBirth": "1989-12-24",
+            "picture": "profilPictureDummy.jpg",
+            "description": "Das ist die Beschreibung von Danny",
             "username": "darthkali",
             "password": "123456"
         },
         {
             "id": "0002",
-            "firstName": "Maxi",
-            "lastName": "Mustermann",
-            "email": "max@muster.de",
-            "username": "max01",
+            "firstName": "Niclas",
+            "lastName": "Jarowski",
+            "email": "niclas.jarowski@fh-erfurt.de",
+            "dateOfBirth": "1989-01-01",
+            "picture": "profilPictureDummy.jpg",
+            "description": "Das ist die Beschreibung von Niclas",
+            "username": "niclas",
             "password": "123456"
         }
     ]
