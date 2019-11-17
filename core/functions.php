@@ -1,30 +1,5 @@
 <?
-function sortByName($left, $right){
-    return strcasecmp($left['name'], $right['name']);
-}
-
-function validInput($str, $check)
-{
-
-    if (is_array($check)) {
-        foreach ($check as $checkValue) {
-            if (strpos($str, $checkValue) !== false) {
-                return false;
-            }
-        }
-    } else{
-        if (strpos($str, $check) !== false) {
-            return false;
-        }
-    }
-    return true;
-}
-
-
-function printTable($content, $borderIsVisible = true)
-{
-
-
+function printTable($content, $borderIsVisible = true){
     $rows = count($content);
     $cols = count($content[0]);
 
@@ -36,23 +11,24 @@ function printTable($content, $borderIsVisible = true)
                      '<th>GebDatum</th>'.
                      '<th>Funktion FSR</th>'.
                      '<th>Rolle</th>'.
-                     '<th>Optionen</th>'.
+                     '<th>Optionendd</th>'.
                  '</tr>';
 
 
-        for($row = 0; $row < $rows; ++$row)
-        {
+        for($row = 0; $row < $rows; ++$row) {
 
             $html .= '<tr>';
-            for($col = 0; $col < $cols; ++$col)
-            {
+            for($col = 0; $col < $cols; ++$col) {
                 $html .= '<td>';
                 $html .= isset($content[$row][$col]) ? $content[$row][$col] : '---';
                 $html .= '</td>';
             }
 
             $html .= '<td>';
-            $html .= '<input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;">';
+            $html .= '<a href="';
+            $html .= $_SERVER['SCRIPT_NAME'];
+            $html .= '/?p=profil">';
+            $html .= '<input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>';
             $html .= '<input type="image" name="message[8c9aa635455b033d2bcb9c3b24489ec7]" title="Nachricht senden" src="/FSAI-Site/assets/images/email.png" alt="Nachricht" style="outline:0;">';
             $html .= '<input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="User entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;" onclick="return confirm("Soll der Benutzer: Test Test wirklich entfernt werden?")">';
 
@@ -63,18 +39,75 @@ function printTable($content, $borderIsVisible = true)
         }
         $html .= '</table>';
         echo $html;
-
 }
 
-function createContent($path)
-{
-    $content = [];
-    $keys = ['$frontname', '$rearname', '$dateOfBirth', '$functionFSR', '$role'];
-    $file = fopen($path, 'r');
+function allUsers(){
+    $dbString =file_get_contents(DATABASE);
+    $users =json_decode($dbString,true);
+    return $users['users'];
+}
 
-    while ($line = fgets($file)) {
-        $content[] = array_combine($keys, explode(',', $line));
+function user($id){
+    $users = allUsers();
+    foreach($users as $userData) {
+        if($userData['id'] === $id) {
+            return $userData;
+        }
     }
-    fclose($file);
-    return $content;
+    return false;
+}
+
+function logIn(&$error, $rememberMe = false)
+{
+    $users = allUsers(); // create an Array with all users from the db.json
+    $userRef = isset($_POST['validationName']) ? $_POST['validationName'] : '';
+    $password = isset($_POST['validationPassword']) ? $_POST['validationPassword'] : '';
+
+    $userId = null;
+    if($rememberMe === true && empty ($_POST['validationName']) && empty($_POST['validationPassword'])) {
+        $userId = $_COOKIE['userId'];
+        $password =$_COOKIE['password'];
+    }
+
+    foreach($users as $idx => $userData) {
+        if($userData['email'] === $userRef
+            || $userData['username'] === $userRef
+            || $userData['id'] === $userId) {
+
+            $userIdx = $idx;
+            $userId = $userData['id'];
+            break;
+        }
+    }
+
+    if (isset($userId)) {
+        if($users[$userIdx]['password'] === $password)
+        {
+            $error = false;
+
+            if(isset($_POST['rememberMe'])) {
+                rememberMe($userId, $users[$userIdx]['password']); // set a cookie with the user login
+            }
+            return $userId;
+        }else {
+            $error= 'Ihr Passwort ist falsch!';
+        }
+    } else {
+        $error =' Diesen Nutzer gibt es nicht.<br>Überprüfen Sie den Benutzernamen bzw. die E-Mail- Adresse!';
+    }
+    return false;
+}
+
+
+function logOut(){
+    setcookie('userId','',-1,'/');
+    setcookie('password','',-1,'/');
+    unset($_SESSION['users']);
+    session_destroy();
+}
+
+function rememberMe($id, $password){
+    $duration = time() + 3600 * 24 * 30;
+    setcookie('userId', $id, $duration, '/');
+    setcookie('password', $password, $duration, '/');
 }

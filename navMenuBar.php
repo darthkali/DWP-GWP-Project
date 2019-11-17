@@ -19,7 +19,13 @@
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=profil">Profil</a>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=userManagement">Nutzerverwaltung</a>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=eventManagement">Eventverwaltung</a>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=logOut">Abmelden</a>
+
+                    <form action="<?=$_SERVER['PHP_SELF'].'?p=logOut';?>" method="post">
+                        <input type="submit" name="submitLogout" value="Abmelden">
+                    </form>
+
+
+
                 <?}?>
             </div>
         </div>

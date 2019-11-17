@@ -1,0 +1,19 @@
+{
+    "users": [{
+            "id": "0001",
+            "firstName": "Danny",
+            "lastName": "Steinbrecher",
+            "email": "danny.steinbrecher@fh-erfurt.de",
+            "username": "darthkali",
+            "password": "123456"
+        },
+        {
+            "id": "0002",
+            "firstName": "Maxi",
+            "lastName": "Mustermann",
+            "email": "max@muster.de",
+            "username": "max01",
+            "password": "123456"
+        }
+    ]
+}
