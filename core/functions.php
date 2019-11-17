@@ -40,7 +40,7 @@ function printTable($content, $borderIsVisible = true){
         $html .= '</table>';
         echo $html;
 }
-
+// create an Array which has all users included
 function allUsers(){
     $dbString =file_get_contents(DATABASE);
     $users =json_decode($dbString,true);

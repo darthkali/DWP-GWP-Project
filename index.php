@@ -8,22 +8,24 @@ require_once './core/functions.php';
 if(isset($_POST['submitLogin'])) {
     $error = true;
     $user = logIn($error);
+    echo '$user';
     if(!$error) {
-        $_SESSION['users'] = $user;
+        $_SESSION['user'] = $user;
     }
 }
 else if (isset($_POST['submitLogout'])) {
     logOut();
 }
 else if(isset($_COOKIE['userId'])) {
+
     $error = true;
-    $user =logIn($error, true);
+    $user = logIn($error, true);
     if(!$error) {
-        $_SESSION['users'] =$user;
+        $_SESSION['user'] = $user;
     }
 }
 
-$loggedIn =isset($_SESSION['users']);
+$loggedIn =isset($_SESSION['user']);
 $page=isset($_GET['p']) ? $_GET['p']:'start';
 $title =$page;
 ?>
@@ -50,6 +52,10 @@ $title =$page;
         </div>
     <? endif; ?>
     <?
+
+
+
+
 
     include 'navMenuBar.php';
     $error = false;
