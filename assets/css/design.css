@@ -112,9 +112,14 @@ div#FooterRight a img {
 }
 /* ----------------------------------   Content Events   ---------------------------------- */
 .ContentEvents{
-    background-color: #BDBDBD !important;
-    margin: 2% 2% 0 2%;
-    padding: 1%;
+    display: block;
+    width: 100%;
+    margin: 10px auto 10px auto;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #CECECE;
+    border-radius: 3px;
     overflow: hidden;
 }
 
@@ -123,12 +128,8 @@ div#FooterRight a img {
     float: right;
 }
 
-.ContentEvents h2{
-
-}
-
 .ContentEvents p{
-    margin-bottom: 1%;
+    margin-bottom: 5px;
 }
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 .SitePicture {
