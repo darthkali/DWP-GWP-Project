@@ -43,10 +43,6 @@
             <input type="checkbox"  id="activeUsers" name="activeUsers"> <br>
         </div>
 
-
-
-
-
     <div class="userBox">
         <img class="center" src="/FSAI-Site/assets/images/profilPictureDummy.jpg" alt="ProfilPageImage">
         <p>

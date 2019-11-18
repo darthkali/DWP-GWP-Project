@@ -129,7 +129,7 @@ div#FooterRight a img {
 }
 
 .ContentEvents p{
-    margin-bottom: 5px;
+    margin-top: 1%;
 }
 
 /* ----------------------------------   Error - Page   ---------------------------------- */
@@ -272,8 +272,6 @@ form button{
     margin: 5px 0 5px 10px;
 }
 
-
-
 /* ----------------------------------   Tabelle   ---------------------------------- */
 table {
     border-collapse: collapse;
@@ -325,7 +323,7 @@ table input:hover{
     list-style: none;
 }
 
-.pictureRaster ul  img {
+.pictureRaster ul img {
     object-fit: cover;
     height: 100%;
     width: 100%;
@@ -343,7 +341,6 @@ table input:hover{
     margin-bottom: 1%;
 }
 
-
 /* ----------------------------------   UserPage   ---------------------------------- */
 .userPageBox{
     width: 100%;
@@ -355,8 +352,6 @@ table input:hover{
 .userPageBox h5{
     text-align: center;
 }
-
-
 
 .userBox{
     display: block;
@@ -388,9 +383,7 @@ table input:hover{
     text-align: left;
 }
 
-
 /* ----------------------------------   Filter Sortieren   ---------------------------------- */
-
 
 .filterBox{
     display: flex;
@@ -398,7 +391,6 @@ table input:hover{
     margin-right: auto;
     margin-left: auto;
     padding: 5px;
-
 }
 
 .filterBox .sortFilterBox{
