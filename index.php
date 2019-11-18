@@ -1,52 +1,128 @@
+<?
+session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
+session_start();
+
+require_once './core/config.php';
+require_once './core/functions.php';
+
+if(isset($_POST['submitLogin'])) {
+    $error = true;
+    $user = logIn($error);
+    if(!$error) {
+        $_SESSION['user'] = $user;
+    }
+}
+else if (isset($_POST['submitLogout'])) {
+    logOut();
+}
+else if(isset($_COOKIE['userId'])) {
+    $error = true;
+    $user = logIn($error, true);
+    if(!$error) {
+        $_SESSION['user'] = $user;
+    }
+}
+
+$loggedIn =isset($_SESSION['user']);
+$page=isset($_GET['p']) ? $_GET['p']:'start';
+$title =$page;
+?>
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <title>Fachschaftsrat</title>
-        <? include_once 'head.php';?>
+        <title><?=$title?></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/design.css'?>">
+        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/navigation.css'?>">
+        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/responsive.css'?>">
+        <link rel="shortcut icon" type="image/png" href="<?=ROOTPATH.'assets/images/ailogo_groß.png'?>">
     </head>
 
     <body>
-        <? include 'navMenuBar.php';?>
-        <div class="Content" id="fadeInIndexPage">
-            <div class="pictureRaster">
-                <h1>Herzlich Willkommen beim Fachschaftsrat der Angewandten Informatik</h1>
-                <p>
-                    Alle Studierenden der Fachrichtung bilden die Fachschaft, aus deren Mitte die Vertreter für den Fachschaftsrat (FSR) gewählt werden. Wird speziell von der Fachschaft (FS) gesprochen, ist meist der Fachschaftsrat gemeint, d.h. die Gruppe von Studenten, die sich aktiv für die Interessen der Studierenden einsetzt.
-                </p>
-                <p>
-                    Die Fachschaft kümmert sich um die Kommunikation der Studenten untereinander und zwischen der Studenten- und Professorenschaft. Besonderes Engagement gilt der Gestaltung des studentischen Lebens, sowie der Einflussnahme auf die Entwicklung der FH und unseres Studienganges durch die Mitarbeit in den Gremien.
-                </p>
-                <p>
-                    Die Fachschaft organisiert und veranstaltet Parties zu besonderen Anlässen, z.B. zum Semesteranfang oder das Bergfest. Weiterhin beteiligen sich Fachschaftmitglieder als studentische Ansprechpartner am "Tag der offenen Tür" und arbeiten eng mit dem StuRa zusammen.
-                </p>
-                <ul>
-                    <?php
-                    //create a grid with random pictures from a directory on the server
-                    // image folder
-                    $alledateien = scandir("assets\images\PictureRaster");
 
-                    // delete the array indexes with '.' and '..'
-                    foreach ($alledateien as $delete => &$val) { // Ausgabeschleife
-                        if($alledateien[$delete] == "." or $alledateien[$delete] == '..'){
-                            unset($alledateien[$delete]);
-                        }
-                    }
-
-                    // random order of the array
-                    shuffle($alledateien);
-
-                    // pics 12 random indexes from the Array
-                    $rand_keys = array_rand($alledateien, 18);
-
-                    // print the pictures which has selected before with the '$rand_keys'
-                    foreach ($rand_keys as $datei) { // Ausgabeschleife
-                        $html ='<li><img src="/FSAI-Site/assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
-                        echo $html;
-                    }
-                    ?>
-                </ul>
-            </div>
+    <? if(isset($error) && $error !== false) : ?>
+        <div class="error">
+            <span onclick="{this.parentNode.parentNode.removeChild(this.parentNode);}">
+                x
+            </span>
+            <?=$error?>
         </div>
-        <? include 'footer.php';?>
+    <? endif; ?>
+    <?
+
+
+
+
+
+    include 'navMenuBar.php';
+    $error = false;
+
+        switch($page) {
+            // Navigation-----------------------------------------
+            case 'start':
+                include(PAGEPATH . 'start.php');
+                break;
+            case 'event':
+                include(PAGEPATH . 'events.php');
+                break;
+            case 'aboutUs':
+                include(PAGEPATH . 'aboutUs.php');
+                break;
+            case 'contact':
+                include(PAGEPATH . 'contact.php');
+                break;
+            case 'users':
+                include(PAGEPATH . 'users.php');
+                break;
+            case 'login':
+                include(PAGEPATH . 'login.php');
+                break;
+
+            // Footer-----------------------------------------
+            case 'impressum':
+                include(PAGEPATH.'impressum.php');
+                break;
+            case 'dataProtection':
+                include(PAGEPATH.'dataProtection.php');
+                break;
+
+            default:
+                $error = true;
+                break;
+        }
+    // login-----------------------------------------
+    if($loggedIn) {
+        $error = false;
+        switch ($page) {
+            case 'profil':
+                include(PAGEPATH . 'profil.php');
+                break;
+            case 'userManagement':
+                include(PAGEPATH . 'userManagement.php');
+                break;
+            case 'newUser':
+                include(PAGEPATH . 'newUser.php');
+                break;
+            case 'eventManagement':
+                include(PAGEPATH . 'eventManagement.php');
+                break;
+            case 'logOut':
+                include(PAGEPATH . 'logOut.php');
+                break;
+
+            // Error-----------------------------------------
+            default:
+                $error = true;
+                break;
+        }
+    }
+
+    if($error) {
+        include(PAGEPATH . 'error.php');
+    }
+    include 'footer.php';
+        ?>
+
     </body>
 </html>

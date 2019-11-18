@@ -67,7 +67,28 @@
 
 }
 
-.topnav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover {
+.dropdown form{
+    width: 100%;
+}
+
+.dropdown input{
+    width: 100%;
+    background-color: #333333;
+    color: white;
+    margin: 0;
+    text-align: left;
+    border-style: none;
+    border-radius: 0;
+    font-size: 17px;
+}
+
+.dropdown form input:focus, .dropdown form select:focus{
+    border: 0;
+    box-shadow: none;
+}
+
+
+.topnav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover, .dropdown-content input:hover {
     background-color: #60B0FF;
     color: white;
 }

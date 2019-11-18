@@ -1,46 +1,51 @@
-<? include '../helper/functions.php';?>
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <title>Mitglieder</title>
-    <meta name="description" content="Mitglieder">
-    <? include_once '../head.php';?>
-</head>
-<body>
-<? include '../navMenuBar.php';?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="/FSAI-Site/assets/images/team.jpg" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets\images\team.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">
+
     <div class="userPageBox">
 
 
     <h1>Meine Daten</h1>
-    <h5>Hier kannst du deine Daten ändern!</h5>
+    <h5>Hier kannst du deine Daten ändern!</h5><br>
 
-    <label for="sortBy">Sortieren nach: </label>
-    <select name="sortBy" id="sortBy">
-        <option selected>Vorname - Aufsteigend</option>
-        <option>Vorname - Absteigend</option>
-        <option>Nachname - Aufsteigend</option>
-        <option>Nachname - Absteigend</option>
-        <option>Funktion</option>
-        <option>Mitglied seit</option>
-    </select>
+        <div class="filterBox">
+        <div class="sortFilterBox">
+            <label for="sortBy">Sortieren nach: </label> <br>
+            <select name="sortBy" id="sortBy">
+                <option selected>Vorname - Aufsteigend</option>
+                <option>Vorname - Absteigend</option>
+                <option>Nachname - Aufsteigend</option>
+                <option>Nachname - Absteigend</option>
+                <option>Funktion</option>
+                <option>Mitglied seit</option>
+            </select>
+        </div>
 
-    <label for="functionFSR">Filtern nach:</label>
-    <select name="functionFSR" id="functionFSR">
-        <option selected>alle</option>
-        <option>Sprecher</option>
-        <option>stellv. Sprecher</option>
-        <option>Finanzer</option>
-        <option>stellv. Finanzer</option>
-        <option>Mitglied</option>
-        <option>archiviertes Mitglied</option>
-    </select>
+        <div class="sortFilterBox">
+            <label for="functionFSR">Filtern nach:</label><br>
+            <select name="functionFSR" id="functionFSR">
+                <option selected>alle</option>
+                <option>Sprecher</option>
+                <option>stellv. Sprecher</option>
+                <option>Finanzer</option>
+                <option>stellv. Finanzer</option>
+                <option>Mitglied</option>
+                <option>archiviertes Mitglied</option>
+            </select>
+        </div>
 
-        <input type="checkbox" name="vehicle1" value="Bike"> Nur aktive Mitglieder?<br>
+
+        </div>
+        <div class="checkBox">
+            <label for="activeUsers">Nur aktive mitglieder?</label>
+            <input type="checkbox"  id="activeUsers" name="activeUsers"> <br>
+        </div>
+
+
+
+
 
     <div class="userBox">
         <img class="center" src="/FSAI-Site/assets/images/profilPictureDummy.jpg" alt="ProfilPageImage">
@@ -151,11 +156,4 @@
         </p>
     </div>
     </div>
-
-
-
-
 </div>
-<? include '../footer.php';?>
-</body>
-</html>

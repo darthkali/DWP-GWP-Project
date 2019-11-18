@@ -2,21 +2,31 @@
 
 <div class="topnav" id="myTopnav">
     <div class="topnavfloat">
-        <a href="/FSAI-Site/pages/events.php" title="Unsere Veranstaltungen">Events</a>
-        <a href="/FSAI-Site/pages/ueberUns.php" title="Das sind wir">Über uns</a>
-        <a href="#" title="">Kontakt</a>
-        <a href="/FSAI-Site/pages/user.php" title="">Mitglieder</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=event">Events</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=aboutUs">Über uns</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=contact">Kontakt</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=users">Mitglieder</a>
 
         <div class="dropdown">
                 <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"></i>
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-                <a href="/FSAI-Site/pages/login.php" title="">Login</a>
-                <a href="/FSAI-Site/pages/profil.php" title="">Profil</a>
-                <a href="/FSAI-Site/pages/userManagement.php" title="">Nutzerverwaltung</a>
-                <a href="/FSAI-Site/pages/eventManagement.php" title="">Eventverwaltung</a>
-                <a href="#" title="">Abmelden</a>
+
+                <? if(!$loggedIn){?>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=login">Login</a>
+                <? } else { ?>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=profil">Profil</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=userManagement">Nutzerverwaltung</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=eventManagement">Eventverwaltung</a>
+
+                    <form action="<?=$_SERVER['PHP_SELF'].'?p=logOut';?>" method="post">
+                        <input type="submit" name="submitLogout" value="Abmelden">
+                    </form>
+
+
+
+                <?}?>
             </div>
         </div>
         <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
@@ -24,7 +34,7 @@
 </div>
 
 <div class="NavContent">
-    <a href="/FSAI-Site/" title="Startseite">
+    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=start">
         <img src="/FSAI-Site/assets/images/ailogo_groß.png" alt="AiLogo">
         <h4>Fachschaftsrat</h4>
     </a>
