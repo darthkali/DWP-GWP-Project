@@ -131,6 +131,12 @@ div#FooterRight a img {
 .ContentEvents p{
     margin-bottom: 5px;
 }
+
+/* ----------------------------------   Error - Page   ---------------------------------- */
+.ErrorPage{
+    text-align: center;
+}
+
 /* ----------------------------------   Site - Picture   ---------------------------------- */
 .SitePicture {
     height: calc(100% - 100px); /* calculate the Height from the Picture - Size from the Window - (height Nav-Bar + height Footer) */
