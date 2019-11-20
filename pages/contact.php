@@ -20,7 +20,7 @@
 
         <!-- subject -->
         <label for="textarea">DEIN ANLIEGEN</label>
-        <input type = "textarea" id="textarea" name="textarea">
+        <textarea type = "textarea" id="textarea" name="textarea"></textarea>
 
         <!-- button -->
         <button type="submit">Abschicken</button>
