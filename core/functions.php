@@ -111,3 +111,16 @@ function rememberMe($id, $password){
     setcookie('userId', $id, $duration, '/');
     setcookie('password', $password, $duration, '/');
 }
+
+function sendMail(){
+
+    $name = $_GET['name'];
+    $mail = $_GET['email'];
+    $subject = $_GET['subject'];
+    $text = $_GET['text'];
+    $header="Gesendet vom Kontakformular!";
+
+    $msg = "Gesendet am: ".date("d.m.Y H:i:s")."\r\n"."Absender: ".$mail."\r\n\r\n".$text;
+
+    mail("frsai@fh-erfurt.de",$subject,$msg, $header);
+}
