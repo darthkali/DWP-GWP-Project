@@ -10,8 +10,8 @@
         <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required>
 
         <!-- email -->
-        <label for="email">EMAIL</label>
-        <input type = "email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+        <label for="mail">EMAIL</label>
+        <input type = "email" id="mail" name="mail" placeholder="Ihre E-Mail-Adresse" required>
 
         <!-- subject -->
         <label for="subject">BETREFF</label>
@@ -22,7 +22,7 @@
         <textarea type = "textarea" id="textarea" name="text" required placeholder="Dein Anliegen"></textarea>
 
         <!-- button -->
-        <button type="submit" id="senden">Abschicken</button>
+        <button type="submit" name="senden" onclick="<?sendMail();?>">Abschicken</button>
         <button type="reset">Löschen</button>
     </form>
 </div>

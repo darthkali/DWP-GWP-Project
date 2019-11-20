@@ -98,7 +98,6 @@ function logIn(&$error, $rememberMe = false)
     return false;
 }
 
-
 function logOut(){
     setcookie('userId','',-1,'/');
     setcookie('password','',-1,'/');
@@ -114,13 +113,11 @@ function rememberMe($id, $password){
 
 function sendMail(){
 
-    $name = $_GET['name'];
-    $mail = $_GET['email'];
-    $subject = $_GET['subject'];
-    $text = $_GET['text'];
-    $header="Gesendet vom Kontakformular!";
-
-    $msg = "Gesendet am: ".date("d.m.Y H:i:s")."\r\n"."Absender: ".$mail."\r\n\r\n".$text;
-
-    mail("frsai@fh-erfurt.de",$subject,$msg, $header);
+    if (isset($_POST['name'])) {
+        $header = "From: " . $_POST['mail'];
+        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . "\r\n\r\n" . $_POST['text'];
+        mail("fsrai@fh-erfurt.de", $_POST['subject'], $msg, $header);
+        header('Location: '.$_SERVER['PHP_SELF'].'?p=contact');
+        exit();
+    }
 }

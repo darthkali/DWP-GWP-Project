@@ -160,9 +160,6 @@ div#fadeIn {
     animation: animationFadeIn ease 3s;
 }
 
-
-
-
 div#fadeInImg {
     animation: animationFadeIn ease 1.5s;
 }
@@ -271,7 +268,6 @@ form button{
     float: right;
     margin: 5px 0 5px 10px;
 }
-
 /* ----------------------------------   Tabelle   ---------------------------------- */
 table {
     border-collapse: collapse;
