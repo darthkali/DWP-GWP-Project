@@ -114,9 +114,9 @@ function rememberMe($id, $password){
 function sendMail(){
 
     if (isset($_POST['name'])) {
-        $header = "From: " . $_POST['mail'];
-        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . "\r\n\r\n" . $_POST['text'];
-        mail("fsrai@fh-erfurt.de", $_POST['subject'], $msg, $header);
+        $header = "From: " ."fsraiformular@web.de";
+        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] ."(".$_POST['mail'].")"."\r\n\r\n" . $_POST['text'];
+        mail("bratwurststinkt@web.de", $_POST['subject'], $msg, $header);
         header('Location: '.$_SERVER['PHP_SELF'].'?p=contact');
         exit();
     }

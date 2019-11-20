@@ -265,8 +265,8 @@ form label {
 }
 
 form button{
-    float: right;
-    margin: 5px 0 5px 10px;
+     float: right;
+     margin: 5px 0 5px 10px;
 }
 /* ----------------------------------   Tabelle   ---------------------------------- */
 table {

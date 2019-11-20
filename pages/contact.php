@@ -26,3 +26,29 @@
         <button type="reset">Löschen</button>
     </form>
 </div>
+
+<!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
+<!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>
+<!-- Um sie zu unsere email der FS weiter zu leiten musst du in der functions.php Zeile: 199, bei mail(to: "unsere richtige mail",.....) ändern -->
+
+
+<!-- Füge das in deine php.ini unter [mail function] ein und kommentiere alles andere aus
+
+    SMTP=smtp.web.de
+    smtp_port=587
+    sendmail_from = fsraiformular@web.de
+    sendmail_path = "\"C:\xampp\sendmail\sendmail.exe\" -t"
+
+-->
+
+<!-- Füge das in deine sendmail.ini unter [sendmail] ein und kommentiere alles andere aus
+
+    smtp_server=smtp.web.de
+    smtp_port=587
+    error_logfile=error.log
+    debug_logfile=debug.log
+    auth_username=fsraiformular@web.de
+    auth_password=Di1sP4dKontaktformular!
+    force_sender=fsraiformular@web.de
+
+-->
