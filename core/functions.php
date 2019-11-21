@@ -114,9 +114,14 @@ function rememberMe($id, $password){
 function sendMail(){
 
     if (isset($_POST['name'])) {
-        $header = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
+        $header = array();
+        $header[] = "MIME-Version: 1.0";
+        $header[] = "Content-type: text/plain; charset=utf-8";
+        //$header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
+        $header[] = "From: FSRAI-Kontaktformular <".$_POST['mail'].">";
+
         $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] ."(".$_POST['mail'].")"."\r\n\r\n" . $_POST['text'];
-        mail("bratwurststinkt@web.de", $_POST['subject'], $msg, $header);
+        mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
         header('Location: '.$_SERVER['PHP_SELF'].'?p=contact');
         exit();
     }
