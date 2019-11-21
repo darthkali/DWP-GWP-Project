@@ -32,8 +32,4 @@ class users
 
         // TODO: Implement __set() method.
     }
-
-
-
-
 }
