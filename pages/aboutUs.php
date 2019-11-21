@@ -1,4 +1,3 @@
-
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets/images/laptop.jpg'?>" alt="Bild Über Uns Seite">
 

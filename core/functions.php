@@ -121,3 +121,27 @@ function sendMail(){
         exit();
     }
 }
+
+function errorPage(){
+
+    $rand = rand(1, 8);
+    switch($rand){
+
+        case 1:  echo '<img src="https://media0.giphy.com/media/mq5y2jHRCAqMo/giphy.gif?cid=790b7611ed709309ee50273beefdb0b19bfb5d8342a8544c&rid=giphy.gif">';
+            break;
+        case 2:  echo '<img src="https://media.giphy.com/media/IHOOMIiw5v9VS/giphy.gif">';
+            break;
+        case 3:  echo '<img src="https://media0.giphy.com/media/9J7tdYltWyXIY/giphy.gif?cid=790b761127f1b117481378c4a904fe3f8d8b01e25e837799&rid=giphy.gif">';
+            break;
+        case 4:  echo '<img src="https://media.giphy.com/media/H54feNXf6i4eAQubud/giphy.gif">';
+            break;
+        case 5:  echo '<img src="https://media0.giphy.com/media/VwoJkTfZAUBSU/giphy.gif?cid=790b76111754fb8f7881ba0105f5666a1819ac758ffd8b60&rid=giphy.gif">';
+            break;
+        case 6:  echo '<img src="https://media0.giphy.com/media/xVIkfXYGTJeZKilg3p/giphy.gif?cid=790b76116fcb8755323f9d149bf7eb5fa67319de420fe23d&rid=giphy.gif">';
+            break;
+        case 7:  echo '<img src="https://media3.giphy.com/media/NkW4LM727h1U4/giphy.gif?cid=790b76116fcb8755323f9d149bf7eb5fa67319de420fe23d&rid=giphy.gif">';
+            break;
+        case 8:  echo '<img src="https://media.giphy.com/media/3o7TKxR7d1lWICUpXO/giphy.gif">';
+            break;
+    }
+}

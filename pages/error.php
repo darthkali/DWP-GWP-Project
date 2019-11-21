@@ -1,1 +1,4 @@
-<p>Seite nicht gefunden!</p>
+<div class="ErrorPage">
+    <h1>Ups... Da lief wohl etwas schief!</h1>
+    <?errorPage();?>
+</div>
