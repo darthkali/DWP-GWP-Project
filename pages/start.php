@@ -11,32 +11,7 @@
             Die Fachschaft organisiert und veranstaltet Parties zu besonderen Anlässen, z.B. zum Semesteranfang oder das Bergfest. Weiterhin beteiligen sich Fachschaftmitglieder als studentische Ansprechpartner am "Tag der offenen Tür" und arbeiten eng mit dem StuRa zusammen.
         </p>
         <ul>
-            <?php
-            //create a grid with random pictures from a directory on the server
-            // image folder
-            $alledateien = scandir("assets/images/PictureRaster");
-
-
-            // delete the array indexes with '.' and '..'
-            foreach ($alledateien as $delete => &$val) { // Ausgabeschleife
-                if($alledateien[$delete] == "." or $alledateien[$delete] == '..'){
-                    unset($alledateien[$delete]);
-                }
-            }
-
-            // random order of the array
-            shuffle($alledateien);
-
-            // pics 12 random indexes from the Array
-            $rand_keys = array_rand($alledateien, 18);
-
-            // print the pictures which has selected before with the '$rand_keys'
-            foreach ($rand_keys as $datei) { // Ausgabeschleife
-                $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
-
-                echo $html;
-            }
-            ?>
+            <?pictureRaster();?>
         </ul>
     </div>
 </div>
