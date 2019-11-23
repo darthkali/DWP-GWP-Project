@@ -112,7 +112,6 @@ function rememberMe($id, $password){
 }
 
 function sendMail(){
-
     if (isset($_POST['name'])) {
         $header = array();
         $header[] = "MIME-Version: 1.0";
@@ -128,7 +127,6 @@ function sendMail(){
 }
 
 function errorPageGifs(){
-
     //create a grid with random pictures from a directory on the server
     // image folder
     $allegifs = scandir("assets/images/ErrorGifs");
