@@ -110,9 +110,10 @@ div#FooterRight a img {
 .Content button i{
     margin: 0 5px 0 5px;
 }
+
 /* ----------------------------------   Content Events   ---------------------------------- */
-.ContentEvents{
-    display: block;
+.ContentEvents {
+    position: relative;
     width: 100%;
     margin: 10px auto 10px auto;
     padding: 10px;
@@ -124,12 +125,23 @@ div#FooterRight a img {
 }
 
 .ContentEvents img{
+    margin-left: 1%;
     width: 30%;
     float: right;
 }
 
 .ContentEvents p{
     margin-top: 1%;
+}
+.ContentEvents button{
+    margin: 0;
+}
+
+.ContentEvents form{
+    float: left !important;
+    width: auto;
+    margin-top: 1%;
+    /*Ich weiß, dass ist alles russisch aber hab es nicoht anders hinbekommen:D*/
 }
 
 /* ----------------------------------   Error - Page   ---------------------------------- */

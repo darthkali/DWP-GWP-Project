@@ -11,7 +11,7 @@ function printTable($content, $borderIsVisible = true){
                      '<th>GebDatum</th>'.
                      '<th>Funktion FSR</th>'.
                      '<th>Rolle</th>'.
-                     '<th>Optionendd</th>'.
+                     '<th>Optionen</th>'.
                  '</tr>';
 
 
@@ -111,17 +111,32 @@ function rememberMe($id, $password){
     setcookie('password', $password, $duration, '/');
 }
 
-function sendMail(){
+function sendMailKontaktformular(){
     if (isset($_POST['name'])) {
         $header = array();
         $header[] = "MIME-Version: 1.0";
         $header[] = "Content-type: text/plain; charset=utf-8";
         $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
-        //$header[] = "From: FSRAI-Kontaktformular <".$_POST['mail'].">";
 
         $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] ."(".$_POST['mail'].")"."\r\n\r\n" . $_POST['text'];
-        mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+        //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+        mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
         header('Location: '.$_SERVER['PHP_SELF'].'?p=contact');
+        exit();
+    }
+}
+
+function sendMailEventanmeldung(){
+    if (isset($_POST['name'])) {
+        $header = array();
+        $header[] = "MIME-Version: 1.0";
+        $header[] = "Content-type: text/plain; charset=utf-8";
+        $header[] = "From: Eventanmeldung <fsraiformular@web.de>";
+
+        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] ."(".$_POST['mail'].")"."\r\n\r\n" . $_POST['text'];
+        //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+        mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
+        header('Location: '.$_SERVER['PHP_SELF'].'?p=eventRegistration');
         exit();
     }
 }
@@ -174,5 +189,19 @@ function pictureRaster(){
         $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
 
         echo $html;
+    }
+}
+
+function newEvent(){
+    if(isset($_POST['eventname'])) {
+        try {
+            $event = new \FSR_AI\events($_POST['eventname'], $_POST['date'], $_POST['description'], 'assets/images/PictureRaster/pictureraster_12.jpg', 1);
+            $event->insert();
+        } catch (Exception $e) {
+            die('DELETE statement failed: ' . $e->getMessage());
+        }
+
+        header('Location: '.$_SERVER['PHP_SELF'].'?p=createEvent');
+        exit();
     }
 }

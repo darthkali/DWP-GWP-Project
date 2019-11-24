@@ -4,6 +4,8 @@ session_start();
 
 require_once './core/config.php';
 require_once './core/functions.php';
+require_once './core/databaseConnection.php';
+require_once './models/events.php';
 
 if(isset($_POST['submitLogin'])) {
     $error = true;
@@ -78,6 +80,12 @@ $title =$page;
             case 'login':
                 include(PAGEPATH . 'login.php');
                 break;
+            case 'eventRegistration':
+                include(PAGEPATH . 'eventRegistration.php');
+                break;
+            case 'createEvent':
+                include(PAGEPATH . 'createEvent.php');
+                break;
 
             // Footer-----------------------------------------
             case 'impressum':
@@ -123,6 +131,5 @@ $title =$page;
     }
     include 'footer.php';
         ?>
-
     </body>
 </html>
