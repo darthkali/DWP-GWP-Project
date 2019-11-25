@@ -7,7 +7,6 @@
     <?printEvent();?>
 </div>
 
-
 <!--<form action="--><?//=$_SERVER['PHP_SELF'].'?p=eventRegistration';?><!--" method="post">-->
 <!--    <button type="submit">Für das Event anmelden!</button>-->
 <!--</form>-->
