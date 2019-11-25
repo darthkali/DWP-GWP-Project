@@ -1,7 +1,6 @@
 <?php
 
 $dbname = 'fsraidatabase';
-//echo "test";
 $dns = 'mysql:dbname='.$dbname.';host=localhost';
 $dbuser = 'root';
 $dbpassword = '';

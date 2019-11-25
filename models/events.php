@@ -64,8 +64,6 @@ class events
 
             $statement->execute();
             return true;
-
-
         }catch(\PDOException $e){
             die('INSERT statement failed: '.$e->getMessage());
         }

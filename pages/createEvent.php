@@ -18,6 +18,13 @@
         <label for="location">ORT</label>
         <input type = "number" id="number" name="location" placeholder="1 == Erfurt" required>
 
+<!--        <label for="location">ORT</label>-->
+<!--        <select name="locations">-->
+<!---->
+<!--            --><?//getLocations();?>
+<!---->
+<!--        </select>-->
+
         <label for="description">BESCHREIBUNG</label>
         <textarea type = "textarea" id="description" name="description" placeholder="Beschreibung" required></textarea>
 
@@ -26,6 +33,3 @@
         <button type="reset">Eingaben Löschen</button>
     </form>
 </div>
-
-
-

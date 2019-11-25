@@ -193,6 +193,7 @@ function pictureRaster(){
 }
 
 function newEvent(){
+
     if(isset($_POST['eventname'])) {
         try {
             $event = new \FSR_AI\events($_POST['eventname'], $_POST['date'], $_POST['description'], 'assets/images/PictureRaster/pictureraster_12.jpg', 1);
@@ -203,5 +204,24 @@ function newEvent(){
 
         header('Location: '.$_SERVER['PHP_SELF'].'?p=createEvent');
         exit();
+    }
+}
+
+function getLocations(){
+
+    $db = $GLOBALS['db'];
+
+    try{
+
+        $result = $db->query("SELECT city FROM location");
+
+        while($rows = $result->fetch_assoc()){
+
+            $locations = $rows['city'];
+            echo "<option value='$locations'>$locations</option>";
+        }
+
+    }catch(\PDOException $e){
+        die('DELETE statement failed: '.$e->getMessage());
     }
 }
