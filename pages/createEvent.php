@@ -15,15 +15,13 @@
         <input type = "date" id="date" name="date" placeholder="Datum" required>
 
         <!-- locationid -->
-        <label for="location">ORT</label>
-        <input type = "number" id="number" name="location" placeholder="1 == Erfurt" required>
-
 <!--        <label for="location">ORT</label>-->
-<!--        <select name="locations">-->
-<!---->
-<!--            --><?//getLocations();?>
-<!---->
-<!--        </select>-->
+<!--        <input type = "number" id="location" name="location" placeholder="1 == Erfurt" required>-->
+
+        <label for="location">ORT</label>
+        <select name="location">
+            <?getLocations();?>
+        </select>
 
         <label for="description">BESCHREIBUNG</label>
         <textarea type = "textarea" id="description" name="description" placeholder="Beschreibung" required></textarea>

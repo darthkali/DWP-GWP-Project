@@ -196,7 +196,7 @@ function newEvent(){
 
     if(isset($_POST['eventname'])) {
         try {
-            $event = new \FSR_AI\events($_POST['eventname'], $_POST['date'], $_POST['description'], 'assets/images/PictureRaster/pictureraster_12.jpg', 1);
+            $event = new \FSR_AI\events($_POST['eventname'], $_POST['date'], $_POST['description'], 'assets/images/PictureRaster/pictureraster_12.jpg', $_POST['location']);
             $event->insert();
         } catch (Exception $e) {
             die('DELETE statement failed: ' . $e->getMessage());
@@ -210,18 +210,18 @@ function newEvent(){
 function getLocations(){
 
     $db = $GLOBALS['db'];
+    $sql = "select city, id from location";
 
     try{
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+        $results = $stmt->fetchAll();
+    }catch(Exception $e){
 
-        $result = $db->query("SELECT city FROM location");
+        die('Fail to Select from location:'.$e->getMessage());
+    }
 
-        while($rows = $result->fetch_assoc()){
-
-            $locations = $rows['city'];
-            echo "<option value='$locations'>$locations</option>";
-        }
-
-    }catch(\PDOException $e){
-        die('DELETE statement failed: '.$e->getMessage());
+    foreach ($results as $output){
+        echo '<option value="'.$output['id'].'">'.$output['city'].'</option>';
     }
 }

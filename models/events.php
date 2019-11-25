@@ -7,19 +7,19 @@ class events
 {
     const TABLENAME ='events';
     private $data;
-    private $topic;
-    private $date;
-    private $description;
+    private $eventName;
+    private $eventDate;
+    private $eventDescription;
     private $picturePath;
-    private $location_id;
+    private $eventLocation_id;
 
-    public function __construct($topic, $date, $description, $picturePath, $location_id){
+    public function __construct($eventName, $date, $description, $picturePath, $location_id){
 
-        $this->topic = $topic;
-        $this->date = $date;
-        $this->description = $description;
+        $this->eventName = $eventName;
+        $this->eventDate = $date;
+        $this->eventDescription = $description;
         $this->picturePath = $picturePath;
-        $this->location_id = $location_id;
+        $this->eventLocation_id = $location_id;
 
     }
 
@@ -56,11 +56,11 @@ class events
             $sql = 'INSERT INTO '.self::TABLENAME.' (name, date, description, picture, location_id) VALUES (:name, :date, :description, :picture, :location_id)';
             $statement = $db->prepare($sql);
 
-            $statement->bindParam(':name',$this->topic);
-            $statement->bindParam(':date', $this->date);
-            $statement->bindParam(':description', $this->description);
+            $statement->bindParam(':name',$this->eventName);
+            $statement->bindParam(':date', $this->eventDate);
+            $statement->bindParam(':description', $this->eventDescription);
             $statement->bindParam(':picture', $this->picturePath);
-            $statement->bindParam(':location_id', $this->location_id);
+            $statement->bindParam(':location_id', $this->eventLocation_id);
 
             $statement->execute();
             return true;
@@ -75,11 +75,9 @@ class events
         $db = $GLOBALS['db'];
         try{
 
-            $sql = 'DELETE FROM '.self::TABLENAME.'WHERE topic = '.$this->topic;
-            $db->execute();
+            $sql = 'DELETE FROM '.self::TABLENAME.'WHERE name = '.$this->eventName;
+            $db->exec($sql);
             return true;
-
-
         }catch(\PDOException $e){
             die('DELETE statement failed: '.$e->getMessage());
         }
