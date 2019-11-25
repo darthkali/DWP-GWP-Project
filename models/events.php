@@ -6,7 +6,7 @@ use mysql_xdevapi\Statement;
 class events
 {
     const TABLENAME ='events';
-    private $data;
+
     private $eventName;
     private $eventDate;
     private $eventDescription;
@@ -21,16 +21,6 @@ class events
         $this->picturePath = $picturePath;
         $this->eventLocation_id = $location_id;
 
-    }
-
-    public function __get($key){
-        if(isset($this->data[$key])){
-            return $this->data[$key];
-        }
-    }
-
-    public function __set($name, $value){
-        // TODO: Implement __set() method.
     }
 
     public static function find( $where = ''){
