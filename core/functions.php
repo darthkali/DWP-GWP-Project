@@ -210,7 +210,7 @@ function newEvent(){
 function getLocations(){
 
     $db = $GLOBALS['db'];
-    $sql = "select city, id from location";
+    $sql = "select id, city, street, number, zipcode, room from location";
 
     try{
         $stmt = $db->prepare($sql);
@@ -222,6 +222,6 @@ function getLocations(){
     }
 
     foreach ($results as $output){
-        echo '<option value="'.$output['id'].'">'.$output['city'].'</option>';
+        echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].'</option>';
     }
 }
