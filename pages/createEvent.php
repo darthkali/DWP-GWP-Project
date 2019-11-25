@@ -14,16 +14,14 @@
         <label for="date">DATUM</label>
         <input type = "date" id="date" name="date" placeholder="Datum" required>
 
-        <!-- locationid -->
-<!--        <label for="location">ORT</label>-->
-<!--        <input type = "number" id="location" name="location" placeholder="1 == Erfurt" required>-->
-
+        <!-- location drop down menu -->
         <label for="location">ORT</label>
         <select name="location" required>
             <option selected="selected">---Ort auswählen!---</option>
             <?getLocations();?>
         </select>
 
+        <!-- description -->
         <label for="description">BESCHREIBUNG</label>
         <textarea type = "textarea" id="description" name="description" placeholder="Beschreibung" required></textarea>
 

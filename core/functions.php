@@ -222,6 +222,17 @@ function getLocations(){
     }
 
     foreach ($results as $output){
-        echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].'</option>';
+
+        if($output['room'] == null){
+
+            echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].'</option>';
+        }else{
+
+            echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].', Raum: '.$output['room'].'</option>';
+        }
     }
+}
+
+function printEvent(){
+
 }
