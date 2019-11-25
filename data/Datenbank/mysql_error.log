@@ -1,0 +1,382 @@
+InnoDB: using atomic writes.
+2019-11-24  1:42:55 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-24  1:42:55 0 [Note] InnoDB: Uses event mutexes
+2019-11-24  1:42:55 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-24  1:42:55 0 [Note] InnoDB: Number of pools: 1
+2019-11-24  1:42:55 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-24  1:42:55 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-24  1:42:55 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-24  1:42:55 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=300288
+2019-11-24  1:42:55 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-24  1:42:55 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-11-24  1:42:55 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-24  1:42:55 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-24  1:42:55 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-24  1:42:55 0 [Note] InnoDB: Waiting for purge to start
+2019-11-24  1:42:55 0 [Note] InnoDB: 10.4.8 started; log sequence number 300297; transaction id 171
+2019-11-24  1:42:55 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-24  1:42:55 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-24  1:42:55 0 [Note] InnoDB: Buffer pool(s) load completed at 191124  1:42:55
+2019-11-24  1:42:55 0 [Note] Server socket created on IP: '::'.
+InnoDB: using atomic writes.
+2019-11-24 17:39:00 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-24 17:39:00 0 [Note] InnoDB: Uses event mutexes
+2019-11-24 17:39:00 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-24 17:39:00 0 [Note] InnoDB: Number of pools: 1
+2019-11-24 17:39:00 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-24 17:39:00 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-24 17:39:00 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-24 17:39:00 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=728134
+2019-11-24 17:39:00 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-24 17:39:00 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-11-24 17:39:00 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-24 17:39:00 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-24 17:39:00 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-24 17:39:00 0 [Note] InnoDB: Waiting for purge to start
+2019-11-24 17:39:01 0 [Note] InnoDB: 10.4.8 started; log sequence number 728143; transaction id 1518
+2019-11-24 17:39:01 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-24 17:39:01 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-24 17:39:01 0 [Note] InnoDB: Buffer pool(s) load completed at 191124 17:39:01
+2019-11-24 17:39:01 0 [Note] Server socket created on IP: '::'.
+InnoDB: using atomic writes.
+2019-11-24 18:57:40 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-24 18:57:40 0 [Note] InnoDB: Uses event mutexes
+2019-11-24 18:57:40 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-24 18:57:40 0 [Note] InnoDB: Number of pools: 1
+2019-11-24 18:57:40 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-24 18:57:40 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-24 18:57:40 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-24 18:57:40 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=750509
+2019-11-24 18:57:41 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-24 18:57:41 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-11-24 18:57:41 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-24 18:57:41 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-24 18:57:41 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-24 18:57:41 0 [Note] InnoDB: Waiting for purge to start
+2019-11-24 18:57:41 0 [Note] InnoDB: 10.4.8 started; log sequence number 750518; transaction id 1597
+2019-11-24 18:57:41 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-24 18:57:41 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-24 18:57:41 0 [Note] Server socket created on IP: '::'.
+2019-11-24 18:57:41 0 [Note] InnoDB: Buffer pool(s) load completed at 191124 18:57:41
+InnoDB: using atomic writes.
+2019-11-25 20:18:33 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-25 20:18:33 0 [Note] InnoDB: Uses event mutexes
+2019-11-25 20:18:33 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-25 20:18:33 0 [Note] InnoDB: Number of pools: 1
+2019-11-25 20:18:33 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-25 20:18:33 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-25 20:18:33 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-25 20:18:33 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=750527
+2019-11-25 20:18:34 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-25 20:18:34 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-11-25 20:18:34 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-25 20:18:34 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-25 20:18:34 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-25 20:18:34 0 [Note] InnoDB: Waiting for purge to start
+2019-11-25 20:18:34 0 [Note] InnoDB: 10.4.8 started; log sequence number 750536; transaction id 1597
+2019-11-25 20:18:34 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-25 20:18:34 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-25 20:18:34 0 [Note] InnoDB: Buffer pool(s) load completed at 191125 20:18:34
+2019-11-25 20:18:34 0 [Note] Server socket created on IP: '::'.
+InnoDB: using atomic writes.
+2019-11-25 22:49:42 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-25 22:49:42 0 [Note] InnoDB: Uses event mutexes
+2019-11-25 22:49:42 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-25 22:49:42 0 [Note] InnoDB: Number of pools: 1
+2019-11-25 22:49:42 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-25 22:49:42 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-25 22:49:42 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-25 22:49:42 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=805960
+2019-11-25 22:49:43 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-25 22:49:43 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-11-25 22:49:43 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-25 22:49:43 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-25 22:49:43 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-25 22:49:43 0 [Note] InnoDB: Waiting for purge to start
+2019-11-25 22:49:43 0 [Note] InnoDB: 10.4.8 started; log sequence number 805969; transaction id 1779
+2019-11-25 22:49:43 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-25 22:49:43 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-25 22:49:43 0 [Note] InnoDB: Buffer pool(s) load completed at 191125 22:49:43
+2019-11-25 22:49:43 0 [Note] Server socket created on IP: '::'.
+InnoDB: using atomic writes.
+2019-11-25 22:54:26 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-25 22:54:26 0 [Note] InnoDB: Uses event mutexes
+2019-11-25 22:54:26 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-25 22:54:26 0 [Note] InnoDB: Number of pools: 1
+2019-11-25 22:54:26 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-25 22:54:26 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-25 22:54:26 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-25 22:54:26 0 [Note] InnoDB: Starting crash recovery from checkpoint LSN=807221
+2019-11-25 22:54:26 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-25 22:54:26 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-11-25 22:54:26 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-25 22:54:26 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-25 22:54:26 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-25 22:54:26 0 [Note] InnoDB: Waiting for purge to start
+2019-11-25 22:54:26 0 [Note] InnoDB: 10.4.8 started; log sequence number 807230; transaction id 1797
+2019-11-25 22:54:26 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-25 22:54:26 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-25 22:54:26 0 [Note] Server socket created on IP: '::'.
+2019-11-25 22:54:26 0 [Note] InnoDB: Buffer pool(s) load completed at 191125 22:54:26
+InnoDB: using atomic writes.
+2019-11-25 22:56:59 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-25 22:56:59 0 [Note] InnoDB: Uses event mutexes
+2019-11-25 22:56:59 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-25 22:56:59 0 [Note] InnoDB: Number of pools: 1
+2019-11-25 22:56:59 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-25 22:56:59 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-25 22:56:59 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\mysql\gtid_slave_pos.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``mysql`.`gtid_slave_pos``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `mysql`.`gtid_slave_pos` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\mysql\innodb_index_stats.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``mysql`.`innodb_index_stats``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `mysql`.`innodb_index_stats` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\mysql\innodb_table_stats.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``mysql`.`innodb_table_stats``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `mysql`.`innodb_table_stats` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\mysql\transaction_registry.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``mysql`.`transaction_registry``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `mysql`.`transaction_registry` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__bookmark.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__bookmark``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__bookmark` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__central_columns.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__central_columns``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__central_columns` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__column_info.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__column_info``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__column_info` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__designer_settings.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__designer_settings``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__designer_settings` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__export_templates.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__export_templates``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__export_templates` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__favorite.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__favorite``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__favorite` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__history.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__history``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__history` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__navigationhiding.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__navigationhiding``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__navigationhiding` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__pdf_pages.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__pdf_pages``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__pdf_pages` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__recent.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__recent``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__recent` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__relation.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__relation``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__relation` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__savedsearches.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__savedsearches``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__savedsearches` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__table_coords.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__table_coords``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__table_coords` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__table_info.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__table_info``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__table_info` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__table_uiprefs.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__table_uiprefs``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__table_uiprefs` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__tracking.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__tracking``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__tracking` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__userconfig.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__userconfig``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__userconfig` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__usergroups.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__usergroups``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__usergroups` because it could not be opened.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__users.ibd' OS error: 203
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 0 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 0 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__users``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Warning] InnoDB: Ignoring tablespace for `phpmyadmin`.`pma__users` because it could not be opened.
+2019-11-25 22:56:59 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-25 22:56:59 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-25 22:56:59 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-25 22:56:59 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-25 22:56:59 0 [Note] InnoDB: Waiting for purge to start
+2019-11-25 22:56:59 1 [ERROR] InnoDB: Failed to find tablespace for table `phpmyadmin`.`pma__table_uiprefs` in the cache. Attempting to load the tablespace with space id 11
+2019-11-25 22:56:59 1 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 1 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 1 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 1 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__table_uiprefs.ibd' OS error: 203
+2019-11-25 22:56:59 1 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 1 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 1 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__table_uiprefs``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Failed to find tablespace for table `phpmyadmin`.`pma__recent` in the cache. Attempting to load the tablespace with space id 9
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__recent.ibd' OS error: 203
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 2 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__recent``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Failed to find tablespace for table `mysql`.`innodb_index_stats` in the cache. Attempting to load the tablespace with space id 2
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Cannot open datafile for read-only: '.\mysql\innodb_index_stats.ibd' OS error: 203
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 2 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 2 [ERROR] InnoDB: Could not find a valid tablespace file for ``mysql`.`innodb_index_stats``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Failed to find tablespace for table `phpmyadmin`.`pma__userconfig` in the cache. Attempting to load the tablespace with space id 16
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Cannot open datafile for read-only: '.\phpmyadmin\pma__userconfig.ibd' OS error: 203
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 3 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Could not find a valid tablespace file for ``phpmyadmin`.`pma__userconfig``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Failed to find tablespace for table `mysql`.`innodb_table_stats` in the cache. Attempting to load the tablespace with space id 1
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Operating system error number 3 in a file operation.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: The error means the system cannot find the path specified.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: If you are installing InnoDB, remember that you must create directories yourself, InnoDB does not create them.
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Cannot open datafile for read-only: '.\mysql\innodb_table_stats.ibd' OS error: 203
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Operating system error number 203 in a file operation.
+2019-11-25 22:56:59 3 [Note] InnoDB: Some operating system error numbers are described at https://mariadb.com/kb/en/library/operating-system-error-codes/
+2019-11-25 22:56:59 3 [ERROR] InnoDB: Could not find a valid tablespace file for ``mysql`.`innodb_table_stats``. Please refer to https://mariadb.com/kb/en/innodb-data-dictionary-troubleshooting/ for how to resolve the issue.
+2019-11-25 22:56:59 0 [Note] InnoDB: 10.4.8 started; log sequence number 807257; transaction id 1797
+2019-11-25 22:56:59 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-25 22:56:59 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-25 22:56:59 0 [ERROR] Could not open mysql.plugin table. Some plugins may be not loaded
+2019-11-25 22:56:59 0 [Note] InnoDB: Buffer pool(s) load completed at 191125 22:56:59
+2019-11-25 22:56:59 0 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
+2019-11-25 22:56:59 0 [Note] Server socket created on IP: '::'.
+InnoDB: using atomic writes.
+2019-11-25 22:57:08 0 [Note] InnoDB: Mutexes and rw_locks use Windows interlocked functions
+2019-11-25 22:57:08 0 [Note] InnoDB: Uses event mutexes
+2019-11-25 22:57:08 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-11-25 22:57:08 0 [Note] InnoDB: Number of pools: 1
+2019-11-25 22:57:08 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-11-25 22:57:08 0 [Note] InnoDB: Initializing buffer pool, total size = 16M, instances = 1, chunk size = 16M
+2019-11-25 22:57:08 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-11-25 22:57:09 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-11-25 22:57:09 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-11-25 22:57:09 0 [Note] InnoDB: Setting file 'C:\xampp\mysql\data\ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-11-25 22:57:09 0 [Note] InnoDB: File 'C:\xampp\mysql\data\ibtmp1' size is now 12 MB.
+2019-11-25 22:57:09 0 [Note] InnoDB: Waiting for purge to start
+2019-11-25 22:57:09 0 [Note] InnoDB: 10.4.8 started; log sequence number 807266; transaction id 1797
+2019-11-25 22:57:09 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-11-25 22:57:09 0 [Note] InnoDB: Loading buffer pool(s) from C:\xampp\mysql\data\ib_buffer_pool
+2019-11-25 22:57:09 0 [Note] InnoDB: Buffer pool(s) load completed at 191125 22:57:09
+2019-11-25 22:57:09 0 [Note] Server socket created on IP: '::'.
