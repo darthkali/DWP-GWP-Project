@@ -92,6 +92,10 @@ div#FooterRight a img {
     text-align: center;
 }
 
+.Content select{
+    text-align: center;
+    text-align-last: center;
+}
 /* ----------------------------------   Button   ---------------------------------- */
 .Content button{
     font-size: 16px;

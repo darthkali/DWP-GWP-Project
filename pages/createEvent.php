@@ -19,7 +19,8 @@
 <!--        <input type = "number" id="location" name="location" placeholder="1 == Erfurt" required>-->
 
         <label for="location">ORT</label>
-        <select name="location">
+        <select name="location" required>
+            <option selected="selected">---Ort auswählen!---</option>
             <?getLocations();?>
         </select>
 
