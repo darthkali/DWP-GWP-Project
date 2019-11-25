@@ -193,7 +193,6 @@ function pictureRaster(){
 }
 
 function newEvent(){
-
     if(isset($_POST['eventname'])) {
         try {
             $event = new \FSR_AI\events($_POST['eventname'], $_POST['date'], $_POST['description'], 'assets/images/PictureRaster/pictureraster_12.jpg', $_POST['location']);
@@ -208,7 +207,6 @@ function newEvent(){
 }
 
 function getLocations(){
-
     $db = $GLOBALS['db'];
     $sql = "select id, city, street, number, zipcode, room from location";
 

@@ -4,6 +4,7 @@
 <div class="Content" id="fadeIn">
     <h1>Unsere Events</h1>
 
+    <?printEvent();?>
 </div>
 
 
