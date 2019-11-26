@@ -52,11 +52,6 @@ $title =$page;
         </div>
     <? endif; ?>
     <?
-
-
-
-
-
     include 'navMenuBar.php';
     $error = false;
 

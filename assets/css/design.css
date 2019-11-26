@@ -142,11 +142,23 @@ div#FooterRight a img {
 }
 
 .ContentEvents form{
-    float: left !important;
+    margin-top: 10px;
     width: auto;
-    margin-top: 1%;
-    /*Ich weiß, dass ist alles russisch aber hab es nicoht anders hinbekommen:D*/
+    float: left;
 }
+
+
+.ContentEventsButton div{
+    margin-top: 1% !important;
+    position: absolute;
+    background: #333333 !important;
+    width: 50px;
+    bottom: 10px;
+}
+.ContentEvents h1{
+    margin-bottom: 2%;
+}
+
 
 /* ----------------------------------   Error - Page   ---------------------------------- */
 .ErrorPage{
