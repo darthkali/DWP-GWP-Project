@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="topnav" id="myTopnav">
+<nav>
     <input type="checkbox" id="responsive-nav">
     <label for="responsive-nav" class="responsive-nav-label">&#9776;</label>
-    <div class="topnavfloat">
+    <div class="navfloat">
         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=event">Events</a>
         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=aboutUs">Über uns</a>
         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=contact">Kontakt</a>
@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-</div>
+</nav>
 
 <div class="NavContent">
     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=start">

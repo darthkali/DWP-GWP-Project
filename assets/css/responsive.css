@@ -1,12 +1,11 @@
 @media(max-width: 850px) {
     /* ----------------------------------   Navigation   ---------------------------------- */
-
-    .topnav{
+    nav{
         padding-right: 0;    /* margin to the right side, to get space for the submenu */
         overflow: auto;
     }
 
-    .topnavfloat{
+    .navfloat{
         display: none;
         float: none;
     }
@@ -19,7 +18,7 @@
         color: #fff;
     }
 
-    .topnav a, .dropdown {
+    nav a, .dropdown {
         float: none;
         display: block;
         width:100%;
@@ -36,10 +35,9 @@
         width: 100%;
     }
 
-    input#responsive-nav[type=checkbox]:checked ~ .topnavfloat{
+    input#responsive-nav[type=checkbox]:checked ~ .navfloat{
         display: block;
     }
-
 
     /* ----------------------------------   Site - Picture   ---------------------------------- */
     .SitePicture {display: none ;}

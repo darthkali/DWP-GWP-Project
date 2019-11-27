@@ -1,4 +1,4 @@
-.topnav {
+nav {
     overflow: hidden;
     background-color: #334D66;
     padding-right: 20px;    /* margin to the right side, to get space for the submenue */
@@ -7,11 +7,11 @@
     display: block;
 }
 
-.topnavfloat{
+.navfloat{
     float:right;
 }
 
-.topnav a {
+nav a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -20,15 +20,10 @@
     font-size: 17px;
 }
 
-.topnav .icon {
-    display: none;
-}
-
 .dropdown {
     float: left;
     overflow: hidden;
     height: 100%;
-
 }
 
 .dropdown .dropbtn {
@@ -43,7 +38,7 @@
     width: 70px;
 }
 
-.topnav a, .dropbtn {
+nav a, .dropbtn {
     padding: 20px;          /* space around the boxes */
 }
 
@@ -55,7 +50,6 @@
     min-width: 160px;
     z-index: 1;
     margin-left: -110px;
-
 }
 
 .dropdown-content a {
@@ -64,7 +58,6 @@
     text-decoration: none;
     display: block;
     text-align: left;
-
 }
 
 .dropdown form{
@@ -88,7 +81,7 @@
 }
 
 
-.topnav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover, .dropdown-content input:hover {
+nav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover, .dropdown-content input:hover {
     background-color: #60B0FF;
     color: white;
 }
@@ -96,6 +89,11 @@
 .dropdown:hover .dropdown-content {
     display: block;
 
+}
+
+input#responsive-nav,
+label.responsive-nav-label {
+    display: none;
 }
 
 
@@ -134,10 +132,3 @@
     color: #60B0FF;            /* set the font color from the links */
 }
 
-
-
-
-input#responsive-nav,
-label.responsive-nav-label {
-    display: none;
-}
