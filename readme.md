@@ -39,7 +39,8 @@ End with an example of getting some data out of the system or using it for a lit
 * [PHP-Storm](https://www.jetbrains.com/phpstorm/) - IDE für HTML, CSS und PHP
 * [Web-Storm](https://www.jetbrains.com/webstorm/) - IDE für JavaScript
 * [Adobe XD](https://www.adobe.com/de/products/xd.html) - Tool für die Erstellung des Designs
-* [Lucidchart](https://www.lucidchart.com) - Tool für die Erstellung der Diegramme / Charts / ...
+* [Visio](https://products.office.com/de-de/visio) - Tool für die Erstellung der Diagramme / Charts / ...
+* [MySQL-Workbench](https://www.mysql.com/de/products/workbench/) - Erstellung der Datenbank
 
 
 ## Contributing
