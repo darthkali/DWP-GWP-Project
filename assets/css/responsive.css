@@ -1,43 +1,45 @@
 @media(max-width: 850px) {
     /* ----------------------------------   Navigation   ---------------------------------- */
-    .topnav{padding-right: 0;    /* margin to the right side, to get space for the submenu */}
-    .topnavfloat{width:100%;}
-    .topnav a, .dropdown .dropbtn {
-        float: none;
+
+    .topnav{
+        padding-right: 0;    /* margin to the right side, to get space for the submenu */
+        overflow: auto;
+    }
+
+    .topnavfloat{
         display: none;
+        float: none;
     }
 
-    .topnav a.icon {
-        float: right;
+    label.responsive-nav-label {
+        text-align: right;
         display: block;
+        padding: 20px;
+        cursor: pointer;
+        color: #fff;
     }
 
-    .topnav.responsive {position: relative;}
-    .topnav.responsive .icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .topnav.NavContent{ display: none;}
-    .topnav.responsive a {
+    .topnav a, .dropdown {
         float: none;
         display: block;
+        width:100%;
         text-align: left;
     }
 
-    .topnav.responsive .dropdown {float: none;}
-    .topnav.responsive .dropdown-content {
-        position: relative;
-        margin-left: 0;
-        width:auto;
+    .dropdown .dropbtn {
+        width:100%;
+        text-align: left;
     }
-    .topnav.responsive .dropdown .dropbtn {
-        display: block;
+
+    .dropdown-content {
+        margin-left: auto;
         width: 100%;
-        text-align: left;
-
     }
+
+    input#responsive-nav[type=checkbox]:checked ~ .topnavfloat{
+        display: block;
+    }
+
 
     /* ----------------------------------   Site - Picture   ---------------------------------- */
     .SitePicture {display: none ;}

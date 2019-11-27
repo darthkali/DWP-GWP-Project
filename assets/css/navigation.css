@@ -133,3 +133,11 @@
 .NavContent a:hover {
     color: #60B0FF;            /* set the font color from the links */
 }
+
+
+
+
+input#responsive-nav,
+label.responsive-nav-label {
+    display: none;
+}

@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="topnav" id="myTopnav">
+    <input type="checkbox" id="responsive-nav">
+    <label for="responsive-nav" class="responsive-nav-label">&#9776;</label>
     <div class="topnavfloat">
         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=event">Events</a>
         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=aboutUs">Über uns</a>
@@ -23,13 +25,9 @@
                     <form action="<?=$_SERVER['PHP_SELF'].'?p=logOut';?>" method="post">
                         <input type="submit" name="submitLogout" value="Abmelden">
                     </form>
-
-
-
                 <?}?>
             </div>
         </div>
-        <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
 </div>
 
@@ -39,14 +37,3 @@
         <h4>Fachschaftsrat</h4>
     </a>
 </div>
-
-<script>
-    function myFunction() {
-        const x = document.getElementById("myTopnav");
-        if (x.className === "topnav") {
-            x.className += " responsive";
-        } else {
-            x.className = "topnav";
-        }
-    }
-</script>
