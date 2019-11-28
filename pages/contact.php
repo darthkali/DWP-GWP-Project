@@ -22,7 +22,7 @@
         <textarea type = "textarea" id="textarea" name="text" required placeholder="Dein Anliegen"></textarea>
 
         <!-- button -->
-        <button type="submit" name="senden" onclick="<?sendMailKontaktformular();?>">Abschicken</button>
+        <button type="submit" name="senden" onclick="<?sendMail();?>">Abschicken</button>
         <button type="reset">Löschen</button>
     </form>
 </div>

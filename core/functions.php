@@ -112,32 +112,6 @@ function rememberMe($id, $password){
     setcookie('password', $password, $duration, '/');
 }
 
-function sendMail($isRegistration = false){
-
-    if (isset($_POST['name'])) {
-        $header = array();
-        $header[] = "MIME-Version: 1.0";
-        $header[] = "Content-type: text/plain; charset=utf-8";
-        if ($isRegistration) {
-            $header[] = "From: Eventanmeldung <fsraiformular@web.de>";
-
-            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">" . "\r\n\r\n" . $_POST['text'];
-            //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
-            mail("bratwurststinkt@web.de",'Eventanmeldung', $msg, implode("\r\n", $header));
-            header('Location: ' . $_SERVER['PHP_SELF'] . '?p=event');
-            exit();
-        } else {
-             $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
-
-            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">" . "\r\n\r\n" . $_POST['text']."\r\n\r\nAnmeldung für das Event: ";
-            //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
-            mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
-            header('Location: ' . $_SERVER['PHP_SELF'] . '?p=contact');
-            exit();
-        }
-    }
-}
-
 function errorPageGifs(){
     //create a grid with random pictures from a directory on the server
     // image folder
@@ -186,6 +160,32 @@ function pictureRaster(){
         $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
 
         echo $html;
+    }
+}
+
+function sendMail($isRegistration = false){
+
+    if (isset($_POST['name'])) {
+        $header = array();
+        $header[] = "MIME-Version: 1.0";
+        $header[] = "Content-type: text/plain; charset=utf-8";
+        if ($isRegistration) {
+            $header[] = "From: Eventanmeldung <fsraiformular@web.de>";
+
+            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">" . "\r\n\r\n" . $_POST['text'];
+            //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+            mail("bratwurststinkt@web.de",'Eventanmeldung', $msg, implode("\r\n", $header));
+            header('Location: ' . $_SERVER['PHP_SELF'] . '?p=event');
+            exit();
+        } else {
+             $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
+
+            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">" . "\r\n\r\n" . $_POST['text']."\r\n\r\nAnmeldung für das Event: ";
+            //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+            mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
+            header('Location: ' . $_SERVER['PHP_SELF'] . '?p=contact');
+            exit();
+        }
     }
 }
 
