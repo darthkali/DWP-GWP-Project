@@ -6,6 +6,7 @@ require_once './core/config.php';
 require_once './core/functions.php';
 require_once './core/databaseConnection.php';
 require_once './models/events.php';
+require_once './models/location.php';
 
 if(isset($_POST['submitLogin'])) {
     $error = true;
@@ -80,6 +81,9 @@ $title =$page;
                 break;
             case 'createEvent':
                 include(PAGEPATH . 'createEvent.php');
+                break;
+            case 'createLocation':
+                include(PAGEPATH . 'createLocation.php');
                 break;
 
             // Footer-----------------------------------------

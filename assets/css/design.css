@@ -115,6 +115,10 @@ div#FooterRight a img {
     margin: 0 5px 0 5px;
 }
 
+.Content label{
+    width: 100%;
+}
+
 /* ----------------------------------   Content Events   ---------------------------------- */
 .ContentEvents {
     position: relative;
@@ -135,28 +139,13 @@ div#FooterRight a img {
 }
 
 .ContentEvents p{
+    margin: 1% 0 2% 0;
+}
+
+.ContentEventsButton {
     margin-top: 1%;
-}
-.ContentEvents button{
-    margin: 0;
-}
-
-.ContentEvents form{
-    margin-top: 10px;
     width: auto;
-    float: left;
-}
-
-
-.ContentEventsButton div{
-    margin-top: 1% !important;
-    position: absolute;
-    background: #333333 !important;
-    width: 50px;
     bottom: 10px;
-}
-.ContentEvents h1{
-    margin-bottom: 2%;
 }
 
 

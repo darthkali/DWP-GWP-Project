@@ -12,21 +12,22 @@
 
         <!-- date -->
         <label for="date">DATUM</label>
-        <input type = "date" id="date" name="date" placeholder="Datum" required>
+        <input type = "date" id="date" name="date" placeholder="Datum" required value="tt.mm.jjjj">
 
         <!-- location drop down menu -->
         <label for="location">ORT</label>
         <select name="location" required>
-            <option selected="selected">---Ort auswählen!---</option>
-            <?getLocations();?>
+            <?getLocationDetails();?>
         </select>
+        <a href="<?=$_SERVER['PHP_SELF'].'?p=createLocation';?>"><button type="button">Neue Location erstellen</button></a>
 
         <!-- description -->
         <label for="description">BESCHREIBUNG</label>
         <textarea type = "textarea" id="description" name="description" placeholder="Beschreibung" required></textarea>
 
         <!-- button -->
-        <button type="submit" name="senden" onclick=" <?newEvent();?>">Event Erstellen</button>
+        <button type="submit" name="senden" onclick=" <?newEvent();?>">Event Erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+
         <button type="reset">Eingaben Löschen</button>
     </form>
 </div>

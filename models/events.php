@@ -6,21 +6,21 @@ use mysql_xdevapi\Statement;
 class events
 {
     const TABLENAME ='events';
-
     private $eventName;
     private $eventDate;
     private $eventDescription;
     private $picturePath;
     private $eventLocation_id;
+    private $eventCreated_from;
 
-    public function __construct($eventName, $date, $description, $picturePath, $location_id){
+    public function __construct($name, $date, $description, $picturePath, $location_id, $eventCreated_from){
 
-        $this->eventName = $eventName;
+        $this->eventName = $name;
         $this->eventDate = $date;
         $this->eventDescription = $description;
         $this->picturePath = $picturePath;
         $this->eventLocation_id = $location_id;
-
+        $this->eventCreated_from = $eventCreated_from;
     }
 
     public static function find( $where = ''){
@@ -39,11 +39,12 @@ class events
         }
         return $result;
     }
+
     public function insert(){
 
         $db = $GLOBALS['db'];
         try{
-            $sql = 'INSERT INTO '.self::TABLENAME.' (name, date, description, picture, location_id) VALUES (:name, :date, :description, :picture, :location_id)';
+            $sql = 'INSERT INTO '.self::TABLENAME.' (name, date, description, picture, location_id, created_from) VALUES (:name, :date, :description, :picture, :location_id, :created_from)';
             $statement = $db->prepare($sql);
 
             $statement->bindParam(':name',$this->eventName);
@@ -51,6 +52,7 @@ class events
             $statement->bindParam(':description', $this->eventDescription);
             $statement->bindParam(':picture', $this->picturePath);
             $statement->bindParam(':location_id', $this->eventLocation_id);
+            $statement->bindParam(':created_from', $this->eventCreated_from);
 
             $statement->execute();
             return true;

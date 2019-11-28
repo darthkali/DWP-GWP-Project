@@ -6,19 +6,19 @@ use mysql_xdevapi\Statement;
 class location
 {
     const TABLENAME ='location';
-    private $street;
-    private $number;
-    private $zipcode;
-    private $city;
-    private $room;
+    private $locationStreet;
+    private $locationNumber;
+    private $locationZipcode;
+    private $locationCity;
+    private $locationRoom;
 
-    public function __construct($street, $number, $zipcode, $city, $room){
+    public function __construct($street, $number, $zipcode, $city, $room = null){
 
-        $this->street = $street;
-        $this->number = $number;
-        $this->zipcode = $zipcode;
-        $this->city = $city;
-        $this->room = $room;
+        $this->locationStreet = $street;
+        $this->locationNumber = $number;
+        $this->locationZipcode = $zipcode;
+        $this->locationCity = $city;
+        $this->locationRoom = $room;
     }
 
     public static function find( $where = ''){
@@ -42,19 +42,17 @@ class location
 
         $db = $GLOBALS['db'];
         try{
-            $sql = 'INSERT INTO '.self::TABLENAME.' (street, number, zipcode, city, room) VALUES (:street, :number, :zipcode, :city, :room)';
+            $sql = 'INSERT INTO '.self::TABLENAME.' (street, number, zipcode, city, room) VALUES (:locationStreet, :locationNumber, :locationZipcode, :locationCity, :locationRoom)';
             $statement = $db->prepare($sql);
 
-            $statement->bindParam(':street',$this->street);
-            $statement->bindParam(':number', $this->number);
-            $statement->bindParam(':zipcode', $this->zipcode);
-            $statement->bindParam(':city', $this->city);
-            $statement->bindParam(':room', $this->room);
+            $statement->bindParam(':locationStreet',$this->locationStreet);
+            $statement->bindParam(':locationNumber', $this->locationNumber);
+            $statement->bindParam(':locationZipcode', $this->locationZipcode);
+            $statement->bindParam(':locationCity', $this->locationCity);
+            $statement->bindParam(':locationRoom', $this->locationRoom);
 
             $statement->execute();
             return true;
-
-
         }catch(\PDOException $e){
             die('INSERT statement failed: '.$e->getMessage());
         }

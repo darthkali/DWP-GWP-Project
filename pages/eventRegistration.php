@@ -18,7 +18,7 @@
         <textarea type = "textarea" id="textarea" name="text" placeholder="Anmerkungen"></textarea>
 
         <!-- button -->
-        <button type="submit" name="senden" onclick="<?sendMailEventanmeldung();?>">Anmelden</button>
+        <button type="submit" name="senden" onclick="<?sendMail(true);?>">Anmelden</button>
         <button type="reset">Eingaben Löschen</button>
     </form>
 </div>

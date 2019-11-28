@@ -57,8 +57,7 @@ function user($id){
     return false;
 }
 
-function logIn(&$error, $rememberMe = false)
-{
+function logIn(&$error, $rememberMe = false){
     $users = allUsers(); // create an Array with all users from the db.json
     $userRef = isset($_POST['validationName']) ? $_POST['validationName'] : '';
     $password = isset($_POST['validationPassword']) ? $_POST['validationPassword'] : '';
@@ -88,6 +87,7 @@ function logIn(&$error, $rememberMe = false)
             if(isset($_POST['rememberMe'])) {
                 rememberMe($userId, $users[$userIdx]['password']); // set a cookie with the user login
             }
+            $_SESSION['userId'] = $userId;
             return $userId;
         }else {
             $error= 'Ihr Passwort ist falsch!';
@@ -95,6 +95,7 @@ function logIn(&$error, $rememberMe = false)
     } else {
         $error =' Diesen Nutzer gibt es nicht.<br>Überprüfen Sie den Benutzernamen bzw. die E-Mail- Adresse!';
     }
+
     return false;
 }
 
@@ -111,33 +112,29 @@ function rememberMe($id, $password){
     setcookie('password', $password, $duration, '/');
 }
 
-function sendMailKontaktformular(){
+function sendMail($isRegistration = false){
+
     if (isset($_POST['name'])) {
         $header = array();
         $header[] = "MIME-Version: 1.0";
         $header[] = "Content-type: text/plain; charset=utf-8";
-        $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
+        if ($isRegistration) {
+            $header[] = "From: Eventanmeldung <fsraiformular@web.de>";
 
-        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] ."(".$_POST['mail'].")"."\r\n\r\n" . $_POST['text'];
-        //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
-        mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
-        header('Location: '.$_SERVER['PHP_SELF'].'?p=contact');
-        exit();
-    }
-}
+            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">" . "\r\n\r\n" . $_POST['text'];
+            //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+            mail("bratwurststinkt@web.de",'Eventanmeldung', $msg, implode("\r\n", $header));
+            header('Location: ' . $_SERVER['PHP_SELF'] . '?p=event');
+            exit();
+        } else {
+             $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
 
-function sendMailEventanmeldung(){
-    if (isset($_POST['name'])) {
-        $header = array();
-        $header[] = "MIME-Version: 1.0";
-        $header[] = "Content-type: text/plain; charset=utf-8";
-        $header[] = "From: Eventanmeldung <fsraiformular@web.de>";
-
-        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] ."(".$_POST['mail'].")"."\r\n\r\n" . $_POST['text'];
-        //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
-        mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
-        header('Location: '.$_SERVER['PHP_SELF'].'?p=eventRegistration');
-        exit();
+            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">" . "\r\n\r\n" . $_POST['text']."\r\n\r\nAnmeldung für das Event: ";
+            //mail("fsai@fh-erfurt.de", $_POST['subject'], $msg, implode("\r\n", $header));
+            mail("bratwurststinkt@web.de", $_POST['subject'], $msg, implode("\r\n", $header));
+            header('Location: ' . $_SERVER['PHP_SELF'] . '?p=contact');
+            exit();
+        }
     }
 }
 
@@ -193,44 +190,94 @@ function pictureRaster(){
 }
 
 function newEvent(){
-    if(isset($_POST['eventname'])) {
+
+    if (isset($_POST['eventname'])) {
         try {
-            $event = new \FSR_AI\events($_POST['eventname'], $_POST['date'], $_POST['description'], 'assets/images/PictureRaster/pictureraster_12.jpg', $_POST['location']);
+            $event = new \FSR_AI\events($_POST['eventname'], date_format(new DateTime($_POST['date']), 'd.m.Y'), $_POST['description'], "PicturePath...", $_POST['location'], $_SESSION['userId']);
             $event->insert();
         } catch (Exception $e) {
-            die('DELETE statement failed: ' . $e->getMessage());
+            die('INSERT statement failed: ' . $e->getMessage());
         }
+        header('Location: ' . $_SERVER['PHP_SELF'] . '?p=createEvent');
+        exit();
+    }
+}
 
+function newLocation(){
+    if(isset($_POST['locationStreet'])){
+        try{
+           $location = new \FSR_AI\location($_POST['locationStreet'], $_POST['locationNumber'], $_POST['locationZipcode'], $_POST['locationCity'], $_POST['locationRoom']);
+           $location->insert();
+        }catch(Exception $e){
+            die('Failed to INSERT'.$e->getMessage());
+        }
         header('Location: '.$_SERVER['PHP_SELF'].'?p=createEvent');
         exit();
     }
 }
 
-function getLocations(){
+function getLocationDetails($location_id = ''){
+
     $db = $GLOBALS['db'];
     $sql = "select id, city, street, number, zipcode, room from location";
 
-    try{
+    if(!empty($location_id)){
+        $sql .=' Where id = '.$location_id.';';
+    }
+    try {
         $stmt = $db->prepare($sql);
         $stmt->execute();
         $results = $stmt->fetchAll();
-    }catch(Exception $e){
-
-        die('Fail to Select from location:'.$e->getMessage());
+    } catch (Exception $e) {
+        die('Failed to Select from location:' . $e->getMessage());
     }
 
-    foreach ($results as $output){
+    foreach ($results as $output) {
+        if(!empty($location_id)) {
 
-        if($output['room'] == null){
-
-            echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].'</option>';
+            if ($output['room'] == null) {
+                return $output['city'] . ', ' . $output['street'] . ' ' . $output['number'] . ', ' . $output['zipcode'];
+            } else {
+                return $output['city'] . ', ' . $output['street'] . ' ' . $output['number'] . ', ' . $output['zipcode'] . ', Raum: ' . $output['room'];
+            }
         }else{
 
-            echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].', Raum: '.$output['room'].'</option>';
+            if($output['room'] == null){
+                echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].'</option>';
+            }else{
+                echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].', Raum: '.$output['room'].'</option>';
+            }
         }
     }
 }
 
 function printEvent(){
 
+    $db = $GLOBALS['db'];
+    $sql = "select id, name, date, description, picture, location_id from events";
+
+    try{
+        $results = $db->query($sql)->fetchAll();
+    }catch(Exception $e){
+
+        die('Failed to Select from location:'.$e->getMessage());
+    }
+
+    foreach ($results as $output){
+
+        $location = getLocationDetails($output['location_id']);
+        echo '  <div class="ContentEvents">
+                    <img src="/FSAI-Site/assets/images/PictureRaster/'.$output['picture'].'">
+                    <div>
+                        <h2>'.$output['name'].'</h2>
+                        <p>
+                            <strong>Datum: </strong>'.$output['date'].'<br>
+                            <strong>Ort: </strong>'.$location.'</p>
+                        <p>'.$output['description'].'</p>
+                    </div>
+                    <div class="ContentEventsButton">   
+                        <button type="button">Für das Event Anmelden</button>
+                    </div>
+                </div>';
+    }
 }
