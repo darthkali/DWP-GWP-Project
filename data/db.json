@@ -1,0 +1,25 @@
+{
+  "users": [{
+    "id": "0001",
+    "firstName": "Danny",
+    "lastName": "Steinbrecher",
+    "email": "danny.steinbrecher@fh-erfurt.de",
+    "dateOfBirth": "1989-12-24",
+    "picture": "profilPictureDummy.jpg",
+    "description": "Das ist die Beschreibung von Danny",
+    "username": "darthkali",
+    "password": "123456"
+  },
+    {
+      "id": "0002",
+      "firstName": "Niclas",
+      "lastName": "Jarowsky",
+      "email": "niclas.jarowsky@fh-erfurt.de",
+      "dateOfBirth": "1989-01-01",
+      "picture": "profilPictureDummy.jpg",
+      "description": "Das ist die Beschreibung von Niclas",
+      "username": "niclas",
+      "password": "123456"
+    }
+  ]
+}
