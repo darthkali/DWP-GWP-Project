@@ -43,7 +43,6 @@ $title =$page;
     </head>
 
     <body>
-
     <? if(isset($error) && $error !== false) : ?>
         <div class="error">
             <span onclick="{this.parentNode.parentNode.removeChild(this.parentNode);}">
