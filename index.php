@@ -1,5 +1,5 @@
 <?
-session_save_path(__DIR__ . DIRECTORY_SEPARATOR);
+session_save_path(__DIR__ . DIRECTORY_SEPARATOR . '/data');
 session_start();
 
 require_once './config/config.php';

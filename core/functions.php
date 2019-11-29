@@ -266,18 +266,18 @@ function printEvent(){
     foreach ($results as $output){
 
         $location = getLocationDetails($output['location_id']);
-        echo '  <div class="ContentEvents">
-                    <img src="/FSAI-Site/assets/images/PictureRaster/'.$output['picture'].'">
-                    <div>
-                        <h2>'.$output['name'].'</h2>
-                        <p>
-                            <strong>Datum: </strong>'.$output['date'].'<br>
-                            <strong>Ort: </strong>'.$location.'</p>
-                        <p>'.$output['description'].'</p>
-                    </div>
-                    <div class="ContentEventsButton">   
-                        <button type="button">Für das Event Anmelden</button>
-                    </div>
-                </div>';
+        echo '<div class="ContentEvents">
+                <img src="/FSAI-Site/assets/images/PictureRaster/'.$output['picture'].'">
+                <div>
+                    <h2>'.$output['name'].'</h2>
+                    <p>
+                        <strong>Datum: </strong>'.$output['date'].'<br>
+                        <strong>Ort: </strong>'.$location.'</p>
+                    <p>'.$output['description'].'</p>
+                </div>
+                <div class="ContentEventsButton">   
+                    <button type="button">Für das Event Anmelden</button>
+                </div>
+            </div>';
     }
 }
