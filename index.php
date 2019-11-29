@@ -1,10 +1,10 @@
 <?
-session_save_path(__DIR__.DIRECTORY_SEPARATOR.'data');
+session_save_path(__DIR__ . DIRECTORY_SEPARATOR);
 session_start();
 
-require_once './core/config.php';
+require_once './config/config.php';
 require_once './core/functions.php';
-require_once './core/databaseConnection.php';
+require_once './init/10_database.php';
 require_once './models/events.php';
 require_once './models/location.php';
 
@@ -52,7 +52,7 @@ $title =$page;
         </div>
     <? endif; ?>
     <?
-    include 'navMenuBar.php';
+    include SHAREDPATH . 'navMenuBar.php';
     $error = false;
 
         switch($page) {
@@ -127,7 +127,7 @@ $title =$page;
     if($error) {
         include(PAGEPATH . 'error.php');
     }
-    include 'footer.php';
+    include SHAREDPATH . 'footer.php';
         ?>
     </body>
 </html>
