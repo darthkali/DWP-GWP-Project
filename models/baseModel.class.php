@@ -6,7 +6,7 @@ abstract class BaseModel
     const TYPE_FLOAT = 'float';
     const TYPE_STRING = 'string';
 
-    protected $schema = []; // schema for the database table (attribute names from the Ttable)
+    protected $schema = []; // schema for the database table (attribute names from the Table)
     protected $data = [];  // data which goes into the table
 
 
@@ -43,6 +43,7 @@ abstract class BaseModel
     }
 
 
+    //decides if we have an id, then the entity is already there, than we take the update, else we need an insert
     public function save(&$errors = null){
         if($this->id === null){
             $this->insert($errors);
@@ -51,6 +52,7 @@ abstract class BaseModel
         }
     }
 
+    // insert an entity to the database
     protected function insert(&$errors){
         $db = $GLOBALS['db'];
 
@@ -85,6 +87,7 @@ abstract class BaseModel
     }
 
 
+    // update an entity in the database
     protected function update(&$errors){
         $db = $GLOBALS['db'];
 
@@ -112,6 +115,7 @@ abstract class BaseModel
     }
 
 
+    // deletes an entity from the database
     public function delete(&$errors = null){
         $db = $GLOBALS['db'];
 
@@ -128,18 +132,53 @@ abstract class BaseModel
     }
 
 
+    public function  validate(&$errors = null){
+        foreach($this->schema as $key => $schemaOptions){
+            if(isset($this->data[$key]) && is_array($schemaOptions)){
+                $valueErrors = $this->validateValue($key, $this->data[$key], $schemaOptions);
+
+                if($valueErrors != true){
+                    array_push($errors, ...$valueErrors);
+                }
+            }
+        }
+        if(count($errors) === 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+    // check the if the value is correct
+    protected function  validateValue($attribute, &$value, &$schemaOptions){
+        $type = $schemaOptions['type'];
+        $errors = [];
+
+        switch ($type){
+            case BaseModel::TYPE_INT:
+            case BaseModel::TYPE_FLOAT:
+                break;
+            case BaseModel::TYPE_STRING:{
+                if(isset($schemaOptions['min']) && mb_strlen($value) < $schemaOptions['min']){
+                    $errors[] = $attribute.': String needs min. '.$schemaOptions['min'].' characters!';
+                }
+
+                if(isset($schemaOptions['max']) && mb_strlen($value) < $schemaOptions['max']){
+                    $errors[] = $attribute.': String can have max. '.$schemaOptions['max'].' characters!';
+                }
+
+            }
+            break;
+        }
+        return count($errors) > 0 ? $errors : true;
+    }
 
 
 
 
 
-
-
-
-
-
-
-
+    // gives the tablename from the class
     public static function tablename()
     {
         $class = get_called_class();
@@ -149,6 +188,7 @@ abstract class BaseModel
         }
         return null;
     }
+
 
     public static function find($where = '')
     {
