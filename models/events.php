@@ -3,7 +3,7 @@ namespace FSR_AI;
 
 use mysql_xdevapi\Statement;
 
-class events
+class events extends \BaseModel
 {
     const TABLENAME ='events';
     private $eventName;
@@ -23,28 +23,12 @@ class events
         $this->eventCreated_from = $eventCreated_from;
     }
 
-    public static function find( $where = ''){
-
-        $db = $GLOBALS['db'];
-        $result = null;
-
-       try{
-           $sql = 'SELECT * FROM '.self::TABLENAME;
-            if(!empty($where)){
-                $sql .'WHERE=  '.$where.';';
-            }
-            $result = $db->query($sql)->fetchAll();
-        }catch(\PDOException $e){
-            die('SELECT statement failed: '.$e->getMessage());
-        }
-        return $result;
-    }
-
     public function insert(){
 
         $db = $GLOBALS['db'];
         try{
-            $sql = 'INSERT INTO '.self::TABLENAME.' (name, date, description, picture, location_id, created_from) VALUES (:name, :date, :description, :picture, :location_id, :created_from)';
+            $sql = 'INSERT INTO '.self::TABLENAME.' (name, date, description, picture, location_id, created_from) 
+            VALUES (:name, :date, :description, :picture, :location_id, :created_from)';
             $statement = $db->prepare($sql);
 
             $statement->bindParam(':name',$this->eventName);

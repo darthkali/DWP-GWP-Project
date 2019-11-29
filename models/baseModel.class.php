@@ -2,6 +2,8 @@
 
 abstract class BaseModel
 {
+
+
     public static function tablename()
     {
         $class = get_called_class();
