@@ -7,9 +7,6 @@ session_start();
 require_once 'init/10_database.php';
 require_once 'init/20_imports.php';
 
-
-
-
 $controllerName = $_GET['c'] ?? 'pages';
 $actionName = $_GET['a'] ?? 'start';
 
@@ -35,7 +32,7 @@ if(file_exists($controllerPath))
         else
         {
             echo $actionName;
-           //header('Location: index.php?c=pages&a=error4041');
+           header('Location: index.php?c=pages&a=error4041');
         }
     }
     else

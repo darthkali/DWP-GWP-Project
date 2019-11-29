@@ -483,21 +483,12 @@ margin-right: 10px;
 
 /* ----------------------------------   Error   ---------------------------------- */
 .error {
-    position: fixed;
-    top: 70px;
-    right: 0;
+
     line-height: 25px;
-    padding: 20px;
-    color: #800000;
+    margin: 20px;
+    padding:5px;
+    color: white;
     background: #ff7171;
     text-align: center;
-}
-
-.error span {
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.error span:hover {
-    color: white;
+    border-radius: 3px;
 }

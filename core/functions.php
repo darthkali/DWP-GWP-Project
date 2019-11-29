@@ -59,11 +59,11 @@ function user($id){
 
 function logIn(&$error, $rememberMe = false){
     $users = allUsers(); // create an Array with all users from the db.json
-    $userRef = isset($_POST['validationName']) ? $_POST['validationName'] : '';
-    $password = isset($_POST['validationPassword']) ? $_POST['validationPassword'] : '';
+    $userRef = isset($_POST['loginName']) ? $_POST['loginName'] : '';
+    $password = isset($_POST['loginPassword']) ? $_POST['loginPassword'] : '';
 
     $userId = null;
-    if($rememberMe === true && empty ($_POST['validationName']) && empty($_POST['validationPassword'])) {
+    if($rememberMe === true && empty ($_POST['loginName']) && empty($_POST['loginPassword'])) {
         $userId = $_COOKIE['userId'];
         $password =$_COOKIE['password'];
     }
@@ -90,10 +90,10 @@ function logIn(&$error, $rememberMe = false){
             $_SESSION['userId'] = $userId;
             return $userId;
         }else {
-            $error= 'Ihr Passwort ist falsch!';
+            $error = true;
         }
     } else {
-        $error =' Diesen Nutzer gibt es nicht.<br>Überprüfen Sie den Benutzernamen bzw. die E-Mail- Adresse!';
+        $error = true;
     }
 
     return false;

@@ -16,7 +16,8 @@
             </button>
             <div class="dropdown-content">
 
-                <? if(!$loggedIn){?>
+
+                <? if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false){?>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=login">Login</a>
                 <? } else { ?>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=profil">Profil</a>

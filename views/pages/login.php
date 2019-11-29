@@ -3,22 +3,25 @@
 </div>
 
 <div class="Content" id="fadeIn">
-    <form action="<?=$_SERVER['PHP_SELF'].'?c=pages&a='.$changePage;?>" method="post" autocomplete= "off">
-        <? echo $changePage ?>
+    <form  method="post" autocomplete= "off">
         <h1>Mitgliederlogin</h1>
         <h5>Bitte einloggen um dein Profil zu sehen!</h5>
 
+        <? if($errorValid){ ?> <div class="error"><?echo $errorMessage?></div> <? } ?>
+
+
         <!-- username -->
         <label for="loginName">NUTZERNAME </label>
-        <input type = "text" id="loginName" name="validationName"
-            <?=isset($_POST['validationName']) ? 'value="'.htmlspecialchars($_POST['validationName']).'"' : ''?>>
+        <input type = "text" id="loginName" name="loginName"
+            <?=isset($_POST['loginName']) ? 'value="'.htmlspecialchars($_POST['loginName']).'"' : ''?>>
 
         <!-- password -->
         <label for="loginPassword">PASSWORT </label>
-        <input type = "password" id="loginPassword" name="validationPassword">
+        <input type = "password" id="loginPassword" name="loginPassword">
 
         <!-- button -->
-        <button type="submit" name="submitLogin" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
+        <button type="submit" name="submit" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
+       <!-- <input type="submit" name="submit" value="Login now!" /><br />-->
 
         <!-- checkbox -->
         <input type="checkbox" name="rememberMe" id="check"

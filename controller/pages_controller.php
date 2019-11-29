@@ -6,24 +6,7 @@ class PagesController extends Controller
 {
 
     protected function loggedInn(){
-        if (isset($_POST['submitLogin'])) {
-            $error = true;
-            $user = logIn($error);
-            if (!$error) {
-                $_SESSION['user'] = $user;
-            }
-        } else if (isset($_POST['submitLogout'])) {
-            logOut();
-        } else if (isset($_COOKIE['userId'])) {
-            $error = true;
-            $user = logIn($error, true);
-            if (!$error) {
-                $_SESSION['user'] = $user;
-            }
-        }
 
-        $loggedIn = isset($_SESSION['user']);
-        return $loggedIn;
     }
 
 
@@ -54,14 +37,31 @@ class PagesController extends Controller
 
     public function actionLogin()
     {
-        $loggedIn = $this->loggedInn();
+
         $this->_params['title'] = 'Login';
-        if (!$loggedIn) {
-            $this->_params['changePage'] = 'login';
-        }else{
-            $this->_params['changePage'] = 'profil';
+        $this->_params['errorMessage'] = 'Nutzername oder Passwort sind nicht korrekt!';
+        $error = false;
+
+        if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
+            if (isset($_POST['submit'])) {
+                $email    = $_POST['loginName'] ?? null;
+                $password = $_POST['loginPassword'] ?? null;
+                // TODO SQL-Statement einfügen
+                if($email === 'test' && $password === '123456')
+                {
+                    $_SESSION['loggedIn'] = true;
+                    header('Location: index.php?c=pages&a=profil');
+                }
+                else
+                {
+                    $error = true;
+                    $_SESSION['loggedIn'] = false;
+                }
+            }
         }
+        $this->_params['errorValid'] = $error;
     }
+
 
     public function actionUserManagement()
     {
