@@ -1,28 +1,64 @@
 <?php
 
-namespace app\controller;
+namespace FSR_AI;
 
-class PagesController extends \app\core\Controller
+class PagesController extends Controller
 {
-	public function actionIndex()
+	public function actionStart()
 	{
 		$this->_params['title'] = 'Startseite';
-		$this->_params['smallHeader'] = true;
-		$this->_params['accounts'] = \app\models\Account::findAll();
 	}
+
+    public function actionEvents()
+    {
+        $this->_params['title'] = 'Events';
+    }
+
+    public function actionAboutUs()
+    {
+        $this->_params['title'] = 'Über Uns';
+    }
+
+    public function actionContact()
+    {
+        $this->_params['title'] = 'Kontakt';
+    }
+
+    public function actionUsers()
+    {
+        $this->_params['title'] = 'Mitglieder';
+    }
+
+    public function actionLogin()
+    {
+        $this->_params['title'] = 'Login';
+    }
+
+    public function actionUserManagement()
+    {
+        $this->_params['title'] = 'Nutzerverwaltung';
+    }
+
+    public function actionEventManagement()
+    {
+        $this->_params['title'] = 'Nutzerverwaltung';
+    }
+
+    public function actionLogOut()
+    {
+        $this->_params['title'] = 'Ausgeloggt';
+    }
 
 	public function actionImprint()
 	{
 		$this->_params['title'] = 'Impressum';
-		$this->_params['smallHeader'] = true;
 	}
 
-	public function actionSubscribe()
-	{
-		$eventId = $_GET['event'] ?? '';
-		$_SESSION['event'] = isset($_SESSION['event']) ? !$_SESSION['event'] : true;
-		
-		header('Location: index.php?c=products&a=show&id='.$eventId);
-		exit(0);
-	}
+    public function actionDataprotection()
+    {
+        $this->_params['title'] = 'Datenschutz';
+    }
+
+
+
 }

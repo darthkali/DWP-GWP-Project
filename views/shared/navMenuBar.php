@@ -4,10 +4,10 @@
     <input type="checkbox" id="responsive-nav">
     <label for="responsive-nav" class="responsive-nav-label">&#9776;</label>
     <div class="navfloat">
-        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=event">Events</a>
-        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=aboutUs">Über uns</a>
-        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=contact">Kontakt</a>
-        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=users">Mitglieder</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=events">Events</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=aboutUs">Über uns</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=contact">Kontakt</a>
+        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=users">Mitglieder</a>
 
         <div class="dropdown">
                 <button class="dropbtn"><i class="fa fa-user" aria-hidden="true"></i>
@@ -16,13 +16,13 @@
             <div class="dropdown-content">
 
                 <? if(!$loggedIn){?>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=login">Login</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=login">Login</a>
                 <? } else { ?>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=profil">Profil</a>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=userManagement">Nutzerverwaltung</a>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=eventManagement">Eventverwaltung</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=profil">Profil</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=userManagement">Nutzerverwaltung</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/? c=pages&a=eventManagement">Eventverwaltung</a>
 
-                    <form action="<?=$_SERVER['PHP_SELF'].'?p=logOut';?>" method="post">
+                    <form action="<?=$_SERVER['PHP_SELF'].'?c=pages&a=logOut';?>" method="post">
                         <input type="submit" name="submitLogout" value="Abmelden">
                     </form>
                 <?}?>

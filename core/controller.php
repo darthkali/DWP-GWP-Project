@@ -1,7 +1,7 @@
 <?php
 
 
-namespace app\core;
+namespace FSR_AI;
 
 
 class Controller
@@ -20,6 +20,7 @@ class Controller
 	public function renderHTML()
 	{
 		$viewPath = $this->viewPath($this->_actionName, $this->_controllerName);
+
 
 		if(file_exists($viewPath))
 		{
@@ -44,12 +45,13 @@ class Controller
 		}
 		else
 		{
-			header('Location: index.php?c=pages&a=error404');
+		    echo $viewPath;
+			//header('Location: index.php?c=pages&a=error404');
 		}
 	}
 
 	protected function viewPath($actionName = null, $controllerName = null)
 	{
-		return __DIR__ . '/../views/' .$actionName.'.php';
+		return __DIR__ . '/../views/pages/' .$actionName.'.php';
 	}
 }

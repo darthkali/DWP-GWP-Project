@@ -1,18 +1,13 @@
 <?
+// Session start
 session_save_path(__DIR__ . DIRECTORY_SEPARATOR . '/data');
 session_start();
 
-// include all models
-foreach(glob('models/*.php') as $modelclass)
-{
-    require_once $modelclass;
-}
-
-require_once 'config/config.php';
-require_once 'core/functions.php';
+// includes
 require_once 'init/10_database.php';
+require_once 'init/20_imports.php';
 
-
+// Login  ###########################################################
 if(isset($_POST['submitLogin'])) {
     $error = true;
     $user = logIn($error);
@@ -34,7 +29,50 @@ else if(isset($_COOKIE['userId'])) {
 $loggedIn =isset($_SESSION['user']);
 $page=isset($_GET['p']) ? $_GET['p']:'start';
 $title =$page;
-?>
+// Login  ###########################################################
+
+
+$controllerName = $_GET['c'] ?? 'pages';
+$actionName = $_GET['a'] ?? 'start';
+
+$controllerPath = __DIR__.'/controller/'.$controllerName.'_controller.php';
+
+if(file_exists($controllerPath))
+{
+    require_once $controllerPath;
+
+    $controllerClassName = '\\FSR_AI\\'.ucfirst($controllerName).'Controller';
+
+    if(class_exists($controllerClassName))
+    {
+        $controllerInstance = new $controllerClassName($actionName, $controllerName);
+
+        $actionMethodName = 'action'.ucfirst($actionName);
+
+        if(method_exists($controllerInstance, $actionMethodName))
+        {
+            $controllerInstance->$actionMethodName();
+            $controllerInstance->renderHTML();
+        }
+        else
+        {
+           // header('Location: index.php?c=pages&a=error4041');
+        }
+    }
+    else
+    {
+        header('Location: index.php?c=pages&a=error4042');
+    }
+
+}
+else
+{
+    header('Location: index.php?c=pages&a=error4043');
+}
+/*
+
+
+
 <!DOCTYPE html>
 <html lang="de">
     <head>
@@ -136,3 +174,7 @@ $title =$page;
         ?>
     </body>
 </html>
+
+*/
+
+?>
