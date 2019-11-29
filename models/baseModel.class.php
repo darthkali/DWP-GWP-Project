@@ -43,7 +43,15 @@ abstract class BaseModel
     }
 
 
-    public function insert(&$errors){
+    public function save(&$errors = null){
+        if($this->id === null){
+            $this->insert($errors);
+        }else{
+            $this->update($errors);
+        }
+    }
+
+    protected function insert(&$errors){
         $db = $GLOBALS['db'];
 
         try{
@@ -72,6 +80,49 @@ abstract class BaseModel
         }
         catch(\PDOException $e){
             $errors[] = 'Error inserting '.get_called_class();
+        }
+        return false;
+    }
+
+
+    protected function update(&$errors){
+        $db = $GLOBALS['db'];
+
+        try{
+            $sql ='UPDATE ' . self::tablename() . ' SET';
+
+            foreach ($this->schema as $key => $schemaOptions){
+                if($this->data[$key] !== null){
+                    $sql .= $key . ' = ' . $db->quote($this->data[$key]).',';
+                }
+            }
+
+            $sql = trim($sql, ',');
+            $sql .= ' WHERE id = ' . $this->data['id'];
+
+            $statement = $db->prepare($sql);
+            $statement->execute();
+            return true;
+
+        }
+        catch(\PDOException $e){
+            $errors[] = 'Error updating '.get_called_class();
+        }
+        return false;
+    }
+
+
+    public function delete(&$errors = null){
+        $db = $GLOBALS['db'];
+
+        try{
+            $sql = 'DELETE ' . 'FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
+            $db->exec($sql);
+            return true;
+
+        }
+        catch(\PDOException $e){
+            $errors[] = 'Error deleting '.get_called_class();
         }
         return false;
     }
