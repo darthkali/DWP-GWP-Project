@@ -4,6 +4,7 @@
 
 <div class="Content" id="fadeIn">
     <form action="<?=$_SERVER['PHP_SELF'].'?c=pages&a='.$changePage;?>" method="post" autocomplete= "off">
+        <? echo $changePage ?>
         <h1>Mitgliederlogin</h1>
         <h5>Bitte einloggen um dein Profil zu sehen!</h5>
 

@@ -1,3 +1,26 @@
+<?
+// Login  ###########################################################
+if(isset($_POST['submitLogin'])) {
+    $error = true;
+    $user = logIn($error);
+    if(!$error) {
+        $_SESSION['user'] = $user;
+    }
+}
+else if (isset($_POST['submitLogout'])) {
+    logOut();
+}
+else if(isset($_COOKIE['userId'])) {
+    $error = true;
+    $user = logIn($error, true);
+    if(!$error) {
+        $_SESSION['user'] = $user;
+    }
+}
+
+$loggedIn =isset($_SESSION['user']);
+// Login  ###########################################################
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>

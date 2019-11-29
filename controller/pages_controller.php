@@ -56,10 +56,10 @@ class PagesController extends Controller
     {
         $loggedIn = $this->loggedInn();
         $this->_params['title'] = 'Login';
-        if ($loggedIn) {
-            $this->_params['changePage'] = 'profil';
+        if (!$loggedIn) {
+            $this->_params['changePage'] = 'login';
         }else{
-            $this->_params['changePage'] = 'Login';
+            $this->_params['changePage'] = 'profil';
         }
     }
 
