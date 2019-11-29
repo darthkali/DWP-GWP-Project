@@ -2,11 +2,16 @@
 session_save_path(__DIR__ . DIRECTORY_SEPARATOR . '/data');
 session_start();
 
-require_once './config/config.php';
-require_once './core/functions.php';
-require_once './init/10_database.php';
-require_once './models/events.php';
-require_once './models/location.php';
+// include all models
+foreach(glob('models/*.php') as $modelclass)
+{
+    require_once $modelclass;
+}
+
+require_once 'config/config.php';
+require_once 'core/functions.php';
+require_once 'init/10_database.php';
+
 
 if(isset($_POST['submitLogin'])) {
     $error = true;

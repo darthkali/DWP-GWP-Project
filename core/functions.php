@@ -193,8 +193,9 @@ function newEvent(){
 
     if (isset($_POST['eventname'])) {
         try {
-            $event = new \FSR_AI\events($_POST['eventname'], date_format(new DateTime($_POST['date']), 'd.m.Y'), $_POST['description'], "PicturePath...", $_POST['location'], $_SESSION['userId']);
-            $event->insert();
+            $params = [$_POST['eventname'], date_format(new DateTime($_POST['date']), 'd.m.Y'), $_POST['description'], "PicturePath...", $_POST['location'], $_SESSION['userId']];
+            $event = new \FSR_AI\events($params);
+            $event->save($error);
         } catch (Exception $e) {
             die('INSERT statement failed: ' . $e->getMessage());
         }
@@ -254,7 +255,7 @@ function getLocationDetails($location_id = ''){
 function printEvent(){
 
     $db = $GLOBALS['db'];
-    $sql = "select id, name, date, description, picture, location_id from events";
+    $sql = "select * from event";
 
     try{
         $results = $db->query($sql)->fetchAll();

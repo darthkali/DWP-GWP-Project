@@ -1,4 +1,5 @@
 <?php
+namespace FSR_AI;
 
 abstract class BaseModel
 {
@@ -23,7 +24,7 @@ abstract class BaseModel
     }
 
 
-    // megic method to get $data files
+    // magic method to get $data files
     public function  __get($key)
     {
         if(array_key_exists($key, $this->data)){
