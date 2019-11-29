@@ -3,7 +3,7 @@
 </div>
 
 <div class="Content" id="fadeIn">
-    <form action="<?=$_SERVER['PHP_SELF'].'?p=profil';?>" method="post" autocomplete= "off">
+    <form action="<?=$_SERVER['PHP_SELF'].'?c=pages&a='.$changePage;?>" method="post" autocomplete= "off">
         <h1>Mitgliederlogin</h1>
         <h5>Bitte einloggen um dein Profil zu sehen!</h5>
 

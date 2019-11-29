@@ -1,3 +1,26 @@
+<?
+// Login  ###########################################################
+if(isset($_POST['submitLogin'])) {
+$error = true;
+$user = logIn($error);
+if(!$error) {
+$_SESSION['user'] = $user;
+}
+}
+else if (isset($_POST['submitLogout'])) {
+logOut();
+}
+else if(isset($_COOKIE['userId'])) {
+$error = true;
+$user = logIn($error, true);
+if(!$error) {
+$_SESSION['user'] = $user;
+}
+}
+
+$loggedIn =isset($_SESSION['user']);
+// Login  ###########################################################
+?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <nav>

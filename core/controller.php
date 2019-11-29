@@ -11,7 +11,7 @@ class Controller
 
 	protected $_params = [];
 
-	public function __construct($actionName = null, $controllerName = null)
+public function __construct($actionName = null, $controllerName = null)
 	{
 		$this->_actionName = $actionName;
 		$this->_controllerName = $controllerName;
