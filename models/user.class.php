@@ -1,7 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class user extends BaseModel
+class User extends BaseModel
 {
     const TABLENAME = '`user`';
 
@@ -20,8 +20,27 @@ class user extends BaseModel
     ];
 
 
+    public static function findLogin($username, $password)
+    {
+        $db  = $GLOBALS['db'];
+        $result = null;
 
-    public function findLogin($username, $password){
-        self::find($username);
+        try
+        {
+            $sql = 'SELECT * FROM ' . self::tablename();
+
+            if(isset($username, $password))
+            {
+                $sql .= " WHERE email = '" . $username . "' and password = '". $password .  "';'";
+            }
+
+            $result = $db->query($sql)->fetch();
+        }
+        catch(\PDOException $e)
+        {
+            die('Select statment failed: ' . $e->getMessage());
+        }
+
+        return $result;
     }
 }
