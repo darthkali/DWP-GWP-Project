@@ -401,7 +401,8 @@ table input:hover{
 }
 
 .startContent img{
-    width: 30%;
+    width: 18%;
+    margin-right: 100px;
     float: right;
 
 }
