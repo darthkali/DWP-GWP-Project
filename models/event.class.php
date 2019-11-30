@@ -1,9 +1,6 @@
 <?php
 namespace FSR_AI;
 
-use app\models\PPAll;
-use app\models\Product;
-
 class event extends BaseModel
 {
     const TABLENAME = '`event`';

@@ -31,7 +31,6 @@
         </div>
 
             <?=isset($_POST['rememberMe']) ? 'checked' : ''?>
-
     </form>
 </div>
 

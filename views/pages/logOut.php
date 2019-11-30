@@ -1,2 +1,6 @@
 <?php
-echo 'Sie wurden erfolgreich abgemeldet';
+unset($_SESSION);
+session_destroy();
+session_write_close();
+header('Location: ../index.php');
+die;

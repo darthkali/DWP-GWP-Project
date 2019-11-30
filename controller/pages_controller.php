@@ -62,7 +62,11 @@ class PagesController extends Controller
             header('Location: index.php?c=pages&a=start');
         }
         $this->_params['errorValid'] = $error;
+    }
 
+    public function actionLogOut()
+    {
+        $this->_params['title'] = 'Ausgeloggt';
     }
 
 
@@ -76,10 +80,7 @@ class PagesController extends Controller
         $this->_params['title'] = 'Nutzerverwaltung';
     }
 
-    public function actionLogOut()
-    {
-        $this->_params['title'] = 'Ausgeloggt';
-    }
+
 
     public function actionprofil()
     {

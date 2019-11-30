@@ -10,7 +10,6 @@ abstract class BaseModel
     protected $schema = []; // schema for the database table (attribute names from the Table)
     protected $data = [];  // data which goes into the table
 
-
     // baseModel constructor
     public function __construct($params)
     {
@@ -22,7 +21,6 @@ abstract class BaseModel
             }
         }
     }
-
 
     // magic method to get $data files
     public function  __get($key)
@@ -42,7 +40,6 @@ abstract class BaseModel
         }
         throw new \Exception('You can not access to property "'.$key.'"" for the class "'.get_called_class());
     }
-
 
     //decides if we have an id, then the entity is already there, than we take the update, else we need an insert
     public function save(&$errors = null){
@@ -87,7 +84,6 @@ abstract class BaseModel
         return false;
     }
 
-
     // update an entity in the database
     protected function update(&$errors){
         $db = $GLOBALS['db'];
@@ -115,7 +111,6 @@ abstract class BaseModel
         return false;
     }
 
-
     // deletes an entity from the database
     public function delete(&$errors = null){
         $db = $GLOBALS['db'];
@@ -132,8 +127,7 @@ abstract class BaseModel
         return false;
     }
 
-
-    public function  validate(&$errors = null){
+    public function validate(&$errors = null){
         foreach($this->schema as $key => $schemaOptions){
             if(isset($this->data[$key]) && is_array($schemaOptions)){
                 $valueErrors = $this->validateValue($key, $this->data[$key], $schemaOptions);
@@ -149,7 +143,6 @@ abstract class BaseModel
             return false;
         }
     }
-
 
     // check the if the value is correct
     protected function  validateValue($attribute, &$value, &$schemaOptions){
@@ -175,10 +168,6 @@ abstract class BaseModel
         return count($errors) > 0 ? $errors : true;
     }
 
-
-
-
-
     // gives the tablename from the class
     public static function tablename()
     {
@@ -189,7 +178,6 @@ abstract class BaseModel
         }
         return null;
     }
-
 
     public static function find($where = '')
     {

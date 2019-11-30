@@ -22,11 +22,8 @@
                 <? } else { ?>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=profil">Profil</a>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=userManagement">Nutzerverwaltung</a>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/? c=pages&a=eventManagement">Eventverwaltung</a>
-
-                    <form action="<?=$_SERVER['PHP_SELF'].'?c=pages&a=logOut';?>" method="post">
-                        <input type="submit" name="submitLogout" value="Abmelden">
-                    </form>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=eventManagement">Eventverwaltung</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=logOut">Abmelden</a>
                 <?}?>
             </div>
         </div>
