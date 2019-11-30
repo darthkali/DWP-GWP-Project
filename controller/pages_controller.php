@@ -37,7 +37,6 @@ class PagesController extends Controller
 
     public function actionLogin()
     {
-
         $this->_params['title'] = 'Login';
         $this->_params['errorMessage'] = 'Nutzername oder Passwort sind nicht korrekt!';
         $error = false;
@@ -56,10 +55,14 @@ class PagesController extends Controller
                 {
                     $error = true;
                     $_SESSION['loggedIn'] = false;
+
                 }
             }
+        }else{
+            header('Location: index.php?c=pages&a=start');
         }
         $this->_params['errorValid'] = $error;
+
     }
 
 
@@ -91,6 +94,11 @@ class PagesController extends Controller
     public function actionDataprotection()
     {
         $this->_params['title'] = 'Datenschutz';
+    }
+
+    public function actionErrorPage()
+    {
+        $this->_params['title'] = 'Fehler';
     }
 
 

@@ -32,17 +32,17 @@ if(file_exists($controllerPath))
         else
         {
             echo $actionName;
-           header('Location: index.php?c=pages&a=error4041');
+           header('Location: index.php?c=pages&a=errorPage');
         }
     }
     else
     {
-        header('Location: index.php?c=pages&a=error4042');
+        header('Location: index.php?c=pages&a=errorPage');
     }
 
 }
 else
 {
-    header('Location: index.php?c=pages&a=error4043');
+    header('Location: index.php?c=pages&a=errorPage');
 }
 ?>

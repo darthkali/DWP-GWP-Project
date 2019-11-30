@@ -45,8 +45,7 @@ public function __construct($actionName = null, $controllerName = null)
 		}
 		else
 		{
-		    echo $viewPath;
-			//header('Location: index.php?c=pages&a=error404');
+			header('Location: index.php?c=pages&a=errorPage');
 		}
 	}
 

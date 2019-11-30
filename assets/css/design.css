@@ -265,6 +265,36 @@ form [type="file"]:hover {
     box-shadow: none;
 }
 
+
+.checkBox {
+    display: inline;
+    float: left;
+    width:auto;
+    height: auto;
+}
+.checkBox  label{
+     display: inline;
+    width: auto;
+    vertical-align: center;
+    font-size: 16px;
+    margin: 4px auto auto auto;
+}
+
+.checkBox input[type="checkbox"] {
+    width: auto;
+    display: inline;
+    height: auto;
+    float: left;
+}
+
+.checkBox input[type="checkbox"]:hover, .checkBox input[type="checkbox"]:focus {
+    box-shadow: none;
+}
+
+
+
+
+
 /* redesign the Date-Type for Input-Fields */
 form [type="date"] {
     background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;

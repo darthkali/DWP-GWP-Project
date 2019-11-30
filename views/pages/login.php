@@ -12,21 +12,26 @@
 
         <!-- username -->
         <label for="loginName">NUTZERNAME </label>
-        <input type = "text" id="loginName" name="loginName"
+        <input type = "text" id="loginName" name="loginName" required
             <?=isset($_POST['loginName']) ? 'value="'.htmlspecialchars($_POST['loginName']).'"' : ''?>>
 
         <!-- password -->
         <label for="loginPassword">PASSWORT </label>
-        <input type = "password" id="loginPassword" name="loginPassword">
+        <input type = "password" id="loginPassword" name="loginPassword" required>
 
         <!-- button -->
         <button type="submit" name="submit" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
        <!-- <input type="submit" name="submit" value="Login now!" /><br />-->
 
         <!-- checkbox -->
-        <input type="checkbox" name="rememberMe" id="check"
-            <?=isset($_POST['rememberMe']) ? 'checked' : ''?>>
-        <label for="check">angemeldet bleiben?</label>
+        <div class="checkBox">
+            <input type="checkbox" name="rememberMe" id="rememberMe">
+            <label for="rememberMe">angemeldet bleiben? </label>
+
+        </div>
+
+            <?=isset($_POST['rememberMe']) ? 'checked' : ''?>
+
     </form>
 </div>
 
