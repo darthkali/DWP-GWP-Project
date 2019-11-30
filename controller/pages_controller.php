@@ -46,9 +46,9 @@ class PagesController extends Controller
                 $email    = $_POST['loginName'] ?? null;
                 $password = $_POST['loginPassword'] ?? null;
                 // TODO SQL-Statement einfügen
-                $userLogin = User::findLogin($email, $password);
 
-                if($userLogin)
+                $where = User::buildWhereLogin($email,$password);   //Build the where statement to search the Login
+                if(User::find($where))
                 {
                     $_SESSION['loggedIn'] = true;
                     header('Location: index.php?c=pages&a=profil');
