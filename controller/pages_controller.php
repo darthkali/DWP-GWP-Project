@@ -2,37 +2,86 @@
 
 namespace FSR_AI;
 
-class PagesController extends Controller
-{
+class PagesController extends Controller{
 
     protected function loggedInn(){
 
     }
 
-
-	public function actionStart()
-	{
+	public function actionStart(){
 		$this->_params['title'] = 'Startseite';
 	}
 
-
-    public function actionEvents()
-    {
+    public function actionEvents(){
         $this->_params['title'] = 'Events';
+        $this->_params['eventList'] = Event::find('', 'geteventinfo');
     }
 
-    public function actionAboutUs()
-    {
+    public function actionSubscribe(){
+        $eventId = $_GET['event'] ?? '';
+        $_SESSION['event'] = isset($_SESSION['event']) ? !$_SESSION['event'] : true;
+
+        header('Location: index.php?c=pages&a=events&id='.$eventId);
+        exit(0);
+    }
+
+    public function actionCreateEvent(){
+        $this->_params['title'] = 'Event Erstellen';
+        $this->_params['locationsList'] = Location::find();
+        //Musst dir die view noch anlegen
+        //CREATE VIEW geteventinfo  AS  select e.`ID` AS `ID`,e.`NAME` AS `NAME`,e.`DATE` AS `DATE`,e.DESCRIPTION AS DESCRIPTION,e.PICTURE AS PICTURE,e.LOCATION_ID AS LOCATION_ID,l.STREET AS STREET,l.`NUMBER` AS `NUMBER`,l.ZIPCODE AS ZIPCODE,l.CITY AS CITY,l.ROOM AS ROOM from (`event` e join location l on(e.LOCATION_ID = l.`ID`)) ;
+    }
+
+    public function actionIntoDatabase(){
+        $siteId = $_GET['siteId'];
+        if($siteId == 0) {
+            $this->_params['title'] = 'Event Erstellen';
+            if (isset($_POST['eventName'])) {
+                $params = [
+                    'NAME'          => $_POST['eventName'],
+                    'DATE'          => $_POST['eventDate'],
+                    'PICTURE'       => '20191025-_MG_2335.jpg',
+                    'LOCATION_ID'   => $_POST['eventLocation'],
+                    'DESCRIPTION'   => $_POST['eventDescription']
+                ];
+                $event = new event($params);
+                foreach ($params as $key => $value) {
+                    $event->__set($key, $value);
+                }
+                $event->save();
+            }
+        }elseif($siteId == 1){
+            $this->_params['title'] = 'Location Erstellen';
+            if (isset($_POST['locationStreet'])) {
+                $params = [
+                    'STREET'        => $_POST['locationStreet'],
+                    'NUMBER'        => $_POST['locationNumber'],
+                    'ZIPCODE'       => $_POST['locationZipcode'],
+                    'CITY'          => $_POST['locationCity'],
+                    'ROOM'          => $_POST['locationRoom']
+                ];
+                $location = new location($params);
+                foreach ($params as $key => $value) {
+                    $location->__set($key, $value);
+                }
+                $location->save();
+            }
+        }
+    }
+
+    public function actionCreateLocation(){
+        $this->_params['title'] = 'Location Erstellen';
+    }
+
+    public function actionAboutUs(){
         $this->_params['title'] = 'Über Uns';
     }
 
-    public function actionContact()
-    {
+    public function actionContact(){
         $this->_params['title'] = 'Kontakt';
     }
 
-    public function actionUsers()
-    {
+    public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
     }
 
@@ -46,6 +95,7 @@ class PagesController extends Controller
             if (isset($_POST['submit'])) {
                 $email    = $_POST['loginName'] ?? null;
                 $password = $_POST['loginPassword'] ?? null;
+                // TODO SQL-Statement einfügen
 
                 $where = User::buildWhereLogin($email, $password);   //Build the where statement to search the Login
                 $user = User::find($where);
@@ -56,11 +106,9 @@ class PagesController extends Controller
                     $_SESSION['loggedIn'] = true;
                     header('Location: index.php?c=pages&a=profil');
                 }
-                else
-                {
+                else{
                     $error = true;
                     $_SESSION['loggedIn'] = false;
-
                 }
             }
         }else{
@@ -69,14 +117,11 @@ class PagesController extends Controller
         $this->_params['errorValid'] = $error;
     }
 
-    public function actionLogOut()
-    {
+    public function actionLogOut(){
         $this->_params['title'] = 'Ausgeloggt';
     }
 
-
-    public function actionUserManagement()
-    {
+    public function actionUserManagement(){
         $this->_params['title'] = 'Nutzerverwaltung';
 
         if(0){
@@ -87,15 +132,11 @@ class PagesController extends Controller
 
     }
 
-    public function actionEventManagement()
-    {
+    public function actionEventManagement(){
         $this->_params['title'] = 'Nutzerverwaltung';
     }
 
-
-
-    public function actionprofil()
-    {
+    public function actionprofil(){
         $this->_params['title'] = 'Profil';
         $where = 'ID = '. $_SESSION['userId'];
         $user = User::findOne($where);
@@ -104,21 +145,15 @@ class PagesController extends Controller
 
     }
 
-	public function actionImprint()
-	{
+	public function actionImprint(){
 		$this->_params['title'] = 'Impressum';
 	}
 
-    public function actionDataprotection()
-    {
+    public function actionDataprotection(){
         $this->_params['title'] = 'Datenschutz';
     }
 
-    public function actionErrorPage()
-    {
+    public function actionErrorPage(){
         $this->_params['title'] = 'Fehler';
     }
-
-
-
 }

@@ -39,10 +39,8 @@ if(file_exists($controllerPath))
     {
         header('Location: index.php?c=pages&a=errorPage');
     }
-
 }
-else
-{
+else{
     header('Location: index.php?c=pages&a=errorPage');
 }
 ?>

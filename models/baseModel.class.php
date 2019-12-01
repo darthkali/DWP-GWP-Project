@@ -14,7 +14,7 @@ abstract class BaseModel
     public function __construct($params)
     {
         foreach ($this->schema as $key => $value){
-            if(isset($key)){
+            if(isset($params[$key])){
                 $this->{$key} = $params[$key];
             }else{
                 $this->{$key} = null;
@@ -43,7 +43,7 @@ abstract class BaseModel
 
     //decides if we have an id, then the entity is already there, than we take the update, else we need an insert
     public function save(&$errors = null){
-        if($this->id === null){
+        if($this->ID === null){
             $this->insert($errors);
         }else{
             $this->update($errors);
@@ -55,7 +55,7 @@ abstract class BaseModel
         $db = $GLOBALS['db'];
 
         try{
-            $sql = 'INSERT INTO ' . self::tablename() . ' ()';
+            $sql = 'INSERT INTO ' . self::tablename() . ' (';
             $valueString = ' VALUES (';
 
             foreach ($this->schema as $key => $schemaOptions){
@@ -179,20 +179,23 @@ abstract class BaseModel
         return null;
     }
 
-    public static function find($where = '')
+    public static function find($where = '', $viewName = null)
     {
         $db  = $GLOBALS['db'];
         $result = null;
 
         try
         {
-            $sql = 'SELECT * FROM ' . self::tablename();
+            if(!$viewName) {
+               $viewName = self::tablename();
+            }
 
+            $sql = 'SELECT * FROM ' . $viewName;
             if(!empty($where))
             {
                 $sql .= ' WHERE ' . $where .  ';';
             }
-
+                    
             $result = $db->query($sql)->fetchAll();
         }
         catch(\PDOException $e)
