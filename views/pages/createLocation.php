@@ -2,7 +2,7 @@
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off"" method="post">
+    <form autocomplete="off" action="index.php?c=pages&a=IntoDatabase&siteId=1" method="post">
 
         <h1>Location erstellen</h1>
 
@@ -27,7 +27,7 @@
         <input type = "text" id="locationRoom" name="locationRoom" placeholder="Raum (Optional)">
 
         <!-- button -->
-        <button type="submit" name="senden">Location erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit">Location erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         <button type="reset">Eingaben Löschen</button>
     </form>
 </div>

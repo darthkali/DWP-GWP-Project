@@ -30,16 +30,40 @@ class PagesController extends Controller{
         $this->_params['locationsList'] = Location::find();
     }
 
-    public function actionEventIntoDatabase(){
-        $this->_params['title'] = 'Event Erstellen';
-        if(isset($_POST['eventName'])) {
-            $params['NAME'] = $_POST['eventName'];
-            $params['DATE'] = $_POST['eventDate'];
-            $params['PICTURE'] = '20191025-_MG_2335.jpg';
-            $params['LOCATION_ID'] = $_POST['eventLocation'];
-            $params['DESCRIPTION'] = $_POST['eventDescription'];
-            $event = new event($params);
-            //die($event->__get('PICTURE'));
+    public function actionIntoDatabase(){
+        $siteId = $_GET['siteId'];
+        if($siteId == 0) {
+            $this->_params['title'] = 'Event Erstellen';
+            if (isset($_POST['eventName'])) {
+                $params = [
+                    'NAME'          => $_POST['eventName'],
+                    'DATE'          => $_POST['eventDate'],
+                    'PICTURE'       => '20191025-_MG_2335.jpg',
+                    'LOCATION_ID'   => $_POST['eventLocation'],
+                    'DESCRIPTION'   => $_POST['eventDescription']
+                ];
+                $event = new event($params);
+                foreach ($params as $key => $value) {
+                    $event->__set($key, $value);
+                }
+                $event->save();
+            }
+        }elseif($siteId == 1){
+            $this->_params['title'] = 'Location Erstellen';
+            if (isset($_POST['locationStreet'])) {
+                $params = [
+                    'STREET'        => $_POST['locationStreet'],
+                    'NUMBER'        => $_POST['locationNumber'],
+                    'ZIPCODE'       => $_POST['locationZipcode'],
+                    'CITY'          => $_POST['locationCity'],
+                    'ROOM'          => $_POST['locationRoom']
+                ];
+                $location = new location($params);
+                foreach ($params as $key => $value) {
+                    $location->__set($key, $value);
+                }
+                $location->save();
+            }
         }
     }
 

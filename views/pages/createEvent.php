@@ -2,7 +2,7 @@
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="index.php?c=pages&a=EventIntoDatabase" method="post">
+    <form autocomplete="off" action="index.php?c=pages&a=IntoDatabase&siteId=0" method="post">
 
         <h1>Event erstellen</h1>
 
@@ -34,8 +34,7 @@
         <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required></textarea>
 
         <!-- button -->
-        <button type="submit">Event Erstellen</button>
-
+        <button type="submit">Event Erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         <button type="reset">Eingaben Löschen</button>
     </form>
 </div>
