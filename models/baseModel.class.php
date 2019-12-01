@@ -187,13 +187,37 @@ abstract class BaseModel
         try
         {
             $sql = 'SELECT * FROM ' . self::tablename();
-                
+
             if(!empty($where))
             {
                 $sql .= ' WHERE ' . $where .  ';';
             }
-                    
+
             $result = $db->query($sql)->fetchAll();
+        }
+        catch(\PDOException $e)
+        {
+            die('Select statment failed: ' . $e->getMessage());
+        }
+
+        return $result;
+    }
+
+    public static function findOne($where = '')
+    {
+        $db  = $GLOBALS['db'];
+        $result = null;
+
+        try
+        {
+            $sql = 'SELECT * FROM ' . self::tablename();
+
+            if(!empty($where))
+            {
+                $sql .= ' WHERE ' . $where .  ';';
+            }
+
+            $result = $db->query($sql)->fetch();
         }
         catch(\PDOException $e)
         {

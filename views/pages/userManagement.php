@@ -6,15 +6,23 @@
     <h1>Nutzerverwaltung</h1>
     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=newUser"> <button type="button">neuen Nutzer anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
 
+    <form action method=get>
+        <div class="checkBox" >
+            <input type="checkbox" name="onlyMember" id="onlyMember">
+            <label for="onlyMember">nur Mitarbeiter anzeigen? </label>
+        </div>
+    </form>
+
+    <?php
+    // <label><input type="checkbox" name="active"> Text</label>
+
+    $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);
+    ?>
 
     <br><br>
     <h3>Aktive Nutzer</h3>
     <?
-    $rows = 12;
-    $cols = count($accounts[0]);
-
-    $border =  'border ="1"';
-    $html = '<table ' . $border . '>';
+    $html = '<table border ="1">';
     $html .= '<tr>'.
         '<th>id</th>' .
         '<th>Vorname</th>'.
@@ -25,33 +33,28 @@
         '<th>Optionen</th>'.
         '</tr>';
 
-
     foreach($accounts as $index => $account) {
-    $html .= '<tr>';
+        $html .= '<tr>';
+            $html .= '<td>'. $accounts[$index]['ID' ]. '</td>';
+            $html .= '<td>'. $accounts[$index]['FIRSTNAME'    ]. '</td>';
+            $html .= '<td>'. $accounts[$index]['LASTNAME'     ]. '</td>';
+            $html .= '<td>'. $accounts[$index]['DATE_OF_BIRTH']. '</td>';
+            $html .= '<td>'. $accounts[$index]['EMAIL'        ]. '</td>';
+            $html .= '<td>'. $accounts[$index]['ROLE_ID'  ]. '</td>';
 
-    $html .= '<td>'. $accounts[$index]['ID' ]. '</td>';
-    $html .= '<td>'. $accounts[$index]['FIRSTNAME'    ]. '</td>';
-    $html .= '<td>'. $accounts[$index]['LASTNAME'     ]. '</td>';
-    $html .= '<td>'. $accounts[$index]['DATE_OF_BIRTH']. '</td>';
-    $html .= '<td>'. $accounts[$index]['EMAIL'        ]. '</td>';
-    $html .= '<td>'. $accounts[$index]['ROLE_ID'  ]. '</td>';
-
-    $html .= '<td>';
-    $html .= '<a href="';
-    $html .= $_SERVER['SCRIPT_NAME'];
-    $html .= '/?p=profil">';
-    $html .= '<input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>';
-    $html .= '<input type="image" name="message[8c9aa635455b033d2bcb9c3b24489ec7]" title="Nachricht senden" src="/FSAI-Site/assets/images/email.png" alt="Nachricht" style="outline:0;">';
-    $html .= '<input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="User entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;" onclick="return confirm("Soll der Benutzer: Test Test wirklich entfernt werden?")">';
-
-
+            $html .= '<td>';
+                $html .= '<a href="';
+                $html .= $_SERVER['SCRIPT_NAME'];
+                $html .= '/?p=profil">';
+                $html .= '<input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>';
+                $html .= '<input type="image" name="message[8c9aa635455b033d2bcb9c3b24489ec7]" title="Nachricht senden" src="/FSAI-Site/assets/images/email.png" alt="Nachricht" style="outline:0;">';
+                $html .= '<input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="User entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;" onclick="return confirm("Soll der Benutzer: Test Test wirklich entfernt werden?")">';
             $html .= '</td>';
         $html .= '</tr>';
 
-    }
-    $html .= '</table>';
-    echo $html;
-
+        }
+        $html .= '</table>';
+        echo $html;
     ?>
 </div>
 >

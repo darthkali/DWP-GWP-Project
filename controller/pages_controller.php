@@ -15,6 +15,7 @@ class PagesController extends Controller
 		$this->_params['title'] = 'Startseite';
 	}
 
+
     public function actionEvents()
     {
         $this->_params['title'] = 'Events';
@@ -45,11 +46,13 @@ class PagesController extends Controller
             if (isset($_POST['submit'])) {
                 $email    = $_POST['loginName'] ?? null;
                 $password = $_POST['loginPassword'] ?? null;
-                // TODO SQL-Statement einfügen
 
-                $where = User::buildWhereLogin($email,$password);   //Build the where statement to search the Login
-                if(User::find($where))
+                $where = User::buildWhereLogin($email, $password);   //Build the where statement to search the Login
+                $user = User::find($where);
+                if($user)
                 {
+                    $userID = $user[0]['ID'];
+                    $_SESSION['userId'] = $userID;
                     $_SESSION['loggedIn'] = true;
                     header('Location: index.php?c=pages&a=profil');
                 }
@@ -94,6 +97,11 @@ class PagesController extends Controller
     public function actionprofil()
     {
         $this->_params['title'] = 'Profil';
+        $where = 'ID = '. $_SESSION['userId'];
+        $user = User::findOne($where);
+        $this->_params['userProfil'] = $user;
+        //debug_to_console($user[0]);
+
     }
 
 	public function actionImprint()
