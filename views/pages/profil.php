@@ -10,36 +10,31 @@
         <!-- frontname -->
         <label for="frontname">VORNAME </label>
         <input type = "text" id="frontname" name="frontname"
-               value = "<?=htmlspecialchars(user($_SESSION['user'])['firstName'])?>">
+                value = "<?=htmlspecialchars($userProfil['FIRSTNAME'])?>">
 
         <!-- rearname -->
         <label for="rearname">NACHNAME </label>
         <input type = "text" id="rearname" name="rearname"
-               value = "<?=htmlspecialchars(user($_SESSION['user'])['lastName'])?>">
+               value = "<?=htmlspecialchars($userProfil['LASTNAME'])?>">
 
         <!-- email -->
         <label for="email">EMAIL </label>
         <input type = "email" id="email" name="email"
-               value = "<?=htmlspecialchars(user($_SESSION['user'])['email'])?>">
+               value = "<?=htmlspecialchars($userProfil['EMAIL'])?>">
 
         <!-- date of birth -->
         <label for="dateOfBirth">GEBURTSDATUM </label>
         <input type = "date" id="dateOfBirth" name="dateOfBirth"
-               value = "<?=htmlspecialchars(user($_SESSION['user'])['dateOfBirth'])?>">
-
-        <!-- username -->
-        <label for="username">NUTZERNAME </label>
-        <input type = "text" id="username" name="username"
-               value = "<?=htmlspecialchars(user($_SESSION['user'])['username'])?>">
+               value = "<?=htmlspecialchars($userProfil['DATE_OF_BIRTH'])?>">
 
         <!-- picture -->
         <label for="picture">BILD </label>
         <input type = "file"  accept=".jpg, .jpeg, .png" id="picture" name="picture"
-               value = "<?=htmlspecialchars(user($_SESSION['user'])['picture'])?>">
+               value = "<?=htmlspecialchars($userProfil['PICTURE'])?>">
 
         <!-- description -->
         <label for="description">BESCHREIBUNG  </label>
-            <textarea name="description" id="description" cols="44" rows="5"><?=htmlspecialchars(user($_SESSION['user'])['description'])?></textarea>
+            <textarea name="description" id="description" cols="44" rows="5"><?=htmlspecialchars($userProfil['DESCRIPTION'])?></textarea>
 
         <!-- buttons -->
         <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

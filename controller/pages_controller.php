@@ -85,7 +85,8 @@ class PagesController extends Controller{
         $this->_params['title'] = 'Mitglieder';
     }
 
-    public function actionLogin(){
+    public function actionLogin()
+    {
         $this->_params['title'] = 'Login';
         $this->_params['errorMessage'] = 'Nutzername oder Passwort sind nicht korrekt!';
         $error = false;
@@ -96,8 +97,12 @@ class PagesController extends Controller{
                 $password = $_POST['loginPassword'] ?? null;
                 // TODO SQL-Statement einfügen
 
-                $where = User::buildWhereLogin($email,$password);   //Build the where statement to search the Login
-                if(User::find($where)){
+                $where = User::buildWhereLogin($email, $password);   //Build the where statement to search the Login
+                $user = User::find($where);
+                if($user)
+                {
+                    $userID = $user[0]['ID'];
+                    $_SESSION['userId'] = $userID;
                     $_SESSION['loggedIn'] = true;
                     header('Location: index.php?c=pages&a=profil');
                 }
@@ -124,6 +129,7 @@ class PagesController extends Controller{
         }else{
             $this->_params['accounts'] = User::find('1');
         }
+
     }
 
     public function actionEventManagement(){
@@ -132,6 +138,11 @@ class PagesController extends Controller{
 
     public function actionprofil(){
         $this->_params['title'] = 'Profil';
+        $where = 'ID = '. $_SESSION['userId'];
+        $user = User::findOne($where);
+        $this->_params['userProfil'] = $user;
+        //debug_to_console($user[0]);
+
     }
 
 	public function actionImprint(){
