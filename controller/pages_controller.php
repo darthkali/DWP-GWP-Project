@@ -40,7 +40,7 @@ class PagesController extends Controller{
                 $params = [
                     'NAME'          => $_POST['eventName'],
                     'DATE'          => $_POST['eventDate'],
-                    'PICTURE'       => '20191025-_MG_2335.jpg',
+                    'PICTURE'       => $_FILES['eventPicture']['name'],
                     'LOCATION_ID'   => $_POST['eventLocation'],
                     'DESCRIPTION'   => $_POST['eventDescription']
                 ];
@@ -49,6 +49,8 @@ class PagesController extends Controller{
                     $event->__set($key, $value);
                 }
                 $event->save();
+                $dataDir = 'assets/images/upload/'.$_FILES['eventPicture']['name'];
+                move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
         }elseif($siteId == 1){
             $this->_params['title'] = 'Location Erstellen';

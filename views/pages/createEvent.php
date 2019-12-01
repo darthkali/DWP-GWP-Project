@@ -2,7 +2,7 @@
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="index.php?c=pages&a=IntoDatabase&siteId=0" method="post">
+    <form autocomplete="off" action="index.php?c=pages&a=IntoDatabase&siteId=0" method="post" enctype="multipart/form-data">
 
         <h1>Event erstellen</h1>
 
@@ -33,8 +33,8 @@
         <label for="description">BESCHREIBUNG</label>
         <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required></textarea>
 
-        <label for="picture">BILD </label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="picture" name="picture">
+        <label for="picture">BILD</label>
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture">
 
         <!-- button -->
         <button type="submit">Event Erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

@@ -1,3 +1,3 @@
 <?
-header('Location: index.php?c=pages&a=Start&');
+header('Location: index.php?c=pages&a=Start');
 die;

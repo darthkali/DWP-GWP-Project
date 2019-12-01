@@ -21,6 +21,6 @@
     );
     printTable($myArray);
     ?>
-    <a href="index.php?c=pages&a=CreateEvent"><button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+    <a href="?c=pages&a=CreateEvent"><button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
     <a href=""><button type="button">Event bearbeiten<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
 </div>
