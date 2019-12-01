@@ -1,4 +1,14 @@
 <?
+
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
+
 function printTable($content, $borderIsVisible = true){
     $rows = count($content);
     $cols = count($content[0]);
@@ -40,6 +50,9 @@ function printTable($content, $borderIsVisible = true){
         $html .= '</table>';
         echo $html;
 }
+
+
+
 // create an Array which has all users included
 function allUsers(){
     $dbString =file_get_contents(DATABASE);

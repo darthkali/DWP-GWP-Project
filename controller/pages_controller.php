@@ -75,6 +75,7 @@ class PagesController extends Controller
     public function actionUserManagement()
     {
         $this->_params['title'] = 'Nutzerverwaltung';
+        $this->_params['accounts'] = User::find('1');
     }
 
     public function actionEventManagement()
