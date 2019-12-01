@@ -14,7 +14,7 @@ abstract class BaseModel
     public function __construct($params)
     {
         foreach ($this->schema as $key => $value){
-            if(isset($key)){
+            if(isset($params[$key])){
                 $this->{$key} = $params[$key];
             }else{
                 $this->{$key} = null;
@@ -55,7 +55,7 @@ abstract class BaseModel
         $db = $GLOBALS['db'];
 
         try{
-            $sql = 'INSERT INTO ' . self::tablename() . ' ()';
+            $sql = 'INSERT INTO ' . self::tablename() . ' (';
             $valueString = ' VALUES (';
 
             foreach ($this->schema as $key => $schemaOptions){

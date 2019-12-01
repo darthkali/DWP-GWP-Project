@@ -14,8 +14,37 @@ class PagesController extends Controller{
 
     public function actionEvents(){
         $this->_params['title'] = 'Events';
-        $this->_params['eventList'] = Event::find();
-        $this->_params['locationList'] = location::find();
+        $this->_params['eventList'] = Event::findEventInfo();
+    }
+
+    public function actionSubscribe(){
+        $eventId = $_GET['event'] ?? '';
+        $_SESSION['event'] = isset($_SESSION['event']) ? !$_SESSION['event'] : true;
+
+        header('Location: index.php?c=pages&a=events&id='.$eventId);
+        exit(0);
+    }
+
+    public function actionCreateEvent(){
+        $this->_params['title'] = 'Event Erstellen';
+        $this->_params['locationsList'] = Location::find();
+    }
+
+    public function actionEventIntoDatabase(){
+        $this->_params['title'] = 'Event Erstellen';
+        if(isset($_POST['eventName'])) {
+            $params['NAME'] = $_POST['eventName'];
+            $params['DATE'] = $_POST['eventDate'];
+            $params['PICTURE'] = '20191025-_MG_2335.jpg';
+            $params['LOCATION_ID'] = $_POST['eventLocation'];
+            $params['DESCRIPTION'] = $_POST['eventDescription'];
+            $event = new event($params);
+            //die($event->__get('PICTURE'));
+        }
+    }
+
+    public function actionCreateLocation(){
+        $this->_params['title'] = 'Location Erstellen';
     }
 
     public function actionAboutUs(){
