@@ -74,19 +74,7 @@ div#FooterRight a img {
     margin-left: 10px;
 }
 
-@media only screen and (max-width: 820px) {
-    div#FooterLeft {
-        width: 50% !important;
-    }
 
-    div#FooterMiddle{
-        display: none !important;
-    }
-
-    div#FooterRight{
-        width: 50% !important;
-    }
-}
 /* ----------------------------------   Content   ---------------------------------- */
 .Content {
     background: #ffffff;

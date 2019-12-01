@@ -39,6 +39,19 @@
         display: block;
     }
 
+    div#FooterLeft {
+        width: 70% !important;
+    }
+
+    div#FooterMiddle{
+        display: none !important;
+    }
+
+    div#FooterRight{
+        width: 30% !important;
+
+    }
+
     /* ----------------------------------   Site - Picture   ---------------------------------- */
     .SitePicture {display: none ;}
 
@@ -50,3 +63,4 @@
 @media (max-width: 1200px){.pictureRaster ul{grid-template-columns: repeat(auto-fill, calc(100% / 3));}}    /* 3 Columns */
 @media (max-width: 950px) {.pictureRaster ul{grid-template-columns: repeat(auto-fill, calc(100% / 2));}}    /* 2 Columns */
 @media (max-width: 700px) {.pictureRaster ul{grid-template-columns: repeat(auto-fill, 100%);}}              /* 1 Column  */
+
