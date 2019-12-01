@@ -10,7 +10,7 @@
         if($event['ROOM']){
             $locationData .= ', Raum: '.$event['ROOM'];
         }
-        echo '
+        $html = '
         <div class="ContentEvents">
             <img src="/FSAI-Site/assets/images/PictureRaster/'.$event['PICTURE'].'">
             <div>
@@ -19,12 +19,22 @@
                     <strong>Datum: </strong>'.$event['DATE'].'<br>
                     <strong>Ort: </strong>'.$locationData.'</p>
                 <p>'.$event['DESCRIPTION'].'</p>
-            </div>
-            <div class="ContentEventsButton">
-                <a href="index.php?c=pages&a=subscribe&event='.$event['ID'].'"><button>'.$eventButton.'</button></a>
-            </div>
-        </div>';
+            </div>';
+
+
+        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true){
+            $html .= '  <div class="ContentEventsButton">
+                        <a href="index.php?c=pages&a=subscribe&event='.$event['ID'].'"><button>'.$eventButton.'</button></a>
+                        </div>';
+        }else{
+
+            $html .= '<strong>Zum anmelden bitte anmelden!</strong>';
+        }
+        $html .= '</div>';
+        echo $html;
     }
+
+
     ?>
 </div>
 
