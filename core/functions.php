@@ -208,7 +208,7 @@ function newEvent(){
         try {
             $params = [$_POST['eventname'], date_format(new DateTime($_POST['date']), 'd.m.Y'), $_POST['description'], "PicturePath...", $_POST['location'], $_SESSION['userId']];
             $event = new \FSR_AI\events($params);
-            $event->save($error);
+            //$event->save($error);
         } catch (Exception $e) {
             die('INSERT statement failed: ' . $e->getMessage());
         }
@@ -221,7 +221,7 @@ function newLocation(){
     if(isset($_POST['locationStreet'])){
         try{
            $location = new \FSR_AI\location($_POST['locationStreet'], $_POST['locationNumber'], $_POST['locationZipcode'], $_POST['locationCity'], $_POST['locationRoom']);
-           $location->insert();
+          // $location->insert();
         }catch(Exception $e){
             die('Failed to INSERT'.$e->getMessage());
         }
@@ -262,36 +262,5 @@ function getLocationDetails($location_id = ''){
                 echo '<option value="'.$output['id'].'">'.$output['city'].', '.$output['street'].' '.$output['number'].', '.$output['zipcode'].', Raum: '.$output['room'].'</option>';
             }
         }
-    }
-}
-
-function printEvent(){
-
-    $db = $GLOBALS['db'];
-    $sql = "select * from event";
-
-    try{
-        $results = $db->query($sql)->fetchAll();
-    }catch(Exception $e){
-
-        die('Failed to Select from location:'.$e->getMessage());
-    }
-
-    foreach ($results as $output){
-
-        $location = getLocationDetails($output['location_id']);
-        echo '<div class="ContentEvents">
-                <img src="/FSAI-Site/assets/images/PictureRaster/'.$output['picture'].'">
-                <div>
-                    <h2>'.$output['name'].'</h2>
-                    <p>
-                        <strong>Datum: </strong>'.$output['date'].'<br>
-                        <strong>Ort: </strong>'.$location.'</p>
-                    <p>'.$output['description'].'</p>
-                </div>
-                <div class="ContentEventsButton">   
-                    <button type="button">Für das Event Anmelden</button>
-                </div>
-            </div>';
     }
 }

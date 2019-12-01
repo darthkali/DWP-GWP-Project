@@ -2,41 +2,35 @@
 
 namespace FSR_AI;
 
-class PagesController extends Controller
-{
+class PagesController extends Controller{
 
     protected function loggedInn(){
 
     }
 
-
-	public function actionStart()
-	{
+	public function actionStart(){
 		$this->_params['title'] = 'Startseite';
 	}
 
-    public function actionEvents()
-    {
+    public function actionEvents(){
         $this->_params['title'] = 'Events';
+        $this->_params['eventList'] = Event::find();
+        $this->_params['locationList'] = location::find();
     }
 
-    public function actionAboutUs()
-    {
+    public function actionAboutUs(){
         $this->_params['title'] = 'Über Uns';
     }
 
-    public function actionContact()
-    {
+    public function actionContact(){
         $this->_params['title'] = 'Kontakt';
     }
 
-    public function actionUsers()
-    {
+    public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin(){
         $this->_params['title'] = 'Login';
         $this->_params['errorMessage'] = 'Nutzername oder Passwort sind nicht korrekt!';
         $error = false;
@@ -48,16 +42,13 @@ class PagesController extends Controller
                 // TODO SQL-Statement einfügen
 
                 $where = User::buildWhereLogin($email,$password);   //Build the where statement to search the Login
-                if(User::find($where))
-                {
+                if(User::find($where)){
                     $_SESSION['loggedIn'] = true;
                     header('Location: index.php?c=pages&a=profil');
                 }
-                else
-                {
+                else{
                     $error = true;
                     $_SESSION['loggedIn'] = false;
-
                 }
             }
         }else{
@@ -66,14 +57,11 @@ class PagesController extends Controller
         $this->_params['errorValid'] = $error;
     }
 
-    public function actionLogOut()
-    {
+    public function actionLogOut(){
         $this->_params['title'] = 'Ausgeloggt';
     }
 
-
-    public function actionUserManagement()
-    {
+    public function actionUserManagement(){
         $this->_params['title'] = 'Nutzerverwaltung';
 
         if(0){
@@ -81,36 +69,25 @@ class PagesController extends Controller
         }else{
             $this->_params['accounts'] = User::find('1');
         }
-
     }
 
-    public function actionEventManagement()
-    {
+    public function actionEventManagement(){
         $this->_params['title'] = 'Nutzerverwaltung';
     }
 
-
-
-    public function actionprofil()
-    {
+    public function actionprofil(){
         $this->_params['title'] = 'Profil';
     }
 
-	public function actionImprint()
-	{
+	public function actionImprint(){
 		$this->_params['title'] = 'Impressum';
 	}
 
-    public function actionDataprotection()
-    {
+    public function actionDataprotection(){
         $this->_params['title'] = 'Datenschutz';
     }
 
-    public function actionErrorPage()
-    {
+    public function actionErrorPage(){
         $this->_params['title'] = 'Fehler';
     }
-
-
-
 }

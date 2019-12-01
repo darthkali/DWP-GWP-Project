@@ -6,14 +6,13 @@ class event extends BaseModel
     const TABLENAME = '`event`';
 
     protected $schema = [
-        'id'               => [ 'type' => BaseModel::TYPE_INT ],
-        'created_at'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'updated_at'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'name'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45 ],
-        'date'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45  ],
-        'description'      => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 300 ],
-        'picture'          => [ 'type' => BaseModel::TYPE_STRING ],
-        'location_id'      => [ 'type' => BaseModel::TYPE_INT ]
+        'ID'               => [ 'type' => BaseModel::TYPE_INT ],
+        'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
+        'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
+        'NAME'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45 ],
+        'DATE'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45  ],
+        'DESCRIPTION'      => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 300 ],
+        'PICTURE'          => [ 'type' => BaseModel::TYPE_STRING ],
+        'LOCATION_ID'      => [ 'type' => BaseModel::TYPE_INT ]
     ];
-
 }
