@@ -34,7 +34,7 @@
         <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required></textarea>
 
         <label for="picture">BILD</label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture">
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" required>
 
         <!-- button -->
         <button type="submit">Event Erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

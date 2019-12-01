@@ -4,7 +4,6 @@
 <div class="Content" id="fadeIn">
     <h1>Unsere Events</h1>
     <?
-    $eventButton = "Anmelden";
     foreach($eventList as $event) {
         $locationData = $event['CITY'] . ', ' . $event['STREET'] . ' ' . $event['NUMBER'] . ', ' . $event['ZIPCODE'];
         if ($event['ROOM']) {
@@ -22,7 +21,7 @@
             </div>';
         if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
             $html .= '  <div class="ContentEventsButton">
-                        <a href="index.php?c=pages&a=subscribe&event=' . $event['ID'] . '"><button>' . $eventButton . '</button></a>
+                        <a href="index.php?c=pages&a=Booking&eventId=' . $event['ID'] . '"><button>' . $eventButton . '</button></a>
                         </div>';
         } else {
 

@@ -8,6 +8,28 @@ class PagesController extends Controller{
 
     }
 
+    public function actionBooking(){
+        $this->_params['title'] = 'Eventanmeldung';
+        $userId = $_SESSION['userId'];
+        $eventId = $_GET['eventId'];
+        $where = Booking::buildWhereBooking($userId, $eventId);
+        if(Booking::find($where)){
+            if (isset($_GET['eventId'])) {
+                $params = [
+                    'EVENTS_ID'   => $eventId,
+                    'MEMBER_ID'   => $userId
+                ];
+                $booking = new booking($params);
+                foreach ($params as $key => $value) {
+                    $booking->__set($key, $value);
+                }
+                $booking->save();
+            }
+        }else{
+            die('Sie sind schon angemeldet!');
+        }
+    }
+
 	public function actionStart(){
 		$this->_params['title'] = 'Startseite';
 	}
@@ -15,6 +37,7 @@ class PagesController extends Controller{
     public function actionEvents(){
         $this->_params['title'] = 'Events';
         $this->_params['eventList'] = Event::find('', 'geteventinfo');
+        $this->_params['eventButton'] = 'Anmelden';
     }
 
     public function actionSubscribe(){
@@ -28,6 +51,8 @@ class PagesController extends Controller{
     public function actionCreateEvent(){
         $this->_params['title'] = 'Event Erstellen';
         $this->_params['locationsList'] = Location::find();
+
+
         //Musst dir die view noch anlegen
         //CREATE VIEW geteventinfo  AS  select e.`ID` AS `ID`,e.`NAME` AS `NAME`,e.`DATE` AS `DATE`,e.DESCRIPTION AS DESCRIPTION,e.PICTURE AS PICTURE,e.LOCATION_ID AS LOCATION_ID,l.STREET AS STREET,l.`NUMBER` AS `NUMBER`,l.ZIPCODE AS ZIPCODE,l.CITY AS CITY,l.ROOM AS ROOM from (`event` e join location l on(e.LOCATION_ID = l.`ID`)) ;
     }
