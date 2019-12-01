@@ -24,13 +24,5 @@ class User extends BaseModel
         return " email = '" . $email . "' and password = '". $password .  "';'";
     }
 
-    /**
-     * @return array
-     */
-    public function getSchema(): array
-    {
-        return $this->schema;
-    }
-
 
 }
