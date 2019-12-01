@@ -14,7 +14,7 @@ class PagesController extends Controller{
 
     public function actionEvents(){
         $this->_params['title'] = 'Events';
-        $this->_params['eventList'] = Event::findEventInfo();
+        $this->_params['eventList'] = Event::find('', 'geteventinfo');
     }
 
     public function actionSubscribe(){

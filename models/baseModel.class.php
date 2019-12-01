@@ -179,15 +179,18 @@ abstract class BaseModel
         return null;
     }
 
-    public static function find($where = '')
+    public static function find($where = '', $viewName = null)
     {
         $db  = $GLOBALS['db'];
         $result = null;
 
         try
         {
-            $sql = 'SELECT * FROM ' . self::tablename();
-                
+            if(!$viewName) {
+               $viewName = self::tablename();
+            }
+
+            $sql = 'SELECT * FROM ' . $viewName;
             if(!empty($where))
             {
                 $sql .= ' WHERE ' . $where .  ';';

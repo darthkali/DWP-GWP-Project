@@ -15,27 +15,4 @@ class event extends BaseModel
         'PICTURE'          => [ 'type' => BaseModel::TYPE_STRING ],
         'LOCATION_ID'      => [ 'type' => BaseModel::TYPE_INT ]
     ];
-
-    public static function findEventInfo(){
-        $db  = $GLOBALS['db'];
-        $result = null;
-
-        try
-        {
-            $sql = 'SELECT * FROM ' . 'geteventinfo';
-
-            if(!empty($where))
-            {
-                $sql .= ' WHERE ' . $where .  ';';
-            }
-
-            $result = $db->query($sql)->fetchAll();
-        }
-        catch(\PDOException $e)
-        {
-            die('Select statment failed: ' . $e->getMessage());
-        }
-
-        return $result;
-    }
 }
