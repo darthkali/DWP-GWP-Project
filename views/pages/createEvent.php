@@ -33,6 +33,9 @@
         <label for="description">BESCHREIBUNG</label>
         <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required></textarea>
 
+        <label for="picture">BILD </label>
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="picture" name="picture">
+
         <!-- button -->
         <button type="submit">Event Erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         <button type="reset">Eingaben Löschen</button>
