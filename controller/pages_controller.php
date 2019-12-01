@@ -28,6 +28,8 @@ class PagesController extends Controller{
     public function actionCreateEvent(){
         $this->_params['title'] = 'Event Erstellen';
         $this->_params['locationsList'] = Location::find();
+        //Musst dir die view noch anlegen
+        //CREATE VIEW geteventinfo  AS  select e.`ID` AS `ID`,e.`NAME` AS `NAME`,e.`DATE` AS `DATE`,e.DESCRIPTION AS DESCRIPTION,e.PICTURE AS PICTURE,e.LOCATION_ID AS LOCATION_ID,l.STREET AS STREET,l.`NUMBER` AS `NUMBER`,l.ZIPCODE AS ZIPCODE,l.CITY AS CITY,l.ROOM AS ROOM from (`event` e join location l on(e.LOCATION_ID = l.`ID`)) ;
     }
 
     public function actionIntoDatabase(){
