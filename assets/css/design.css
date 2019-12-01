@@ -41,42 +41,6 @@ footer {
     vertical-align: middle;
 }
 
-@media only screen and (max-width: 820px) {
-
-    footer {
-        padding: 10px;
-        color: #fff;
-        position:absolute;         /*fixed the Footerbar on the Bottom*/
-        bottom: 0;
-        height:40px;
-        width: 100%;
-        background: #333333;
-        z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
-        vertical-align: middle;
-    }
-
-    div#FooterLeft {
-        font-size: 16px;
-        float: left;
-        width: 50% !important;
-    }
-
-    div#FooterMiddle{
-        display: none !important;
-    }
-
-    div#FooterRight{
-        float: right;
-        width: 50%;
-    }
-
-    div#FooterRight a img {
-        float: right;
-        height: 16px;
-        margin-right: 10px;
-    }
-}
-
 div#FooterLeft {
     float: left;
     width: 33%;
@@ -107,9 +71,22 @@ div#FooterRight{
 div#FooterRight a img {
     float: right;
     height: 16px;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
+@media only screen and (max-width: 820px) {
+    div#FooterLeft {
+        width: 50% !important;
+    }
+
+    div#FooterMiddle{
+        display: none !important;
+    }
+
+    div#FooterRight{
+        width: 50% !important;
+    }
+}
 /* ----------------------------------   Content   ---------------------------------- */
 .Content {
     background: #ffffff;
