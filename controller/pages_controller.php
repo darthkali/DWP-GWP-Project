@@ -14,9 +14,10 @@ class PagesController extends Controller{
         $this->_params['title'] = 'Eventanmeldung';
         $userId = $_SESSION['userId'];
         $eventId = $_GET['eventId'];
-        $where = Booking::buildWhereBooking($userId, $eventId);
-        if(Booking::find($where)){
-            if (isset($_GET['eventId'])) {
+
+        $booking = Booking::find(Booking::buildWhereBooking($userId, $eventId));
+
+        if(!$booking){
                 $params = [
                     'EVENTS_ID'   => $eventId,
                     'MEMBER_ID'   => $userId
@@ -26,9 +27,9 @@ class PagesController extends Controller{
                     $booking->__set($key, $value);
                 }
                 $booking->save();
-            }
+                $_SESSION['eventButton'] = 'Abmelden';
         }else{
-            die('Sie sind schon angemeldet!');
+            Booking::deleteWhereUserIdEventId(Booking::buildWhereBooking($userId, $eventId));
         }
     }
 
@@ -39,7 +40,6 @@ class PagesController extends Controller{
     public function actionEvents(){
         $this->_params['title'] = 'Events';
         $this->_params['eventList'] = Event::find('', 'geteventinfo');
-        $this->_params['eventButton'] = 'Anmelden';
     }
 
     public function actionSubscribe(){

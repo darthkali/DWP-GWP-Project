@@ -127,6 +127,21 @@ abstract class BaseModel
         return false;
     }
 
+    public static function deleteWhereUserIdEventId($where){
+        $db = $GLOBALS['db'];
+
+        try{
+            $sql = 'DELETE ' . 'FROM ' . self::tablename() . ' WHERE ' . $where;
+            $db->exec($sql);
+            return true;
+
+        }
+        catch(\PDOException $e){
+            $errors[] = 'Error deleting '.get_called_class();
+        }
+        return false;
+    }
+
     public function validate(&$errors = null){
         foreach($this->schema as $key => $schemaOptions){
             if(isset($this->data[$key]) && is_array($schemaOptions)){
