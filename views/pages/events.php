@@ -14,21 +14,26 @@ use FSR_AI\booking;
         //check if logged in
         if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
         //when logged in
-            //check if user booked event
-            if (Booking::find(Booking::buildWhereBooking($_SESSION['userId'], $event['ID']))) {
-            //when booked
-                $eventButton = 'Abmelden';
-            } else {
-            //when not booked
-                $eventButton = 'Anmelden';
+            //check if event is in the past
+            if(date_diff(date_create($event['DATE']), date_create(date('d.m.Y')))->format('%R%a') < 0) {
+                //check if user booked event
+                if (Booking::find(Booking::buildWhereBooking($_SESSION['userId'], $event['ID']))) {
+                    //when booked
+                    $eventButton = 'Von dem Event abmelden';
+                } else {
+                    //when not booked
+                    $eventButton = 'Für das Event anmelden';
+                }
+                //create the button if logged in
+                $htmlButton = '<div class="ContentEventsButton">
+                <a href="index.php?c=pages&a=Booking&eventId=' . $event['ID'] . '"><button>' . $eventButton . '</button></a>
+                </div>';
+            }else{
+                $htmlButton = '<div class="ContentEventsButton"><strong>Das Event ist schonvorbei!!</strong></div>';
             }
-            //create the button if logged in
-            $htmlButton = '<div class="ContentEventsButton">
-            <a href="index.php?c=pages&a=Booking&eventId=' . $event['ID'] . '"><button>' .$eventButton. '</button></a>
-            </div>';
         }else{
         //when not logged in then print text
-            $htmlButton = '<div><strong>Zum anmelden bitte anmelden!</strong></div>';
+            $htmlButton = '<div class="ContentEventsButton"><strong>Zum anmelden bitte anmelden!</strong></div>';
         }
         //print all Events from database
         $locationData = $event['CITY'] . ', ' . $event['STREET'] . ' ' . $event['NUMBER'] . ', ' . $event['ZIPCODE'];
@@ -40,7 +45,7 @@ use FSR_AI\booking;
             <div>
                 <h2>' . $event['NAME'] . '</h2>
                 <p>
-                    <strong>Datum: </strong>' . $event['DATE'] . '<br>
+                    <strong>Datum: </strong>' . date_format(date_create($event['DATE']), 'd.m.Y') . '<br>
                     <strong>Ort: </strong>' . $locationData . '</p>
                 <p>' . $event['DESCRIPTION'] . '</p>
             </div>

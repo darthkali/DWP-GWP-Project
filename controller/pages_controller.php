@@ -19,8 +19,8 @@ class PagesController extends Controller{
 
         if(!$booking){
                 $params = [
-                    'EVENTS_ID'   => $eventId,
-                    'MEMBER_ID'   => $userId
+                    'EVENT_ID'   => $eventId,
+                    'USER_ID'     => $userId
                 ];
                 $booking = new booking($params);
                 foreach ($params as $key => $value) {
@@ -39,7 +39,7 @@ class PagesController extends Controller{
 
     public function actionEvents(){
         $this->_params['title'] = 'Events';
-        $this->_params['eventList'] = Event::find('', 'geteventinfo');
+        $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
 
     public function actionSubscribe(){
@@ -56,18 +56,19 @@ class PagesController extends Controller{
 
 
         //Musst dir die view noch anlegen
-        //CREATE VIEW geteventinfo  AS  select e.`ID` AS `ID`,e.`NAME` AS `NAME`,e.`DATE` AS `DATE`,e.DESCRIPTION AS DESCRIPTION,e.PICTURE AS PICTURE,e.LOCATION_ID AS LOCATION_ID,l.STREET AS STREET,l.`NUMBER` AS `NUMBER`,l.ZIPCODE AS ZIPCODE,l.CITY AS CITY,l.ROOM AS ROOM from (`event` e join location l on(e.LOCATION_ID = l.`ID`)) ;
+        //
     }
 
     public function actionIntoDatabase(){
         $siteId = $_GET['siteId'];
         if($siteId == 0) {
             $this->_params['title'] = 'Event Erstellen';
+            $pictureName = 'event'.date('d.m.Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
             if (isset($_POST['eventName'])) {
                 $params = [
                     'NAME'          => $_POST['eventName'],
-                    'DATE'          => date_format(new DateTime($_POST['eventDate']), 'd.m.Y'),  //date_format(new DateTime($_POST['date']), 'd.m.Y')
-                    'PICTURE'       => $_FILES['eventPicture']['name'],
+                    'DATE'          => $_POST['eventDate'],
+                    'PICTURE'       => $pictureName,
                     'LOCATION_ID'   => $_POST['eventLocation'],
                     'DESCRIPTION'   => $_POST['eventDescription']
                 ];
@@ -76,7 +77,7 @@ class PagesController extends Controller{
                     $event->__set($key, $value);
                 }
                 $event->save();
-                $dataDir = 'assets/images/upload/'.$_FILES['eventPicture']['name'];
+                $dataDir = 'assets/images/upload/'.$pictureName;
                 move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
         }elseif($siteId == 1){

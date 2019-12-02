@@ -172,11 +172,9 @@ abstract class BaseModel
                 if(isset($schemaOptions['min']) && mb_strlen($value) < $schemaOptions['min']){
                     $errors[] = $attribute.': String needs min. '.$schemaOptions['min'].' characters!';
                 }
-
                 if(isset($schemaOptions['max']) && mb_strlen($value) < $schemaOptions['max']){
                     $errors[] = $attribute.': String can have max. '.$schemaOptions['max'].' characters!';
                 }
-
             }
             break;
         }
@@ -194,7 +192,7 @@ abstract class BaseModel
         return null;
     }
 
-    public static function find($where = '', $viewName = null)
+    public static function find($where = '', $viewName = null, $orderBy = '')
     {
         $db  = $GLOBALS['db'];
         $result = null;
@@ -210,6 +208,7 @@ abstract class BaseModel
             {
                 $sql .= ' WHERE ' . $where .  ';';
             }
+            $sql .= ' '.$orderBy;
                     
             $result = $db->query($sql)->fetchAll();
         }

@@ -134,12 +134,17 @@ div#FooterRight a img {
     float: right;
 }
 
+.ContentEvents div{
+    margin-bottom: 4%;
+}
+
 .ContentEvents p{
     margin: 1% 0 2% 0;
 }
 
 .ContentEventsButton {
-    margin-top: 1%;
+    position: absolute;
+    margin: 0 !important;
     width: auto;
     bottom: 10px;
 }
