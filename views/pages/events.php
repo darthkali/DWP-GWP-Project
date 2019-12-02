@@ -30,6 +30,7 @@ use FSR_AI\booking;
                 </div>';
             }else{
                 $htmlButton = '<div class="ContentEventsButton"><strong>Das Event ist schonvorbei!!</strong></div>';
+                Booking::deleteWhere('EVENT_ID = '.$event['ID']);
             }
         }else{
         //when not logged in then print text

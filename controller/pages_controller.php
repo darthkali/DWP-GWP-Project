@@ -29,7 +29,7 @@ class PagesController extends Controller{
                 $booking->save();
                 $_SESSION['eventButton'] = 'Abmelden';
         }else{
-            Booking::deleteWhereUserIdEventId(Booking::buildWhereBooking($userId, $eventId));
+            Booking::deleteWhere(Booking::buildWhereBooking($userId, $eventId));
         }
     }
 
@@ -39,15 +39,9 @@ class PagesController extends Controller{
 
     public function actionEvents(){
         $this->_params['title'] = 'Events';
-        $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
-    }
 
-    public function actionSubscribe(){
-        $eventId = $_GET['event'] ?? '';
-        $_SESSION['event'] = isset($_SESSION['event']) ? !$_SESSION['event'] : true;
-
-        header('Location: index.php?c=pages&a=events&id='.$eventId);
-        exit(0);
+        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
+        $this->_params['eventList'] = $eventList;
     }
 
     public function actionCreateEvent(){
@@ -61,8 +55,10 @@ class PagesController extends Controller{
 
     public function actionIntoDatabase(){
         $siteId = $_GET['siteId'];
+        $this->_params['siteId'] = $siteId;
         if($siteId == 0) {
             $this->_params['title'] = 'Event Erstellen';
+
             $pictureName = 'event'.date('d.m.Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
             if (isset($_POST['eventName'])) {
                 $params = [

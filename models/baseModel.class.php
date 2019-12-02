@@ -127,7 +127,7 @@ abstract class BaseModel
         return false;
     }
 
-    public static function deleteWhereUserIdEventId($where){
+    public static function deleteWhere($where){
         $db = $GLOBALS['db'];
 
         try{
