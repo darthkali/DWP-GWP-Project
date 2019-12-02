@@ -2,6 +2,8 @@
 
 namespace FSR_AI;
 
+use DateTime;
+
 class PagesController extends Controller{
 
     protected function loggedInn(){
@@ -64,7 +66,7 @@ class PagesController extends Controller{
             if (isset($_POST['eventName'])) {
                 $params = [
                     'NAME'          => $_POST['eventName'],
-                    'DATE'          => $_POST['eventDate'],
+                    'DATE'          => date_format(new DateTime($_POST['eventDate']), 'd.m.Y'),  //date_format(new DateTime($_POST['date']), 'd.m.Y')
                     'PICTURE'       => $_FILES['eventPicture']['name'],
                     'LOCATION_ID'   => $_POST['eventLocation'],
                     'DESCRIPTION'   => $_POST['eventDescription']
