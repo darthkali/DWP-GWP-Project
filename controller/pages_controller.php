@@ -10,6 +10,10 @@ class PagesController extends Controller{
 
     }
 
+    public function actionStart(){
+        $this->_params['title'] = 'Startseite';
+    }
+
     public function actionBooking(){
         $this->_params['title'] = 'Eventanmeldung';
         $userId = $_SESSION['userId'];
@@ -33,9 +37,18 @@ class PagesController extends Controller{
         }
     }
 
-	public function actionStart(){
-		$this->_params['title'] = 'Startseite';
-	}
+    public function actionEditEvent(){
+        $this->_params['title'] = 'Event bearbeiten';
+        $this->_params['delete'] = $_GET['delete'];
+        $dataDir = 'assets/images/upload/';
+
+        if($_GET['delete'] == 1){
+            unlink($dataDir.$_GET['picturePath']);
+            Event::deleteWhere('id = '.$_GET['eventId']);
+        }else{
+            $this->_params['eventData'] = Event::findOne('id = '.$_GET['eventId']);
+        }
+    }
 
     public function actionEvents(){
         $this->_params['title'] = 'Events';
@@ -47,27 +60,40 @@ class PagesController extends Controller{
     public function actionCreateEvent(){
         $this->_params['title'] = 'Event Erstellen';
         $this->_params['locationsList'] = Location::find();
-
-
-        //Musst dir die view noch anlegen
-        //
+        $this->_params['eventData'] = null;
+        $this->_params['create'] = true;
+        if(isset($_GET['eventId'])) {
+            $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
+            $this->_params['create'] = false;
+        }
     }
 
     public function actionIntoDatabase(){
         $siteId = $_GET['siteId'];
         $this->_params['siteId'] = $siteId;
+
         if($siteId == 0) {
             $this->_params['title'] = 'Event Erstellen';
+            $eventId = $_GET['eventId'] ?? null;
+            $pictureName = null;
+            $dataDir = 'assets/images/upload/';
 
-            $pictureName = 'event'.date('d.m.Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
+            if(!($_FILES['eventPicture']['name'] == null)){
+                $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
+                if(isset($_GET['picturePath'])){
+                    unlink($dataDir.$_GET['picturePath']);
+                }
+            }
             if (isset($_POST['eventName'])) {
                 $params = [
+                    'ID'            => $eventId,
                     'NAME'          => $_POST['eventName'],
                     'DATE'          => $_POST['eventDate'],
                     'PICTURE'       => $pictureName,
                     'LOCATION_ID'   => $_POST['eventLocation'],
                     'DESCRIPTION'   => $_POST['eventDescription']
                 ];
+                //die(implode(', ', $params));
                 $event = new event($params);
                 foreach ($params as $key => $value) {
                     $event->__set($key, $value);
@@ -76,15 +102,15 @@ class PagesController extends Controller{
                 $dataDir = 'assets/images/upload/'.$pictureName;
                 move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
-        }elseif($siteId == 1){
+        }elseif($siteId == 1) {
             $this->_params['title'] = 'Location Erstellen';
             if (isset($_POST['locationStreet'])) {
                 $params = [
-                    'STREET'        => $_POST['locationStreet'],
-                    'NUMBER'        => $_POST['locationNumber'],
-                    'ZIPCODE'       => $_POST['locationZipcode'],
-                    'CITY'          => $_POST['locationCity'],
-                    'ROOM'          => $_POST['locationRoom']
+                    'STREET' => $_POST['locationStreet'],
+                    'NUMBER' => $_POST['locationNumber'],
+                    'ZIPCODE' => $_POST['locationZipcode'],
+                    'CITY' => $_POST['locationCity'],
+                    'ROOM' => $_POST['locationRoom']
                 ];
                 $location = new location($params);
                 foreach ($params as $key => $value) {
@@ -160,9 +186,10 @@ class PagesController extends Controller{
 
     public function actionEventManagement(){
         $this->_params['title'] = 'Nutzerverwaltung';
+        $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
 
-    public function actionprofil(){
+    public function actionProfil(){
         $this->_params['title'] = 'Profil';
         $where = 'ID = '. $_SESSION['userId'];
         $user = User::findOne($where);

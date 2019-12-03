@@ -5,22 +5,34 @@
 <div class="Content" id="fadeIn">
     <h1>Eventverwaltung</h1>
     <?
-    $myArray = array(
-        array('Danny','Steinbrecher', '24.12.1989', 'Sprecher', 'Admin'),
-        array('Anton','Bespablov','','Finanzer','User'),
-        array('Frieder','Ullmann','','stellv. Finanzer','User'),
-        array('Nico','Merkel','','stellv. Sprecher','User'),
-        array('Marcel','van der Heide','','Mitglied','User'),
-        array('Dennis','Krischal','','Mitglied','User'),
-        array('Adrian','Petzold','','Mitglied','User'),
-        array('Chritian','Harder','','Mitglied','User'),
-        array('Michael','Hopp','','Mitglied','User'),
-        array('Sarah','Stefan','','Mitglied','User'),
-        array('Niclas','Jarowsky','','Mitglied','Admin'),
-        array('Timo','Weiß','','Archiviertes Mitglied','User'),
-    );
-    printTable($myArray);
+    $html = '<table border ="1">';
+    $html .= '<tr>'.
+        '<th>EventID</th>' .
+        '<th>Erstellt am</th>'.
+        '<th>Eventname</th>'.
+        '<th>Datum</th>'.
+        '<th>Bildpfad</th>'.
+        '<th>Optionen</th>'.
+        '</tr>';
+
+    foreach($eventList as $event) {
+        $html .= '<tr>';
+        $html .= '<td>'. $event['ID']. '</td>';
+        $html .= '<td>'. date_format(date_create($event['CREATED_AT']), 'd.m.Y H:i:s'). '</td>';
+        $html .= '<td>'. $event['NAME']. '</td>';
+        $html .= '<td>'. date_format(date_create($event['DATE']), 'd.m.Y'). '</td>';
+        $html .= '<td>'. $event['PICTURE']. '</td>';
+
+        $html .= '<td>';
+        $html .= '<a href="index.php?c=pages&a=EditEvent&delete=0&eventId='.$event['ID'].'"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>';
+        $html .= '<a href="index.php?c=pages&a=EditEvent&delete=1&eventId='.$event['ID'].'&picturePath='.$event['PICTURE'].'"><input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;"></a>';
+        $html .= '</td>';
+        $html .= '</tr>';
+
+    }
+    $html .= '</table>';
+    echo $html;
     ?>
     <a href="?c=pages&a=CreateEvent"><button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
-    <a href=""><button type="button">Event bearbeiten<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+    <a href="index.php?c=pages&a=CreateLocation"><button type="button">Neue Location erstellen</button></a>
 </div>

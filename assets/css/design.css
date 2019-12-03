@@ -107,6 +107,14 @@ div#FooterRight a img {
     color: #60B0FF;
 }
 
+.Content button{
+    margin-top: 10px;
+}
+
+.Content table{
+    margin-top: 10px;
+}
+
 .Content button i{
     margin: 0 5px 0 5px;
 }

@@ -89,7 +89,7 @@ abstract class BaseModel
         $db = $GLOBALS['db'];
 
         try{
-            $sql ='UPDATE ' . self::tablename() . ' SET';
+            $sql ='UPDATE ' . self::tablename() . ' SET ';
 
             foreach ($this->schema as $key => $schemaOptions){
                 if($this->data[$key] !== null){
@@ -98,8 +98,7 @@ abstract class BaseModel
             }
 
             $sql = trim($sql, ',');
-            $sql .= ' WHERE id = ' . $this->data['id'];
-
+            $sql .= ' WHERE id = ' . $this->data['ID'];
             $statement = $db->prepare($sql);
             $statement->execute();
             return true;
