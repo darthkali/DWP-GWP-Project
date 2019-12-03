@@ -19,19 +19,34 @@ class User extends BaseModel
         'ROLE_ID'          => [ 'type' => BaseModel::TYPE_INT ]
     ];
 
-
-    public static function buildWhereLogin($email, $password){
-        return " email = '" . $email . "' and password = '". $password .  "';'";
-    }
-
     public static function findUserBySessionUserID(){
         if(isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === true) {
             $where = 'ID = ' . $_SESSION['userId'];     // build the where statement
-             $user = User::findOne($where);              //find the user which has the correct ID
-            return $user;
+            return self::findOne($where);
         }else{
             return null;
         }
+    }
+
+    public static function createLongLifeCookie($userID, $password){
+        $duration = time() + 3600 * 24 * 30;
+        setcookie('userId', $userID, $duration, '/');
+        setcookie('password', $password, $duration, '/');
+    }
+
+    public static function findUserByLoginDataFromPost(){
+        $email    = $_POST['email'] ?? null;
+        $password = $_POST['password'] ?? null;
+
+        $where = " EMAIL = '" . $email . "' and PASSWORD = '". $password .  "';'";
+        return self::findOne($where);
+    }
+
+    public static function writeLoginDataToActiveSession($succeedLoggedIn, $userId = null){
+        if($succeedLoggedIn){
+            $_SESSION['userId'] = $userId;
+        }
+        $_SESSION['loggedIn'] = $succeedLoggedIn;
     }
 
 
