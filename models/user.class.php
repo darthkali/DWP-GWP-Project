@@ -24,5 +24,15 @@ class User extends BaseModel
         return " email = '" . $email . "' and password = '". $password .  "';'";
     }
 
+    public static function findUserBySessionUserID(){
+        if(isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === true) {
+            $where = 'ID = ' . $_SESSION['userId'];     // build the where statement
+             $user = User::findOne($where);              //find the user which has the correct ID
+            return $user;
+        }else{
+            return null;
+        }
+    }
+
 
 }

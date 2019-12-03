@@ -235,6 +235,11 @@ class PagesController extends Controller{
 
     }
 
+    public function actionRegistration(){
+        $this->_params['title'] = 'Registrieren';
+
+    }
+
 
 
 

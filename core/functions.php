@@ -203,9 +203,9 @@ function sendMail($isRegistration = false){
 }
 
 function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
-    if(isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === true) {
-        $where = 'ID = ' . $_SESSION['userId'];     // build the where statement
-        $user = User::findOne($where);              //find the user which has the correct ID
+
+    $user = User::findUserBySessionUserID();
+    if($user  != null) {
         $access = false;                            // default no access to teh page
 
         if(is_array($roleIdWithPermission)){
@@ -217,12 +217,13 @@ function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
             }
         }else{
             if ($user['ROLE_ID'] == $roleIdWithPermission) {
+
                 $access = true;                     //give the permission to join the page
             }
         }
 
         if (!$access) {
-            header($errorPage);                     // if the role is not in the array then we send the user to the error page
+           header($errorPage);                     // if the role is not in the array then we send the user to the error page
         }
 
     }else{
