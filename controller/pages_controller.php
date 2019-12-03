@@ -58,11 +58,13 @@ class PagesController extends Controller{
     }
 
     public function actionCreateEvent(){
+
         $this->_params['title'] = 'Event Erstellen';
         $this->_params['locationsList'] = Location::find();
         $this->_params['eventData'] = null;
         $this->_params['create'] = true;
         if(isset($_GET['eventId'])) {
+            $this->_params['title'] = 'Event Bearbeiten';
             $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
             $this->_params['create'] = false;
         }

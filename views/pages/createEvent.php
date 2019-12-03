@@ -8,14 +8,16 @@
         $htmlButton = 'Event erstellen';
         $resetButton = '<button type="reset">Eingaben Löschen</button>';
         $action = 'index.php?c=pages&a=IntoDatabase&siteId=0';
+        $headline = 'Event erstellen';
     }else{
         $htmlButton = 'Änderungen speichern';
         $action = 'index.php?c=pages&a=IntoDatabase&siteId=0&eventId='.$eventData['ID'].'&picturePath='.$eventData['PICTURE'];
+        $headline = 'Event bearbeiten';
     }
     ?>
     <form autocomplete="off" action="<?=$action?>" method="post" enctype="multipart/form-data">
 
-        <h1>Event erstellen</h1>
+        <h1><?=$headline?></h1>
 
         <!-- name -->
         <label for="name">EVENTNAME</label>
