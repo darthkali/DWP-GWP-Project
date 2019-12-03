@@ -2,18 +2,53 @@
 
 namespace FSR_AI;
 
-use DateTime;
 
 class PagesController extends Controller{
 
-    protected function loggedInn(){
 
-    }
-
+/*------------------------------
+-----------Main Pages-----------
+------------------------------*/
     public function actionStart(){
         $this->_params['title'] = 'Startseite';
     }
 
+    public function actionEvents(){
+        $this->_params['title'] = 'Events';
+
+        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
+        $this->_params['eventList'] = $eventList;
+    }
+
+    public function actionAboutUs(){
+        $this->_params['title'] = 'Über Uns';
+    }
+
+    public function actionContact(){
+        $this->_params['title'] = 'Kontakt';
+    }
+
+    public function actionUsers(){
+        $this->_params['title'] = 'Mitglieder';
+    }
+
+    public function actionImprint(){
+        $this->_params['title'] = 'Impressum';
+    }
+
+    public function actionDataprotection(){
+        $this->_params['title'] = 'Datenschutz';
+    }
+
+    public function actionErrorPage(){
+        $this->_params['title'] = 'Fehler';
+    }
+
+
+
+/*------------------------------
+-----------Event----------------
+------------------------------*/
     public function actionBooking(){
         $this->_params['title'] = 'Eventanmeldung';
         $userId = $_SESSION['userId'];
@@ -48,13 +83,6 @@ class PagesController extends Controller{
         }else{
             $this->_params['eventData'] = Event::findOne('id = '.$_GET['eventId']);
         }
-    }
-
-    public function actionEvents(){
-        $this->_params['title'] = 'Events';
-
-        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
-        $this->_params['eventList'] = $eventList;
     }
 
     public function actionCreateEvent(){
@@ -121,24 +149,29 @@ class PagesController extends Controller{
                 $location->save();
             }
         }
-    }
+    }   //??????????????????
 
     public function actionCreateLocation(){
         $this->_params['title'] = 'Location Erstellen';
     }
 
-    public function actionAboutUs(){
-        $this->_params['title'] = 'Über Uns';
+    public function actionEventManagement(){
+
+        //Permissions for the page
+        $accessUser = [1,2];    // which user(role_id) has permission to join the page
+        $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
+        checkUserPermissionForPage($accessUser,$errorPage);
+
+
+        $this->_params['title'] = 'Nutzerverwaltung';
+        $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
 
-    public function actionContact(){
-        $this->_params['title'] = 'Kontakt';
-    }
 
-    public function actionUsers(){
-        $this->_params['title'] = 'Mitglieder';
-    }
 
+/*------------------------------
+-----------User-----------------
+------------------------------*/
     public function actionLogin()
     {
         $this->_params['title'] = 'Login';
@@ -177,6 +210,7 @@ class PagesController extends Controller{
 
     public function actionUserManagement(){
 
+        //Permissions for the page
         $accessUser = 1;    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
         checkUserPermissionForPage($accessUser,$errorPage);
@@ -192,11 +226,6 @@ class PagesController extends Controller{
 
     }
 
-    public function actionEventManagement(){
-        $this->_params['title'] = 'Nutzerverwaltung';
-        $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
-    }
-
     public function actionProfil(){
         $this->_params['title'] = 'Profil';
         $where = 'ID = '. $_SESSION['userId'];
@@ -206,15 +235,10 @@ class PagesController extends Controller{
 
     }
 
-	public function actionImprint(){
-		$this->_params['title'] = 'Impressum';
-	}
 
-    public function actionDataprotection(){
-        $this->_params['title'] = 'Datenschutz';
-    }
 
-    public function actionErrorPage(){
-        $this->_params['title'] = 'Fehler';
-    }
+
+
+
+
 }
