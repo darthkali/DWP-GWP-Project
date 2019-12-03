@@ -176,6 +176,11 @@ class PagesController extends Controller{
     }
 
     public function actionUserManagement(){
+
+        $accessUser = 1;    // which user(role_id) has permission to join the page
+        $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
+        checkUserPermissionForPage($accessUser,$errorPage);
+
         $this->_params['title'] = 'Nutzerverwaltung';
 
         if(0){
@@ -183,6 +188,7 @@ class PagesController extends Controller{
         }else{
             $this->_params['accounts'] = User::find('1');
         }
+
 
     }
 

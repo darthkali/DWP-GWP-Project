@@ -1,6 +1,7 @@
 <?
 
 use FSR_AI\booking;
+use FSR_AI\User;
 
 function debug_to_console($data) {
     $output = $data;
@@ -9,7 +10,6 @@ function debug_to_console($data) {
 
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
-
 
 function printTable($content, $borderIsVisible = true){
     $rows = count($content);
@@ -52,8 +52,6 @@ function printTable($content, $borderIsVisible = true){
         $html .= '</table>';
         echo $html;
 }
-
-
 
 // create an Array which has all users included
 function allUsers(){
@@ -201,5 +199,33 @@ function sendMail($isRegistration = false){
             header('Location: ' . $_SERVER['PHP_SELF'] . '?p=contact');
             exit();
         }
+    }
+}
+
+function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
+    if(isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === true) {
+        $where = 'ID = ' . $_SESSION['userId'];     // build the where statement
+        $user = User::findOne($where);              //find the user which has the correct ID
+        $access = false;                            // default no access to teh page
+
+        if(is_array($roleIdWithPermission)){
+            foreach ($roleIdWithPermission as $index) { // check the Array with the role ID´s that have access
+                if ($user['ROLE_ID'] == $index) {
+                    $access = true;                     //give the permission to join the page
+                    break;
+                }
+            }
+        }else{
+            if ($user['ROLE_ID'] == $roleIdWithPermission) {
+                $access = true;                     //give the permission to join the page
+            }
+        }
+
+        if (!$access) {
+            header($errorPage);                     // if the role is not in the array then we send the user to the error page
+        }
+
+    }else{
+        header($errorPage);                     // if the role is not in the array then we send the user to the error page
     }
 }
