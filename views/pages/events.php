@@ -43,6 +43,7 @@ use FSR_AI\booking;
         echo '
         <div class="ContentEvents">
             <img src="/FSAI-Site/assets/images/upload/' . $event['PICTURE'] . '">
+            
             <div>
                 <h2>' . $event['NAME'] . '</h2>
                 <p>
