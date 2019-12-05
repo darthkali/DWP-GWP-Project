@@ -176,7 +176,22 @@ CREATE TABLE IF NOT EXISTS `fsraiDatabase`.`geteventinfo` (`ID` INT, `NAME` INT,
 DROP TABLE IF EXISTS `fsraiDatabase`.`geteventinfo`;
 DROP VIEW IF EXISTS `fsraiDatabase`.`geteventinfo` ;
 USE `fsraiDatabase`;
-CREATE  OR REPLACE VIEW geteventinfo  AS  select e.`ID` AS `ID`,e.`NAME` AS `NAME`,e.`DATE` AS `DATE`,e.DESCRIPTION AS DESCRIPTION,e.PICTURE AS PICTURE,e.LOCATION_ID AS LOCATION_ID,l.STREET AS STREET,l.`NUMBER` AS `NUMBER`,l.ZIPCODE AS ZIPCODE,l.CITY AS CITY,l.ROOM AS ROOM from (`event` e join location l on(e.LOCATION_ID = l.`ID`)) ;
+create definer = root@localhost view geteventinfo as
+select `e`.`ID`          AS `ID`,
+       `e`.`CREATED_AT` AS `CREATED_AT`,
+       `e`.`NAME`        AS `NAME`,
+       `e`.`DATE`        AS `DATE`,
+       `e`.`DESCRIPTION` AS `DESCRIPTION`,
+       `e`.`PICTURE`     AS `PICTURE`,
+       `e`.`LOCATION_ID` AS `LOCATION_ID`,
+       `l`.`STREET`      AS `STREET`,
+       `l`.`NUMBER`      AS `NUMBER`,
+       `l`.`ZIPCODE`     AS `ZIPCODE`,
+       `l`.`CITY`        AS `CITY`,
+       `l`.`ROOM`        AS `ROOM`
+from (`fsraidatabase`.`event` `e`
+join `fsraidatabase`.`location` `l` on (`e`.`LOCATION_ID` = `l`.`ID`));
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
