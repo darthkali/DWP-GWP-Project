@@ -1,3 +1,24 @@
+<?php
+use FSR_AI\User;
+
+if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
+    if(isset($_COOKIE['userId'])) {
+        $userId = $_COOKIE['userId'];
+        $password = $_COOKIE['password'];
+
+        $where = " ID = '" . $userId . "' and PASSWORD = '". $password .  "';'";
+        $user = User::findOne($where);
+        if($user) {
+            $_SESSION['userId'] = $user['ID'];
+            $_SESSION['loggedIn'] = true;
+        }else{
+            $error = true;
+            $_SESSION['loggedIn'] = false;
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>

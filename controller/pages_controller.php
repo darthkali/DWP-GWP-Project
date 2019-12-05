@@ -179,27 +179,20 @@ class PagesController extends Controller{
         $error = false;
 
         if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
-            if (isset($_POST['submit'])) {
-                $email    = $_POST['loginName'] ?? null;
-                $password = $_POST['loginPassword'] ?? null;
-                // TODO SQL-Statement einfügen
 
-                $where = User::buildWhereLogin($email, $password);   //Build the where statement to search the Login
-                $user = User::find($where);
-                if($user)
-                {
-                    $userID = $user[0]['ID'];
-                    $_SESSION['userId'] = $userID;
-                    $_SESSION['loggedIn'] = true;
+            if (isset($_POST['submit']) && isset($_POST['email'])&& isset($_POST['password'])) {
+                $user = User::findUserByLoginDataFromPost() ?? null;
+                if($user) {
+                    User::writeLoginDataToActiveSession(true, $user['ID']);
+                    isset($_POST['rememberMe']) ? User::createLongLifeCookie($user['ID'], $user['PASSWORD']): null;
                     header('Location: index.php?c=pages&a=profil');
-                }
-                else{
+                }else{
                     $error = true;
-                    $_SESSION['loggedIn'] = false;
+                    User::writeLoginDataToActiveSession(false);
                 }
             }
         }else{
-            header('Location: index.php?c=pages&a=start');
+            header('Location: index.php?c=pages&a=error');
         }
         $this->_params['errorValid'] = $error;
     }

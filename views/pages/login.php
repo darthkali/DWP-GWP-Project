@@ -11,13 +11,13 @@
 
 
         <!-- username -->
-        <label for="loginName">NUTZERNAME </label>
-        <input type = "text" id="loginName" name="loginName" required
-            <?=isset($_POST['loginName']) ? 'value="'.htmlspecialchars($_POST['loginName']).'"' : ''?>>
+        <label for="email">EMAIL </label>
+        <input type = "text" id="email" name="email" required
+            <?=isset($_POST['email']) ? 'value="'.htmlspecialchars($_POST['email']).'"' : ''?>>
 
         <!-- password -->
-        <label for="loginPassword">PASSWORT </label>
-        <input type = "password" id="loginPassword" name="loginPassword" required>
+        <label for="password">PASSWORT </label>
+        <input type = "password" id="password" name="password" >
 
         <!-- button -->
         <button type="submit" name="submit" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
