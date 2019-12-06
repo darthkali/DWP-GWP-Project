@@ -6,11 +6,6 @@ namespace FSR_AI;
 class UserController extends Controller{
 
 
-
-    /*------------------------------
-    -----------User-----------------
-    ------------------------------*/
-
     public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
 
@@ -31,7 +26,7 @@ class UserController extends Controller{
                 if($user) {
                     User::writeLoginDataToActiveSession(true, $user['ID']);
                     isset($_POST['rememberMe']) ? User::createLongLifeCookie($user['ID'], $user['PASSWORD']): null;
-                    header('Location: index.php?c=pages&a=profil');
+                    header('Location: index.php?c=user&a=profil');
                 }else{
                     $error = true;
                     User::writeLoginDataToActiveSession(false);
@@ -78,9 +73,6 @@ class UserController extends Controller{
         $this->_params['title'] = 'Registrieren';
 
     }
-
-
-
 
 
 }

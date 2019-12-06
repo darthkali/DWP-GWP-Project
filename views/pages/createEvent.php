@@ -1,11 +1,11 @@
 <?
 if($create == true){
     $htmlButton = 'Event erstellen';
-    $action = 'index.php?c=pages&a=IntoDatabase&siteId=0';
+    $action = 'index.php?c=event&a=IntoDatabase&siteId=0';
     $headline = 'Event erstellen';
 }else{
     $htmlButton = 'Änderungen speichern';
-    $action = 'index.php?c=pages&a=IntoDatabase&siteId=0&eventId='.$eventData['ID'].'&picturePath='.$eventData['PICTURE'];
+    $action = 'index.php?c=event&a=IntoDatabase&siteId=0&eventId='.$eventData['ID'].'&picturePath='.$eventData['PICTURE'];
     $headline = 'Event bearbeiten';
 }
 ?>

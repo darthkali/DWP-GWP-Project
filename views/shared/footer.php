@@ -1,6 +1,6 @@
 <div id="FooterLeft">
-    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=impressum">Impressum</a>
-    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=dataProtection">Datenschutz</a>
+    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=imprint">Impressum</a>
+    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=dataProtection">Datenschutz</a>
 </div>
 <div id="FooterMiddle">
     Fachschaftsrat Angewandte Informatik

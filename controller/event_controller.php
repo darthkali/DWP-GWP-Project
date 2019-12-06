@@ -3,24 +3,26 @@
 namespace FSR_AI;
 
 
-class EventsController extends Controller
+class EventController extends Controller
 {
+    public function actionEvents(){
+        $this->_params['title'] = 'Events';
 
-    /*------------------------------
-    -----------Event----------------
-    ------------------------------*/
-    public function actionBooking()
-    {
+        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
+        $this->_params['eventList'] = $eventList;
+    }
+
+    public function actionBooking(){
         $this->_params['title'] = 'Eventanmeldung';
         $userId = $_SESSION['userId'];
         $eventId = $_GET['eventId'];
 
         $booking = Booking::find(Booking::buildWhereBooking($userId, $eventId));
 
-        if (!$booking) {
+        if(!$booking){
             $params = [
-                'EVENT_ID' => $eventId,
-                'USER_ID' => $userId
+                'EVENT_ID'   => $eventId,
+                'USER_ID'     => $userId
             ];
             $booking = new booking($params);
             foreach ($params as $key => $value) {
@@ -28,75 +30,71 @@ class EventsController extends Controller
             }
             $booking->save();
             $_SESSION['eventButton'] = 'Abmelden';
-        } else {
+        }else{
             Booking::deleteWhere(Booking::buildWhereBooking($userId, $eventId));
         }
     }
 
-    public function actionEditEvent()
-    {
+    public function actionEditEvent(){
         $this->_params['title'] = 'Event bearbeiten';
         $this->_params['delete'] = $_GET['delete'];
         $dataDir = 'assets/images/upload/';
 
-        if ($_GET['delete'] == 1) {
-            unlink($dataDir . $_GET['picturePath']);
-            Event::deleteWhere('id = ' . $_GET['eventId']);
-        } else {
-            $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
+        if($_GET['delete'] == 1){
+            unlink($dataDir.$_GET['picturePath']);
+            Event::deleteWhere('id = '.$_GET['eventId']);
+        }else{
+            $this->_params['eventData'] = Event::findOne('id = '.$_GET['eventId']);
         }
     }
 
-    public function actionCreateEvent()
-    {
+    public function actionCreateEvent(){
 
         $this->_params['title'] = 'Event Erstellen';
         $this->_params['locationsList'] = Location::find();
-        $this->_params['eventData'] = null;
         $this->_params['create'] = true;
-        if (isset($_GET['eventId'])) {
+        if(isset($_GET['eventId'])) {
             $this->_params['title'] = 'Event Bearbeiten';
             $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
             $this->_params['create'] = false;
         }
     }
 
-    public function actionIntoDatabase()
-    {
+    public function actionIntoDatabase(){
         $siteId = $_GET['siteId'];
         $this->_params['siteId'] = $siteId;
 
-        if ($siteId == 0) {
+        if($siteId == 0) {
             $this->_params['title'] = 'Event Erstellen';
             $eventId = $_GET['eventId'] ?? null;
             $pictureName = null;
             $dataDir = 'assets/images/upload/';
 
-            if (!($_FILES['eventPicture']['name'] == null)) {
-                $pictureName = 'event' . date('d-m-Y-H-i-s') . strstr($_FILES['eventPicture']['name'], '.');
-                if (isset($_GET['picturePath'])) {
-                    unlink($dataDir . $_GET['picturePath']);
+            if(!($_FILES['eventPicture']['name'] == null)){
+                $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
+                if(isset($_GET['picturePath'])){
+                    unlink($dataDir.$_GET['picturePath']);
                 }
             }
             if (isset($_POST['eventName'])) {
                 $params = [
-                    'ID' => $eventId,
-                    'NAME' => $_POST['eventName'],
-                    'DATE' => $_POST['eventDate'],
-                    'PICTURE' => $pictureName,
-                    'LOCATION_ID' => $_POST['eventLocation'],
-                    'DESCRIPTION' => $_POST['eventDescription']
+                    'ID'            => $eventId,
+                    'NAME'          => $_POST['eventName'],
+                    'DATE'          => $_POST['eventDate'],
+                    'PICTURE'       => $pictureName,
+                    'LOCATION_ID'   => $_POST['eventLocation'],
+                    'DESCRIPTION'   => $_POST['eventDescription']
                 ];
-//die(implode(', ', $params));
+                //die(implode(', ', $params));
                 $event = new event($params);
                 foreach ($params as $key => $value) {
                     $event->__set($key, $value);
                 }
                 $event->save();
-                $dataDir = 'assets/images/upload/' . $pictureName;
+                $dataDir = 'assets/images/upload/'.$pictureName;
                 move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
-        } elseif ($siteId == 1) {
+        }elseif($siteId == 1) {
             $this->_params['title'] = 'Location Erstellen';
             if (isset($_POST['locationStreet'])) {
                 $params = [
@@ -115,24 +113,25 @@ class EventsController extends Controller
         }
     }   //??????????????????
 
-    public function actionCreateLocation()
-    {
+    public function actionCreateLocation(){
         $this->_params['title'] = 'Location Erstellen';
     }
 
-    public function actionEventManagement()
-    {
+    public function actionEventManagement(){
 
-//Permissions for the page
-        $accessUser = [1, 2];    // which user(role_id) has permission to join the page
+        //Permissions for the page
+        $accessUser = [1,2];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
-        checkUserPermissionForPage($accessUser, $errorPage);
+        checkUserPermissionForPage($accessUser,$errorPage);
 
 
         $this->_params['title'] = 'Nutzerverwaltung';
         $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
+
+
 }
+
 
 
 

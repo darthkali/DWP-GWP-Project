@@ -1,3 +1,3 @@
 <?
-header('Location: index.php?c=pages&a=events');
+header('Location: index.php?c=event&a=events');
 die;

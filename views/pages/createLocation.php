@@ -2,7 +2,7 @@
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="index.php?c=pages&a=IntoDatabase&siteId=1" method="post">
+    <form autocomplete="off" action="index.php?c=event&a=IntoDatabase&siteId=1" method="post">
 
         <h1>Location erstellen</h1>
 

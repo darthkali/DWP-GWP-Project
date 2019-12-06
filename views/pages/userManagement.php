@@ -7,9 +7,9 @@
 
     <div class="filterButton">
     <?php if($role === false) : ?>
-        <a href="index.php/?c=pages&a=userManagement&role=3">Nur Mitarbeiter anzeigen</a>
+        <a href="index.php/?c=user&a=userManagement&role=3">Nur Mitarbeiter anzeigen</a>
     <?php else : ?>
-        <a href="index.php/?c=pages&a=userManagement">Alle anzeigen</a>
+        <a href="index.php/?c=user&a=userManagement">Alle anzeigen</a>
     <?php endif; ?>
     <?php
     $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);

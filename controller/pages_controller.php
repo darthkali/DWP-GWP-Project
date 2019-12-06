@@ -13,13 +13,6 @@ class PagesController extends Controller{
         $this->_params['title'] = 'Startseite';
     }
 
-    public function actionEvents(){
-        $this->_params['title'] = 'Events';
-
-        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
-        $this->_params['eventList'] = $eventList;
-    }
-
     public function actionAboutUs(){
         $this->_params['title'] = 'Über Uns';
     }
@@ -44,7 +37,15 @@ class PagesController extends Controller{
 
 /*------------------------------
 -----------Event----------------
-------------------------------*/
+------------------------------
+
+    public function actionEvents(){
+        $this->_params['title'] = 'Events';
+
+        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
+        $this->_params['eventList'] = $eventList;
+    }
+
     public function actionBooking(){
         $this->_params['title'] = 'Eventanmeldung';
         $userId = $_SESSION['userId'];
@@ -162,11 +163,11 @@ class PagesController extends Controller{
         $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
 
-
+*/
 
 /*------------------------------
 -----------User-----------------
-------------------------------*/
+------------------------------
 
     public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
@@ -236,10 +237,7 @@ class PagesController extends Controller{
 
     }
 
-
-
-
-
+*/
 
 
 }

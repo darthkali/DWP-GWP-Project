@@ -23,7 +23,7 @@ use FSR_AI\booking;
         <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) : ?>
            <?if(date_diff(date_create($event['DATE']), date_create(date('d.m.Y')))->format('%R%a') < 0) : ?>
                 <div class="ContentEvents" id="EventButton">
-                    <a href="index.php?c=pages&a=Booking&eventId=<?=$event['ID']?>">
+                    <a href="index.php?c=event&a=Booking&eventId=<?=$event['ID']?>">
                     <button><?=Booking::find(Booking::buildWhereBooking($_SESSION['userId'], $event['ID'])) ? 'Von dem Event abmelden' : 'Für das Event anmelden';?></button></a>
                 </div>
             <?else: ?>
