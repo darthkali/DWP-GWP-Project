@@ -201,33 +201,7 @@ function sendMail($isRegistration = false){
     }
 }
 
-function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
 
-    $user = User::findUserBySessionUserID();
-    if($user  != null) {
-        $access = false;                            // default no access to the page
-
-        if(is_array($roleIdWithPermission)){
-            foreach ($roleIdWithPermission as $index) { // check the Array with the role ID´s that have access
-                if ($user['ROLE_ID'] == $index) {
-                    $access = true;                     //give the permission to join the page
-                    break;
-                }
-            }
-        }else{
-            if ($user['ROLE_ID'] == $roleIdWithPermission) {
-                $access = true;                     //give the permission to join the page
-            }
-        }
-
-        if (!$access) {
-           header($errorPage);                     // if the role is not in the array then we send the user to the error page
-        }
-
-    }else{
-        header($errorPage);                     // if the role is not in the array then we send the user to the error page
-    }
-}
 
 function sendHeaderByControllerAndAction($controller, $action){
     header('Location: index.php?c=' .$controller . '&a=' . $action);

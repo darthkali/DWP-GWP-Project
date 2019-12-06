@@ -61,6 +61,11 @@ class UserController extends Controller{
     }
 
     public function actionProfil(){
+        //Permissions for the page
+        $accessUser = [1,2,3];    // which user(role_id) has permission to join the page
+        $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
+        User::checkUserPermissionForPage($accessUser,$errorPage);
+
         $this->_params['title'] = 'Profil';
         $where = 'ID = '. $_SESSION['userId'];
         $user = User::findOne($where);
@@ -71,8 +76,9 @@ class UserController extends Controller{
 
     public function actionRegistration(){
         $this->_params['title'] = 'Registrieren';
-
     }
+
+
 
 
 }

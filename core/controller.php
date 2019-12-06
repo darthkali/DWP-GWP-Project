@@ -45,7 +45,7 @@ public function __construct($actionName = null, $controllerName = null)
 		}
 		else
 		{
-			header('Location: index.php?c=pages&a=errorPage');
+            sendHeaderByControllerAndAction('pages', 'errorPage');
 		}
 	}
 

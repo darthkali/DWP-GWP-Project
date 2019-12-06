@@ -20,7 +20,7 @@ class User extends BaseModel
     ];
 
     public static function findUserBySessionUserID(){
-        if(isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === true) {
+        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
             $where = 'ID = ' . $_SESSION['userId'];     // build the where statement
             return self::findOne($where);
         }else{
@@ -56,6 +56,34 @@ class User extends BaseModel
 
     public static function getFullName($firstName, $lastName){
         return $firstName.' '.$lastName;
+    }
+
+
+    public static function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
+
+        $user = User::findUserBySessionUserID();
+        if($user  != null) {
+            $access = false;                            // default no access to the page
+
+            if(is_array($roleIdWithPermission)){
+                foreach ($roleIdWithPermission as $index) { // check the Array with the role ID´s that have access
+                    if ($user['ROLE_ID'] == $index) {
+                        $access = true;                     //give the permission to join the page
+                        break;
+                    }
+                }
+            }else{
+                if ($user['ROLE_ID'] == $roleIdWithPermission) {
+                    $access = true;                     //give the permission to join the page
+                }
+            }
+
+            if (!$access) {
+                sendHeaderByControllerAndAction('pages', 'errorPage');
+            }
+        }else{
+            sendHeaderByControllerAndAction('pages', 'errorPage');
+        }
     }
 
 }

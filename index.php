@@ -33,15 +33,15 @@ if(file_exists($controllerPath))
         else
         {
             echo $actionName;
-           header('Location: index.php?c=pages&a=errorPage');
+            sendHeaderByControllerAndAction('pages', 'errorPage');
         }
     }
     else
     {
-        header('Location: index.php?c=pages&a=errorPage');
+        sendHeaderByControllerAndAction('pages', 'errorPage');
     }
 }
 else{
-    header('Location: index.php?c=pages&a=errorPage');
+    sendHeaderByControllerAndAction('pages', 'errorPage');
 }
 ?>

@@ -1,6 +1,6 @@
 <?
 if($delete == 1){
-    header('Location: index.php?c=event&a=EventManagement');
+    sendHeaderByControllerAndAction('event', 'EventManagement');
 }else{
     header('Location: index.php?c=event&a=CreateEvent&eventId='.$eventData['ID']);
 }

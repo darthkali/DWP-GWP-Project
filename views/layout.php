@@ -10,10 +10,10 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
         $user = User::findOne($where);
         if($user) {
             $_SESSION['userId'] = $user['ID'];
-            $_SESSION['loggedIn'] = true;
+            $_SESSION['loggedIn'] = 1;
         }else{
             $error = true;
-            $_SESSION['loggedIn'] = false;
+            $_SESSION['loggedIn'] = 0;
         }
     }
 }

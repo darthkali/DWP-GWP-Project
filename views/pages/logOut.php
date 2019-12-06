@@ -5,5 +5,5 @@ setcookie('password','',-1,'/');
 unset($_SESSION['users']);
 session_destroy();
 session_write_close();
-header('Location: ../index.php');
+sendHeaderByControllerAndAction('pages', 'Start');
 die;
