@@ -128,8 +128,6 @@ class EventController extends Controller
         $this->_params['title'] = 'Nutzerverwaltung';
         $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
-
-
 }
 
 
