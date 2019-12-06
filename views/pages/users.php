@@ -49,8 +49,7 @@ use FSR_AI\User;
 
             <div class="userBox">
                 <img class="center" src="/FSAI-Site/assets/images/<?=$user['PICTURE']?>" alt="ProfilPageImage">
-                <p><?=User::getFullName();?><br>
-                    <?=$user['EMAIL']?> <br>
+                <p><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?><br>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
                     Funktion: <?=$user['ROLE']?><br><br>
                 </p>
