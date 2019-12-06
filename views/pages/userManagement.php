@@ -4,20 +4,17 @@
 
 <div class="Content" id="fadeIn">
     <h1>Nutzerverwaltung</h1>
-    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=newUser"> <button type="button">neuen Nutzer anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
 
-    <form action method=get>
-        <div class="checkBox" >
-            <input type="checkbox" name="onlyMember" id="onlyMember">
-            <label for="onlyMember">nur Mitarbeiter anzeigen? </label>
-        </div>
-    </form>
-
+    <div class="filterButton">
+    <?php if($role === false) : ?>
+        <a href="index.php/?c=pages&a=userManagement&role=3">Nur Mitarbeiter anzeigen</a>
+    <?php else : ?>
+        <a href="index.php/?c=pages&a=userManagement">Alle anzeigen</a>
+    <?php endif; ?>
     <?php
-    // <label><input type="checkbox" name="active"> Text</label>
-
     $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);
     ?>
+    </div>
 
     <br><br>
     <h3>Aktive Nutzer</h3>
