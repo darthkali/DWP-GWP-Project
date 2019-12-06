@@ -228,3 +228,7 @@ function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
         header($errorPage);                     // if the role is not in the array then we send the user to the error page
     }
 }
+
+function sendHeaderByControllerAndAction($controller, $action){
+    header('Location: index.php?c=' .$controller . '&a=' . $action);
+}

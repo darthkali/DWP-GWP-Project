@@ -26,7 +26,7 @@ class UserController extends Controller{
                 if($user) {
                     User::writeLoginDataToActiveSession(true, $user['ID']);
                     isset($_POST['rememberMe']) ? User::createLongLifeCookie($user['ID'], $user['PASSWORD']): null;
-                    header('Location: index.php?c=user&a=profil');
+                    sendHeaderByControllerAndAction('user', 'profil');
                 }else{
                     $error = true;
                     User::writeLoginDataToActiveSession(false);
