@@ -58,7 +58,6 @@ class User extends BaseModel
         return $firstName.' '.$lastName;
     }
 
-
     public static function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
 
         $user = User::findUserBySessionUserID();

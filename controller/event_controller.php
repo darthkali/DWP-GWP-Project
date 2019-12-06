@@ -122,7 +122,7 @@ class EventController extends Controller
         //Permissions for the page
         $accessUser = [1,2];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
-        checkUserPermissionForPage($accessUser,$errorPage);
+        User::checkUserPermissionForPage($accessUser,$errorPage);
 
 
         $this->_params['title'] = 'Nutzerverwaltung';
