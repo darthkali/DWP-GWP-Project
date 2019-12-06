@@ -93,6 +93,14 @@ div#FooterRight a img {
     text-align: center;
     text-align-last: center;
 }
+
+.Content .filterButton a{
+    padding: 5px;
+    background-color: #003F70;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+}
 /* ----------------------------------   Button   ---------------------------------- */
 .Content button{
     font-size: 16px;

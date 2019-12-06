@@ -214,13 +214,13 @@ class PagesController extends Controller{
 
         $this->_params['title'] = 'Nutzerverwaltung';
 
-        if(0){
-            $this->_params['accounts'] = User::find('not (ROLE_ID = 3)');
+        if(isset($_GET['role'])){
+            $this->_params['accounts'] = User::find('ROLE_ID <> 3');
         }else{
             $this->_params['accounts'] = User::find('1');
         }
 
-
+        $this->_params['role'] = $_GET['role'] ?? false;
     }
 
     public function actionProfil(){

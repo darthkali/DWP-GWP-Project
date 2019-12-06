@@ -3,13 +3,12 @@
 use FSR_AI\booking;
 use FSR_AI\User;
 
-function debug_to_console($data) {
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
-
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+function debug_to_logFile($message){
+    $message = '['.(new \DateTime())->format('Y-m-d H:i:s'). ']' .$message. "\n";
+    file_put_contents ( __DIR__.'/../logs/logs.txt', $message,FILE_APPEND);
 }
+
+      // <?debug_to_logFile(MESSAGE);
 
 function printTable($content, $borderIsVisible = true){
     $rows = count($content);

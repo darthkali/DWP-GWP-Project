@@ -192,6 +192,7 @@ create  OR REPLACE definer = root@localhost view fsraidatabase.geteventinfo as s
        `e`.`DESCRIPTION` AS `DESCRIPTION`,
        `e`.`PICTURE`     AS `PICTURE`,
        `e`.`LOCATION_ID` AS `LOCATION_ID`,
+       `e`.`CREATED_AT`  AS `CREATED_AT`,
        `l`.`STREET`      AS `STREET`,
        `l`.`NUMBER`      AS `NUMBER`,
        `l`.`ZIPCODE`     AS `ZIPCODE`,
