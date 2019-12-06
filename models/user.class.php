@@ -49,5 +49,13 @@ class User extends BaseModel
         $_SESSION['loggedIn'] = $succeedLoggedIn;
     }
 
+    public static function getAge($dateOfBirth){
+
+        return date_diff(date_create($dateOfBirth), date_create(date('d.m.Y')))->format('%y');
+    }
+
+    public static function getFullName($firstName, $lastName){
+        return $firstName.' '.$lastName;
+    }
 
 }

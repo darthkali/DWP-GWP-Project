@@ -28,10 +28,6 @@ class PagesController extends Controller{
         $this->_params['title'] = 'Kontakt';
     }
 
-    public function actionUsers(){
-        $this->_params['title'] = 'Mitglieder';
-    }
-
     public function actionImprint(){
         $this->_params['title'] = 'Impressum';
     }
@@ -172,6 +168,14 @@ class PagesController extends Controller{
 /*------------------------------
 -----------User-----------------
 ------------------------------*/
+
+    public function actionUsers(){
+        $this->_params['title'] = 'Mitglieder';
+
+        $userList = USER::find('', 'getuserinfo');
+        $this->_params['userList'] = $userList;
+    }
+
     public function actionLogin()
     {
         $this->_params['title'] = 'Login';

@@ -206,7 +206,7 @@ function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
 
     $user = User::findUserBySessionUserID();
     if($user  != null) {
-        $access = false;                            // default no access to teh page
+        $access = false;                            // default no access to the page
 
         if(is_array($roleIdWithPermission)){
             foreach ($roleIdWithPermission as $index) { // check the Array with the role ID´s that have access
@@ -217,7 +217,6 @@ function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
             }
         }else{
             if ($user['ROLE_ID'] == $roleIdWithPermission) {
-
                 $access = true;                     //give the permission to join the page
             }
         }
