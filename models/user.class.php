@@ -28,6 +28,8 @@ class User extends BaseModel
         }
     }
 
+
+
     public static function createLongLifeCookie($userID, $password){
         $duration = time() + 3600 * 24 * 30;
         setcookie('userId', $userID, $duration, '/');

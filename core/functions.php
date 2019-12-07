@@ -5,56 +5,62 @@ function debug_to_logFile($message){
     file_put_contents ( __DIR__.'/../logs/logs.txt', $message,FILE_APPEND);
 }
 
-function errorPageGifs(){
+
+function crateImageOfFilesFromAFolder($dir, $numberOfOutputFiles){
     //create a grid with random pictures from a directory on the server
-    // image folder
-    $allegifs = scandir("assets/images/ErrorGifs");
+    $allFiles = scandir($dir);
 
     // delete the array indexes with '.' and '..'
-    foreach ($allegifs as $delete => &$val) { // Ausgabeschleife
-        if($allegifs[$delete] == "." or $allegifs[$delete] == '..'){
-            unset($allegifs[$delete]);
+    foreach ($allFiles as $delete => &$val) {
+        if($allFiles[$delete] == "." or $allFiles[$delete] == '..'){
+            unset($allFiles[$delete]);
         }
     }
 
     // random order of the array
-    shuffle($allegifs);
+    shuffle($allFiles);
+
+    //check if the folder is TODO: Kommentieren und Testen
+    if(count($allFiles) < $numberOfOutputFiles){
+        $numberOfOutputFiles = count($allFiles);
+    }
 
     // pics 12 random indexes from the Array
-    $rand_keys_gifs = array_rand($allegifs, 1);
+    $rand_keys = array_rand($allFiles, $numberOfOutputFiles);
 
-    // print the pictures which has selected before with the '$rand_keys'
-    $html ='<img src="'.ROOTPATH.'assets/images/ErrorGifs/'.$allegifs[$rand_keys_gifs].'" alt="AiLogo">';
+    if($numberOfOutputFiles > 1){
+        foreach ($rand_keys as $datei) {
+            $randArray[] = $allFiles[$datei];
+        }
+    }else{
+        $randArray = $allFiles[$rand_keys];
+    }
 
-    echo $html;
+    return $randArray;
 }
 
 function pictureRaster(){
-    //create a grid with random pictures from a directory on the server
-    // image folder
-    $alledateien = scandir("assets/images/PictureRaster");
-
-
-    // delete the array indexes with '.' and '..'
-    foreach ($alledateien as $delete => &$val) { // Ausgabeschleife
-        if($alledateien[$delete] == "." or $alledateien[$delete] == '..'){
-            unset($alledateien[$delete]);
-        }
-    }
-
-    // random order of the array
-    shuffle($alledateien);
-
-    // pics 12 random indexes from the Array
-    $rand_keys = array_rand($alledateien, 18);
+    $images = crateImageOfFilesFromAFolder("assets/images/PictureRaster/", 180);
 
     // print the pictures which has selected before with the '$rand_keys'
-    foreach ($rand_keys as $datei) { // Ausgabeschleife
-        $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$alledateien[$datei].'" alt="AiLogo">';
-
+    foreach ($images as $datei) { // Ausgabeschleife
+        $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$datei.'" alt="AiLogo">';
+        debug_to_logFile($html);
         echo $html;
     }
 }
+
+function errorPageGifs(){
+
+    $gif = crateImageOfFilesFromAFolder("assets/images/ErrorGifs", 1);
+
+    // print the pictures which has selected before with the '$rand_keys'
+    $html ='<img src="'.ROOTPATH.'assets/images/ErrorGifs/'.$gif.'" alt="AiLogo">';
+    echo $html;
+}
+
+
+
 
 function sendMail($isRegistration = false){
 

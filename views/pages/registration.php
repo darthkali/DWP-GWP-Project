@@ -10,9 +10,10 @@ if(isset($_POST['submitRegistration'])){
         'PASSWORD'   => $_POST['password']
     ];
 
-
+    debug_to_logFile('Params = ' . $params['FIRSTNAME']);
     $newUser = new user($params);
-    debug_to_logFile($newUser->params['FIRSTNAME']);
+    debug_to_logFile($newUser['FIRSTNAME']);
+
    foreach ($params as $key => $value) {
        $newUser->__set($key, $value);
     }

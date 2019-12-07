@@ -43,6 +43,7 @@ abstract class BaseModel
 
     //decides if we have an id, then the entity is already there, than we take the update, else we need an insert
     public function save(&$errors = null){
+
         if($this->ID === null){
             $this->insert($errors);
         }else{
