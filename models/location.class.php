@@ -15,4 +15,11 @@ class location extends BaseModel
         'CITY'             => [ 'type' => BaseModel::TYPE_STRING ],
         'ROOM'             => [ 'type' => BaseModel::TYPE_STRING ]
     ];
+
+    public function buildLocationDetails($street, $number, $zipcode, $room, $city){
+
+        $location = $location = $city.', '.$zipcode.', '.$street.' '.$number;;
+        if(isset($room)) $location .= ', Raum: '.$room;
+        return $location;
+    }
 }

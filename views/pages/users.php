@@ -10,8 +10,7 @@ use FSR_AI\User;
 <div class="Content" id="fadeIn">
 
     <div class="userPageBox">
-    <h1>Meine Daten</h1>
-    <h5>Hier kannst du deine Daten ändern!</h5><br>
+    <h1>Unsere Mitglieder</h1>
 
         <div class="filterBox">
         <div class="sortFilterBox">
@@ -48,7 +47,7 @@ use FSR_AI\User;
         <? foreach($userList as $user) : ?>
 
             <div class="userBox">
-                <img class="center" src="/FSAI-Site/assets/images/<?=$user['PICTURE']?>" alt="ProfilPageImage">
+                <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
                 <p><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?><br>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
                     Funktion: <?=$user['ROLE']?><br><br>

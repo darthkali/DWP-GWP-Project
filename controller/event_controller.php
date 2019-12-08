@@ -68,9 +68,10 @@ class EventController extends Controller
             $this->_params['title'] = 'Event Erstellen';
             $eventId = $_GET['eventId'] ?? null;
             $pictureName = null;
-            $dataDir = 'assets/images/upload/';
+            $dataDir = 'assets/images/upload/events/';
 
-            if(!($_FILES['eventPicture']['name'] == null)){
+            if($_FILES['eventPicture']['name'] != null){
+
                 $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
                 if(isset($_GET['picturePath'])){
                     unlink($dataDir.$_GET['picturePath']);
@@ -85,13 +86,12 @@ class EventController extends Controller
                     'LOCATION_ID'   => $_POST['eventLocation'],
                     'DESCRIPTION'   => $_POST['eventDescription']
                 ];
-                //die(implode(', ', $params));
                 $event = new event($params);
                 foreach ($params as $key => $value) {
                     $event->__set($key, $value);
                 }
                 $event->save();
-                $dataDir = 'assets/images/upload/'.$pictureName;
+                $dataDir .= $pictureName;
                 move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
         }elseif($siteId == 1) {
@@ -111,7 +111,7 @@ class EventController extends Controller
                 $location->save();
             }
         }
-    }   //??????????????????
+    }
 
     public function actionCreateLocation(){
         $this->_params['title'] = 'Location Erstellen';
@@ -125,11 +125,7 @@ class EventController extends Controller
         User::checkUserPermissionForPage($accessUser,$errorPage);
 
 
-        $this->_params['title'] = 'Nutzerverwaltung';
+        $this->_params['title'] = 'Eventverwaltung';
         $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
     }
 }
-
-
-
-

@@ -1,23 +1,24 @@
 <?php
 
 use FSR_AI\booking;
+use FSR_AI\location;
 
 ?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets/images/laptop.jpg'?>" alt="Bild Eventseite">
 </div>
 <div class="Content" id="fadeIn">
+
     <h1>Unsere Events</h1>
 
     <?foreach($eventList as $event) :?>
-    <??>
     <div class="ContentEvents">
-        <img src="/FSAI-Site/assets/images/upload/<?=$event['PICTURE']?>">
+        <img src="/FSAI-Site/assets/images/upload/events/<?=$event['PICTURE']?>">
         <div>
             <h2><?=$event['NAME']?></h2>
             <p>
-                <strong>Datum: </strong> <?=$event['DATE']?><br>
-                <strong>Ort: </strong> </p>
+                <strong>Datum: </strong> <?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
+                <strong>Ort: </strong><?=Location::buildLocationDetails($event['STREET'], $event['NUMBER'], $event['ZIPCODE'], $event['ROOM'], $event['CITY']);?> </p>
             <p><?=$event['DESCRIPTION']?></p>
         </div>
         <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) : ?>

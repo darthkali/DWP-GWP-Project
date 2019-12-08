@@ -4,15 +4,13 @@ namespace FSR_AI;
 
 class UserController extends Controller{
 
-    public function actionUsers()
-    {
+    public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
         $userList = USER::find('', 'getuserinfo');
         $this->_params['userList'] = $userList;
     }
 
-    public function actionLogin()
-    {
+    public function actionLogin(){
         $this->_params['title'] = 'Login';
         $this->_params['errorMessage'] = 'Nutzername oder Passwort sind nicht korrekt!';
         $error = false;

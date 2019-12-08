@@ -7,7 +7,6 @@
     <?
     $html = '<table border ="1">';
     $html .= '<tr>'.
-        '<th>EventID</th>' .
         '<th>Erstellt am</th>'.
         '<th>Eventname</th>'.
         '<th>Datum</th>'.
@@ -17,7 +16,6 @@
 
     foreach($eventList as $event) {
         $html .= '<tr>';
-        $html .= '<td>'. $event['ID']. '</td>';
         $html .= '<td>'. date_format(date_create($event['CREATED_AT']), 'd.m.Y H:i:s'). '</td>';
         $html .= '<td>'. $event['NAME']. '</td>';
         $html .= '<td>'. date_format(date_create($event['DATE']), 'd.m.Y'). '</td>';

@@ -10,16 +10,22 @@
         <img src="/FSAI-Site/assets/images/ailogo_groß_schatten.png" alt="AiLogo">
         </div>
         <ul>
-            <?
-            $images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);
-
-            // print the pictures which has selected before with the '$rand_keys'
-            foreach ($images as $datei) { // Ausgabeschleife
-            $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$datei.'" alt="AiLogo">';
-                debug_to_logFile($html);
-                echo $html;
-                }
-            ?>
+            <?$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);?>
+<!--            print the pictures which has selected before with the '$rand_keys'-->
+            <?foreach($images as $datei) : ?> <!-- Ausgabeschleife-->
+                <li><img src="<?=ROOTPATH?>assets/images/PictureRaster/<?=$datei?>" alt="AiLogo"
+            <?endforeach;?>
         </ul>
     </div>
 </div>
+
+<?//
+//$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);
+//
+//// print the pictures which has selected before with the '$rand_keys'
+//foreach ($images as $datei) { // Ausgabeschleife
+//    $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$datei.'" alt="AiLogo">';
+//    debug_to_logFile($html);
+//    echo $html;
+//}
+//?>
