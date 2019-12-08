@@ -1,4 +1,10 @@
 <div class="ErrorPage">
    <h1>Ups... Da lief wohl etwas schief!</h1>
-    <?errorPageGifs()?>
+    <?
+    $gif = crateDataOfFilesFromDirectory("assets/images/ErrorGifs", 1);
+
+    // print the pictures which has selected before with the '$rand_keys'
+    $html ='<img src="'.ROOTPATH.'assets/images/ErrorGifs/'.$gif.'" alt="AiLogo">';
+    echo $html;
+    ?>
 </div>

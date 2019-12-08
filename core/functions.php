@@ -5,8 +5,7 @@ function debug_to_logFile($message){
     file_put_contents ( __DIR__.'/../logs/logs.txt', $message,FILE_APPEND);
 }
 
-
-function crateImageOfFilesFromAFolder($dir, $numberOfOutputFiles){
+function crateDataOfFilesFromDirectory($dir, $numberOfOutputFiles){
     //create a grid with random pictures from a directory on the server
     $allFiles = scandir($dir);
 
@@ -38,29 +37,6 @@ function crateImageOfFilesFromAFolder($dir, $numberOfOutputFiles){
 
     return $randArray;
 }
-
-function pictureRaster(){
-    $images = crateImageOfFilesFromAFolder("assets/images/PictureRaster/", 180);
-
-    // print the pictures which has selected before with the '$rand_keys'
-    foreach ($images as $datei) { // Ausgabeschleife
-        $html ='<li><img src="'.ROOTPATH.'assets/images/PictureRaster/'.$datei.'" alt="AiLogo">';
-        debug_to_logFile($html);
-        echo $html;
-    }
-}
-
-function errorPageGifs(){
-
-    $gif = crateImageOfFilesFromAFolder("assets/images/ErrorGifs", 1);
-
-    // print the pictures which has selected before with the '$rand_keys'
-    $html ='<img src="'.ROOTPATH.'assets/images/ErrorGifs/'.$gif.'" alt="AiLogo">';
-    echo $html;
-}
-
-
-
 
 function sendMail($isRegistration = false){
 
