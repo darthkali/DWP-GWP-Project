@@ -70,4 +70,8 @@ class UserController extends Controller{
     public function actionRegistration(){
         $this->_params['title'] = 'Registrieren';
     }
+
+    public function deleteUserById($userId){
+        User::deleteWhere('id = '.$userId);
+    }
 }

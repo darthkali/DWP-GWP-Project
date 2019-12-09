@@ -7,7 +7,7 @@
 
         <!-- frontname -->
         <label for="frontname">VORNAME </label>
-        <input type = "text" id="frontname" name="frontname">
+        <input type = "text" id="frontname" name="frontname" value="">
 
         <!-- rearname -->
         <label for="rearname">NACHNAME </label>

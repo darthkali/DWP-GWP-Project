@@ -18,7 +18,6 @@
         </ul>
     </div>
 </div>
-
 <?//
 //$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);
 //
