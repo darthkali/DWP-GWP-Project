@@ -56,7 +56,7 @@ class UserController extends Controller{
 
     public function actionProfil(){
         //Permissions for the page
-        $accessUser = [1,2,3];    // which user(role_id) has permission to join the page
+        $accessUser = [roles::ADMIN,roles::MEMBER,roles::USER];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser,$errorPage);
 
@@ -64,17 +64,29 @@ class UserController extends Controller{
         $where = 'ID = '. $_SESSION['userId'];
         $user = User::findOne($where);
         $this->_params['userProfil'] = $user;
-
         $this->_params['errorMessage'] = '';
+
+
+        if(isset($_POST['submitProfil'])){
+            if(basename($_FILES['pictureProfil']['name']) != null) {
+                unlink(USER_PICTURE_PATH.$user['PICTURE']);
+                debug_to_logFile(basename($_FILES['pictureProfil']['name']));
+                $pictureName = createUploadedPictureName('user', 'pictureProfil');
+                $picturePath = USER_PICTURE_PATH . $pictureName;
+                move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
+            }
+        }
 
         if (isset($_POST['submitProfil'])) {
             $params = [
                 'ID' => $_SESSION['userId'],
-                'FIRSTNAME'         => $_POST['firstnameProfil'],
-                'LASTNAME'          => $_POST['lastnameProfil'],
-                'DATE_OF_BIRTH'     => $_POST['dateOfBirthProfil'],
-                'EMAIL'             => $_POST['emailProfil'],
-                'PASSWORD'          => $_POST['passwordProfil'],
+                'FIRSTNAME'         => $_POST['firstnameProfil']    ?? null,
+                'LASTNAME'          => $_POST['lastnameProfil']     ?? null,
+                'DATE_OF_BIRTH'     => $_POST['dateOfBirthProfil']  ?? null,
+                'EMAIL'             => $_POST['emailProfil']        ?? null,
+                'PASSWORD'          => $_POST['passwordProfil']     ?? null,
+                'PICTURE'           => $pictureName                 ?? null,
+                'DESCRIPTION'       => $_POST['descriptionProfil']  ?? null
             ];
             $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === $_SESSION['userId'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
@@ -82,7 +94,6 @@ class UserController extends Controller{
                 sendHeaderByControllerAndAction('user', 'profil');
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmrthgedtral verwendet. Bitte wählen Sie eine andere!";
-                debug_to_logFile(User::checkUniqueUserEntity($params['EMAIL']));
             }
         }
 
@@ -108,7 +119,6 @@ class UserController extends Controller{
                 sendHeaderByControllerAndAction('user', 'login');
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
-                debug_to_logFile("eqwqwqwts");
             }
         }
     }

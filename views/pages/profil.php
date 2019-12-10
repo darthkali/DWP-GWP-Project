@@ -3,7 +3,7 @@
 </div>
 
 <div class="Content" id="fadeIn">
-    <form autocomplete= "off" action="index.php?c=user&a=profil" method="post" >
+    <form autocomplete= "off" action="index.php?c=user&a=profil" method="post" enctype="multipart/form-data" >
         <h1>Meine Daten</h1>
         <h5>Hier kannst du deine Daten ändern!</h5>
 
@@ -33,16 +33,21 @@
         <input type = "date" id="dateOfBirthProfil" name="dateOfBirthProfil"
                value = "<?=isset($_POST['dateOfBirthProfil']) ? htmlspecialchars($_POST['dateOfBirthProfil']) : htmlspecialchars($userProfil['DATE_OF_BIRTH'])?>">
 
+
+
+        <? if($userProfil['ROLE_ID'] == 1 ||  $userProfil['ROLE_ID'] == 2){ ?>
+
         <!-- picture -->
         <label for="pictureProfil">BILD </label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="pictureProfil" name="pictureProfil"
-               value = "<?=isset($_POST['pictureProfil']) ? htmlspecialchars($_POST['pictureProfil']) : htmlspecialchars($userProfil['PICTURE'])?>">
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="pictureProfil" name="pictureProfil">
 
         <!-- description -->
         <label for="descriptionProfil">BESCHREIBUNG  </label>
-        <textarea name="descriptionProfil" id="descriptionProfil" cols="44" rows="5"><?=isset($_POST['descriptionProfil']) ? htmlspecialchars($_POST['descriptionProfil']) : htmlspecialchars($userProfil['DESCRIPTION'])?>
-        </textarea>
+        <textarea name="descriptionProfil" id="descriptionProfil" cols="44" rows="5"><?=isset($_POST['descriptionProfil']) ? htmlspecialchars($_POST['descriptionProfil']) : htmlspecialchars($userProfil['DESCRIPTION'])?></textarea>
+        <? } ?>
 
+
+        <? if($userProfil['ROLE_ID'] == 1){ ?>
         <label for="sortBy">Rolle: </label> <br>
         <select name="sortBy" id="sortBy">
             <option>Administrator</option>
@@ -59,6 +64,8 @@
             <option selected>Mitglied</option>
             <option>archiviertes Mitglied</option>
         </select>
+        <? } ?>
+
 
         <!-- buttons -->
         <button type="submit" name="submitProfil">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

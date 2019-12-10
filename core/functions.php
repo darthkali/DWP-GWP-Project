@@ -73,3 +73,7 @@ function sendMail($isRegistration = false){
 function sendHeaderByControllerAndAction($controller, $action){
     header('Location: index.php?c=' .$controller . '&a=' . $action);
 }
+
+function createUploadedPictureName($modelName, $uploadedPictureFile){
+    return $modelName.date('d-m-Y-H-i-s').strstr($_FILES[$uploadedPictureFile]['name'], '.');
+}
