@@ -3,12 +3,15 @@ if($create == true){
     $htmlButton = 'Event erstellen';
     $action = 'index.php?c=event&a=IntoDatabase&siteId=0';
     $headline = 'Event erstellen';
+    $required = 'required';
 }else{
     $htmlButton = 'Änderungen speichern';
     $action = 'index.php?c=event&a=IntoDatabase&siteId=0&eventId='.$eventData['ID'].'&picturePath='.$eventData['PICTURE'];
     $headline = 'Event bearbeiten';
+    $required = '';
 }
-?>
+
+use FSR_AI\location; ?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
@@ -33,10 +36,10 @@ if($create == true){
             <?foreach ($locationsList as $location) : ?>
                 <?$selected = '';
                 if($location['ID'] == $eventData['LOCATION_ID'])$selected = 'selected';?>
-                <option <?=$selected?> value="<?=$location['ID']?>">
-                    <?=$location['CITY'].', '.$location['ZIPCODE'].', '.$location['STREET'].' '.$location['NUMBER'];?>
-                    <?=($location['ROOM']) ? 'Raum: '.$location['ROOM'] : ''?>
-                </option>
+                    <option <?=$selected?> value="<?=$location['ID']?>">
+                        <?=Location::buildLocationDetails($location['STREET'], $location['NUMBER'], $location['ZIPCODE'], null, $location['CITY']);?>
+                        <?=($location['ROOM']) ? 'Raum: '.$location['ROOM'] : ''?>
+                    </option>
             <?endforeach;?>
         </select>
 
@@ -45,7 +48,7 @@ if($create == true){
         <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required><?=isset($eventData['DESCRIPTION']) ? $eventData['DESCRIPTION'] : ''?></textarea>
 
         <label for="picture">BILD</label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture">
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=$required?>>
 
         <!-- button -->
         <button type="submit"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
