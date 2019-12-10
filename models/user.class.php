@@ -87,11 +87,10 @@ class User extends BaseModel
         }
     }
 
-    public static function checkUniqueUserEntity(){
-        $email    = $_POST['email'] ?? null;
-
+    public static function checkUniqueUserEntity($email){
         $where = " EMAIL = '" . $email . "';'";
-        return (self::findOne($where) == '') ? true : false;
+        return self::findOne($where)['ID'];
+
     }
 
 }

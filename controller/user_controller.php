@@ -29,7 +29,7 @@ class UserController extends Controller{
                 }
             }
         }else{
-            header('Location: index.php?c=pages&a=error');
+            sendHeaderByControllerAndAction('pages', 'error');
         }
         $this->_params['errorValid'] = $error;
     }
@@ -64,11 +64,53 @@ class UserController extends Controller{
         $where = 'ID = '. $_SESSION['userId'];
         $user = User::findOne($where);
         $this->_params['userProfil'] = $user;
-        //debug_to_console($user[0]);
+
+        $this->_params['errorMessage'] = '';
+
+        if (isset($_POST['submitProfil'])) {
+            $params = [
+                'ID' => $_SESSION['userId'],
+                'FIRSTNAME'         => $_POST['firstnameProfil'],
+                'LASTNAME'          => $_POST['lastnameProfil'],
+                'DATE_OF_BIRTH'     => $_POST['dateOfBirthProfil'],
+                'EMAIL'             => $_POST['emailProfil'],
+                'PASSWORD'          => $_POST['passwordProfil'],
+            ];
+            $newUser = new User($params);
+            if (User::checkUniqueUserEntity($params['EMAIL']) === $_SESSION['userId'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+                $newUser->save();
+                sendHeaderByControllerAndAction('user', 'profil');
+            } else {
+                $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmrthgedtral verwendet. Bitte wählen Sie eine andere!";
+                debug_to_logFile(User::checkUniqueUserEntity($params['EMAIL']));
+            }
+        }
+
     }
 
     public function actionRegistration(){
         $this->_params['title'] = 'Registrieren';
+        $this->_params['errorMessage'] = '';
+
+        if (isset($_POST['submitRegistration'])) {
+            $params = [
+                'FIRSTNAME' => $_POST['firstnameRegistration'],
+                'LASTNAME' => $_POST['lastnameRegistration'],
+                'DATE_OF_BIRTH' => $_POST['dateOfBirthRegistration'],
+                'EMAIL' => $_POST['emailRegistration'],
+                'PASSWORD' => $_POST['passwordRegistration'],
+                'ROLE_ID' => 3
+            ];
+
+            $newUser = new user($params);
+            if (User::checkUniqueUserEntity($params['EMAIL']) === null) {
+                $newUser->save();
+                sendHeaderByControllerAndAction('user', 'login');
+            } else {
+                $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+                debug_to_logFile("eqwqwqwts");
+            }
+        }
     }
 
     public function deleteUserById($userId){

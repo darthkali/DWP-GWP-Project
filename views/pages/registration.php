@@ -1,31 +1,3 @@
-<?php
-
-use FSR_AI\BaseModel;
-use FSR_AI\User;
-
-if(isset($_POST['submitRegistration'])){
-    $params = [
-        'FIRSTNAME'        => $_POST['firstname'],
-        'LASTNAME'         => $_POST['lastname'],
-        'DATE_OF_BIRTH'    => $_POST['dateOfBirth'],
-        'EMAIL'            => $_POST['email'],
-        'PASSWORD'         => $_POST['password'],
-        'ROLE_ID'          => 3
-    ];
-
-    $errorMessage = '';
-    $newUser = new user($params);
-   if(User::checkUniqueUserEntity()){
-       $newUser->save();
-   }else{
-       $errorMessage = "Der Benutzer existiert bereits";
-       // TODO: Fehlerausgabe
-       debug_to_logFile("Das ist nicht gut", get_called_class());
-   }
-}
-
-?>
-
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
@@ -35,25 +7,31 @@ if(isset($_POST['submitRegistration'])){
         <h1>Registrierung</h1>
         <h5>Hier kannst du dich Registrieren!</h5>
 
-        <? if($errorMessage != ''){ ?> <div class="error"><?echo $errorMessage?></div> <? } ?>
+
         <!-- frontname -->
-        <label for="firstname">VORNAME </label>
-        <input type = "text" id="firstname" name="firstname" required>
+        <label for="firstnameRegistration">VORNAME </label>
+        <input type = "text" id="firstnameRegistration" name="firstnameRegistration" required
+            <?=isset($_POST['firstnameRegistration']) ? 'value="'.htmlspecialchars($_POST['firstnameRegistration']).'"' : ''?>>
 
         <!-- rearname -->
-        <label for="lastname">NACHNAME </label>
-        <input type = "text" id="lastname" name="lastname" required>
+        <label for="lastnameRegistration">NACHNAME </label>
+        <input type = "text" id="lastnameRegistration" name="lastnameRegistration" required
+        <?=isset($_POST['lastnameRegistration']) ? 'value="'.htmlspecialchars($_POST['lastnameRegistration']).'"' : ''?>>
 
         <!-- email -->
-        <label for="email">EMAIL </label>
-        <input type = "email" id="email" name="email" required>
+        <label for="emailRegistration">EMAIL </label>
+        <input type = "email" id="emailRegistration" name="emailRegistration" required
+        <?=isset($_POST['emailRegistration']) ? 'value="'.htmlspecialchars($_POST['emailRegistration']).'"' : ''?>>
 
-        <label for="password">PASSWORT </label>
-        <input type = "password" id="password" name="password" required>
+        <? if($errorMessage != ''){?> <div class="error"><?echo $errorMessage?></div> <? } ?>
+
+        <label for="passwordRegistration">PASSWORT </label>
+        <input type = "password" id="passwordRegistration" name="passwordRegistration" required >
 
         <!-- date of birth -->
-        <label for="dateOfBirth">GEBURTSDATUM </label>
-        <input type = "date" id="dateOfBirth" name="dateOfBirth" required>
+        <label for="dateOfBirthRegistration">GEBURTSDATUM </label>
+        <input type = "date" id="dateOfBirthRegistration" name="dateOfBirthRegistration" required
+        <?=isset($_POST['dateOfBirthRegistration']) ? 'value="'.htmlspecialchars($_POST['dateOfBirthRegistration']).'"' : ''?>>
 
         <!-- buttons -->
         <button type="submit" name="submitRegistration">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

@@ -1,5 +1,7 @@
-[2019-12-10 12:40:29 FSR_AI\UserController]Das ist nicht gut
-[2019-12-10 12:45:08 FSR_AI\UserController]Das ist nicht gut
-[2019-12-10 12:46:25 FSR_AI\UserController]Das ist nicht gut
-[2019-12-10 12:46:51 FSR_AI\UserController]Das ist nicht gut
-[2019-12-10 12:47:20 FSR_AI\UserController]Das ist nicht gut
+[2019-12-10 17:00:16 ]60
+[2019-12-10 17:00:16 ]60
+[2019-12-10 17:00:16 ]60
+[2019-12-10 17:02:53 ]55
+[2019-12-10 17:06:30 ]eqwqwqwts
+[2019-12-10 17:06:39 ]eqwqwqwts
+[2019-12-10 17:07:08 ]62

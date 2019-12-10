@@ -2,43 +2,66 @@
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 
-<div action="#" method="post" class="Content" id="fadeIn">
-    <form autocomplete= "off">
+<div class="Content" id="fadeIn">
+    <form autocomplete= "off" action="index.php?c=user&a=profil" method="post" >
         <h1>Meine Daten</h1>
         <h5>Hier kannst du deine Daten ändern!</h5>
 
         <!-- frontname -->
-        <label for="frontname">VORNAME </label>
-        <input type = "text" id="frontname" name="frontname"
-                value = "<?=htmlspecialchars($userProfil['FIRSTNAME'])?>">
+        <label for="firstnameProfil">VORNAME </label>
+        <input type = "text" id="firstnameProfil" name="firstnameProfil" required
+               value = "<?=isset($_POST['firstnameProfil']) ? htmlspecialchars($_POST['firstnameProfil']) : htmlspecialchars($userProfil['FIRSTNAME'])?>">
 
         <!-- rearname -->
-        <label for="rearname">NACHNAME </label>
-        <input type = "text" id="rearname" name="rearname"
-               value = "<?=htmlspecialchars($userProfil['LASTNAME'])?>">
+        <label for="lastnameProfil">NACHNAME </label>
+        <input type = "text" id="lastnameProfil" name="lastnameProfil" required
+               value = "<?=isset($_POST['lastnameProfil']) ? htmlspecialchars($_POST['lastnameProfil']) : htmlspecialchars($userProfil['LASTNAME'])?>">
 
         <!-- email -->
-        <label for="email">EMAIL </label>
-        <input type = "email" id="email" name="email"
-               value = "<?=htmlspecialchars($userProfil['EMAIL'])?>">
+        <label for="emailProfil">EMAIL </label>
+        <input type = "email" id="emailProfil" name="emailProfil"
+               value = "<?=isset($_POST['emailProfil']) ? htmlspecialchars($_POST['emailProfil']) : htmlspecialchars($userProfil['EMAIL'])?>">
+
+        <? if($errorMessage != ''){?> <div class="error"><?echo $errorMessage?></div> <? } ?>
+
+        <label for="passwordProfil">PASSWORT </label>
+        <input type = "password" id="passwordProfil" name="passwordProfil" required
+               value = "<?=isset($_POST['passwordProfil']) ? htmlspecialchars($_POST['passwordProfil']) : htmlspecialchars($userProfil['PASSWORD'])?>">
 
         <!-- date of birth -->
-        <label for="dateOfBirth">GEBURTSDATUM </label>
-        <input type = "date" id="dateOfBirth" name="dateOfBirth"
-               value = "<?=htmlspecialchars($userProfil['DATE_OF_BIRTH'])?>">
+        <label for="dateOfBirthProfil">GEBURTSDATUM </label>
+        <input type = "date" id="dateOfBirthProfil" name="dateOfBirthProfil"
+               value = "<?=isset($_POST['dateOfBirthProfil']) ? htmlspecialchars($_POST['dateOfBirthProfil']) : htmlspecialchars($userProfil['DATE_OF_BIRTH'])?>">
 
         <!-- picture -->
-        <label for="picture">BILD </label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="picture" name="picture"
-               value = "<?=htmlspecialchars($userProfil['PICTURE'])?>">
+        <label for="pictureProfil">BILD </label>
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="pictureProfil" name="pictureProfil"
+               value = "<?=isset($_POST['pictureProfil']) ? htmlspecialchars($_POST['pictureProfil']) : htmlspecialchars($userProfil['PICTURE'])?>">
 
         <!-- description -->
-        <label for="description">BESCHREIBUNG  </label>
-            <textarea name="description" id="description" cols="44" rows="5"><?=htmlspecialchars($userProfil['DESCRIPTION'])?></textarea>
+        <label for="descriptionProfil">BESCHREIBUNG  </label>
+        <textarea name="descriptionProfil" id="descriptionProfil" cols="44" rows="5"><?=isset($_POST['descriptionProfil']) ? htmlspecialchars($_POST['descriptionProfil']) : htmlspecialchars($userProfil['DESCRIPTION'])?>
+        </textarea>
+
+        <label for="sortBy">Rolle: </label> <br>
+        <select name="sortBy" id="sortBy">
+            <option>Administrator</option>
+            <option>Mitglied</option>
+            <option selected>Nutzer</option>
+        </select>
+
+        <label for="functionFSR">Filtern nach:</label><br>
+        <select name="functionFSR" id="functionFSR">
+            <option selected>Sprecher</option>
+            <option>stellv. Sprecher</option>
+            <option>Finanzer</option>
+            <option>stellv. Finanzer</option>
+            <option selected>Mitglied</option>
+            <option>archiviertes Mitglied</option>
+        </select>
 
         <!-- buttons -->
-        <button type="submit">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-        <button type="button">Passwort Ändern</button>
+        <button type="submit" name="submitProfil">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         <button type="reset"> Verwerfen</button>
     </form>
 </div>
