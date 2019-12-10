@@ -59,6 +59,7 @@ abstract class BaseModel
             $sql = 'INSERT INTO ' . self::tablename() . ' (';
             $valueString = ' VALUES (';
 
+
             foreach ($this->schema as $key => $schemaOptions){
                 $sql .= '`'.$key.'`,';
 
@@ -142,6 +143,7 @@ abstract class BaseModel
         return false;
     }
 
+    //TODO: validate muss angepasst werden! Wenn es keinen Error gibt, dann checkt wirft er einen Fehler
     public function validate(&$errors = null){
         foreach($this->schema as $key => $schemaOptions){
             if(isset($this->data[$key]) && is_array($schemaOptions)){
@@ -152,7 +154,7 @@ abstract class BaseModel
                 }
             }
         }
-        if(count($errors) === 0){
+        if(count($errors) == 0){
             return true;
         }else{
             return false;
