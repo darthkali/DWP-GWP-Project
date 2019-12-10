@@ -1,23 +1,27 @@
 <?php
+
+use FSR_AI\BaseModel;
 use FSR_AI\User;
 
 if(isset($_POST['submitRegistration'])){
     $params = [
-        'FIRSTNAME'      => $_POST['firstname'],
-        'LASTNAME'          => $_POST['lastname'],
-        'DATE_OF_BIRTH'   => $_POST['dateOfBirth'],
-        'EMAIL'   => $_POST['email'],
-        'PASSWORD'   => $_POST['password']
+        'FIRSTNAME'        => $_POST['firstname'],
+        'LASTNAME'         => $_POST['lastname'],
+        'DATE_OF_BIRTH'    => $_POST['dateOfBirth'],
+        'EMAIL'            => $_POST['email'],
+        'PASSWORD'         => $_POST['password'],
+        'ROLE_ID'          => 3
     ];
 
-    debug_to_logFile('Params = ' . $params['FIRSTNAME']);
+    $errorMessage = '';
     $newUser = new user($params);
-    debug_to_logFile($newUser['FIRSTNAME']);
-
-   foreach ($params as $key => $value) {
-       $newUser->__set($key, $value);
-    }
-    $newUser->save();
+   if(User::checkUniqueUserEntity()){
+       $newUser->save();
+   }else{
+       $errorMessage = "Der Benutzer existiert bereits";
+       // TODO: Fehlerausgabe
+       debug_to_logFile("Das ist nicht gut", get_called_class());
+   }
 }
 
 ?>
@@ -31,6 +35,7 @@ if(isset($_POST['submitRegistration'])){
         <h1>Registrierung</h1>
         <h5>Hier kannst du dich Registrieren!</h5>
 
+        <? if($errorMessage != ''){ ?> <div class="error"><?echo $errorMessage?></div> <? } ?>
         <!-- frontname -->
         <label for="firstname">VORNAME </label>
         <input type = "text" id="firstname" name="firstname" required>

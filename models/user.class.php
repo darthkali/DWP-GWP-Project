@@ -3,7 +3,7 @@ namespace FSR_AI;
 
 class User extends BaseModel
 {
-    const TABLENAME = '`user`';
+    const TABLENAME = '`USER`';
 
     protected $schema = [
         'ID'               => [ 'type' => BaseModel::TYPE_INT ],
@@ -85,6 +85,13 @@ class User extends BaseModel
         }else{
             sendHeaderByControllerAndAction('pages', 'errorPage');
         }
+    }
+
+    public static function checkUniqueUserEntity(){
+        $email    = $_POST['email'] ?? null;
+
+        $where = " EMAIL = '" . $email . "';'";
+        return (self::findOne($where) == '') ? true : false;
     }
 
 }
