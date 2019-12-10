@@ -96,7 +96,7 @@ class User extends BaseModel
     public static function generateRoleNameByRoleID($roleID){
         switch ($roleID) {
             case 1:
-                return "Admin";
+                return "Administrator";
             case 2:
                 return "Mitglied";
             case 3:
@@ -104,5 +104,30 @@ class User extends BaseModel
         }
         return false;
     }
+
+
+    public static function generateFunctionFSRByRoleID($functionID){
+        switch ($functionID) {
+            case 1:
+                return "Sprecher";
+            case 2:
+                return "stellv. Sprecher";
+            case 3:
+                return "Finanzer";
+            case 4:
+                return "stellv. Finanzer";
+            case 5:
+                return "Mitglied";
+            case 6:
+                return "inaktives Mitglied";
+            case 7:
+                return "Social Media";
+            case 8:
+                return "Lagerverwalter";
+        }
+        return false;
+    }
+
+
 
 }

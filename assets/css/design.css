@@ -395,7 +395,7 @@ table input:hover{
 
 .pictureRaster h1{
     width: 100%;
-    text-align: justify;
+    text-align: left;
     font-size: 40px;
     margin-bottom: 10px;
 }

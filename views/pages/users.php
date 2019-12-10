@@ -1,5 +1,6 @@
 <?php
 
+use FSR_AI\MemberHistory;
 use FSR_AI\User;
 
 ?>
@@ -43,14 +44,17 @@ use FSR_AI\User;
         </div>
 
         <? foreach($userList as $user) : ?>
-
             <div class="userBox">
                 <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
                 <p><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?><br>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
-                    Funktion: <?=User::generateRoleNameByRoleID($user['ROLE_ID'])?><br><br>
+                    Funktion: <?=MemberHistory::generateActualFunctionFSRFromUser($user['ID'])?><br>
+                    <? $userMember = MemberHistory::generateAllClosedFunctionsFSRFromUser($user['ID']);?>
+                    <? foreach ($userMember as $member) :?>
+                        <?=$member['START_DATE'];?> bis <?=$member['END_DATE'];?> : <?=User::generateFunctionFSRByRoleID($member['FUNCTION_FSR_ID']);?> <br>
+                    <?php endforeach; ?>
                 </p>
-                    <h1>Beschreibung:</h1>
+                <h1>Beschreibung:</h1>
                 <p><?=$user['DESCRIPTION']?></p>
             </div>
         <?php endforeach; ?>
