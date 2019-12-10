@@ -439,6 +439,11 @@ table input:hover{
     text-align: center;
 }
 
+.userPageBox button{
+    height: 35px;
+    padding:5px;
+}
+
 .userBox{
     display: block;
     width: 100%;
@@ -503,9 +508,8 @@ margin-right: 10px;
     box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
 }
 .filterBox .sortFilterBox select:focus{
-    border-left: solid;
-    border-left-width: 4px;
-    border-left-color: #2e62ff;
+    border-left: none;
+    border-left-width:0;
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 

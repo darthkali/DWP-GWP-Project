@@ -37,13 +37,11 @@ use FSR_AI\User;
                 <option>archiviertes Mitglied</option>
             </select>
         </div>
-
+            <!-- buttons -->
+            <button type="submit" name="submitRegistration">Filter anwenden<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
 
         </div>
-        <div class="checkBox">
-            <label for="activeUsers">Nur aktive mitglieder?</label>
-            <input type="checkbox"  id="activeUsers" name="activeUsers"> <br>
-        </div>
+
         <? foreach($userList as $user) : ?>
 
             <div class="userBox">
