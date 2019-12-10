@@ -40,14 +40,14 @@ class UserController extends Controller{
 
     public function actionUserManagement(){
         //Permissions for the page
-        $accessUser = 1;    // which user(role_id) has permission to join the page
+        $accessUser = roles::ADMIN;    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser,$errorPage);
 
         $this->_params['title'] = 'Nutzerverwaltung';
 
         if(isset($_GET['role'])){
-            $this->_params['accounts'] = User::find('ROLE_ID <> 3');
+            $this->_params['accounts'] = User::find('ROLE_ID <> ' . roles::USER);
         }else{
             $this->_params['accounts'] = User::find('1');
         }
@@ -93,7 +93,7 @@ class UserController extends Controller{
                 $newUser->save();
                 sendHeaderByControllerAndAction('user', 'profil');
             } else {
-                $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmrthgedtral verwendet. Bitte wählen Sie eine andere!";
+                $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
         }
 
@@ -123,7 +123,7 @@ class UserController extends Controller{
         }
     }
 
-    public function deleteUserById($userId){
-        User::deleteWhere('id = '.$userId);
-    }
+//    public function deleteUserById($userId){
+//        User::deleteWhere('id = '.$userId);
+//    }
 }

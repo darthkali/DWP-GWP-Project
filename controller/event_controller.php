@@ -120,7 +120,7 @@ class EventController extends Controller
     public function actionEventManagement(){
 
         //Permissions for the page
-        $accessUser = [1,2];    // which user(role_id) has permission to join the page
+        $accessUser = [roles::ADMIN, roles::MEMBER];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser,$errorPage);
 

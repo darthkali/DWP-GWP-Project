@@ -1,5 +1,6 @@
 <?php
 
+use FSR_AI\roles;
 use FSR_AI\User;
 ?>
 
@@ -27,10 +28,12 @@ use FSR_AI\User;
                     $roleID = $user['ROLE_ID'];
                     ?>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=profil">Profil</a>
-                    <? if($roleID == 1 || $roleID == 2){?>
+
+                    <? if($roleID == roles::ADMIN || $roleID == roles::MEMBER){?>
                         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=eventManagement">Eventverwaltung</a>
                     <?}
-                    if($roleID == 1){?>
+
+                    if($roleID == roles::ADMIN){?>
                         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=userManagement">Nutzerverwaltung</a>
                     <?}?>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=logOut">Abmelden</a>

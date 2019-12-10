@@ -1,3 +1,8 @@
+<?php
+
+use FSR_AI\roles;
+
+?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
 </div>
@@ -35,7 +40,7 @@
 
 
 
-        <? if($userProfil['ROLE_ID'] == 1 ||  $userProfil['ROLE_ID'] == 2){ ?>
+        <? if($userProfil['ROLE_ID'] == roles::ADMIN ||  $userProfil['ROLE_ID'] == roles::MEMBER){ ?>
 
         <!-- picture -->
         <label for="pictureProfil">BILD </label>
@@ -47,7 +52,7 @@
         <? } ?>
 
 
-        <? if($userProfil['ROLE_ID'] == 1){ ?>
+        <? if($userProfil['ROLE_ID'] == roles::ADMIN){ ?>
         <label for="sortBy">Rolle: </label> <br>
         <select name="sortBy" id="sortBy">
             <option>Administrator</option>
