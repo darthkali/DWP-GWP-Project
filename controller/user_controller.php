@@ -6,7 +6,7 @@ class UserController extends Controller{
 
     public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
-        $userList = USER::find('', 'getuserinfo');
+        $userList = User::find('ROLE_ID <> ' . roles::USER);
         $this->_params['userList'] = $userList;
     }
 

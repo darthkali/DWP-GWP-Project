@@ -50,7 +50,7 @@ use FSR_AI\User;
                 <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
                 <p><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?><br>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
-                    Funktion: <?=$user['ROLE']?><br><br>
+                    Funktion: <?=User::generateRoleNameByRoleID($user['ROLE_ID'])?><br><br>
                 </p>
                     <h1>Beschreibung:</h1>
                 <p><?=$user['DESCRIPTION']?></p>

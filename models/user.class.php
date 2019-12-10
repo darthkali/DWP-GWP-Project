@@ -93,4 +93,16 @@ class User extends BaseModel
 
     }
 
+    public static function generateRoleNameByRoleID($roleID){
+        switch ($roleID) {
+            case 1:
+                return "Admin";
+            case 2:
+                return "Mitglied";
+            case 3:
+                return "Nutzer";
+        }
+        return false;
+    }
+
 }

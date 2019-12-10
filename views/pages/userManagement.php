@@ -1,3 +1,8 @@
+<?php
+
+use FSR_AI\User;
+
+?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets\images\matrix.jpg'?>" alt="ProfilPageImage">
 </div>
@@ -7,9 +12,9 @@
 
     <div class="filterButton">
     <?if($role === false) : ?>
-        <a href="index.php/?c=user&a=userManagement&role=3">Nur Mitarbeiter anzeigen</a>
+        <a href="?c=user&a=userManagement&role=3">Nur Mitarbeiter anzeigen</a>
     <?else : ?>
-        <a href="index.php/?c=user&a=userManagement">Alle anzeigen</a>
+        <a href="?c=user&a=userManagement">Alle anzeigen</a>
     <?endif;?>
     <?
     $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);
@@ -35,7 +40,7 @@
                 <td><?=$accounts[$index]['LASTNAME'     ]?></td>
                 <td><?=$accounts[$index]['DATE_OF_BIRTH']?></td>
                 <td><?=$accounts[$index]['EMAIL'        ]?></td>
-                <td><?=$accounts[$index]['ROLE_ID'      ]?></td>
+                <td><?=User::generateRoleNameByRoleID($accounts[$index]['ROLE_ID'      ])?></td>
                 <td>
                     <a href="index.php?c=user&a=newUser&UserId=<?=$accounts[$index]['ID' ]?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
                     <!--Falls erwünscht noch button für nachricten einfügen-->
