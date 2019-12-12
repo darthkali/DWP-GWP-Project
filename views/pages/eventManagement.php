@@ -5,6 +5,9 @@
 <div class="Content" id="fadeIn">
     <h1>Eventverwaltung</h1>
 
+    <a href="?c=event&a=CreateEvent"><button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
+    <a href="index.php?c=event&a=CreateLocation"><button type="button">Neue Location erstellen</button></a>
+
    <table border ="1">
         <tr>
             <th>Erstellt am</th>
@@ -26,6 +29,5 @@
             </tr>
         <?endforeach;?>
    </table>
-    <a href="?c=event&a=CreateEvent"><button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
-    <a href="index.php?c=event&a=CreateLocation"><button type="button">Neue Location erstellen</button></a>
+
 </div>

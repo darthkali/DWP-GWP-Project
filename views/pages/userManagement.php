@@ -12,17 +12,16 @@ use FSR_AI\User;
 
     <div class="filterButton">
     <?if($role === false) : ?>
-        <a href="?c=user&a=userManagement&role=3">Nur Mitarbeiter anzeigen</a>
+        <a href="?c=user&a=userManagement&role=3"><button type="button">Nur Mitarbeiter anzeigen</button></a>
     <?else : ?>
-        <a href="?c=user&a=userManagement">Alle anzeigen</a>
+        <a href="?c=user&a=userManagement"><button type="button">Alle anzeigen</button></a>
     <?endif;?>
     <?
     $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);
     ?>
     </div>
 
-        <br><br>
-        <h3>Aktive Nutzer</h3>
+
 
         <table border ="1">
             <tr>
