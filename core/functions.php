@@ -1,5 +1,6 @@
 <?
 const DEBUG = true;
+const ERROR = true;
 
 function debug_to_logFile($message, $class = null){
 
@@ -10,6 +11,17 @@ function debug_to_logFile($message, $class = null){
     }
 
 }
+
+function error_to_logFile($message, $class = null){
+
+    if(ERROR){
+        $class= ($class != null) ? $class:  '';
+        $message = '['.(new \DateTime())->format('Y-m-d H:i:s ').$class. ']' . $message. "\n";
+        file_put_contents ( __DIR__.'/../logs/logs.txt', $message,FILE_APPEND);
+    }
+
+}
+
 
 function crateDataOfFilesFromDirectory($dir, $numberOfOutputFiles){
     //create a grid with random pictures from a directory on the server

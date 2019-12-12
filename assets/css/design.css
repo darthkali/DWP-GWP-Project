@@ -1,6 +1,5 @@
 /* backgroundcolor from the Main Page */
 html, body {
-    background: #dfdfdf;
     height:100%;
     margin:0;
     padding:0;
@@ -16,7 +15,11 @@ nav, section, footer {display: block;}
     border: 0;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    color: var(--primary-text-color);
 }
+
+
+
 
 
 /* ----------------------------------   Image   ---------------------------------- */
@@ -32,29 +35,28 @@ nav, section, footer {display: block;}
 footer {
     clear: both;
     padding: 10px;
-    color: #fff;
     position:absolute;         /*fixed the Footerbar on the Bottom*/
     bottom: 0;
     height:40px;
     width: 100%;
-    background: #333333;
+    background: var(--secondary-bg-color);
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
     vertical-align: middle;
 }
 
 div#FooterLeft {
     float: left;
-    width: 33%;
+    width: 33%
 }
 
 div#FooterLeft a{
     text-decoration: none;
-    color: white;
     margin-right: 10px;
+    color: var(--secondary-text-color);
 }
 
 div#FooterLeft a:hover{
-    color: #60B0FF;
+    color: var(--hover-color);
 }
 
 div#FooterMiddle{
@@ -62,6 +64,7 @@ div#FooterMiddle{
     width: 34%;
     text-align: center;
     font-size: 16px;
+    color: var(--secondary-text-color);
 }
 
 div#FooterRight{
@@ -78,7 +81,7 @@ div#FooterRight a img {
 
 /* ----------------------------------   Content   ---------------------------------- */
 .Content {
-    background: #ffffff;
+    background: var(--primary-bg-color);
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
@@ -96,8 +99,8 @@ div#FooterRight a img {
 
 .Content .filterButton a{
     padding: 5px;
-    background-color: #003F70;
-    color: white;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
     border-radius: 3px;
     text-decoration: none;
 }
@@ -105,15 +108,15 @@ div#FooterRight a img {
 .Content button{
     font-size: 16px;
     text-align: center;
-    background-color: #003F70;
+    background-color: var(--secondary-bg-color);
     padding: 10px;
     text-decoration: none;  /* delete underline from the links */
-    color: white;
+    color: var(--secondary-text-color);
     border-radius:10px;
 }
 
 .Content button:hover{
-    color: #60B0FF;
+    color: var(--hover-color);
 }
 
 .Content button{
@@ -126,6 +129,7 @@ div#FooterRight a img {
 
 .Content button i{
     margin: 0 5px 0 5px;
+    color:var(--secondary-text-color);
 }
 
 .Content label{
@@ -139,7 +143,7 @@ div#FooterRight a img {
     padding: 10px;
     border-style: solid;
     border-width: 1px;
-    border-color: #CECECE;
+    border-color: var(--border-color);
     border-radius: 3px;
     overflow: hidden;
 
@@ -217,6 +221,7 @@ form {
     margin-right: auto;
     margin-left: auto;
     position: relative;
+    color: var(--secondary-text-color);
 }
 
 form h1{
@@ -233,12 +238,12 @@ form img{
 }
 
 form a:hover  {
-     color: #60B0FF;
+     color: var(--hover-color);
 }
 
 form input, form textarea, form select {
     display: block;
-    background-color: #ffffff;
+    background-color: var(--primary-bg-color);
     width: 100%;
     height: 50px;
     font-size: 18px;
@@ -246,19 +251,19 @@ form input, form textarea, form select {
     margin: 5px 0 5px;
     border-style: solid;
     border-width: 1px;
-    border-color: #CECECE;
+    border-color: var(--border-color);
     border-radius: 3px;
 }
 
 form input:hover{
-    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 form input:focus, form select:focus{
     border-left: solid;
     border-left-width: 4px;
-    border-left-color: #2e62ff;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border-left-color: var(--hover-color);
+    box-shadow: var(--shadow);
 }
 
 form textarea {
@@ -267,14 +272,14 @@ form textarea {
 }
 
 form i{
-    color: #60B0FF;
+    color: var(--secondary-text-color);
     margin-left: 10px;
 }
 
 form [type="file"] {
     padding: 0;
     border-style: none;
-     color: #60B0FF;
+     color: var(--primary-text-color);
  }
 
 form [type="file"]:hover {
@@ -313,7 +318,7 @@ form [type="file"]:hover {
 
 /* redesign the Date-Type for Input-Fields */
 form [type="date"] {
-    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+    background:var(--primary-bg-color) url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
 }
 
 form [type="date"]::-webkit-inner-spin-button {
@@ -339,7 +344,7 @@ form button{
 table {
     border-collapse: collapse;
     width: 100%;
-    margin: 0px auto 0 auto;
+    margin: 0 auto 0 auto;
     border-style: groove;
     border-width: 1px;
 }
@@ -350,17 +355,17 @@ th, td {
 }
 
 tr:hover, tr:nth-child(even):hover{
-    background-color: #60B0FF;
-    color:white;
+    background-color: var(--hover-color);
+    color: var(--secondary-text-color);
 }
 
 tr:nth-child(even){
-    background-color: #f2f2f2
+    background-color: var(--tertiary-bg-color);
 }
 
 th {
-    background-color: #334D66;
-    color: white;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-text-color);
 }
 
 table input{
@@ -369,7 +374,7 @@ table input{
 }
 
 table input:hover{
-    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 
@@ -451,12 +456,12 @@ table input:hover{
     padding: 10px;
     border-style: solid;
     border-width: 1px;
-    border-color: #CECECE;
+    border-color: var(--border-color);
     border-radius: 3px;
     overflow: hidden;
 }
 .userBox:hover{
-    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .userBox p{
@@ -466,7 +471,7 @@ table input:hover{
 .userBox img{
     width: 20%;
     float: right;
-    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 
 .userBox h1{
@@ -482,35 +487,39 @@ table input:hover{
     margin-right: auto;
     margin-left: auto;
     padding: 5px;
+
 }
 
 .filterBox .sortFilterBox{
 margin-right: 10px;
+
 }
 
 .filterBox .sortFilterBox label{
       font-size: 12px;
+
 }
 
 .filterBox .sortFilterBox select{
-    background-color: #ffffff;
+    background-color: var(--primary-bg-color);
     width: 100%;
     height: 30px;
     font-size: 14px;
     margin: 5px 0 5px;
     border-style: solid;
     border-width: 1px;
-    border-color: #CECECE;
+    border-color: var(--border-color);
     border-radius: 3px;
+
 }
 
 .filterBox .sortFilterBox select:hover{
-    box-shadow: 1px 1px 1px 0.5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
 }
 .filterBox .sortFilterBox select:focus{
     border-left: none;
     border-left-width:0;
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow);
 }
 
 .checkBox{
@@ -522,8 +531,6 @@ margin-right: 10px;
 .checkBox input[type="checkbox"] {
     width: 15px;
     height: 15px;
-    background-color: #ff0012;
-    content: "";
     margin-right: 5px;
 }
 /* ----------------------------------   Error   ---------------------------------- */
@@ -531,8 +538,8 @@ margin-right: 10px;
 
     line-height: 25px;
     padding:5px;
-    color: white;
-    background: #ff7171;
+    color: var(--secondary-text-color);
+    background: var(--error-color);
     text-align: center;
     border-radius: 3px;
 }

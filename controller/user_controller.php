@@ -21,7 +21,8 @@ class UserController extends Controller{
                 $user = User::findUserByLoginDataFromPost() ?? null;
                 if($user) {
                     User::writeLoginDataToActiveSession(true, $user['ID']);
-                    isset($_POST['rememberMe']) ? User::createLongLifeCookie($user['ID'], $user['PASSWORD']): null;
+                    $cookieData = array("userId"=>$user['ID'], "password"=>$user['PASSWORD']);
+                    isset($_POST['rememberMe']) ? User::createLongLifeCookie($cookieData): null;
                     sendHeaderByControllerAndAction('user', 'profil');
                 }else{
                     $error = true;
@@ -54,22 +55,23 @@ class UserController extends Controller{
         $this->_params['role'] = $_GET['role'] ?? false;
     }
 
-    public function actionProfil(){
+    public function actionProfil()
+    {
         //Permissions for the page
-        $accessUser = [roles::ADMIN,roles::MEMBER,roles::USER];    // which user(role_id) has permission to join the page
+        $accessUser = [roles::ADMIN, roles::MEMBER, roles::USER];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
-        User::checkUserPermissionForPage($accessUser,$errorPage);
+        User::checkUserPermissionForPage($accessUser, $errorPage);
 
         $this->_params['title'] = 'Profil';
-        $where = 'ID = '. $_SESSION['userId'];
+        $where = 'ID = ' . $_SESSION['userId'];
         $user = User::findOne($where);
         $this->_params['userProfil'] = $user;
         $this->_params['errorMessage'] = '';
 
 
-        if(isset($_POST['submitProfil'])){
-            if(basename($_FILES['pictureProfil']['name']) != null) {
-                unlink(USER_PICTURE_PATH.$user['PICTURE']);
+        if (isset($_POST['submitProfil'])) {
+            if (basename($_FILES['pictureProfil']['name']) != null) {
+                unlink(USER_PICTURE_PATH . $user['PICTURE']);
                 debug_to_logFile(basename($_FILES['pictureProfil']['name']));
                 $pictureName = createUploadedPictureName('user', 'pictureProfil');
                 $picturePath = USER_PICTURE_PATH . $pictureName;
@@ -80,13 +82,13 @@ class UserController extends Controller{
         if (isset($_POST['submitProfil'])) {
             $params = [
                 'ID' => $_SESSION['userId'],
-                'FIRSTNAME'         => $_POST['firstnameProfil']    ?? null,
-                'LASTNAME'          => $_POST['lastnameProfil']     ?? null,
-                'DATE_OF_BIRTH'     => $_POST['dateOfBirthProfil']  ?? null,
-                'EMAIL'             => $_POST['emailProfil']        ?? null,
-                'PASSWORD'          => $_POST['passwordProfil']     ?? null,
-                'PICTURE'           => $pictureName                 ?? null,
-                'DESCRIPTION'       => $_POST['descriptionProfil']  ?? null
+                'FIRSTNAME' => $_POST['firstnameProfil'] ?? null,
+                'LASTNAME' => $_POST['lastnameProfil'] ?? null,
+                'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil'] ?? null,
+                'EMAIL' => $_POST['emailProfil'] ?? null,
+                'PASSWORD' => $_POST['passwordProfil'] ?? null,
+                'PICTURE' => $pictureName ?? null,
+                'DESCRIPTION' => $_POST['descriptionProfil'] ?? null
             ];
             $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === $_SESSION['userId'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
@@ -95,8 +97,22 @@ class UserController extends Controller{
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
-        }
 
+            if (isset($_POST['colorCheckbox'])) {
+                $colorModeData = array("colorMode" => true);
+                User::createLongLifeCookie($colorModeData);
+            } else {
+                if (isset($_COOKIE['colorMode'])) {
+                    $colorModeData = array("colorMode" => false);
+                    User::createLongLifeCookie($colorModeData);
+                }
+            }
+        }
+        if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] = true) {
+            $this->_params['colorModeChecked'] = 'checked';
+        }else{
+            $this->_params['colorModeChecked'] = '';
+        }
     }
 
     public function actionRegistration(){

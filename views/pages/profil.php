@@ -71,6 +71,11 @@ use FSR_AI\roles;
         </select>
         <? } ?>
 
+        <div class="checkBox">
+            <input type="checkbox" name="colorCheckbox" id="colorCheckbox" <?=$colorModeChecked?> >
+            <label for="colorCheckbox">DarkMode? </label>
+        </div>
+
 
         <!-- buttons -->
         <button type="submit" name="submitProfil">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

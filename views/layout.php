@@ -28,6 +28,13 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
     <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/design.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/navigation.css'?>">
     <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/responsive.css'?>">
+
+    <?  if(isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) {?>
+        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/darkMode.css'?>">
+    <?}else{?>
+        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/normalMode.css'?>">
+    <?}?>
+
     <link rel="shortcut icon" type="image/png" href="<?=ROOTPATH.'assets/images/ailogo_groß.png'?>">
 </head>
 	<body>

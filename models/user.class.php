@@ -30,10 +30,15 @@ class User extends BaseModel
 
 
 
-    public static function createLongLifeCookie($userID, $password){
+    public static function createLongLifeCookie($data){
         $duration = time() + 3600 * 24 * 30;
-        setcookie('userId', $userID, $duration, '/');
-        setcookie('password', $password, $duration, '/');
+        if(is_array($data)){
+            foreach ($data as $cookieName => $cookieValue){
+                setcookie($cookieName, $cookieValue, $duration, '/');
+            }
+        }else{
+            error_to_logFile("the transfer parameter must be an array");
+        }
     }
 
     public static function findUserByLoginDataFromPost(){
