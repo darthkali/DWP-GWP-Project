@@ -13,7 +13,7 @@
             <?$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);?>
 <!--            print the pictures which has selected before with the '$rand_keys'-->
             <?foreach($images as $datei) : ?> <!-- Ausgabeschleife-->
-                <li><img src="<?=ROOTPATH?>assets/images/PictureRaster/<?=$datei?>" alt="AiLogo"
+                <li><a href="<?=ROOTPATH?>assets/images/PictureRaster/<?=$datei?>" target="_blank"><img src="<?=ROOTPATH?>assets/images/PictureRaster/<?=$datei?>" alt="AiLogo"
             <?endforeach;?>
         </ul>
     </div>
