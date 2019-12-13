@@ -36,7 +36,13 @@ class UserController extends Controller{
     }
 
     public function actionLogOut(){
-        $this->_params['title'] = 'Ausgeloggt';
+        setcookie('userId','',-1,'/');
+        setcookie('password','',-1,'/');
+        setcookie('colorMode','',-1,'/');
+        unset($_SESSION['users']);
+        session_destroy();
+        session_write_close();
+        sendHeaderByControllerAndAction('pages', 'Start');
     }
 
     public function actionUserManagement(){

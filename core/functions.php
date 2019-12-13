@@ -22,7 +22,6 @@ function error_to_logFile($message, $class = null){
 
 }
 
-
 function crateDataOfFilesFromDirectory($dir, $numberOfOutputFiles){
     //create a grid with random pictures from a directory on the server
     $allFiles = scandir($dir);
@@ -89,3 +88,14 @@ function sendHeaderByControllerAndAction($controller, $action){
 function createUploadedPictureName($modelName, $uploadedPictureFile){
     return $modelName.date('d-m-Y-H-i-s').strstr($_FILES[$uploadedPictureFile]['name'], '.');
 }
+
+function testLogOut(){
+    setcookie('userId','',-1,'/');
+    setcookie('password','',-1,'/');
+    setcookie('colorMode','',-1,'/');
+    unset($_SESSION['users']);
+    session_destroy();
+    session_write_close();
+    sendHeaderByControllerAndAction('pages', 'Start');
+}
+
