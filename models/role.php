@@ -23,15 +23,5 @@ class Role extends BaseModel
         return $role['NAME'];
     }
 
-    public  static  function changeRole($userID){
-        //TODO: change this Method for the role class
-        $memberHistoryID = self::generateActualMemberHistory($userID)['ID'];
-        $params = [
-            'ID' => $memberHistoryID,
-            'END_DATE' => new Timestamp,
-        ];
 
-        $newMemberHistory = new user($params);
-        $newMemberHistory->save();
-    }
 }

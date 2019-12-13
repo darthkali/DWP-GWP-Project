@@ -101,6 +101,10 @@ class User extends BaseModel
         $user = self::findOne('ID = ' . $userID);
         $actualRole = $user['ROLE_ID'];
 
+        if($actualRole === $newRole) {
+            return true;
+        }
+
         if($actualRole === Role::USER){
             // from user to Admin or Member
             // create new Member History
@@ -112,16 +116,19 @@ class User extends BaseModel
             }
 
         }else if($newRole === Role::USER){
-            // TODO: from Admin or Member to User
+            // from Admin or Member to User
             // close open Member History
             // create new Member History with functionFSR.class = inaktives Mitglied
            MemberHistory::closeActualMemberHistory($userID);
            MemberHistory::createNewMemberHistory($userID, 6);   // TODO: Es wird aktuell direkt die 6 übergeben, das kann ggf zu problemen führen
         }
 
-        // TODO: change role in DB
-
-
+        $params = [
+            'ID' => $userID,
+            'ROLE' => $newRole,
+        ];
+        $newUser = new user($params);
+        $newUser->save();
     }
 
 
