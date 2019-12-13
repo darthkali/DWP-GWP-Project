@@ -7,9 +7,11 @@ class EventController extends Controller
 {
     public function actionEvents(){
         $this->_params['title'] = 'Events';
+        $eventListFuture = Event::find('to_days(curdate()) - to_days(DATE) <= 0', 'geteventinfo', ' order by DATE');
+        $eventListPast = Event::find('to_days(curdate()) - to_days(DATE) > 0', 'geteventinfo', ' order by DATE desc');
 
-        $eventList = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
-        $this->_params['eventList'] = $eventList;
+        $this->_params['eventListFuture'] = $eventListFuture;
+        $this->_params['eventListPast'] = $eventListPast;
     }
 
     public function actionBooking(){

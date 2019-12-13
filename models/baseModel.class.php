@@ -184,8 +184,7 @@ abstract class BaseModel
     }
 
     // gives the tablename from the class
-    public static function tablename()
-    {
+    public static function tablename(){
         $class = get_called_class();
         if(defined($class.'::TABLENAME'))
         {
@@ -194,8 +193,7 @@ abstract class BaseModel
         return null;
     }
 
-    public static function find($where = '', $viewName = null, $orderBy = '')
-    {
+    public static function find($where = '', $viewName = null, $orderBy = ''){
         $db  = $GLOBALS['db'];
         $result = null;
 
@@ -222,26 +220,21 @@ abstract class BaseModel
         return $result;
     }
 
-    public static function findOne($where = '')
-    {
+    public static function findOne($where = ''){
         $db  = $GLOBALS['db'];
         $result = null;
 
-        try
-        {
+        try{
             $sql = 'SELECT * FROM ' . self::tablename();
 
-            if(!empty($where))
-            {
+            if(!empty($where)){
                 $sql .= ' WHERE ' . $where .  ';';
             }
             $result = $db->query($sql)->fetch();
         }
-        catch(\PDOException $e)
-        {
+        catch(\PDOException $e){
             die('Select statment failed: ' . $e->getMessage());
         }
-
         return $result;
     }
 }
