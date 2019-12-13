@@ -45,12 +45,14 @@ use FSR_AI\User;
         </div>
 
         <? foreach($userList as $user) : ?>
+            <?// TODO: generate Method for functionsFSR wich generates the name by itself ?>
             <div class="userBox">
                 <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
                 <p><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?><br>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
-                    Funktion: <?=MemberHistory::generateActualFunctionFSRFromUser($user['ID'])?><br>
-                    <? $userMember = MemberHistory::generateAllClosedFunctionsFSRFromUser($user['ID']);?>
+                    <? $member1 =  MemberHistory::generateActualMemberHistory($user['ID'])?>
+                    Funktion: <?=function_FSR::generateFunctionFSRByFunctionID($member1['FUNCTION_FSR_ID'])?><br>
+                    <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['ID']);?>
                     <? foreach ($userMember as $member) :?>
                         <?=$member['START_DATE'];?> bis <?=$member['END_DATE'];?> : <?=function_FSR::generateFunctionFSRByFunctionID($member['FUNCTION_FSR_ID']);?> <br>
                     <?php endforeach; ?>

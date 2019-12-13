@@ -28,7 +28,13 @@ class User extends BaseModel
         }
     }
 
+    public static function findUserByLoginDataFromPost(){
+        $email    = $_POST['email'] ?? null;
+        $password = $_POST['password'] ?? null;
 
+        $where = " EMAIL = '" . $email . "' and PASSWORD = '". $password .  "';'";
+        return self::findOne($where);
+    }
 
     public static function createLongLifeCookie($data){
         $duration = time() + 3600 * 24 * 30;
@@ -39,14 +45,6 @@ class User extends BaseModel
         }else{
             error_to_logFile("the transfer parameter must be an array");
         }
-    }
-
-    public static function findUserByLoginDataFromPost(){
-        $email    = $_POST['email'] ?? null;
-        $password = $_POST['password'] ?? null;
-
-        $where = " EMAIL = '" . $email . "' and PASSWORD = '". $password .  "';'";
-        return self::findOne($where);
     }
 
     public static function writeLoginDataToActiveSession($succeedLoggedIn, $userId = null){
@@ -98,28 +96,32 @@ class User extends BaseModel
 
     }
 
-    public static function generateRoleNameByRoleID($roleID){
+    public static function changeUserRole($userID, $newRole, $functionFSR = null){
+    // TODO: transaction Control? Maybe we need a rollback if some of this inserts / updates will fail
+        $user = self::findOne('ID = ' . $userID);
+        $actualRole = $user['ROLE_ID'];
 
-        switch ($roleID) {
-            case 1:
-                return "Administrator";
-            case 2:
-                return "Mitglied";
-            case 3:
-                return "Nutzer";
-        }
-        return false;
-    }
-
-
-    public static function changeUserRole($newRole, $functionFSR = null){
-        // TODO: from user to Admin or Meember
+        if($actualRole === Role::USER){
+            // from user to Admin or Member
             // create new Member History
             // check that the FunctionFSR is added
+            if($functionFSR != null){
+                MemberHistory::createNewMemberHistory($userID, $functionFSR);
+            }else{
+                return false;
+            }
 
-        // TODO: from Admin or Member to User
+        }else if($newRole === Role::USER){
+            // TODO: from Admin or Member to User
             // close open Member History
-            // create new Member History with functionFSR.class =
+            // create new Member History with functionFSR.class = inaktives Mitglied
+           MemberHistory::closeActualMemberHistory($userID);
+           MemberHistory::createNewMemberHistory($userID, 6);   // TODO: Es wird aktuell direkt die 6 übergeben, das kann ggf zu problemen führen
+        }
+
+        // TODO: change role in DB
+
+
     }
 
 

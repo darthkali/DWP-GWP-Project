@@ -145,7 +145,4 @@ class UserController extends Controller{
         }
     }
 
-//    public function deleteUserById($userId){
-//        User::deleteWhere('id = '.$userId);
-//    }
 }

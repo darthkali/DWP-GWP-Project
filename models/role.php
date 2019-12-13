@@ -1,6 +1,8 @@
 <?php
 namespace FSR_AI;
 
+use MongoDB\BSON\Timestamp;
+
 class Role extends BaseModel
 {
     const TABLENAME = '`ROLE`';
@@ -16,9 +18,20 @@ class Role extends BaseModel
         'NAME'             => [ 'type' => BaseModel::TYPE_STRING ]
     ];
 
-    public static function generateRoleByRoleID($roleID)
-    {
-        $function = self::findOne('ID = '. $roleID);
-        return $function['NAME'];
+    public static function generateRoleByRoleID($roleID){
+        $role = self::findOne('ID = '. $roleID);
+        return $role['NAME'];
+    }
+
+    public  static  function changeRole($userID){
+        //TODO: change this Method for the role class
+        $memberHistoryID = self::generateActualMemberHistory($userID)['ID'];
+        $params = [
+            'ID' => $memberHistoryID,
+            'END_DATE' => new Timestamp,
+        ];
+
+        $newMemberHistory = new user($params);
+        $newMemberHistory->save();
     }
 }

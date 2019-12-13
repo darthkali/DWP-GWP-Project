@@ -1,5 +1,6 @@
 <?php
 
+use FSR_AI\Role;
 use FSR_AI\User;
 
 ?>
@@ -39,11 +40,11 @@ use FSR_AI\User;
                 <td><?=$accounts[$index]['LASTNAME'     ]?></td>
                 <td><?=$accounts[$index]['DATE_OF_BIRTH']?></td>
                 <td><?=$accounts[$index]['EMAIL'        ]?></td>
-                <td><?=Role::generateRoleByRoleID($accounts[$index]['ROLE_ID'      ])?></td>
+                <td><?=Role::generateRoleByRoleID($accounts[$index]['ROLE_ID'])?></td>
                 <td>
-                    <a href="index.php?c=user&a=newUser&UserId=<?=$accounts[$index]['ID' ]?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
+                    <a href="?c=user&a=newUser&UserId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
                     <!--Falls erwünscht noch button für nachricten einfügen-->
-                    <a href="index.php?c=user&a=EditUser&UserId=<?=$accounts[$index]['ID' ]?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Edit" style="outline:0;"></a>
+                    <a href="?c=user&a=EditUser&UserId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Edit" style="outline:0;"></a>
                 </td>
             </tr>
         <?endforeach;?>
