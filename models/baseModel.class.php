@@ -206,7 +206,7 @@ abstract class BaseModel
             $sql = 'SELECT * FROM ' . $viewName;
             if(!empty($where))
             {
-                $sql .= ' WHERE ' . $where .  ';';
+                $sql .= ' WHERE ' . $where . ' ' . $orderBy.  ';';
             }
             $sql .= ' '.$orderBy;
 

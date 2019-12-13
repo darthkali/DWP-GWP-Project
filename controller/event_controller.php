@@ -9,7 +9,7 @@ class EventController extends Controller
         $this->_params['title'] = 'Events';
         $eventListFuture = Event::find('to_days(curdate()) - to_days(DATE) <= 0', 'geteventinfo', ' order by DATE');
         $eventListPast = Event::find('to_days(curdate()) - to_days(DATE) > 0', 'geteventinfo', ' order by DATE desc');
-
+//        die($eventListPast[1]['NAME']);
         $this->_params['eventListFuture'] = $eventListFuture;
         $this->_params['eventListPast'] = $eventListPast;
     }
