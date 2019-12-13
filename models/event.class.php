@@ -1,7 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class event extends BaseModel
+class Event extends BaseModel
 {
     const TABLENAME = '`event`';
 

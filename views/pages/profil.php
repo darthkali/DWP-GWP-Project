@@ -1,6 +1,6 @@
 <?php
 
-use FSR_AI\roles;
+use FSR_AI\role;
 
 ?>
 <div class="SitePicture" id="fadeInImg">
@@ -40,7 +40,7 @@ use FSR_AI\roles;
 
 
 
-        <? if($userProfil['ROLE_ID'] == roles::ADMIN ||  $userProfil['ROLE_ID'] == roles::MEMBER){ ?>
+        <? if($userProfil['ROLE_ID'] == role::ADMIN ||  $userProfil['ROLE_ID'] == role::MEMBER){ ?>
 
         <!-- picture -->
         <label for="pictureProfil">BILD </label>
@@ -52,7 +52,7 @@ use FSR_AI\roles;
         <? } ?>
 
 
-        <? if($userProfil['ROLE_ID'] == roles::ADMIN){ ?>
+        <? if($userProfil['ROLE_ID'] == role::ADMIN){ ?>
         <label for="sortBy">Rolle: </label> <br>
         <select name="sortBy" id="sortBy">
             <option>Administrator</option>

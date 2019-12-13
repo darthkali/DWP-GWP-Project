@@ -6,7 +6,7 @@ class UserController extends Controller{
 
     public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
-        $userList = User::find('ROLE_ID <> ' . roles::USER);
+        $userList = User::find('ROLE_ID <> ' . role::USER);
         $this->_params['userList'] = $userList;
     }
 
@@ -47,14 +47,14 @@ class UserController extends Controller{
 
     public function actionUserManagement(){
         //Permissions for the page
-        $accessUser = roles::ADMIN;    // which user(role_id) has permission to join the page
+        $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser,$errorPage);
 
         $this->_params['title'] = 'Nutzerverwaltung';
 
         if(isset($_GET['role'])){
-            $this->_params['accounts'] = User::find('ROLE_ID <> ' . roles::USER);
+            $this->_params['accounts'] = User::find('ROLE_ID <> ' . role::USER);
         }else{
             $this->_params['accounts'] = User::find('1');
         }
@@ -64,7 +64,7 @@ class UserController extends Controller{
     public function actionProfil()
     {
         //Permissions for the page
-        $accessUser = [roles::ADMIN, roles::MEMBER, roles::USER];    // which user(role_id) has permission to join the page
+        $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser, $errorPage);
 

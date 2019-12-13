@@ -1,7 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class location extends BaseModel
+class Location extends BaseModel
 {
     const TABLENAME = '`location`';
 

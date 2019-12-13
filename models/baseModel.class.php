@@ -235,7 +235,6 @@ abstract class BaseModel
             {
                 $sql .= ' WHERE ' . $where .  ';';
             }
-
             $result = $db->query($sql)->fetch();
         }
         catch(\PDOException $e)

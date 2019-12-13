@@ -1,7 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class booking extends BaseModel{
+class Booking extends BaseModel{
     const TABLENAME = '`booking`';
 
     protected $schema = [

@@ -99,6 +99,7 @@ class User extends BaseModel
     }
 
     public static function generateRoleNameByRoleID($roleID){
+
         switch ($roleID) {
             case 1:
                 return "Administrator";
@@ -111,26 +112,14 @@ class User extends BaseModel
     }
 
 
-    public static function generateFunctionFSRByRoleID($functionID){
-        switch ($functionID) {
-            case 1:
-                return "Sprecher";
-            case 2:
-                return "stellv. Sprecher";
-            case 3:
-                return "Finanzer";
-            case 4:
-                return "stellv. Finanzer";
-            case 5:
-                return "Mitglied";
-            case 6:
-                return "inaktives Mitglied";
-            case 7:
-                return "Social Media";
-            case 8:
-                return "Lagerverwalter";
-        }
-        return false;
+    public static function changeUserRole($newRole, $functionFSR = null){
+        // TODO: from user to Admin or Meember
+            // create new Member History
+            // check that the FunctionFSR is added
+
+        // TODO: from Admin or Member to User
+            // close open Member History
+            // create new Member History with functionFSR.class =
     }
 
 

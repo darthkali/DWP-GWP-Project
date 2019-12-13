@@ -1,5 +1,6 @@
 <?php
 
+use FSR_AI\function_FSR;
 use FSR_AI\MemberHistory;
 use FSR_AI\User;
 
@@ -51,7 +52,7 @@ use FSR_AI\User;
                     Funktion: <?=MemberHistory::generateActualFunctionFSRFromUser($user['ID'])?><br>
                     <? $userMember = MemberHistory::generateAllClosedFunctionsFSRFromUser($user['ID']);?>
                     <? foreach ($userMember as $member) :?>
-                        <?=$member['START_DATE'];?> bis <?=$member['END_DATE'];?> : <?=User::generateFunctionFSRByRoleID($member['FUNCTION_FSR_ID']);?> <br>
+                        <?=$member['START_DATE'];?> bis <?=$member['END_DATE'];?> : <?=function_FSR::generateFunctionFSRByFunctionID($member['FUNCTION_FSR_ID']);?> <br>
                     <?php endforeach; ?>
                 </p>
                 <h1>Beschreibung:</h1>
