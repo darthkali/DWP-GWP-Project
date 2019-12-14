@@ -48,7 +48,7 @@ class UserController extends Controller{
     public function actionUserManagement(){
         //Permissions for the page
         $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
-        $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
+        $errorPage = 'Location: ?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser,$errorPage);
 
         $this->_params['title'] = 'Nutzerverwaltung';
@@ -63,22 +63,46 @@ class UserController extends Controller{
 
     public function actionProfil()
     {
+
+        if(isset($_GET['userId'])){
+            $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
+            $this->_params['title'] = 'Nutzer Ändern';
+            $where = 'ID = ' . $_GET['userId'];
+            $user = User::findOne($where);
+            $this->_params['permissionSiteElements'] = role::ADMIN;
+            $this->_params['userInformation'] = '&userId='.$_GET['userId'];
+
+        }else{
+            $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
+            $this->_params['title'] = 'Profil';
+            $where = 'ID = ' . $_SESSION['userId'];
+            $user = User::findOne($where);
+            $this->_params['permissionSiteElements'] = $user['ROLE_ID'];
+            $this->_params['userInformation'] = '';
+            if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] = true) {
+                $this->_params['colorModeChecked'] = 'checked';
+            }else{
+                $this->_params['colorModeChecked'] = '';
+            }
+        }
+
+        if($user == null){
+            sendHeaderByControllerAndAction('pages', 'errorPage');
+        }
+
         //Permissions for the page
-        $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
-        $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
+        $errorPage = 'Location: ?c=pages&a=error'; // send the user to the error page if he has no permission
         User::checkUserPermissionForPage($accessUser, $errorPage);
 
-        $this->_params['title'] = 'Profil';
-        $where = 'ID = ' . $_SESSION['userId'];
-        $user = User::findOne($where);
+        //$user = User::findOne($where);
         $this->_params['userProfil'] = $user;
         $this->_params['errorMessage'] = '';
+        //$this->_params['userRole'] =  $_SESSION['userId']['ROLE_ID']
 
 
         if (isset($_POST['submitProfil'])) {
             if (basename($_FILES['pictureProfil']['name']) != null) {
                 unlink(USER_PICTURE_PATH . $user['PICTURE']);
-                debug_to_logFile(basename($_FILES['pictureProfil']['name']));
                 $pictureName = createUploadedPictureName('user', 'pictureProfil');
                 $picturePath = USER_PICTURE_PATH . $pictureName;
                 move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
@@ -87,7 +111,7 @@ class UserController extends Controller{
 
         if (isset($_POST['submitProfil'])) {
             $params = [
-                'ID' => $_SESSION['userId'],
+                'ID' => $user['ID'],
                 'FIRSTNAME' => $_POST['firstnameProfil'] ?? null,
                 'LASTNAME' => $_POST['lastnameProfil'] ?? null,
                 'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil'] ?? null,
@@ -97,27 +121,25 @@ class UserController extends Controller{
                 'DESCRIPTION' => $_POST['descriptionProfil'] ?? null
             ];
             $newUser = new User($params);
-            if (User::checkUniqueUserEntity($params['EMAIL']) === $_SESSION['userId'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+            if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
-                sendHeaderByControllerAndAction('user', 'profil');
+                sendHeaderByControllerAndAction('user', 'userManagement');
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
 
-            if (isset($_POST['colorCheckbox'])) {
-                $colorModeData = array("colorMode" => true);
-                User::createLongLifeCookie($colorModeData);
-            } else {
-                if (isset($_COOKIE['colorMode'])) {
-                    $colorModeData = array("colorMode" => false);
+            // TODO: an Admin can not change a color Mode from a user
+            if(!isset($_GET['userId'])) {
+                if (isset($_POST['colorCheckbox'])) {
+                    $colorModeData = array("colorMode" => true);
                     User::createLongLifeCookie($colorModeData);
+                } else {
+                    if (isset($_COOKIE['colorMode'])) {
+                        $colorModeData = array("colorMode" => false);
+                        User::createLongLifeCookie($colorModeData);
+                    }
                 }
             }
-        }
-        if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] = true) {
-            $this->_params['colorModeChecked'] = 'checked';
-        }else{
-            $this->_params['colorModeChecked'] = '';
         }
     }
 
@@ -143,6 +165,10 @@ class UserController extends Controller{
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
         }
+    }
+
+    public function actionChangeUser(){
+
     }
 
 }

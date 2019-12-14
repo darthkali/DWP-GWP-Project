@@ -82,7 +82,7 @@ function sendMail($isRegistration = false){
 }
 
 function sendHeaderByControllerAndAction($controller, $action){
-    header('Location: index.php?c=' .$controller . '&a=' . $action);
+    header('Location: ?c=' .$controller . '&a=' . $action);
 }
 
 function createUploadedPictureName($modelName, $uploadedPictureFile){

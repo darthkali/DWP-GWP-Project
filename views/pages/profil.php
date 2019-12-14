@@ -8,7 +8,7 @@ use FSR_AI\role;
 </div>
 
 <div class="Content" id="fadeIn">
-    <form autocomplete= "off" action="index.php?c=user&a=profil" method="post" enctype="multipart/form-data" >
+    <form autocomplete= "off" action="?c=user&a=profil<?=$userInformation?>" method="post" enctype="multipart/form-data" >
         <h1>Meine Daten</h1>
         <h5>Hier kannst du deine Daten ändern!</h5>
 
@@ -29,9 +29,11 @@ use FSR_AI\role;
 
         <? if($errorMessage != ''){?> <div class="error"><?echo $errorMessage?></div> <? } ?>
 
+        <? if($userProfil['ID'] === $_SESSION['userId']){?>
         <label for="passwordProfil">PASSWORT </label>
         <input type = "password" id="passwordProfil" name="passwordProfil" required
                value = "<?=isset($_POST['passwordProfil']) ? htmlspecialchars($_POST['passwordProfil']) : htmlspecialchars($userProfil['PASSWORD'])?>">
+        <? } ?>
 
         <!-- date of birth -->
         <label for="dateOfBirthProfil">GEBURTSDATUM </label>
@@ -40,7 +42,7 @@ use FSR_AI\role;
 
 
 
-        <? if($userProfil['ROLE_ID'] == role::ADMIN ||  $userProfil['ROLE_ID'] == role::MEMBER){ ?>
+        <? if($permissionSiteElements == role::ADMIN ||  $permissionSiteElements == role::MEMBER){ ?>
 
         <!-- picture -->
         <label for="pictureProfil">BILD </label>
@@ -52,15 +54,17 @@ use FSR_AI\role;
         <? } ?>
 
 
-        <? if($userProfil['ROLE_ID'] == role::ADMIN){ ?>
+        <? if($permissionSiteElements == role::ADMIN){?>
+
+            <? if($userProfil['ID'] <> $_SESSION['userId']){?>
         <label for="sortBy">Rolle: </label> <br>
         <select name="sortBy" id="sortBy">
             <option>Administrator</option>
             <option>Mitglied</option>
             <option selected>Nutzer</option>
         </select>
-
-        <label for="functionFSR">Filtern nach:</label><br>
+        <? } ?>
+        <label for="functionFSR">Funktion im Fachschaftsrat:</label><br>
         <select name="functionFSR" id="functionFSR">
             <option selected>Sprecher</option>
             <option>stellv. Sprecher</option>
@@ -71,11 +75,12 @@ use FSR_AI\role;
         </select>
         <? } ?>
 
+        <? if($userProfil['ID'] === $_SESSION['userId']){?>
         <div class="checkBox">
             <input type="checkbox" name="colorCheckbox" id="colorCheckbox" <?=$colorModeChecked?> >
             <label for="colorCheckbox">DarkMode? </label>
         </div>
-
+        <? } ?>
 
         <!-- buttons -->
         <button type="submit" name="submitProfil">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
