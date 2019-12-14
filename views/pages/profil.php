@@ -64,14 +64,14 @@ use FSR_AI\role;
                 <option value= <?= Role::USER?> selected>Nutzer</option>
             </select>
             <? } ?>
-            <label for="functionFSR">Funktion im Fachschaftsrat:</label><br>
-            <select name="functionFSR" id="functionFSR">
-                <option selected>Sprecher</option>
-                <option>stellv. Sprecher</option>
-                <option>Finanzer</option>
-                <option>stellv. Finanzer</option>
-                <option selected>Mitglied</option>
-                <option>archiviertes Mitglied</option>
+            <label for="functionFSRProfil">Funktion im Fachschaftsrat:</label><br>
+            <select name="functionFSRProfil" id="functionFSRProfil">
+                <option value= '1' selected>Sprecher</option>
+                <option value= '2' >stellv. Sprecher</option>
+                <option value= '3' >Finanzer</option>
+                <option value= '4' >stellv. Finanzer</option>
+                <option value= '5'  selected>Mitglied</option>
+                <option value= '6' >archiviertes Mitglied</option>
             </select>
         <? } ?>
 

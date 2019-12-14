@@ -28,16 +28,8 @@ class Function_FSR extends BaseModel
         if($actualFunction === $newFunction) {
             return true;
         }
-
         MemberHistory::closeActualMemberHistory($userID);
-        //MemberHistory::createNewMemberHistory($userID, $functionFSR);
-
-        $params = [
-            'ID' => $userID,
-           //'ROLE_ID' => $newRole,
-        ];
-        $newUser = new user($params);
-        $newUser->save();
+        MemberHistory::createNewMemberHistory($userID, $newFunction);
         return true;
     }
 }
