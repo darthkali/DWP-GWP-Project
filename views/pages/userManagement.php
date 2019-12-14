@@ -37,17 +37,17 @@ use FSR_AI\User;
 
         <?foreach($accounts as $index => $account) : ?>
             <tr>
-                <td><?=$accounts[$index]['FIRSTNAME'    ]?></td>
-                <td><?=$accounts[$index]['LASTNAME'     ]?></td>
-                <td><?=$accounts[$index]['DATE_OF_BIRTH']?></td>
-                <td><?=$accounts[$index]['EMAIL'        ]?></td>
-                <td><?=Role::generateRoleByRoleID($accounts[$index]['ROLE_ID'])?></td>
-                <td><?=Function_FSR::generateFunctionFSRNameByUserID($accounts[$index]['ID'])?></td>
+                <td><?=$account['FIRSTNAME']?></td>
+                <td><?=$account['LASTNAME']?></td>
+                <td><?=date("d.m.Y",strtotime($account['DATE_OF_BIRTH']));?></td>
+                <td><?=$account['EMAIL']?></td>
+                <td><?=Role::generateRoleByRoleID($account['ROLE_ID'])?></td>
+                <td><?=Function_FSR::generateFunctionFSRNameByUserID($account['ID'])?></td>
                 <td>
-                    <? if($_SESSION['userId'] <> $accounts[$index]['ID']){?>
-                    <a href="?c=user&a=profil&userId=<?=$accounts[$index]['ID']?>">
+                    <? if($_SESSION['userId'] <> $account['ID']){?>
+                    <a href="?c=user&a=profil&userId=<?=$account['ID']?>">
                         <input type="image" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit"></a>
-                    <a href="?c=pages&a=deleteQuestion&userId=<?=$accounts[$index]['ID']?>">
+                    <a href="?c=pages&a=deleteQuestion&userId=<?=$account['ID']?>">
                         <input type="image"  title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete"></a>
                     <?}?>
                 </td>
