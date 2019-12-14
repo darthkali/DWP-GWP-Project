@@ -117,12 +117,13 @@ class User extends BaseModel
             MemberHistory::createNewMemberHistory($userID, 6);
         }
 
-
         $params = [
             'ID' => $userID,
             'ROLE_ID' => $newRole,
         ];
         $newUser = new user($params);
         $newUser->save();
+        return true;
     }
+
 }

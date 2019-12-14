@@ -130,7 +130,10 @@ class UserController extends Controller{
             $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
-                User::changeUserRole($user['ID'],$_POST['roleProfil'],1);
+                if($user['ROLE_ID'] == Role::ADMIN){
+                    User::changeUserRole($user['ID'],$_POST['roleProfil'],1);
+                }
+
 
                 if(isset($_GET['userId'])) {
                     sendHeaderByControllerAndAction('user', 'userManagement');

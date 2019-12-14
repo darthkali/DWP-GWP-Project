@@ -21,37 +21,23 @@ class Function_FSR extends BaseModel
 
     public static function changeUserFunction($userID, $newFunction){
         // TODO: transaction Control? Maybe we need a rollback if some of this inserts / updates will fail
-        // TODO: find actual MemberHistory for user
         $user = self::findOne('ID = ' . $userID);
-        $actualFunction = $user['ROLE_ID'];
+        $memberHistory = MemberHistory::generateActualMemberHistory($userID);
+        $actualFunction = $memberHistory['FUNCTION_FSR_ID'];
 
-        if($actualRole === $newRole) {
+        if($actualFunction === $newFunction) {
             return true;
         }
 
-        if($actualRole === Role::USER){
-            // from user to Admin or Member
-            // create new Member History
-            // check that the FunctionFSR is added
-            if($functionFSR != null){
-                MemberHistory::createNewMemberHistory($userID, $functionFSR);
-            }else{
-                return false;
-            }
-
-        }else if($newRole === Role::USER){
-            // from Admin or Member to User
-            // close open Member History
-            // create new Member History with functionFSR.class = inaktives Mitglied
-            MemberHistory::closeActualMemberHistory($userID);
-            MemberHistory::createNewMemberHistory($userID, 6);   // TODO: Es wird aktuell direkt die 6 übergeben, das kann ggf zu problemen führen
-        }
+        MemberHistory::closeActualMemberHistory($userID);
+        //MemberHistory::createNewMemberHistory($userID, $functionFSR);
 
         $params = [
             'ID' => $userID,
-            'ROLE' => $newRole,
+           //'ROLE_ID' => $newRole,
         ];
         $newUser = new user($params);
         $newUser->save();
+        return true;
     }
 }
