@@ -65,7 +65,7 @@ use FSR_AI\role;
             <label for="roleProfil">Rolle: </label> <br>
             <select name="roleProfil" id="roleProfil">
                 <? foreach ($allRoles as $role) { ?>
-                    <option value= <?=$role['ID']?> <?=($userFunction == $role['ID']) ? 'selected' : ''?> ><?=$role['NAME']?></option>
+                    <option value= <?=$role['ID']?> <?=($userRole == $role['ID']) ? 'selected' : ''?> ><?=$role['NAME']?></option>
                 <? } ?>
             </select>
             <? } ?>
