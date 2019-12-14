@@ -49,12 +49,16 @@ use FSR_AI\User;
             <div class="userBox">
                 <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
                 <p><h1><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h1>
+                <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['ID'])?></strong>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
-                    <? $member1 =  MemberHistory::generateActualMemberHistory($user['ID'])?>
-                    <strong>Funktion:</strong> <?=function_FSR::generateFunctionFSRByFunctionID($member1['FUNCTION_FSR_ID'])?><br>
+
                     <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['ID']);?>
                     <? foreach ($userMember as $member) :?>
-                        <?=$member['START_DATE'];?> bis <?=$member['END_DATE'];?> : <?=function_FSR::generateFunctionFSRByFunctionID($member['FUNCTION_FSR_ID']);?> <br>
+                        <?  $startDate = date("d.m.y",strtotime($member['START_DATE']));
+                            $endDate = date("d.m.y", strtotime($member['END_DATE']));
+                            $functionFSR = function_FSR::generateFunctionFSRNameByFunctionID($member['FUNCTION_FSR_ID']);
+                        ?>
+                <?=$startDate?><strong> bis </strong><?=$endDate?> : <?=$functionFSR?> <br>
                     <?php endforeach; ?>
                 </p>
                 <br>

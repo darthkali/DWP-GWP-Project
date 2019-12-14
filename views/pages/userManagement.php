@@ -1,5 +1,7 @@
 <?php
 
+use FSR_AI\Function_FSR;
+use FSR_AI\MemberHistory;
 use FSR_AI\Role;
 use FSR_AI\User;
 
@@ -22,8 +24,6 @@ use FSR_AI\User;
     ?>
     </div>
 
-
-
         <table border ="1">
             <tr>
                 <th>Vorname</th>
@@ -31,6 +31,7 @@ use FSR_AI\User;
                 <th>Geburtstag</th>
                 <th>E-Mail</th>
                 <th>Rolle</th>
+                <th>Funktion FSR</th>
                 <th>Optionen</th>
             </tr>
 
@@ -41,10 +42,13 @@ use FSR_AI\User;
                 <td><?=$accounts[$index]['DATE_OF_BIRTH']?></td>
                 <td><?=$accounts[$index]['EMAIL'        ]?></td>
                 <td><?=Role::generateRoleByRoleID($accounts[$index]['ROLE_ID'])?></td>
+                <td><?=Function_FSR::generateFunctionFSRNameByUserID($accounts[$index]['ID'])?></td>
                 <td>
                     <? if($_SESSION['userId'] <> $accounts[$index]['ID']){?>
-                    <a href="?c=user&a=profil&userId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
-                    <a href="?c=user&a=userManagement&userId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Edit" style="outline:0;"></a>
+                    <a href="?c=user&a=profil&userId=<?=$accounts[$index]['ID']?>">
+                        <input type="image" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit"></a>
+                    <a href="?c=pages&a=deleteQuestion&userId=<?=$accounts[$index]['ID']?>">
+                        <input type="image"  title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete"></a>
                     <?}?>
                 </td>
             </tr>

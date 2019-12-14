@@ -13,10 +13,17 @@ class Function_FSR extends BaseModel
         'NAME'             => [ 'type' => BaseModel::TYPE_STRING ]
     ];
 
-    public static function generateFunctionFSRByFunctionID($functionID)
-    {
-        $function = self::findOne('ID = '. $functionID);
-        return $function['NAME'];
+    public static function generateFunctionFSRNameByFunctionID($functionID){
+        if($functionID != ''){
+            $function = self::findOne('ID = '. $functionID);
+            return $function['NAME'];
+        }
+        return '';
+    }
+
+    public  static function generateFunctionFSRNameByUserID($userID){
+        $memberHistory = MemberHistory::generateActualMemberHistory($userID);
+        return Function_FSR::generateFunctionFSRNameByFunctionID($memberHistory['FUNCTION_FSR_ID']);
     }
 
     public static function changeUserFunction($userID, $newFunction){

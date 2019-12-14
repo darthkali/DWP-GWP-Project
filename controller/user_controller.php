@@ -60,13 +60,16 @@ class UserController extends Controller{
         }
         $this->_params['role'] = $_GET['role'] ?? false;
 
+
         if(isset($_GET['userId'])){
-            Booking::deleteWhere('ID = '.$_GET['userId']);
-            MemberHistory::deleteWhere('ID = '.$_GET['userId']);
+            Booking::deleteWhere('USER_ID = '.$_GET['userId']);
+            MemberHistory::deleteWhere('MEMBER_ID = '.$_GET['userId']);
             User::deleteWhere('ID = '.$_GET['userId']);
             sendHeaderByControllerAndAction('user', 'userManagement');
         }
     }
+
+
 
     public function actionProfil()
     {
