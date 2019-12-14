@@ -9,7 +9,7 @@ $design = '';
 //$eventHistory = 'Zukünftige Events';
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/laptop.jpg'?>" alt="Bild Eventseite">
+    <img class="center" src="<?=ROOTPATH.'assets/images/firework.jpg'?>" alt="Bild Eventseite">
 </div>
 <div class="Content" id="fadeIn">
 

@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets/images/mail.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
     <form autocomplete="off" action="<?=$_SERVER['PHP_SELF'].'?p=contact';?>" method="post">

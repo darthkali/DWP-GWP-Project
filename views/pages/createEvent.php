@@ -13,7 +13,7 @@ if($create == true){
 
 use FSR_AI\location; ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets/images/firework.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
 

@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=ROOTPATH.'assets/images/house.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
     <form autocomplete="off" action="index.php?c=event&a=IntoDatabase&siteId=1" method="post">
