@@ -24,7 +24,7 @@ class Function_FSR extends BaseModel
         $user = self::findOne('ID = ' . $userID);
         $memberHistory = MemberHistory::generateActualMemberHistory($userID);
         $actualFunction = $memberHistory['FUNCTION_FSR_ID'];
-
+        debug_to_logFile($actualFunction. '===' .$newFunction);
         if($actualFunction === $newFunction) {
             return true;
         }

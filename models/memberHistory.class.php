@@ -30,7 +30,6 @@ class MemberHistory extends BaseModel
         return self::find('MEMBER_ID = '. $userID . ' and END_DATE is not null');
     }
 
-
     public static function createNewMemberHistory($userID, $functionFSR){
         $timestamp = time();
         $datum = date("Y-m-d", $timestamp);

@@ -24,22 +24,7 @@ class Role extends BaseModel
     }
 
 
-    public static function changeUserRole($userID, $newRole, $functionFSR = null){
-        $user = self::findOne('ID = ' . $userID);
-        $actualRole = $user['ROLE_ID'];
-
-        if($actualRole == Role::USER){
-            if($functionFSR != null) {
-                MemberHistory::closeActualMemberHistory($userID);
-                MemberHistory::createNewMemberHistory($userID, $functionFSR);
-            }else{
-                return false;
-            }
-        }else if($newRole == Role::USER){
-            MemberHistory::closeActualMemberHistory($userID);
-            MemberHistory::createNewMemberHistory($userID, 6);
-        }
-
+    public static function changeUserRole($userID, $newRole){
         $params = [
             'ID' => $userID,
             'ROLE_ID' => $newRole,

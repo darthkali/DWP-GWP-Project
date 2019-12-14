@@ -98,15 +98,31 @@ class User extends BaseModel
 
     public static function changeUserRoleAndFunction($userID, $newRole, $functionFSR = null){
     // TODO: transaction Control? Maybe we need a rollback if some of this inserts / updates will fail
+
         $user = self::findOne('ID = ' . $userID);
         $actualRole = $user['ROLE_ID'];
 
-        if($actualRole === $newRole) {
-            Function_FSR::changeUserFunction($user['ID'], $functionFSR);
-        }else{
-            Role::changeUserRole($userID, $newRole, $functionFSR);
+        if ($actualRole == Role::USER && $newRole == Role::USER) {
+            return true;
         }
-        return true;
+
+        if($actualRole == Role::USER && $newRole != Role::USER){
+            MemberHistory::closeActualMemberHistory($userID);
+            MemberHistory::createNewMemberHistory($userID, $functionFSR);
+            Role::changeUserRole($userID,$newRole);
+            return true;
+        }else if($actualRole != Role::USER && $newRole == Role::USER){
+            MemberHistory::closeActualMemberHistory($userID);
+            MemberHistory::createNewMemberHistory($userID, 6);
+            Role::changeUserRole($userID,$newRole);
+            return true;
+        }else if ($actualRole == Role::MEMBER && $newRole == Role::ADMIN || $actualRole == Role::ADMIN && $newRole == Role::MEMBER) {
+            Function_FSR::changeUserFunction($userID,$functionFSR);
+            Role::changeUserRole($userID,$newRole);
+        }else{
+            Function_FSR::changeUserFunction($user['ID'], $functionFSR);
+        }
+
     }
 
 }

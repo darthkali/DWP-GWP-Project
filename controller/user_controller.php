@@ -134,7 +134,7 @@ class UserController extends Controller{
                 $where = 'ID = ' . $_SESSION['userId'];
                 $userAdmin = User::findOne($where);
                 if($userAdmin['ROLE_ID'] == Role::ADMIN){
-                    User::changeUserRole($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+                    User::changeUserRoleAndFunction($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
 
                 }
 
