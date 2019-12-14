@@ -122,13 +122,19 @@ class UserController extends Controller{
         }
 
         if (isset($_POST['submitProfil'])) {
+
+            if(isset($_POST['changePasswordCheckbox'])){
+                $password = $_POST['passwordProfil'];
+            }else{
+                $password = null;
+            }
             $params = [
                 'ID' => $user['ID'],
                 'FIRSTNAME' => $_POST['firstnameProfil'] ?? null,
                 'LASTNAME' => $_POST['lastnameProfil'] ?? null,
                 'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil'] ?? null,
                 'EMAIL' => $_POST['emailProfil'] ?? null,
-                'PASSWORD' => $_POST['passwordProfil'] ?? null,
+                'PASSWORD' => $password,
                 'PICTURE' => $pictureName ?? null,
                 'DESCRIPTION' => $_POST['descriptionProfil'] ?? null
             ];

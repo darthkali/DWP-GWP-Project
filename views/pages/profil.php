@@ -30,9 +30,15 @@ use FSR_AI\role;
         <? if($errorMessage != ''){?> <div class="error"><?echo $errorMessage?></div> <? } ?>
 
         <? if($userProfil['ID'] === $_SESSION['userId']){?>
+
         <label for="passwordProfil">PASSWORT </label>
         <input type = "password" id="passwordProfil" name="passwordProfil" required
                value = "<?=isset($_POST['passwordProfil']) ? htmlspecialchars($_POST['passwordProfil']) : htmlspecialchars($userProfil['PASSWORD'])?>">
+
+            <div class="checkBox">
+                <input type="checkbox" name="changePasswordCheckbox" id="changePasswordCheckbox">
+                <label for="changePasswordCheckbox">Passwort ändern? </label>
+            </div>
         <? } ?>
 
         <!-- date of birth -->
