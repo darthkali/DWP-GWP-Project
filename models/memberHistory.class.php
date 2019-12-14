@@ -32,24 +32,35 @@ class MemberHistory extends BaseModel
 
 
     public static function createNewMemberHistory($userID, $functionFSR){
+        $timestamp = time();
+        $datum = date("Y-m-d", $timestamp);
         $params = [
-            'START_DATE' => new Timestamp,
+            'START_DATE' => $datum,
             'MEMBER_ID' => $userID,
             'FUNCTION_FSR_ID' => $functionFSR,
         ];
-
-        $newMemberHistory = new user($params);
+        //debug_to_logFile();
+        $newMemberHistory = new MemberHistory($params);
         $newMemberHistory->save();
     }
 
-    public  static  function closeActualMemberHistory($userID){
-        $memberHistoryID = self::generateActualMemberHistory($userID)['ID'];
+    public static function closeActualMemberHistory($userID){
+
+        $memberHistory = self::generateActualMemberHistory($userID);
+        if($memberHistory === null){
+            return false;
+        }else{
+            $memberHistoryID = self::generateActualMemberHistory($userID)['ID'];
+        }
+
+        $timestamp = time();
+        $datum = date("Y-m-d", $timestamp);
         $params = [
             'ID' => $memberHistoryID,
-            'END_DATE' => new Timestamp,
+            'END_DATE' => $datum
         ];
 
-        $newMemberHistory = new user($params);
+        $newMemberHistory = new MemberHistory($params);
         $newMemberHistory->save();
     }
 }

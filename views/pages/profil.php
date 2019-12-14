@@ -57,22 +57,22 @@ use FSR_AI\role;
         <? if($permissionSiteElements == role::ADMIN){?>
 
             <? if($userProfil['ID'] <> $_SESSION['userId']){?>
-        <label for="sortBy">Rolle: </label> <br>
-        <select name="sortBy" id="sortBy">
-            <option>Administrator</option>
-            <option>Mitglied</option>
-            <option selected>Nutzer</option>
-        </select>
-        <? } ?>
-        <label for="functionFSR">Funktion im Fachschaftsrat:</label><br>
-        <select name="functionFSR" id="functionFSR">
-            <option selected>Sprecher</option>
-            <option>stellv. Sprecher</option>
-            <option>Finanzer</option>
-            <option>stellv. Finanzer</option>
-            <option selected>Mitglied</option>
-            <option>archiviertes Mitglied</option>
-        </select>
+            <label for="roleProfil">Rolle: </label> <br>
+            <select name="roleProfil" id="roleProfil">
+                <option value= <?= Role::ADMIN?>> Administrator</option>
+                <option value= <?= Role::MEMBER?>>Mitglied</option>
+                <option value= <?= Role::USER?> selected>Nutzer</option>
+            </select>
+            <? } ?>
+            <label for="functionFSR">Funktion im Fachschaftsrat:</label><br>
+            <select name="functionFSR" id="functionFSR">
+                <option selected>Sprecher</option>
+                <option>stellv. Sprecher</option>
+                <option>Finanzer</option>
+                <option>stellv. Finanzer</option>
+                <option selected>Mitglied</option>
+                <option>archiviertes Mitglied</option>
+            </select>
         <? } ?>
 
         <? if($userProfil['ID'] === $_SESSION['userId']){?>

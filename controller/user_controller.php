@@ -130,11 +130,15 @@ class UserController extends Controller{
             $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
+                User::changeUserRole($user['ID'],$_POST['roleProfil'],1);
+
                 if(isset($_GET['userId'])) {
                     sendHeaderByControllerAndAction('user', 'userManagement');
                 }else{
                     sendHeaderByControllerAndAction('user', 'profil');
                 }
+
+
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }

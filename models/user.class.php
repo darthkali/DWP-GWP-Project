@@ -105,32 +105,24 @@ class User extends BaseModel
             return true;
         }
 
-        if($actualRole === Role::USER){
-            // from user to Admin or Member
-            // create new Member History
-            // check that the FunctionFSR is added
-            if($functionFSR != null){
+        if($actualRole == Role::USER){
+            if($functionFSR != null) {
+                MemberHistory::closeActualMemberHistory($userID);
                 MemberHistory::createNewMemberHistory($userID, $functionFSR);
             }else{
                 return false;
             }
-
-        }else if($newRole === Role::USER){
-            // from Admin or Member to User
-            // close open Member History
-            // create new Member History with functionFSR.class = inaktives Mitglied
-           MemberHistory::closeActualMemberHistory($userID);
-           MemberHistory::createNewMemberHistory($userID, 6);   // TODO: Es wird aktuell direkt die 6 übergeben, das kann ggf zu problemen führen
+        }else if($newRole == Role::USER){
+            MemberHistory::closeActualMemberHistory($userID);
+            MemberHistory::createNewMemberHistory($userID, 6);
         }
+
 
         $params = [
             'ID' => $userID,
-            'ROLE' => $newRole,
+            'ROLE_ID' => $newRole,
         ];
         $newUser = new user($params);
         $newUser->save();
     }
-
-
-
 }
