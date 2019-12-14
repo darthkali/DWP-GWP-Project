@@ -59,6 +59,13 @@ class UserController extends Controller{
             $this->_params['accounts'] = User::find('1');
         }
         $this->_params['role'] = $_GET['role'] ?? false;
+
+        if(isset($_GET['userId'])){
+            Booking::deleteWhere('ID = '.$_GET['userId']);
+            MemberHistory::deleteWhere('ID = '.$_GET['userId']);
+            User::deleteWhere('ID = '.$_GET['userId']);
+            sendHeaderByControllerAndAction('user', 'userManagement');
+        }
     }
 
     public function actionProfil()
@@ -123,12 +130,15 @@ class UserController extends Controller{
             $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
-                sendHeaderByControllerAndAction('user', 'userManagement');
+                if(isset($_GET['userId'])) {
+                    sendHeaderByControllerAndAction('user', 'userManagement');
+                }else{
+                    sendHeaderByControllerAndAction('user', 'profil');
+                }
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
 
-            // TODO: an Admin can not change a color Mode from a user
             if(!isset($_GET['userId'])) {
                 if (isset($_POST['colorCheckbox'])) {
                     $colorModeData = array("colorMode" => true);

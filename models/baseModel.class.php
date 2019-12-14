@@ -130,10 +130,10 @@ abstract class BaseModel
 
     public static function deleteWhere($where){
         $db = $GLOBALS['db'];
-
         try{
             $sql = 'DELETE ' . 'FROM ' . self::tablename() . ' WHERE ' . $where;
             $db->exec($sql);
+
             return true;
 
         }

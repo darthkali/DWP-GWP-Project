@@ -44,7 +44,7 @@ use FSR_AI\User;
                 <td>
                     <? if($_SESSION['userId'] <> $accounts[$index]['ID']){?>
                     <a href="?c=user&a=profil&userId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
-                    <a href="?c=user&a=EditUser&UserId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Edit" style="outline:0;"></a>
+                    <a href="?c=user&a=userManagement&userId=<?=$accounts[$index]['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Edit" style="outline:0;"></a>
                     <?}?>
                 </td>
             </tr>
