@@ -361,6 +361,10 @@ th, td {
     padding: 8px;
 }
 
+tr{
+    height: 50px;
+}
+
 tr:hover, tr:nth-child(even):hover{
     background-color: var(--hover-color);
     color: var(--secondary-text-color);
