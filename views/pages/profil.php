@@ -55,24 +55,22 @@ use FSR_AI\role;
 
 
         <? if($permissionSiteElements == role::ADMIN){?>
-
             <? if($userProfil['ID'] <> $_SESSION['userId']){?>
             <label for="roleProfil">Rolle: </label> <br>
             <select name="roleProfil" id="roleProfil">
-                <option value= <?= Role::ADMIN?>> Administrator</option>
-                <option value= <?= Role::MEMBER?>>Mitglied</option>
-                <option value= <?= Role::USER?> selected>Nutzer</option>
+                <? foreach ($allRoles as $role) { ?>
+                    <option value= <?=$role['ID']?> <?=($userFunction == $role['ID']) ? 'selected' : ''?> ><?=$role['NAME']?></option>
+                <? } ?>
             </select>
             <? } ?>
-            <label for="functionFSRProfil">Funktion im Fachschaftsrat:</label><br>
-            <select name="functionFSRProfil" id="functionFSRProfil">
-                <option value= '1' selected>Sprecher</option>
-                <option value= '2' >stellv. Sprecher</option>
-                <option value= '3' >Finanzer</option>
-                <option value= '4' >stellv. Finanzer</option>
-                <option value= '5'  selected>Mitglied</option>
-                <option value= '6' >archiviertes Mitglied</option>
-            </select>
+
+        <label for="functionFSRProfil">Funktion im Fachschaftsrat:</label><br>
+        <select name="functionFSRProfil" id="functionFSRProfil">
+            <? foreach ($allFunctions as $function) { ?>
+            <option value= <?=$function['ID']?> <?=($userFunction == $function['ID']) ? 'selected' : ''?> ><?=$function['NAME']?></option>
+            <? } ?>
+        </select>
+
         <? } ?>
 
         <? if($userProfil['ID'] === $_SESSION['userId']){?>

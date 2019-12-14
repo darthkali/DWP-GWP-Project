@@ -78,7 +78,6 @@ class UserController extends Controller{
             $user = User::findOne($where);
             $this->_params['permissionSiteElements'] = role::ADMIN;
             $this->_params['userInformation'] = '&userId='.$_GET['userId'];
-
         }else{
             $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
             $this->_params['title'] = 'Profil';
@@ -104,7 +103,10 @@ class UserController extends Controller{
         //$user = User::findOne($where);
         $this->_params['userProfil'] = $user;
         $this->_params['errorMessage'] = '';
-        //$this->_params['userRole'] =  $_SESSION['userId']['ROLE_ID']
+        $this->_params['userRole'] = $user['ROLE_ID'];
+        $this->_params['userFunction'] = MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID'];
+        $this->_params['allRoles'] = Role::find();
+        $this->_params['allFunctions'] = Function_FSR::find();
 
 
         if (isset($_POST['submitProfil'])) {
