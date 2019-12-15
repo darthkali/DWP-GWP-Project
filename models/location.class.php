@@ -16,10 +16,10 @@ class Location extends BaseModel
         'ROOM'             => [ 'type' => BaseModel::TYPE_STRING ]
     ];
 
-    public function buildLocationDetails($street, $number, $zipcode, $room, $city){
-
-        $location = $location = $city.', '.$zipcode.', '.$street.' '.$number;;
-        if(isset($room)) $location .= ', Raum: '.$room;
-        return $location;
+    public function buildLocationDetails($locationId){
+        $location = self::findOne('id = '.$locationId);
+        $locationDetails = $location['CITY'].', '.$location['ZIPCODE'].', '.$location['STREET'].' '.$location['NUMBER'];;
+        if(isset($location['ROOM'])) $locationDetails .= ', Raum: '.$location['ROOM'];
+        return $locationDetails;
     }
 }

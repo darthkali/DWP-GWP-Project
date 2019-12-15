@@ -15,4 +15,9 @@ class Event extends BaseModel
         'PICTURE' => ['type' => BaseModel::TYPE_STRING],
         'LOCATION_ID' => ['type' => BaseModel::TYPE_INT]
     ];
+
+    public static function getDateDiffBetweenEventAndCurrentDate($eventDate){
+
+        return date_diff(date_create($eventDate), date_create(date('d.m.Y')))->format('%R%a');
+    }
 }

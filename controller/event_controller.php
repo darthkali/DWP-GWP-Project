@@ -37,48 +37,46 @@ class EventController extends Controller
         }
     }
 
-    public function actionEditEvent(){
-        $this->_params['title'] = 'Event bearbeiten';
-        $this->_params['delete'] = $_GET['delete'];
-        $dataDir = 'assets/images/upload/';
-
-        if($_GET['delete'] == 1){
-            unlink($dataDir.$_GET['picturePath']);
-            Event::deleteWhere('id = '.$_GET['eventId']);
-        }else{
-            $this->_params['eventData'] = Event::findOne('id = '.$_GET['eventId']);
-        }
-    }
+//if($_FILES['eventPicture']['name'] != null){
+//
+//$pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
+//if(isset($_GET['picturePath'])){
+//unlink($dataDir.$_GET['picturePath']);
+//}
+//}
 
     public function actionCreateEvent(){
 
-        $this->_params['title'] = 'Event Erstellen';
         $this->_params['locationsList'] = Location::find();
-        $this->_params['create'] = true;
-        if(isset($_GET['eventId'])) {
-            $this->_params['title'] = 'Event Bearbeiten';
-            $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
-            $this->_params['create'] = false;
+        $dataDir = 'assets/images/upload/events/';
+
+        if(isset($_GET['eventAction'])) {
+            if ($_GET['eventAction'] == 'edit') {
+
+                $this->_params['title'] = 'Event Bearbeiten';
+                $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
+                $this->_params['create'] = false;
+            }elseif($_GET['eventAction'] == 'create'){
+
+                $this->_params['title'] = 'Event Erstellen';
+                $this->_params['create'] = true;
+            }elseif($_GET['eventAction'] == 'delete'){
+
+                unlink($dataDir . $_GET['pictureName']);
+                Event::deleteWhere('id = '.$_GET['eventId']);
+                sendHeaderByControllerAndAction('event', 'Events');
+            }
         }
-    }
 
-    public function actionIntoDatabase(){
-        $siteId = $_GET['siteId'];
-        $this->_params['siteId'] = $siteId;
-
-        if($siteId == 0) {
-            $this->_params['title'] = 'Event Erstellen';
+        if(isset($_POST['submitEvent'])){
             $eventId = $_GET['eventId'] ?? null;
             $pictureName = null;
-            $dataDir = 'assets/images/upload/events/';
+            $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
 
-            if($_FILES['eventPicture']['name'] != null){
-
-                $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
-                if(isset($_GET['picturePath'])){
-                    unlink($dataDir.$_GET['picturePath']);
-                }
+            if(isset($_GET['pictureName'])){
+                unlink($dataDir.$_GET['pictureName']);
             }
+
             if (isset($_POST['eventName'])) {
                 $params = [
                     'ID'            => $eventId,
@@ -96,29 +94,9 @@ class EventController extends Controller
                 $dataDir .= $pictureName;
                 move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
-        }elseif($siteId == 1) {
-            $this->_params['title'] = 'Location Erstellen';
-            if (isset($_POST['locationStreet'])) {
-                $params = [
-                    'STREET' => $_POST['locationStreet'],
-                    'NUMBER' => $_POST['locationNumber'],
-                    'ZIPCODE' => $_POST['locationZipcode'],
-                    'CITY' => $_POST['locationCity'],
-                    'ROOM' => $_POST['locationRoom']
-                ];
-                $location = new location($params);
-                foreach ($params as $key => $value) {
-                    $location->__set($key, $value);
-                }
-                $location->save();
-            }
+            sendHeaderByControllerAndAction('event', 'EventManagement');
         }
     }
-
-    public function actionCreateLocation(){
-        $this->_params['title'] = 'Location Erstellen';
-    }
-
     public function actionEventManagement(){
 
         //Permissions for the page

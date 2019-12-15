@@ -15,4 +15,8 @@ class Booking extends BaseModel{
     public static function buildWhereBooking($userId, $eventId){
         return " USER_ID = '" . $userId . "' and EVENT_ID = '". $eventId .  "';'";
     }
+
+    public static function checkRegistrationForEvent($eventId){
+        return Booking::find(Booking::buildWhereBooking($_SESSION['userId'], $eventId));
+    }
 }

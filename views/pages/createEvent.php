@@ -1,12 +1,12 @@
 <?
 if($create == true){
     $htmlButton = 'Event erstellen';
-    $action = 'index.php?c=event&a=IntoDatabase&siteId=0';
+    $action = 'index.php?c=event&a=CreateEvent';
     $headline = 'Event erstellen';
     $required = 'required';
 }else{
     $htmlButton = 'Änderungen speichern';
-    $action = 'index.php?c=event&a=IntoDatabase&siteId=0&eventId='.$eventData['ID'].'&picturePath='.$eventData['PICTURE'];
+    $action = 'index.php?c=event&a=CreateEvent&eventId='.$eventData['ID'].'&pictureName='.$eventData['PICTURE'];
     $headline = 'Event bearbeiten';
     $required = '';
 }
@@ -37,8 +37,7 @@ use FSR_AI\location; ?>
                 <?$selected = '';
                 if($location['ID'] == $eventData['LOCATION_ID'])$selected = 'selected';?>
                     <option <?=$selected?> value="<?=$location['ID']?>">
-                        <?=Location::buildLocationDetails($location['STREET'], $location['NUMBER'], $location['ZIPCODE'], null, $location['CITY']);?>
-                        <?=($location['ROOM']) ? 'Raum: '.$location['ROOM'] : ''?>
+                        <?=Location::buildLocationDetails($location['ID']);?>
                     </option>
             <?endforeach;?>
         </select>
@@ -51,6 +50,6 @@ use FSR_AI\location; ?>
         <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=$required?>>
 
         <!-- button -->
-        <button type="submit"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit" name="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
     </form>
 </div>

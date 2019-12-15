@@ -1,12 +1,12 @@
 <?php
 
-use FSR_AI\booking;
-use FSR_AI\location;
+use FSR_AI\Booking;
+use FSR_AI\Event;
+use FSR_AI\Location;
 
 $eventList = $eventListFuture;
 $counter = 0;
 $design = '';
-//$eventHistory = 'Zukünftige Events';
 ?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=ROOTPATH.'assets/images/firework.jpg'?>" alt="Bild Eventseite">
@@ -16,7 +16,6 @@ $design = '';
     <h1>Unsere Events</h1>
 
     <?while($counter <= 1) :?>
-<!--        <h3>--><?//=$eventHistory?><!--</h3>-->
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>
                 <img src="/FSAI-Site/assets/images/upload/events/<?=$event['PICTURE']?>">
@@ -24,14 +23,14 @@ $design = '';
                     <h2><?=$event['NAME']?></h2>
                     <p>
                         <strong>Datum: </strong> <?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
-                        <strong>Ort: </strong><?=Location::buildLocationDetails($event['STREET'], $event['NUMBER'], $event['ZIPCODE'], $event['ROOM'], $event['CITY']);?> </p>
+                        <strong>Ort: </strong><?=Location::buildLocationDetails($event['LOCATION_ID']);?> </p>
                     <p><?=$event['DESCRIPTION']?></p>
                 </div>
                 <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) : ?>
-                    <?if(date_diff(date_create($event['DATE']), date_create(date('d.m.Y')))->format('%R%a') <= 0) : ?>
+                    <?if(Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <div class="ContentEvents" id="EventButton">
                             <a href="index.php?c=event&a=Booking&eventId=<?=$event['ID']?>">
-                                <button><?=Booking::find(Booking::buildWhereBooking($_SESSION['userId'], $event['ID'])) ? 'Von dem Event abmelden' : 'Für das Event anmelden';?></button></a>
+                                <button><?=Booking::checkRegistrationForEvent($event['ID']) ? 'Von dem Event abmelden' : 'Für das Event anmelden';?></button></a>
                         </div>
                     <?else: ?>
                         <div><strong>Das Event ist schonvorbei!!</strong></div>
@@ -42,12 +41,8 @@ $design = '';
                 <?endif;?>
             </div>
         <?endforeach;?>
-        <?if($counter == 0) :?>
-<!--        <hr id="ContentEventsLine"/>-->
-        <?endif;?>
     <?  $counter++;
         $design = 'id="ContentEventsInPast"';
-        $eventList = $eventListPast;
-        //$eventHistory = 'Vergangene Events'?>
+        $eventList = $eventListPast;?>
     <?endwhile;?>
 </div>

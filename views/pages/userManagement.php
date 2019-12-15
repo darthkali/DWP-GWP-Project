@@ -39,7 +39,7 @@ use FSR_AI\User;
             <tr>
                 <td><?=$account['FIRSTNAME']?></td>
                 <td><?=$account['LASTNAME']?></td>
-                <td><?=date("d.m.Y",strtotime($account['DATE_OF_BIRTH']));?></td>
+                <td><?=date("d.m.Y", strtotime($account['DATE_OF_BIRTH']));?></td>
                 <td><?=$account['EMAIL']?></td>
                 <td><?=Role::generateRoleByRoleID($account['ROLE_ID'])?></td>
                 <td><?=Function_FSR::generateFunctionFSRNameByUserID($account['ID'])?></td>
