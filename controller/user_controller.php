@@ -69,10 +69,28 @@ class UserController extends Controller{
         }
     }
 
-
-
     public function actionProfil()
     {
+
+//        if(isset($_POST['testvaerify'])){
+//            $params = [
+//                'FIRSTNAME' => 'Oc12sdfsdfsdfsdfsdfsdfsdfsdfdf',
+//                'LASTNAME' => 'O',
+//            ];
+//            $newUser = new User($params);
+//
+//            //$this->_params['eingabeError'] = $eingabeError = [];;
+//            $eingabeError = [];
+//            if(!$newUser->validate($eingabeError)){
+//                $this->_params['eingabeError'] = $eingabeError;
+//            };
+//
+//
+//        }
+
+
+
+
 
         if(isset($_GET['userId'])){
             $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
@@ -113,18 +131,8 @@ class UserController extends Controller{
 
 
         if (isset($_POST['submitProfil'])) {
-            if (basename($_FILES['pictureProfil']['name']) != null) {
-                unlink(USER_PICTURE_PATH . $user['PICTURE']);
-                $pictureName = createUploadedPictureName('user', 'pictureProfil');
-                $picturePath = USER_PICTURE_PATH . $pictureName;
-                move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
-            }
-        }
-
-        if (isset($_POST['submitProfil'])) {
-
             if(isset($_POST['changePasswordCheckbox'])){
-                $password = $_POST['passwordProfil'];
+                $password =User::generatePasswordHash($_POST['passwordProfil']);
             }else{
                 $password = null;
             }
@@ -139,36 +147,50 @@ class UserController extends Controller{
                 'DESCRIPTION' => $_POST['descriptionProfil'] ?? null
             ];
             $newUser = new User($params);
-            if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
-                $newUser->save();
 
-                $where = 'ID = ' . $_SESSION['userId'];
-                $userAdmin = User::findOne($where);
-                if($userAdmin['ROLE_ID'] == Role::ADMIN){
-                    User::changeUserRoleAndFunction($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+            $eingabeError = [];
+            if(!$newUser->validate($eingabeError)){
+                $this->_params['eingabeError'] = $eingabeError;
+            }else {
 
+                if (basename($_FILES['pictureProfil']['name']) != null) {
+                    unlink(USER_PICTURE_PATH . $user['PICTURE']);
+                    $pictureName = createUploadedPictureName('user', 'pictureProfil');
+                    $picturePath = USER_PICTURE_PATH . $pictureName;
+                    move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
                 }
 
 
-                if(isset($_GET['userId'])) {
-                    sendHeaderByControllerAndAction('user', 'userManagement');
-                }else{
-                    sendHeaderByControllerAndAction('user', 'profil');
-                }
+                if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+                    $newUser->save();
+
+                    $where = 'ID = ' . $_SESSION['userId'];
+                    $userAdmin = User::findOne($where);
+                    if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
+                        User::changeUserRoleAndFunction($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+
+                    }
+
+                    if (isset($_GET['userId'])) {
+                        sendHeaderByControllerAndAction('user', 'userManagement');
+                    } else {
+                        sendHeaderByControllerAndAction('user', 'profil');
+                    }
 
 
-            } else {
-                $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
-            }
-
-            if(!isset($_GET['userId'])) {
-                if (isset($_POST['colorCheckbox'])) {
-                    $colorModeData = array("colorMode" => true);
-                    User::createLongLifeCookie($colorModeData);
                 } else {
-                    if (isset($_COOKIE['colorMode'])) {
-                        $colorModeData = array("colorMode" => false);
+                    $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+                }
+
+                if (!isset($_GET['userId'])) {
+                    if (isset($_POST['colorCheckbox'])) {
+                        $colorModeData = array("colorMode" => true);
                         User::createLongLifeCookie($colorModeData);
+                    } else {
+                        if (isset($_COOKIE['colorMode'])) {
+                            $colorModeData = array("colorMode" => false);
+                            User::createLongLifeCookie($colorModeData);
+                        }
                     }
                 }
             }
@@ -185,7 +207,7 @@ class UserController extends Controller{
                 'LASTNAME' => $_POST['lastnameRegistration'],
                 'DATE_OF_BIRTH' => $_POST['dateOfBirthRegistration'],
                 'EMAIL' => $_POST['emailRegistration'],
-                'PASSWORD' => $_POST['passwordRegistration'],
+                'PASSWORD' => User::generatePasswordHash($_POST['passwordRegistration']),
                 'ROLE_ID' => 3
             ];
 

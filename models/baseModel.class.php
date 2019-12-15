@@ -143,13 +143,12 @@ abstract class BaseModel
         return false;
     }
 
-    //TODO: validate muss angepasst werden! Wenn es keinen Error gibt, dann checkt wirft er einen Fehler
-    public function validate(&$errors = null){
+    public function validate(&$errors){
         foreach($this->schema as $key => $schemaOptions){
             if(isset($this->data[$key]) && is_array($schemaOptions)){
                 $valueErrors = $this->validateValue($key, $this->data[$key], $schemaOptions);
 
-                if($valueErrors != true){
+                if(is_array($valueErrors)){
                     array_push($errors, ...$valueErrors);
                 }
             }
@@ -174,11 +173,13 @@ abstract class BaseModel
                 if(isset($schemaOptions['min']) && mb_strlen($value) < $schemaOptions['min']){
                     $errors[] = $attribute.': String needs min. '.$schemaOptions['min'].' characters!';
                 }
-                if(isset($schemaOptions['max']) && mb_strlen($value) < $schemaOptions['max']){
+                if(isset($schemaOptions['max']) && mb_strlen($value) > $schemaOptions['max']){
                     $errors[] = $attribute.': String can have max. '.$schemaOptions['max'].' characters!';
                 }
             }
             break;
+        }
+        if(count($errors) > 0){
         }
         return count($errors) > 0 ? $errors : true;
     }

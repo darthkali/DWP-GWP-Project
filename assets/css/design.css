@@ -546,7 +546,7 @@ margin-right: 10px;
 }
 /* ----------------------------------   Error   ---------------------------------- */
 .error {
-
+    display: block;
     line-height: 25px;
     padding:5px;
     color: var(--secondary-text-color);

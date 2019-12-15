@@ -12,6 +12,11 @@ use FSR_AI\role;
         <h1>Meine Daten</h1>
         <h5>Hier kannst du deine Daten ändern!</h5>
 
+        <? if(isset($eingabeError)){ ;?> <div class="error"><?
+            foreach($eingabeError as $error){?>
+                <?=$error?><br>
+            <?}?></div> <? } ?>
+
         <!-- frontname -->
         <label for="firstnameProfil">VORNAME </label>
         <input type = "text" id="firstnameProfil" name="firstnameProfil" required
@@ -32,8 +37,7 @@ use FSR_AI\role;
         <? if($userProfil['ID'] === $_SESSION['userId']){?>
 
         <label for="passwordProfil">PASSWORT </label>
-        <input type = "password" id="passwordProfil" name="passwordProfil" required
-               value = "<?=isset($_POST['passwordProfil']) ? htmlspecialchars($_POST['passwordProfil']) : htmlspecialchars($userProfil['PASSWORD'])?>">
+        <input type = "password" id="passwordProfil" name="passwordProfil">
 
             <div class="checkBox">
                 <input type="checkbox" name="changePasswordCheckbox" id="changePasswordCheckbox">
@@ -88,6 +92,7 @@ use FSR_AI\role;
 
         <!-- buttons -->
         <button type="submit" name="submitProfil">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-        <button type="reset"> Verwerfen</button>
+<!--        <button type="reset"> Verwerfen</button>-->
+        <button type="submit" name="testvaerify"> testvaerify</button>
     </form>
 </div>

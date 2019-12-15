@@ -9,13 +9,13 @@ class User extends BaseModel
         'ID'               => [ 'type' => BaseModel::TYPE_INT ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'FIRSTNAME'        => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45 ],
-        'LASTNAME'         => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45 ],
-        'DATE_OF_BIRTH'    => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45  ],
+        'FIRSTNAME'        => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 5 ],
+        'LASTNAME'         => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 5 ],
+        'DATE_OF_BIRTH'    => [ 'type' => BaseModel::TYPE_STRING],
         'DESCRIPTION'      => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 300 ],
         'PICTURE'          => [ 'type' => BaseModel::TYPE_STRING ],
-        'EMAIL'            => [ 'type' => BaseModel::TYPE_STRING ],
-        'PASSWORD'         => [ 'type' => BaseModel::TYPE_STRING ],
+        'EMAIL'            => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 60 ],
+        'PASSWORD'         => [ 'type' => BaseModel::TYPE_STRING,'min' => 2, 'max' => 60 ],
         'ROLE_ID'          => [ 'type' => BaseModel::TYPE_INT ]
     ];
 
@@ -30,10 +30,15 @@ class User extends BaseModel
 
     public static function findUserByLoginDataFromPost(){
         $email    = $_POST['email'] ?? null;
-        $password = $_POST['password'] ?? null;
 
-        $where = " EMAIL = '" . $email . "' and PASSWORD = '". $password .  "';'";
-        return self::findOne($where);
+        $where = " EMAIL = '" . $email . "';" ;
+        $users = self::find($where);
+        foreach($users as $user){
+            if(User::checkPasswordHash($_POST['password'], $user)){
+                return $user;
+            }
+        }
+        return false;
     }
 
     public static function createLongLifeCookie($data){
@@ -121,6 +126,29 @@ class User extends BaseModel
             Function_FSR::changeUserFunction($user['ID'], $newfunctionFSR);
         }
         return true;
+    }
+
+    public static function generatePasswordHash($password){
+        return password_hash($password . PEPPER, PASSWORD_BCRYPT, HASHOPTIONS);
+    }
+
+    public static function checkPasswordHash($password, $user){
+        if (password_verify($password . PEPPER, $user['PASSWORD'])) {
+            if (password_needs_rehash($user['PASSWORD'], PASSWORD_BCRYPT, HASHOPTIONS)) {
+                $params = [
+                    'ID' => $user['ID'],
+                    'PASSWORD' => self::generatePasswordHash($password),
+                ];
+                $newUser = new user($params);
+                $newUser->save();
+                debug_to_logFile('password Refresh');
+                return true;
+            }
+            debug_to_logFile('password ok');
+            return true;
+        }
+        debug_to_logFile('password nok');
+        return false;
     }
 
 }
