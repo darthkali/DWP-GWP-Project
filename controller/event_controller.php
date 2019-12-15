@@ -48,10 +48,15 @@ class EventController extends Controller
                 $this->_params['title'] = 'Event Bearbeiten';
                 $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
                 $this->_params['create'] = false;
+                $this->_params['htmlButton'] = 'Änderungen speichern';
+                $this->_params['headline'] = 'Event bearbeiten';
             }elseif($_GET['eventAction'] == 'create'){
 
                 $this->_params['title'] = 'Event Erstellen';
                 $this->_params['create'] = true;
+                $this->_params['htmlButton'] = 'Event erstellen';
+                $this->_params['headline'] = 'Event erstellen';
+                $this->_params['required'] = 'required';
             }elseif($_GET['eventAction'] == 'delete'){
 
                 unlink($dataDir . $_GET['pictureName']);
@@ -62,11 +67,13 @@ class EventController extends Controller
 
         if(isset($_POST['submitEvent'])){
             $eventId = $_GET['eventId'] ?? null;
-            $pictureName = null;
-            $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
 
-            if(isset($_GET['pictureName'])){
-                unlink($dataDir.$_GET['pictureName']);
+            if($_FILES['eventPicture']['name'] != null){
+
+                $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
+                if(isset($_GET['picturePath'])){
+                    unlink($dataDir.$_GET['picturePath']);
+                }
             }
 
             if (isset($_POST['eventName'])) {
