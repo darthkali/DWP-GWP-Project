@@ -37,14 +37,6 @@ class EventController extends Controller
         }
     }
 
-//if($_FILES['eventPicture']['name'] != null){
-//
-//$pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
-//if(isset($_GET['picturePath'])){
-//unlink($dataDir.$_GET['picturePath']);
-//}
-//}
-
     public function actionCreateEvent(){
 
         $this->_params['locationsList'] = Location::find();
@@ -64,7 +56,7 @@ class EventController extends Controller
 
                 unlink($dataDir . $_GET['pictureName']);
                 Event::deleteWhere('id = '.$_GET['eventId']);
-                sendHeaderByControllerAndAction('event', 'Events');
+                sendHeaderByControllerAndAction('event', 'EventManagement');
             }
         }
 
@@ -97,6 +89,7 @@ class EventController extends Controller
             sendHeaderByControllerAndAction('event', 'EventManagement');
         }
     }
+
     public function actionEventManagement(){
 
         //Permissions for the page
