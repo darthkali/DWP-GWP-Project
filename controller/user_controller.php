@@ -131,10 +131,9 @@ class UserController extends Controller{
 
 
         if (isset($_POST['submitProfil'])) {
+
             if(isset($_POST['changePasswordCheckbox'])){
-                $password =User::generatePasswordHash($_POST['passwordProfil']);
-            }else{
-                $password = null;
+                $password = User::generatePasswordHash($_POST['passwordProfil']);
             }
             $params = [
                 'ID' => $user['ID'],
@@ -142,16 +141,28 @@ class UserController extends Controller{
                 'LASTNAME' => $_POST['lastnameProfil'] ?? null,
                 'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil'] ?? null,
                 'EMAIL' => $_POST['emailProfil'] ?? null,
-                'PASSWORD' => $password,
                 'PICTURE' => $pictureName ?? null,
-                'DESCRIPTION' => $_POST['descriptionProfil'] ?? null
+                'DESCRIPTION' => $_POST['descriptionProfil'] ?? null,
+                'PASSWORD' => $password ?? null
             ];
-            $newUser = new User($params);
 
+//            if(isset($_POST['changePasswordCheckbox'])){
+//                $params += array('PASSWORD' => $_POST['passwordProfil'] ?? null);
+//            }
+
+            $newUser = new User($params);
+//            debug_to_logFile($newUser['ID']);
             $eingabeError = [];
             if(!$newUser->validate($eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
             }else {
+
+//                debug_to_logFile($newUser['ID']);
+//                debug_to_logFile('safsd');
+//                if(isset($_POST['changePasswordCheckbox'])){
+//                    $newUser['PASSWORD'] = User::generatePasswordHash($_POST['passwordProfil']);
+//                }
+
 
                 if (basename($_FILES['pictureProfil']['name']) != null) {
                     unlink(USER_PICTURE_PATH . $user['PICTURE']);
