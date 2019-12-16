@@ -6,8 +6,18 @@ class UserController extends Controller{
 
     public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
-        $userList = User::find('ROLE_ID <> ' . role::USER);
+        // TODO: show all users which has minimum one entry in the member history
+        $filter = '';
+        $this->_params['valueFilter'] = 0;
+        //debug_to_logFile($_POST['functionFSRUser']);
+        if(isset($_POST['functionFSRUser']) && $_POST['functionFSRUser'] != 0){
+            $filter = ' and FUNCTION_FSR_ID = '. $_POST['functionFSRUser'];
+            $this->_params['valueFilter'] = $_POST['functionFSRUser'];
+        }
+
+        $userList = User::find('END_DATE is null' . $filter, 'getusermemberhistory');
         $this->_params['userList'] = $userList;
+        $this->_params['allFunctions'] = Function_FSR::find();
     }
 
     public function actionLogin(){

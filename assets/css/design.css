@@ -493,35 +493,39 @@ table input:hover{
 /* ----------------------------------   Filter Sortieren   ---------------------------------- */
 
 .filterBox{
-    display: flex;
+    display: block;
     width:100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 5px;
-
+    padding: 0;
 }
 
-.filterBox .sortFilterBox{
-margin-right: 10px;
-
-}
-
-.filterBox .sortFilterBox label{
-      font-size: 12px;
+.sortFilterBox{
+    display: block;
+    float: left;
+    margin: 0 10px 10px 0;
+    padding: 0;
 
 }
 
 .filterBox .sortFilterBox select{
-    background-color: var(--primary-bg-color);
-    width: 100%;
+    /*background-color: var(--primary-bg-color);*/
     height: 30px;
     font-size: 14px;
-    margin: 5px 0 5px;
+    margin: 5px 0 5px 0;
     border-style: solid;
     border-width: 1px;
     border-color: var(--border-color);
     border-radius: 3px;
+    padding: 0;
+}
 
+.filterBox form{
+    margin: 0;
+}
+
+.filterBox button{
+    display: block;
+    margin: 38px 0 0 0;
+    float:left;
 }
 
 .filterBox .sortFilterBox select:hover{

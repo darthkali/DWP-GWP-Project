@@ -1,8 +1,6 @@
 <?php
 
-
 namespace FSR_AI;
-
 
 use MongoDB\BSON\Timestamp;
 
