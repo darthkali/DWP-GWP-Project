@@ -22,8 +22,8 @@
                 <td><?=date_format(date_create($event['DATE']), 'd.m.Y')?>             </td>
                 <td><?=$event['PICTURE']?>                                                     </td>
                 <td>
-                    <a href="index.php?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
-                    <a href="index.php?c=event&a=CreateEvent&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"><input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;"></a>
+                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
+                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"><input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;"></a>
                 </td>
             </tr>
         <?endforeach;?>

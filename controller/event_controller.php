@@ -56,11 +56,6 @@ class EventController extends Controller
                 $this->_params['htmlButton' ] = 'Event erstellen';
                 $this->_params['headline'   ] = 'Event erstellen';
                 $this->_params['required'   ] = 'required';
-            }elseif($_GET['eventAction'     ] == 'delete'){
-
-                unlink($dataDir . $_GET['pictureName']);
-                Event::deleteWhere('id = '.$_GET['eventId']);
-                sendHeaderByControllerAndAction('event', 'EventManagement');
             }
         }
 
@@ -100,10 +95,16 @@ class EventController extends Controller
         //Permissions for the page
         $accessUser = [role::ADMIN, role::MEMBER];    // which user(role_id) has permission to join the page
         $errorPage = 'Location: index.php?c=pages&a=error'; // send the user to the error page if he has no permission
-        User::checkUserPermissionForPage($accessUser,$errorPage);
+        User::checkUserPermissionForPage($accessUser);
 
 
         $this->_params['title'] = 'Eventverwaltung';
         $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
+        if(isset($_GET['eventId'])) {
+            $dataDir = 'assets/images/upload/events/';
+            unlink($dataDir . $_GET['pictureName']);
+            Event::deleteWhere('id = ' . $_GET['eventId']);
+            sendHeaderByControllerAndAction('event', 'EventManagement');
+        }
     }
 }
