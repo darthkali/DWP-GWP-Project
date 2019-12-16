@@ -132,81 +132,78 @@ class UserController extends Controller{
 
         if (isset($_POST['submitProfil'])) {
 
+            if (basename($_FILES['pictureProfil']['name']) != null) {
+                unlink(USER_PICTURE_PATH . $user['PICTURE']);
+                $pictureName = createUploadedPictureName('user', 'pictureProfil');
+                $picturePath = USER_PICTURE_PATH . $pictureName;
+                move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
+            }
+
+
             if(isset($_POST['changePasswordCheckbox'])){
-                $password = User::generatePasswordHash($_POST['passwordProfil']);
+                $password = $_POST['passwordProfil'];
+            }else{
+                $password =  null;
             }
             $params = [
-                'ID' => $user['ID'],
-                'FIRSTNAME' => $_POST['firstnameProfil'] ?? null,
-                'LASTNAME' => $_POST['lastnameProfil'] ?? null,
-                'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil'] ?? null,
-                'EMAIL' => $_POST['emailProfil'] ?? null,
-                'PICTURE' => $pictureName ?? null,
-                'DESCRIPTION' => $_POST['descriptionProfil'] ?? null,
-                'PASSWORD' => $password ?? null
+                'ID'            => $user['ID']                  ?? null,
+                'FIRSTNAME'     => $_POST['firstnameProfil']    ?? null,
+                'LASTNAME'      => $_POST['lastnameProfil']     ?? null,
+                'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil']  ?? null,
+                'EMAIL'         => $_POST['emailProfil']        ?? null,
+                'PICTURE'       => $pictureName                 ?? null,
+                'DESCRIPTION'   => $_POST['descriptionProfil']  ?? null,
+                'PASSWORD'      => $password                    ?? null
             ];
-
-//            if(isset($_POST['changePasswordCheckbox'])){
-//                $params += array('PASSWORD' => $_POST['passwordProfil'] ?? null);
-//            }
-
             $newUser = new User($params);
-//            debug_to_logFile($newUser['ID']);
+
             $eingabeError = [];
             if(!$newUser->validate($eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
-            }else {
+                return false;
+            }
 
-//                debug_to_logFile($newUser['ID']);
-//                debug_to_logFile('safsd');
-//                if(isset($_POST['changePasswordCheckbox'])){
-//                    $newUser['PASSWORD'] = User::generatePasswordHash($_POST['passwordProfil']);
-//                }
+            if(isset($_POST['changePasswordCheckbox'])){
+              $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
+             }
 
 
-                if (basename($_FILES['pictureProfil']['name']) != null) {
-                    unlink(USER_PICTURE_PATH . $user['PICTURE']);
-                    $pictureName = createUploadedPictureName('user', 'pictureProfil');
-                    $picturePath = USER_PICTURE_PATH . $pictureName;
-                    move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
+
+            if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+                $newUser->save();
+
+                $where = 'ID = ' . $_SESSION['userId'];
+                $userAdmin = User::findOne($where);
+                if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
+                    User::changeUserRoleAndFunction($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+
                 }
 
-
-                if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
-                    $newUser->save();
-
-                    $where = 'ID = ' . $_SESSION['userId'];
-                    $userAdmin = User::findOne($where);
-                    if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
-                        User::changeUserRoleAndFunction($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
-
-                    }
-
-                    if (isset($_GET['userId'])) {
-                        sendHeaderByControllerAndAction('user', 'userManagement');
-                    } else {
-                        sendHeaderByControllerAndAction('user', 'profil');
-                    }
-
-
+                if (isset($_GET['userId'])) {
+                    sendHeaderByControllerAndAction('user', 'userManagement');
                 } else {
-                    $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+                    sendHeaderByControllerAndAction('user', 'profil');
                 }
 
-                if (!isset($_GET['userId'])) {
-                    if (isset($_POST['colorCheckbox'])) {
-                        $colorModeData = array("colorMode" => true);
+
+            } else {
+                $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+            }
+
+            if (!isset($_GET['userId'])) {
+                if (isset($_POST['colorCheckbox'])) {
+                    $colorModeData = array("colorMode" => true);
+                    User::createLongLifeCookie($colorModeData);
+                } else {
+                    if (isset($_COOKIE['colorMode'])) {
+                        $colorModeData = array("colorMode" => false);
                         User::createLongLifeCookie($colorModeData);
-                    } else {
-                        if (isset($_COOKIE['colorMode'])) {
-                            $colorModeData = array("colorMode" => false);
-                            User::createLongLifeCookie($colorModeData);
-                        }
                     }
                 }
             }
         }
     }
+
 
     public function actionRegistration(){
         $this->_params['title'] = 'Registrieren';
@@ -222,7 +219,7 @@ class UserController extends Controller{
                 'ROLE_ID' => 3
             ];
 
-            $newUser = new user($params);
+            $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
                 sendHeaderByControllerAndAction('user', 'login');

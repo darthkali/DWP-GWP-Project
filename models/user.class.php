@@ -5,7 +5,7 @@ class User extends BaseModel
 {
     const TABLENAME = '`USER`';
 
-    protected $schema = [
+    public $schema = [
         'ID'               => [ 'type' => BaseModel::TYPE_INT ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
