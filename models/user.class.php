@@ -68,7 +68,7 @@ class User extends BaseModel
         return $firstName.' '.$lastName;
     }
 
-    public static function checkUserPermissionForPage($roleIdWithPermission, $errorPage){
+    public static function checkUserPermissionForPage($roleIdWithPermission){
 
         $user = User::findUserBySessionUserID();
         if($user  != null) {
@@ -149,6 +149,50 @@ class User extends BaseModel
         }
         debug_to_logFile('password nok');
         return false;
+    }
+
+    public static function generateUserProfilInformations(){
+        if(isset($_GET['userId'])){
+            $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
+
+            $where = 'ID = ' . $_GET['userId'];
+            $user = User::findOne($where);
+            $userRole = role::ADMIN;
+            $userInformation = '&userId='.$_GET['userId'];
+            $title = 'Nutzer Ändern';
+            $colorModeChecked = '';
+        }else{
+            $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
+
+            $where = 'ID = ' . $_SESSION['userId'];
+            $user = User::findOne($where);
+            $userRole = $user['ROLE_ID'];
+            $userInformation = '';
+            $title = 'Profil';
+            if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] = true) {
+                $colorModeChecked = 'checked';
+            }else{
+                $colorModeChecked = '';
+            }
+        }
+
+        $errorMessage = '';
+        $userFunction = MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID'];
+        $allRoles = Role::find();
+        $allFunctions = Function_FSR::find();
+
+        return $paramsInformations = [
+            'user' => $user,
+            'accessUser' => $accessUser,
+            'userRole' => $userRole,
+            'userInformation' => $userInformation,
+            'title' => $title,
+            'colorModeChecked' => $colorModeChecked,
+            'errorMessage' => $errorMessage,
+            'userFunction' => $userFunction,
+            'allRoles' => $allRoles,
+            'allFunctions' => $allFunctions
+        ];
     }
 
 }

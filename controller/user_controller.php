@@ -48,8 +48,7 @@ class UserController extends Controller{
     public function actionUserManagement(){
         //Permissions for the page
         $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
-        $errorPage = 'Location: ?c=pages&a=error'; // send the user to the error page if he has no permission
-        User::checkUserPermissionForPage($accessUser,$errorPage);
+        User::checkUserPermissionForPage($accessUser);
 
         $this->_params['title'] = 'Nutzerverwaltung';
 
@@ -60,7 +59,6 @@ class UserController extends Controller{
         }
         $this->_params['role'] = $_GET['role'] ?? false;
 
-
         if(isset($_GET['userId'])){
             Booking::deleteWhere('USER_ID = '.$_GET['userId']);
             MemberHistory::deleteWhere('MEMBER_ID = '.$_GET['userId']);
@@ -69,71 +67,38 @@ class UserController extends Controller{
         }
     }
 
-    public function actionProfil()
-    {
+    public function actionProfil(){
+        // generate Informations about the User
+        //
+        // decide the Informations based on 2 points:
+        // the admin will change a user profil
+        // or
+        // a user (also the admin) will change his own profil
+        $userProfilInformations = User::generateUserProfilInformations();
 
-//        if(isset($_POST['testvaerify'])){
-//            $params = [
-//                'FIRSTNAME' => 'Oc12sdfsdfsdfsdfsdfsdfsdfsdfdf',
-//                'LASTNAME' => 'O',
-//            ];
-//            $newUser = new User($params);
-//
-//            //$this->_params['eingabeError'] = $eingabeError = [];;
-//            $eingabeError = [];
-//            if(!$newUser->validate($eingabeError)){
-//                $this->_params['eingabeError'] = $eingabeError;
-//            };
-//
-//
-//        }
+        $this->_params['userRole'] = $userProfilInformations['userRole'];
+        $this->_params['userInformation'] = $userProfilInformations['userInformation'];
+        $this->_params['title'] = $userProfilInformations['title'];
+        $this->_params['colorModeChecked'] = $userProfilInformations['colorModeChecked'];
+        $this->_params['userProfil'] = $userProfilInformations['user'];
+        $this->_params['errorMessage'] = $userProfilInformations['errorMessage'];
+        $this->_params['userFunction'] = $userProfilInformations['userFunction'];
+        $this->_params['allRoles'] = $userProfilInformations['allRoles'];
+        $this->_params['allFunctions'] = $userProfilInformations['allFunctions'];
 
+        // if the user was not found, than we go to the error page.
+        // so we can ensure, that the user will be found by the system and not by an edit (e.g.: in the URL) from outside
+        if($this->_params['userProfil'] == null){sendHeaderByControllerAndAction('pages', 'errorPage');}
 
-
-
-
-        if(isset($_GET['userId'])){
-            $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
-            $this->_params['title'] = 'Nutzer Ändern';
-            $where = 'ID = ' . $_GET['userId'];
-            $user = User::findOne($where);
-            $this->_params['permissionSiteElements'] = role::ADMIN;
-            $this->_params['userInformation'] = '&userId='.$_GET['userId'];
-        }else{
-            $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
-            $this->_params['title'] = 'Profil';
-            $where = 'ID = ' . $_SESSION['userId'];
-            $user = User::findOne($where);
-            $this->_params['permissionSiteElements'] = $user['ROLE_ID'];
-            $this->_params['userInformation'] = '';
-            if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] = true) {
-                $this->_params['colorModeChecked'] = 'checked';
-            }else{
-                $this->_params['colorModeChecked'] = '';
-            }
-        }
-
-        if($user == null){
-            sendHeaderByControllerAndAction('pages', 'errorPage');
-        }
-
+        // TODO: check if its better to create an normalUser and an adminUser. Also if they are the same
         //Permissions for the page
-        $errorPage = 'Location: ?c=pages&a=error'; // send the user to the error page if he has no permission
-        User::checkUserPermissionForPage($accessUser, $errorPage);
+        User::checkUserPermissionForPage($userProfilInformations['accessUser']);
 
-        //$user = User::findOne($where);
-        $this->_params['userProfil'] = $user;
-        $this->_params['errorMessage'] = '';
-        $this->_params['userRole'] = $user['ROLE_ID'];
-        $this->_params['userFunction'] = MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID'];
-        $this->_params['allRoles'] = Role::find();
-        $this->_params['allFunctions'] = Function_FSR::find();
-
-
+        // changees from the User
         if (isset($_POST['submitProfil'])) {
 
             if (basename($_FILES['pictureProfil']['name']) != null) {
-                unlink(USER_PICTURE_PATH . $user['PICTURE']);
+                unlink(USER_PICTURE_PATH . $userProfilInformations['user']['PICTURE']);
                 $pictureName = createUploadedPictureName('user', 'pictureProfil');
                 $picturePath = USER_PICTURE_PATH . $pictureName;
                 move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
@@ -146,7 +111,7 @@ class UserController extends Controller{
                 $password =  null;
             }
             $params = [
-                'ID'            => $user['ID']                  ?? null,
+                'ID'            => $userProfilInformations['user']['ID']                  ?? null,
                 'FIRSTNAME'     => $_POST['firstnameProfil']    ?? null,
                 'LASTNAME'      => $_POST['lastnameProfil']     ?? null,
                 'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil']  ?? null,
@@ -167,25 +132,20 @@ class UserController extends Controller{
               $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
-
-
-            if (User::checkUniqueUserEntity($params['EMAIL']) === $user['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+            if (User::checkUniqueUserEntity($params['EMAIL']) === $userProfilInformations['user']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
                 $userAdmin = User::findOne($where);
                 if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
-                    User::changeUserRoleAndFunction($user['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
-
+                    User::changeUserRoleAndFunction($userProfilInformations['user']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
                 }
 
                 if (isset($_GET['userId'])) {
                     sendHeaderByControllerAndAction('user', 'userManagement');
-                } else {
+                }else {
                     sendHeaderByControllerAndAction('user', 'profil');
                 }
-
-
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
@@ -203,7 +163,6 @@ class UserController extends Controller{
             }
         }
     }
-
 
     public function actionRegistration(){
         $this->_params['title'] = 'Registrieren';
@@ -227,10 +186,6 @@ class UserController extends Controller{
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
         }
-    }
-
-    public function actionChangeUser(){
-
     }
 
 }

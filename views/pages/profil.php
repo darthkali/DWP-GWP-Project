@@ -52,7 +52,7 @@ use FSR_AI\role;
 
 
 
-        <? if($permissionSiteElements == role::ADMIN ||  $permissionSiteElements == role::MEMBER){ ?>
+        <? if($userRole == role::ADMIN ||  $userRole == role::MEMBER){ ?>
 
         <!-- picture -->
         <label for="pictureProfil">BILD </label>
@@ -64,7 +64,7 @@ use FSR_AI\role;
         <? } ?>
 
 
-        <? if($permissionSiteElements == role::ADMIN){?>
+        <? if($userRole == role::ADMIN){?>
             <? if($userProfil['ID'] <> $_SESSION['userId']){?>
             <label for="roleProfil">Rolle: </label> <br>
             <select name="roleProfil" id="roleProfil">
