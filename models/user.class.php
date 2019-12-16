@@ -155,7 +155,6 @@ class User extends BaseModel
     public static function generateUserProfilInformations(){
         if(isset($_GET['userId'])){
             $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
-
             $where = 'ID = ' . $_GET['userId'];
             $user = User::findOne($where);
             $userRole = role::ADMIN;
@@ -165,7 +164,6 @@ class User extends BaseModel
             $action = 'userManagement';
         }else{
             $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
-
             $where = 'ID = ' . $_SESSION['userId'];
             $user = User::findOne($where);
             $userRole = $user['ROLE_ID'];
@@ -179,10 +177,13 @@ class User extends BaseModel
             $action = 'profil';
         }
 
+        if($user == null){return null;}
+
         $errorMessage = '';
-        $userFunction = MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID'];
+        $userFunction = MemberHistory::generateActualMemberHistory($user['ID']);
         $allRoles = Role::find();
         $allFunctions = Function_FSR::find();
+
 
         return $paramsInformations = [
             'userProfil'        => $user,

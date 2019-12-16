@@ -23,11 +23,9 @@ use FSR_AI\User;
     $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);
     ?>
     </div>
-
-        <table border ="1">
+        <table>
             <tr>
-                <th>Vorname</th>
-                <th>Nachname</th>
+                <th>Name</th>
                 <th>Geburtstag</th>
                 <th>E-Mail</th>
                 <th>Rolle</th>
@@ -37,8 +35,7 @@ use FSR_AI\User;
 
         <?foreach($accounts as $index => $account) : ?>
             <tr>
-                <td><?=$account['FIRSTNAME']?></td>
-                <td><?=$account['LASTNAME']?></td>
+                <td><?=User::getFullName($account['FIRSTNAME'], $account['LASTNAME'])?></td>
                 <td><?=date("d.m.Y", strtotime($account['DATE_OF_BIRTH']));?></td>
                 <td><?=$account['EMAIL']?></td>
                 <td><?=Role::generateRoleByRoleID($account['ROLE_ID'])?></td>

@@ -68,6 +68,7 @@ class UserController extends Controller{
     }
 
     public function actionProfil(){
+
         // generate Informations about the User
         //
         // decide the Informations based on 2 points:
