@@ -98,36 +98,35 @@ class UserController extends Controller{
         if (isset($_POST['submitProfil'])) {
 
             // generate a Filename and replace the old File(Picture) with the new one
-            $pictureName = User::putTheUploadetFileOnTheServerAndRemoveTheOldOneByID('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE']);
+            $pictureName = User::putTheUploadetFileOnTheServerAndRemoveTheOldOne('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE']);
 
-            if(isset($_POST['changePasswordCheckbox'])){
-                $password = $_POST['passwordProfil'];
-            }else{
-                $password =  null;
-            }
+            $password = (isset($_POST['changePasswordCheckbox'])) ? $_POST['passwordProfil'] : null;
+
             $params = [
-                'ID'            => $userProfilInformations['userProfil']['ID']                  ?? null,
-                'FIRSTNAME'     => $_POST['firstnameProfil']    ?? null,
-                'LASTNAME'      => $_POST['lastnameProfil']     ?? null,
-                'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil']  ?? null,
-                'EMAIL'         => $_POST['emailProfil']        ?? null,
-                'PICTURE'       => $pictureName                 ?? null,
-                'DESCRIPTION'   => $_POST['descriptionProfil']  ?? null,
-                'PASSWORD'      => $password                    ?? null
+                'ID'            => $userProfilInformations['userProfil']['ID']  ?? null,
+                'FIRSTNAME'     => $_POST['firstnameProfil']                    ?? null,
+                'LASTNAME'      => $_POST['lastnameProfil']                     ?? null,
+                'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil']                  ?? null,
+                'EMAIL'         => $_POST['emailProfil']                        ?? null,
+                'PICTURE'       => $pictureName                                 ?? null,
+                'DESCRIPTION'   => $_POST['descriptionProfil']                  ?? null,
+                'PASSWORD'      => $password
             ];
             $newUser = new User($params);
 
+            // validation from the inputFields
             $eingabeError = [];
             if(!$newUser->validate($eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
 
+            // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){
               $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
-            if (User::checkUniqueUserEntity($params['EMAIL']) === $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+            if (User::checkUniqueUserEntity($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) == null) {
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
@@ -136,15 +135,14 @@ class UserController extends Controller{
                     User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
                 }
 
-                if (isset($_GET['userId'])) {
-                    sendHeaderByControllerAndAction('user', 'userManagement');
-                }else {
-                    sendHeaderByControllerAndAction('user', 'profil');
-                }
+                // based on the incoming action: send the user to his main page (Profil, UserManagemant)
+                sendHeaderByControllerAndAction('user', $userProfilInformations['action']);
+
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
             }
 
+            // check if the darkMode is enabled and create the cookie if its necessary
             if (!isset($_GET['userId'])) {
                 if (isset($_POST['colorCheckbox'])) {
                     $colorModeData = array("colorMode" => true);
@@ -182,7 +180,4 @@ class UserController extends Controller{
             }
         }
     }
-
-
-
 }

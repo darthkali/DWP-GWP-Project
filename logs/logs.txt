@@ -1,11 +1,4 @@
-[2019-12-16 18:22:09 ]permissionSiteElements = 1
-[2019-12-16 18:22:09 ]userInformation = 
-[2019-12-16 18:22:09 ]title = Profil
-[2019-12-16 18:22:09 ]colorModeChecked = 
-[2019-12-16 18:22:09 ]6
-[2019-12-16 18:22:24 ]permissionSiteElements = 1
-[2019-12-16 18:22:24 ]userInformation = 
-[2019-12-16 18:22:24 ]title = Profil
-[2019-12-16 18:22:24 ]colorModeChecked = 
-[2019-12-16 18:22:24 ]6
-[2019-12-16 22:02:59 ]password ok
+[2019-12-16 22:34:17 ]false
+[2019-12-16 22:34:25 ]true
+[2019-12-16 22:34:28 ]false
+[2019-12-16 22:34:36 ]false

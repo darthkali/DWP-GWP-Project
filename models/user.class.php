@@ -162,6 +162,7 @@ class User extends BaseModel
             $userInformation = '&userId='.$_GET['userId'];
             $title = 'Nutzer Ändern';
             $colorModeChecked = '';
+            $action = 'userManagement';
         }else{
             $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
 
@@ -175,6 +176,7 @@ class User extends BaseModel
             }else{
                 $colorModeChecked = '';
             }
+            $action = 'profil';
         }
 
         $errorMessage = '';
@@ -183,16 +185,17 @@ class User extends BaseModel
         $allFunctions = Function_FSR::find();
 
         return $paramsInformations = [
-            'userProfil' => $user,
-            'accessUser' => $accessUser,
-            'userRole' => $userRole,
-            'userInformation' => $userInformation,
-            'title' => $title,
-            'colorModeChecked' => $colorModeChecked,
-            'errorMessage' => $errorMessage,
-            'userFunction' => $userFunction,
-            'allRoles' => $allRoles,
-            'allFunctions' => $allFunctions
+            'userProfil'        => $user,
+            'accessUser'        => $accessUser,
+            'userRole'          => $userRole,
+            'userInformation'   => $userInformation,
+            'title'             => $title,
+            'colorModeChecked'  => $colorModeChecked,
+            'errorMessage'      => $errorMessage,
+            'userFunction'      => $userFunction,
+            'allRoles'          => $allRoles,
+            'allFunctions'      => $allFunctions,
+            'action'            => $action
         ];
     }
 

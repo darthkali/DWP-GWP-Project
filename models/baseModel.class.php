@@ -239,14 +239,14 @@ abstract class BaseModel
         return $result;
     }
 
-    public static function putTheUploadetFileOnTheServerAndRemoveTheOldOneByID($inputFieldName, $filePath, $fileName ){
+    public static function putTheUploadetFileOnTheServerAndRemoveTheOldOne($inputFieldName, $filePath, $fileName ){
         if (basename($_FILES[$inputFieldName]['name']) != null) {
-            unlink($filePath.$fileName);
-            $pictureName = createUploadedPictureName(strtolower(self::tablename()), $inputFieldName);
+            unlink($filePath.$fileName,);
+            $pictureName = createUploadedPictureName(strtolower(str_replace(__NAMESPACE__ . '\\', '', get_called_class())), $inputFieldName);
             $picturePath = $filePath . $pictureName;
             move_uploaded_file($_FILES[$inputFieldName]['tmp_name'], $picturePath);
+            return $pictureName;
         }
-
-        return $pictureName;
+      return null;
     }
 }
