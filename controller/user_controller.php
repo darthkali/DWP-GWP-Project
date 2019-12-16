@@ -80,7 +80,7 @@ class UserController extends Controller{
         $this->_params['userInformation'] = $userProfilInformations['userInformation'];
         $this->_params['title'] = $userProfilInformations['title'];
         $this->_params['colorModeChecked'] = $userProfilInformations['colorModeChecked'];
-        $this->_params['userProfil'] = $userProfilInformations['user'];
+        $this->_params['userProfil'] = $userProfilInformations['userProfil'];
         $this->_params['errorMessage'] = $userProfilInformations['errorMessage'];
         $this->_params['userFunction'] = $userProfilInformations['userFunction'];
         $this->_params['allRoles'] = $userProfilInformations['allRoles'];
@@ -90,20 +90,15 @@ class UserController extends Controller{
         // so we can ensure, that the user will be found by the system and not by an edit (e.g.: in the URL) from outside
         if($this->_params['userProfil'] == null){sendHeaderByControllerAndAction('pages', 'errorPage');}
 
-        // TODO: check if its better to create an normalUser and an adminUser. Also if they are the same
-        //Permissions for the page
+        // Permissions for the page
+        // if the role from the session is not equal to one of the roles from the accessUser, then we go to the errorPage
         User::checkUserPermissionForPage($userProfilInformations['accessUser']);
 
-        // changees from the User
+        // changes from the User
         if (isset($_POST['submitProfil'])) {
 
-            if (basename($_FILES['pictureProfil']['name']) != null) {
-                unlink(USER_PICTURE_PATH . $userProfilInformations['user']['PICTURE']);
-                $pictureName = createUploadedPictureName('user', 'pictureProfil');
-                $picturePath = USER_PICTURE_PATH . $pictureName;
-                move_uploaded_file($_FILES['pictureProfil']['tmp_name'], $picturePath);
-            }
-
+            // generate a Filename and replace the old File(Picture) with the new one
+            $pictureName = User::putTheUploadetFileOnTheServerAndRemoveTheOldOneByID('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE']);
 
             if(isset($_POST['changePasswordCheckbox'])){
                 $password = $_POST['passwordProfil'];
@@ -111,7 +106,7 @@ class UserController extends Controller{
                 $password =  null;
             }
             $params = [
-                'ID'            => $userProfilInformations['user']['ID']                  ?? null,
+                'ID'            => $userProfilInformations['userProfil']['ID']                  ?? null,
                 'FIRSTNAME'     => $_POST['firstnameProfil']    ?? null,
                 'LASTNAME'      => $_POST['lastnameProfil']     ?? null,
                 'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil']  ?? null,
@@ -132,13 +127,13 @@ class UserController extends Controller{
               $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
-            if (User::checkUniqueUserEntity($params['EMAIL']) === $userProfilInformations['user']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
+            if (User::checkUniqueUserEntity($params['EMAIL']) === $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) === null) {
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
                 $userAdmin = User::findOne($where);
                 if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
-                    User::changeUserRoleAndFunction($userProfilInformations['user']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+                    User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
                 }
 
                 if (isset($_GET['userId'])) {
@@ -187,5 +182,7 @@ class UserController extends Controller{
             }
         }
     }
+
+
 
 }

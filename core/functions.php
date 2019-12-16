@@ -73,3 +73,6 @@ function testLogOut(){
     sendHeaderByControllerAndAction('pages', 'Start');
 }
 
+
+
+

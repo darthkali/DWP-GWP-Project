@@ -71,6 +71,7 @@ class User extends BaseModel
     public static function checkUserPermissionForPage($roleIdWithPermission){
 
         $user = User::findUserBySessionUserID();
+
         if($user  != null) {
             $access = false;                            // default no access to the page
 
@@ -182,7 +183,7 @@ class User extends BaseModel
         $allFunctions = Function_FSR::find();
 
         return $paramsInformations = [
-            'user' => $user,
+            'userProfil' => $user,
             'accessUser' => $accessUser,
             'userRole' => $userRole,
             'userInformation' => $userInformation,
