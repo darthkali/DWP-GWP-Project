@@ -27,7 +27,7 @@
         <input type = "text" id="locationRoom" name="locationRoom" placeholder="Raum (Optional)">
 
         <!-- button -->
-        <button type="submit">Location erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit" name="submitCreateLocation">Location erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
         <button type="reset">Eingaben Löschen</button>
     </form>
 </div>

@@ -9,7 +9,6 @@ class EventController extends Controller
         $this->_params['title'] = 'Events';
         $eventListFuture = Event::find('to_days(curdate()) - to_days(DATE) <= 0', 'geteventinfo', ' order by DATE');
         $eventListPast = Event::find('to_days(curdate()) - to_days(DATE) > 0', 'geteventinfo', ' order by DATE desc');
-//        die($eventListPast[1]['NAME']);
         $this->_params['eventListFuture'] = $eventListFuture;
         $this->_params['eventListPast'] = $eventListPast;
     }
@@ -45,19 +44,19 @@ class EventController extends Controller
         if(isset($_GET['eventAction'])) {
             if ($_GET['eventAction'] == 'edit') {
 
-                $this->_params['title'] = 'Event Bearbeiten';
-                $this->_params['eventData'] = Event::findOne('id = ' . $_GET['eventId']);
-                $this->_params['create'] = false;
-                $this->_params['htmlButton'] = 'Änderungen speichern';
-                $this->_params['headline'] = 'Event bearbeiten';
+                $this->_params['title'      ] = 'Event Bearbeiten';
+                $this->_params['eventData'  ] = Event::findOne('id = ' . $_GET['eventId']);
+                $this->_params['create'     ] = false;
+                $this->_params['htmlButton' ] = 'Änderungen speichern';
+                $this->_params['headline'   ] = 'Event bearbeiten';
             }elseif($_GET['eventAction'] == 'create'){
 
-                $this->_params['title'] = 'Event Erstellen';
-                $this->_params['create'] = true;
-                $this->_params['htmlButton'] = 'Event erstellen';
-                $this->_params['headline'] = 'Event erstellen';
-                $this->_params['required'] = 'required';
-            }elseif($_GET['eventAction'] == 'delete'){
+                $this->_params['title'      ] = 'Event Erstellen';
+                $this->_params['create'     ] = true;
+                $this->_params['htmlButton' ] = 'Event erstellen';
+                $this->_params['headline'   ] = 'Event erstellen';
+                $this->_params['required'   ] = 'required';
+            }elseif($_GET['eventAction'     ] == 'delete'){
 
                 unlink($dataDir . $_GET['pictureName']);
                 Event::deleteWhere('id = '.$_GET['eventId']);
@@ -66,13 +65,12 @@ class EventController extends Controller
         }
 
         if(isset($_POST['submitEvent'])){
+
             $eventId = $_GET['eventId'] ?? null;
-
             if($_FILES['eventPicture']['name'] != null){
-
-                $pictureName = 'event'.date('d-m-Y-H-i-s').strstr($_FILES['eventPicture']['name'], '.');
-                if(isset($_GET['picturePath'])){
-                    unlink($dataDir.$_GET['picturePath']);
+                $pictureName = createUploadedPictureName('event', 'eventPicture');
+                if(isset($_GET['pictureName'])){
+                    unlink($dataDir.$_GET['pictureName']);
                 }
             }
 

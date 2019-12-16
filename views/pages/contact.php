@@ -2,7 +2,7 @@
     <img class="center" src="<?=ROOTPATH.'assets/images/mail.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="<?=$_SERVER['PHP_SELF'].'?p=contact';?>" method="post">
+    <form autocomplete="off" action="index.php?c=pages&a=Contact" method="post">
         <h1>Kontakt</h1>
 
         <!-- frontname -->
@@ -22,7 +22,7 @@
         <textarea type = "textarea" id="textarea" name="text" required placeholder="Dein Anliegen"></textarea>
 
         <!-- button -->
-        <button type="submit" name="senden" onclick="<?sendMail();?>">Abschicken</button>
+        <button type="submit" name="sendMail">Abschicken</button>
         <button type="reset">Löschen</button>
     </form>
 </div>
