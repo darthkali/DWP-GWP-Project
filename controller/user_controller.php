@@ -80,126 +80,18 @@ class UserController extends Controller{
         $sortMember = 'ORDER BY FIRSTNAME';
         $sortUser ='ORDER BY FIRSTNAME';
         $this->_params['valueSort'] = 1;
-//        if(isset($_POST['sortByUser'])){
-//            switch ($_POST['sortByUser']){
-//
-//                case 1:
-//                    $sortMember = 'ORDER BY FIRSTNAME';
-//                    $sortUser = 'ORDER BY FIRSTNAME';
-//                    break;
-//                case 2:
-//                    $sortMember = 'ORDER BY FIRSTNAME DESC';
-//                    $sortUser = 'ORDER BY FIRSTNAME DESC';
-//                    break;
-//                case 3:
-//                    $sortMember = 'ORDER BY LASTNAME';
-//                    $sortUser = 'ORDER BY LASTNAME';
-//                    break;
-//                case 4:
-//                    $sortMember = 'ORDER BY LASTNAME DESC';
-//                    $sortUser = 'ORDER BY LASTNAME DESC';
-//                    break;
-//                case 5:
-//                    $sortMember = 'ORDER BY FUNCTION_FSR_ID';
-//                    $sortUser = 'ORDER BY FIRSTNAME';
-//                    break;
-//                case 6:
-//                    $sortMember = 'ORDER BY ROLE_ID';
-//                    $sortUser = 'ORDER BY FIRSTNAME';
-//
-//            }
-//            $this->_params['valueSort'] = $_POST['sortByUser'];
-//        }
 
         if(isset($_GET['sortMember'])) {
-            switch ($_GET['sortMember']) {
-
-                case 1:
-                    $sortMember = 'ORDER BY FIRSTNAME';
-                    break;
-                case 2:
-                    $sortMember = 'ORDER BY FIRSTNAME DESC';
-                    break;
-                case 3:
-                    $sortMember = 'ORDER BY LASTNAME';
-                    break;
-                case 4:
-                    $sortMember = 'ORDER BY LASTNAME DESC';
-                    break;
-                case 5:
-                    $sortMember = 'ORDER BY DATE_OF_BIRTH ';
-                    break;
-                case 6:
-                    $sortMember = 'ORDER BY DATE_OF_BIRTH DESC';
-                    break;
-                case 7:
-                    $sortMember = 'ORDER BY EMAIL ';
-                    break;
-                case 8:
-                    $sortMember = 'ORDER BY EMAIL DESC';
-                    break;
-                case 9:
-                    $sortMember = 'ORDER BY ROLE_ID ';
-                    break;
-                case 10:
-                    $sortMember = 'ORDER BY ROLE_ID DESC';
-                    break;
-                case 11:
-                    $sortMember = 'ORDER BY FUNCTION_FSR_ID';
-                    break;
-                case 12:
-                    $sortMember = 'ORDER BY FUNCTION_FSR_ID DESC';
-
-            }
+            $sortMember = User::generateSortClauseForMember($_GET['sortMember']);
             $this->_params['valueSort'] = $_GET['sortMember'];
         }
 
-            if(isset($_GET['sortUser'])){
-                switch ($_GET['sortUser']){
-
-                    case 1:
-                        $sortUser = 'ORDER BY FIRSTNAME';
-                        break;
-                    case 2:
-                        $sortUser = 'ORDER BY FIRSTNAME DESC';
-                        break;
-                    case 3:
-                        $sortUser = 'ORDER BY LASTNAME';
-                        break;
-                    case 4:
-                        $sortUser = 'ORDER BY LASTNAME DESC';
-                        break;
-                    case 5:
-                        $sortUser = 'ORDER BY DATE_OF_BIRTH ';
-                        break;
-                    case 6:
-                        $sortUser = 'ORDER BY DATE_OF_BIRTH DESC';
-                        break;
-                    case 7:
-                        $sortUser = 'ORDER BY EMAIL ';
-                        break;
-                    case 8:
-                        $sortUser = 'ORDER BY EMAIL DESC';
-                        break;
-                    case 9:
-                        $sortUser = 'ORDER BY ROLE_ID ';
-                        break;
-                    case 10:
-                        $sortUser = 'ORDER BY ROLE_ID DESC';
-                        break;
-                    case 11:
-                        $sortUser = 'ORDER BY FUNCTION_FSR_ID';
-                        break;
-                    case 12:
-                        $sortUser = 'ORDER BY FUNCTION_FSR_ID DESC';
-
-                }
+        if(isset($_GET['sortUser'])){
+            $sortUser = User::generateSortClauseForUser($_GET['sortUser']);
             $this->_params['valueSort'] = $_GET['sortUser'];
         }
-
-            $this->_params['accountsMember'] = User::find('ROLE_ID <> ' . role::USER, 'getusermemberhistory', $sortMember);
-            $this->_params['accountsUser'] = User::find('ROLE_ID = ' . role::USER, null, $sortUser);//, 'getusermemberhistory', $sortUser);
-
+        $this->_params['accountsMember'] = User::find('ROLE_ID <> ' . role::USER, 'getusermemberhistory', $sortMember);
+        $this->_params['accountsUser'] = User::find('ROLE_ID = ' . role::USER, null, $sortUser);//, 'getusermemberhistory', $sortUser);
 
         if(isset($_GET['userId'])){
             Booking::deleteWhere('USER_ID = '.$_GET['userId']);

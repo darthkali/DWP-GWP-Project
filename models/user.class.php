@@ -200,4 +200,67 @@ class User extends BaseModel
         ];
     }
 
+
+    public static function generateSortClauseForMember($sortMemberGET){
+        switch ($sortMemberGET) {
+            case 1:
+                return $sortMember = 'ORDER BY FIRSTNAME';
+            case 2:
+                return $sortMember = 'ORDER BY FIRSTNAME DESC';
+            case 3:
+                return $sortMember = 'ORDER BY LASTNAME';
+            case 4:
+                return $sortMember = 'ORDER BY LASTNAME DESC';
+            case 5:
+               return  $sortMember = 'ORDER BY DATE_OF_BIRTH ';
+            case 6:
+                return $sortMember = 'ORDER BY DATE_OF_BIRTH DESC';
+            case 7:
+                return $sortMember = 'ORDER BY EMAIL ';
+            case 8:
+                return $sortMember = 'ORDER BY EMAIL DESC';
+            case 9:
+                return $sortMember = 'ORDER BY ROLE_ID ';
+            case 10:
+                return $sortMember = 'ORDER BY ROLE_ID DESC';
+            case 11:
+                return $sortMember = 'ORDER BY FUNCTION_FSR_ID';
+            case 12:
+                return $sortMember = 'ORDER BY FUNCTION_FSR_ID DESC';
+            default:
+                return $sortMember = '';
+        }
+    }
+
+
+    public static function generateSortClauseForUser($sortUserGET){
+        switch ($sortUserGET) {
+            case 1:
+                return   $sortUser = 'ORDER BY FIRSTNAME';
+            case 2:
+                return $sortUser = 'ORDER BY FIRSTNAME DESC';
+            case 3:
+                return  $sortUser = 'ORDER BY LASTNAME';
+            case 4:
+                return  $sortUser = 'ORDER BY LASTNAME DESC';
+            case 5:
+                return    $sortUser = 'ORDER BY DATE_OF_BIRTH ';
+            case 6:
+                return  $sortUser = 'ORDER BY DATE_OF_BIRTH DESC';
+            case 7:
+                return  $sortUser = 'ORDER BY EMAIL ';
+            case 8:
+                return  $sortUser = 'ORDER BY EMAIL DESC';
+            case 9:
+                return  $sortUser = 'ORDER BY ROLE_ID ';
+            case 10:
+                return  $sortUser = 'ORDER BY ROLE_ID DESC';
+            case 11:
+                return  $sortUser = 'ORDER BY FUNCTION_FSR_ID';
+            case 12:
+                return  $sortUser = 'ORDER BY FUNCTION_FSR_ID DESC';
+            default:
+                return $sortUser = '';
+        }
+    }
 }
