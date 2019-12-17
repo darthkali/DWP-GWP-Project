@@ -79,17 +79,15 @@ class UserController extends Controller{
         $this->_params['title'] = 'Nutzerverwaltung';
         $sortMember = 'ORDER BY FIRSTNAME';
         $sortUser ='ORDER BY FIRSTNAME';
-        $this->_params['valueSort'] = 1;
 
         if(isset($_GET['sortMember'])) {
             $sortMember = User::generateSortClauseForMember($_GET['sortMember']);
-            $this->_params['valueSort'] = $_GET['sortMember'];
         }
 
         if(isset($_GET['sortUser'])){
             $sortUser = User::generateSortClauseForUser($_GET['sortUser']);
-            $this->_params['valueSort'] = $_GET['sortUser'];
         }
+
         $this->_params['accountsMember'] = User::find('ROLE_ID <> ' . role::USER, 'getusermemberhistory', $sortMember);
         $this->_params['accountsUser'] = User::find('ROLE_ID = ' . role::USER, null, $sortUser);//, 'getusermemberhistory', $sortUser);
 

@@ -99,12 +99,29 @@ class EventController extends Controller
 
 
         $this->_params['title'] = 'Eventverwaltung';
-        $this->_params['eventList'] = Event::find('', 'geteventinfo', ' ORDER BY DATE DESC');
+
         if(isset($_GET['eventId'])) {
             $dataDir = 'assets/images/upload/events/';
             unlink($dataDir . $_GET['pictureName']);
             Event::deleteWhere('id = ' . $_GET['eventId']);
             sendHeaderByControllerAndAction('event', 'EventManagement');
         }
+
+
+        $sortEvent = 'ORDER BY DATE';
+        $sortEventOld = 'ORDER BY DATE';
+
+        if(isset($_GET['sortEvent'])) {
+            $sortEvent = Event::generateSortClauseForEvent($_GET['sortEvent']);
+        }
+
+        if(isset($_GET['sortEventOld'])) {
+            $sortEventOld = Event::generateSortClauseForEvent($_GET['sortEventOld']);
+        }
+
+
+        $this->_params['eventList'] = Event::find('DATE >= CURDATE()', null, $sortEvent);
+        $this->_params['eventListOld'] = Event::find('DATE < CURDATE()', null, $sortEventOld);
+
     }
 }

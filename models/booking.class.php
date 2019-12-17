@@ -19,4 +19,21 @@ class Booking extends BaseModel{
     public static function checkRegistrationForEvent($eventId){
         return Booking::find(Booking::buildWhereBooking($_SESSION['userId'], $eventId));
     }
+
+    public static function getRegistrationsByEventID($eventID){
+        $db  = $GLOBALS['db'];
+        $result = null;
+
+        try{
+            $sql =  'SELECT count(EVENT_ID)  AS EVENT FROM booking WHERE EVENT_ID = '. $eventID;
+            $result = $db->query($sql)->fetch();
+        }
+        catch(\PDOException $e){
+            die('Select statment failed: ' . $e->getMessage());
+        }
+        return $result;
+
+
+
+    }
 }
