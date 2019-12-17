@@ -5,7 +5,7 @@
     <form autocomplete="off" action="index.php?c=pages&a=Contact" method="post">
         <h1>Kontakt</h1>
 
-        <!-- frontname -->
+        <!-- firstname -->
         <label for="name">NAME</label>
         <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required>
 

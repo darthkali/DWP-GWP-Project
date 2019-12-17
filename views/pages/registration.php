@@ -8,12 +8,12 @@
         <h5>Hier kannst du dich Registrieren!</h5>
 
 
-        <!-- frontname -->
+        <!-- firstname -->
         <label for="firstnameRegistration">VORNAME </label>
         <input type = "text" id="firstnameRegistration" name="firstnameRegistration" required
             <?=isset($_POST['firstnameRegistration']) ? 'value="'.htmlspecialchars($_POST['firstnameRegistration']).'"' : ''?>>
 
-        <!-- rearname -->
+        <!-- lastname -->
         <label for="lastnameRegistration">NACHNAME </label>
         <input type = "text" id="lastnameRegistration" name="lastnameRegistration" required
         <?=isset($_POST['lastnameRegistration']) ? 'value="'.htmlspecialchars($_POST['lastnameRegistration']).'"' : ''?>>

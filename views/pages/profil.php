@@ -17,12 +17,12 @@ use FSR_AI\role;
                 <?=$error?><br>
             <?}?></div> <? } ?>
 
-        <!-- frontname -->
+        <!-- firstname -->
         <label for="firstnameProfil">VORNAME </label>
         <input type = "text" id="firstnameProfil" name="firstnameProfil" required
                value = "<?=isset($_POST['firstnameProfil']) ? htmlspecialchars($_POST['firstnameProfil']) : htmlspecialchars($userProfil['FIRSTNAME'])?>">
 
-        <!-- rearname -->
+        <!-- lastname -->
         <label for="lastnameProfil">NACHNAME </label>
         <input type = "text" id="lastnameProfil" name="lastnameProfil" required
                value = "<?=isset($_POST['lastnameProfil']) ? htmlspecialchars($_POST['lastnameProfil']) : htmlspecialchars($userProfil['LASTNAME'])?>">
