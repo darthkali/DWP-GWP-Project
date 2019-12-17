@@ -17,14 +17,13 @@ use FSR_AI\User;
     <form method="post">
 
         <div class="sortFilterBox">
-            <label for="sortBy">Sortieren nach: </label> <br>
-            <select name="sortBy" id="sortBy">
-                <option value= 0 selected>Vorname - Aufsteigend</option>
-                <option value = 1>  Vorname - Absteigend</option>
-                <option value = 2>  Nachname - Aufsteigend</option>
-                <option value = 3>  Nachname - Absteigend</option>
-                <option value = 4>  Funktion</option>
-                <option value = 5>  Mitglied seit</option>
+            <label for="sortByUser">Sortieren nach: </label> <br>
+            <select name="sortByUser" id="sortByUser">
+                <option value = 1 <?=($valueSort == 1) ? 'selected' : ''?> >  Funktion</option>
+                <option value = 2 <?=($valueSort == 2) ? 'selected' : ''?> >Vorname - Aufsteigend</option>
+                <option value = 3 <?=($valueSort == 3) ? 'selected' : ''?> >  Vorname - Absteigend</option>
+                <option value = 4 <?=($valueSort == 4) ? 'selected' : ''?> >  Nachname - Aufsteigend</option>
+                <option value = 5 <?=($valueSort == 5) ? 'selected' : ''?> >  Nachname - Absteigend</option>
             </select>
         </div>
 

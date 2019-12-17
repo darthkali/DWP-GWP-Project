@@ -6,16 +6,32 @@ class UserController extends Controller{
 
     public function actionUsers(){
         $this->_params['title'] = 'Mitglieder';
-        // TODO: show all users which has minimum one entry in the member history
-        $filter = '';
+        $filterFunction = '';
+        $filterSort = 'ORDER BY FUNCTION_FSR_ID';
         $this->_params['valueFilter'] = 0;
+        $this->_params['valueSort'] = 1;
         //debug_to_logFile($_POST['functionFSRUser']);
         if(isset($_POST['functionFSRUser']) && $_POST['functionFSRUser'] != 0){
-            $filter = ' and FUNCTION_FSR_ID = '. $_POST['functionFSRUser'];
+            $filterFunction = ' and FUNCTION_FSR_ID = '. $_POST['functionFSRUser'];
             $this->_params['valueFilter'] = $_POST['functionFSRUser'];
         }
 
-        $userList = User::find('END_DATE is null' . $filter, 'getusermemberhistory');
+        if(isset($_POST['sortByUser'])){
+            switch ($_POST['sortByUser']){
+                case 1: $filterSort = 'ORDER BY FUNCTION_FSR_ID';
+                    break;
+                case 2: $filterSort = 'ORDER BY FIRSTNAME';
+                    break;
+                case 3: $filterSort = 'ORDER BY FIRSTNAME DESC';
+                    break;
+                case 4: $filterSort = 'ORDER BY LASTNAME';
+                    break;
+                case 5: $filterSort = 'ORDER BY LASTNAME DESC';
+            }
+            $this->_params['valueSort'] = $_POST['sortByUser'];
+        }
+
+        $userList = User::find('END_DATE is null' . $filterFunction, 'getusermemberhistory', $filterSort);
         $this->_params['userList'] = $userList;
         $this->_params['allFunctions'] = Function_FSR::find();
     }
