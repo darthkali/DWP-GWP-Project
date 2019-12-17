@@ -77,13 +77,43 @@ class UserController extends Controller{
         User::checkUserPermissionForPage($accessUser);
 
         $this->_params['title'] = 'Nutzerverwaltung';
+        $sortMember = 'ORDER BY FIRSTNAME';
+        $sortUser ='ORDER BY FIRSTNAME';
+        $this->_params['valueSort'] = 1;
+        if(isset($_POST['sortByUser'])){
+            switch ($_POST['sortByUser']){
 
-        if(isset($_GET['role'])){
-            $this->_params['accounts'] = User::find('ROLE_ID <> ' . role::USER);
-        }else{
-            $this->_params['accounts'] = User::find('1');
+                case 1:
+                    $sortMember = 'ORDER BY FIRSTNAME';
+                    $sortUser = 'ORDER BY FIRSTNAME';
+                    break;
+                case 2:
+                    $sortMember = 'ORDER BY FIRSTNAME DESC';
+                    $sortUser = 'ORDER BY FIRSTNAME DESC';
+                    break;
+                case 3:
+                    $sortMember = 'ORDER BY LASTNAME';
+                    $sortUser = 'ORDER BY LASTNAME';
+                    break;
+                case 4:
+                    $sortMember = 'ORDER BY LASTNAME DESC';
+                    $sortUser = 'ORDER BY LASTNAME DESC';
+                    break;
+                case 5:
+                    $sortMember = 'ORDER BY FUNCTION_FSR_ID';
+                    $sortUser = 'ORDER BY FIRSTNAME';
+                    break;
+                case 6:
+                    $sortMember = 'ORDER BY ROLE_ID';
+                    $sortUser = 'ORDER BY FIRSTNAME';
+
+            }
+            $this->_params['valueSort'] = $_POST['sortByUser'];
         }
-        $this->_params['role'] = $_GET['role'] ?? false;
+
+            $this->_params['accountsMember'] = User::find('ROLE_ID <> ' . role::USER, 'getusermemberhistory', $sortMember);
+            $this->_params['accountsUser'] = User::find('ROLE_ID = ' . role::USER, null, $sortUser);//, 'getusermemberhistory', $sortUser);
+
 
         if(isset($_GET['userId'])){
             Booking::deleteWhere('USER_ID = '.$_GET['userId']);

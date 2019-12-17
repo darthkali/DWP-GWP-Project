@@ -48,7 +48,7 @@ use FSR_AI\User;
             <div class="userBox">
                 <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
                 <p><h1><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h1>
-                <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['ID'])?></strong>
+                <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['MEMBER_ID'])?></strong>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
                     <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['ID']);?>
                     <? foreach ($userMember as $member) :?>
