@@ -16,6 +16,7 @@ nav, section, footer {display: block;}
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
     color: var(--primary-text-color);
+    text-decoration: none;
 }
 
 
@@ -50,7 +51,6 @@ div#FooterLeft {
 }
 
 div#FooterLeft a{
-    text-decoration: none;
     margin-right: 10px;
     color: var(--secondary-text-color);
 }
@@ -104,7 +104,6 @@ div#FooterRight a img {
     text-align: center;
     background-color: var(--secondary-bg-color);
     padding: 10px;
-    text-decoration: none;  /* delete underline from the links */
     color: var(--secondary-text-color);
     border-radius:10px;
 }
@@ -355,6 +354,15 @@ table {
     border-style: groove;
     border-width: 1px;
 }
+
+th a, i{
+    color:var(--secondary-text-color);
+}
+
+th a:hover{
+    color:var(--hover-color);
+}
+
 
 th, td {
     text-align: center;

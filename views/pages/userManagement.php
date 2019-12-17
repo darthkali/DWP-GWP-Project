@@ -1,63 +1,34 @@
 <?php
-
 use FSR_AI\Function_FSR;
-use FSR_AI\MemberHistory;
 use FSR_AI\Role;
-use FSR_AI\User;
-
 ?>
-<div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets\images\network.jpg'?>" alt="ProfilPageImage">
-</div>
 
 <div class="Content" id="fadeIn">
     <h1>Nutzerverwaltung</h1>
-
-
-<!--    --><?//if($role === false) : ?>
-<!--        <a href="?c=user&a=userManagement&role=3"><button type="button">Nur Mitarbeiter anzeigen</button></a>-->
-<!--    --><?//else : ?>
-<!--        <a href="?c=user&a=userManagement"><button type="button">Alle anzeigen</button></a>-->
-<!--    --><?//endif;?>
-<!--    --><?//
-//    $active = filter_input(INPUT_POST, 'onlyMember', FILTER_VALIDATE_BOOLEAN);
-//    ?>
-
-<!--    <div class="filterButton">-->
-<!--    </div>-->
-    <form method="post">
-    <div class="filterBox">
-        <div class="sortFilterBox">
-            <label for="sortByUser">Sortieren nach: </label> <br>
-            <select name="sortByUser" id="sortByUser">
-                <option value = 1 <?=($valueSort == 1) ? 'selected' : ''?> > Vorname - Aufsteigend</option>
-                <option value = 2 <?=($valueSort == 2) ? 'selected' : ''?> > Vorname - Absteigend</option>
-                <option value = 3 <?=($valueSort == 3) ? 'selected' : ''?> > Nachname - Aufsteigend</option>
-                <option value = 4 <?=($valueSort == 4) ? 'selected' : ''?> > Nachname - Absteigend</option>
-                <option value = 5 <?=($valueSort == 5) ? 'selected' : ''?> > Funktion</option>
-                <option value = 6 <?=($valueSort == 6) ? 'selected' : ''?> > Rolle</option>
-            </select>
-        </div>
-        <!-- buttons -->
-        <button type="submit" name="filterID">Filter anwenden</button>
-    </div>
-    </form>
-
     <table>
         <tr>
             <th>Mitarbeiter</th>
         </tr>
         <tr>
-            <th>Name</th>
-            <th>Geburtstag</th>
-            <th>E-Mail</th>
-            <th>Rolle</th>
-            <th>Funktion FSR</th>
+            <? $sortFirstname = (isset($_GET['sortMember']) && $_GET['sortMember'] == 1) ? 2 : 1;?>
+            <? $sortLastname = (isset($_GET['sortMember']) && $_GET['sortMember'] == 3) ? 4 : 3;?>
+            <? $sortBirthDay = (isset($_GET['sortMember']) && $_GET['sortMember'] == 5) ? 6 : 5;?>
+            <? $sortEmail = (isset($_GET['sortMember']) && $_GET['sortMember'] == 7) ? 8 : 7;?>
+            <? $sortRole = (isset($_GET['sortMember']) && $_GET['sortMember'] == 9) ? 10 : 9;?>
+            <? $sortFunction = (isset($_GET['sortMember']) && $_GET['sortMember'] == 11) ? 12 : 11;?>
+
+            <th><a href="?c=user&a=userManagement&sortMember=<?=$sortFirstname?>"> Vorname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortMember=<?=$sortLastname?>"> Nachname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortMember=<?=$sortBirthDay?>"> Geburtstag <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortMember=<?=$sortEmail?>"> E-Mail <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortMember=<?=$sortRole?>"> Rolle <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortMember=<?=$sortFunction?>"> Funktion FSR <i class="fa fa-sort" aria-hidden="true"></i></a></th>
             <th>Optionen</th>
         </tr>
     <?foreach($accountsMember as $index => $account) : ?>
         <tr>
-            <td><?=User::getFullName($account['FIRSTNAME'], $account['LASTNAME'])?></td>
+            <td><?=$account['FIRSTNAME']?></td>
+            <td><?=$account['LASTNAME']?></td>
             <td><?=date("d.m.Y", strtotime($account['DATE_OF_BIRTH']));?></td>
             <td><?=$account['EMAIL']?></td>
             <td><?=Role::generateRoleByRoleID($account['ROLE_ID'])?></td>
@@ -81,18 +52,26 @@ use FSR_AI\User;
             <th>Nutzer</th>
         </tr>
         <tr>
-            <th>Name</th>
-            <th>Geburtstag</th>
-            <th>E-Mail</th>
-            <th>Inaktives Mitglied?</th>
+
+            <? $sortFirstname = (isset($_GET['sortUser']) && $_GET['sortUser'] == 1) ? 2 : 1;?>
+            <? $sortLastname = (isset($_GET['sortUser']) && $_GET['sortUser'] == 3) ? 4 : 3;?>
+            <? $sortBirthDay = (isset($_GET['sortUser']) && $_GET['sortUser'] == 5) ? 6 : 5;?>
+            <? $sortEmail = (isset($_GET['sortUser']) && $_GET['sortUser'] == 7) ? 8 : 7;?>
+            <? $sortRole = (isset($_GET['sortUser']) && $_GET['sortUser'] == 9) ? 10 : 9;?>
+            <? $sortFunction = (isset($_GET['sortUser']) && $_GET['sortUser'] == 11) ? 12 : 11;?>
+
+            <th><a href="?c=user&a=userManagement&sortUser=<?=$sortFirstname?>"> Vorname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortUser=<?=$sortLastname?>"> Nachname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortUser=<?=$sortBirthDay?>"> Geburtstag <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=user&a=userManagement&sortUser=<?=$sortEmail?>"> E-Mail <i class="fa fa-sort" aria-hidden="true"></i></a></th>
             <th>Optionen</th>
         </tr>
         <?foreach($accountsUser as $index => $account) : ?>
             <tr>
-                <td><?=User::getFullName($account['FIRSTNAME'], $account['LASTNAME'])?></td>
+                <td><?=$account['FIRSTNAME']?></td>
+                <td><?=$account['LASTNAME']?></td>
                 <td><?=date("d.m.Y", strtotime($account['DATE_OF_BIRTH']));?></td>
                 <td><?=$account['EMAIL']?></td>
-                <td><?=Function_FSR::generateFunctionFSRNameByUserID($account['ID'])?></td>
                 <td>
                     <? if($_SESSION['userId'] <> $account['ID']){?>
                         <a href="?c=user&a=profil&userId=<?=$account['ID']?>">
