@@ -448,7 +448,22 @@ table input:hover{
 
 /* ----------------------------------   UeberUnsPage   ---------------------------------- */
 .usPage h1{
-    margin-bottom: 1%;
+    margin-bottom: 3%;
+}
+
+.usPage img{
+    width: 30%;
+    float: right;
+}
+
+.usPage div{
+    height: auto!important;
+    overflow: hidden;
+}
+
+.usPage iframe{
+    display: block;
+    margin: 4% auto 1% auto;
 }
 
 /* ----------------------------------   UserPage   ---------------------------------- */

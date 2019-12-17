@@ -32,8 +32,5 @@ class Booking extends BaseModel{
             die('Select statment failed: ' . $e->getMessage());
         }
         return $result;
-
-
-
     }
 }
