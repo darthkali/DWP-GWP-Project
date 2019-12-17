@@ -20,7 +20,7 @@ use FSR_AI\User;
             <label for="sortByUser">Sortieren nach: </label> <br>
             <select name="sortByUser" id="sortByUser">
                 <option value = 1 <?=($valueSort == 1) ? 'selected' : ''?> >  Funktion</option>
-                <option value = 2 <?=($valueSort == 2) ? 'selected' : ''?> >Vorname - Aufsteigend</option>
+                <option value = 2 <?=($valueSort == 2) ? 'selected' : ''?> >  Vorname - Aufsteigend</option>
                 <option value = 3 <?=($valueSort == 3) ? 'selected' : ''?> >  Vorname - Absteigend</option>
                 <option value = 4 <?=($valueSort == 4) ? 'selected' : ''?> >  Nachname - Aufsteigend</option>
                 <option value = 5 <?=($valueSort == 5) ? 'selected' : ''?> >  Nachname - Absteigend</option>
@@ -50,8 +50,10 @@ use FSR_AI\User;
                 <p><h1><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h1>
                 <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['MEMBER_ID'])?></strong>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
-                    <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['ID']);?>
-                    <? foreach ($userMember as $member) :?>
+                    <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['MEMBER_ID']);
+
+                    ?>
+                    <? foreach ($userMember as $member) :                     ;?>
                         <?  $startDate = date("d.m.y",strtotime($member['START_DATE']));
                             $endDate = date("d.m.y", strtotime($member['END_DATE']));
                             $functionFSR = function_FSR::generateFunctionFSRNameByFunctionID($member['FUNCTION_FSR_ID']);

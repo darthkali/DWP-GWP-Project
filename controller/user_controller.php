@@ -32,6 +32,7 @@ class UserController extends Controller{
         }
 
         $userList = User::find('END_DATE is null' . $filterFunction, 'getusermemberhistory', $filterSort);
+
         $this->_params['userList'] = $userList;
         $this->_params['allFunctions'] = Function_FSR::find();
     }

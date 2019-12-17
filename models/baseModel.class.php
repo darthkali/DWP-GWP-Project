@@ -210,7 +210,6 @@ abstract class BaseModel
                 $sql .= ' WHERE ' . $where . ' ' . $orderBy.  ';';
             }
             $sql .= ' '.$orderBy;
-
             $result = $db->query($sql)->fetchAll();
         }
         catch(\PDOException $e)
