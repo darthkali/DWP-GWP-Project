@@ -72,12 +72,21 @@ class EventController extends Controller
 
             if (isset($_POST['eventName'])) {
                 $params = [
-                    'ID'            => $eventId,
-                    'NAME'          => $_POST['eventName'],
-                    'DATE'          => $_POST['eventDate'],
-                    'PICTURE'       => $pictureName,
-                    'LOCATION_ID'   => $_POST['eventLocation'],
-                    'DESCRIPTION'   => $_POST['eventDescription']
+
+                    'ID'            => ($eventId === '')  ? null : $eventId,
+                    'NAME'          => ($_POST['eventName'  ] === '')  ? null : $_POST['eventName' ],
+                    'DATE'          => ($_POST['eventDate'  ] === '')  ? null : $_POST['eventDate' ],
+                    'PICTURE'       => ($pictureName === '')  ? null : $pictureName,
+                    'LOCATION_ID'   => ($_POST['eventLocation'    ] === '')  ? null : $_POST['eventLocation'    ],
+                    'DESCRIPTION'   => ($_POST['eventDescription' ] === '')  ? null : $_POST['eventDescription' ],
+
+
+//                    'ID'            => $eventId,
+//                    'NAME'          => $_POST['eventName'],
+//                    'DATE'          => $_POST['eventDate'],
+//                    'PICTURE'       => $pictureName,
+//                    'LOCATION_ID'   => $_POST['eventLocation'],
+//                    'DESCRIPTION'   => $_POST['eventDescription']
                 ];
                 $event = new event($params);
                 foreach ($params as $key => $value) {

@@ -11,25 +11,21 @@ class LocationController extends Controller{
 
         if (isset($_POST['submitCreateLocation'])) {
 
-            //if($_POST['locationRoom'] == '') $_POST['locationRoom'] = null;
-
             $params = [
-                'STREET'    => $_POST['locationStreet'  ],
-                'NUMBER'    => $_POST['locationNumber'  ],
-                'ZIPCODE'   => $_POST['locationZipcode' ],
-                'CITY'      => $_POST['locationCity'    ],
-                'ROOM'      => $_POST['locationRoom'    ]
+                'STREET'    => ($_POST['locationStreet'  ] === '')  ? null : $_POST['locationStreet'  ],
+                'NUMBER'    => ($_POST['locationNumber'  ] === '')  ? null : $_POST['locationNumber'  ],
+                'ZIPCODE'   => ($_POST['locationZipcode' ] === '')  ? null : $_POST['locationZipcode' ],
+                'CITY'      => ($_POST['locationCity'    ] === '')  ? null : $_POST['locationCity'    ],
+                'ROOM'      => ($_POST['locationRoom'    ] === '')  ? null : $_POST['locationRoom'    ]
             ];
             $location = new location($params);
-            foreach ($params as $key => $value) {
-                $location->__set($key, $value);
-            }
 
             $eingabeError = [];
             if(!$location->validate($eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
+
             $location->save();
             sendHeaderByControllerAndAction('event', 'EventManagement');
         }

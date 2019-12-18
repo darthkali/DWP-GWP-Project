@@ -146,6 +146,7 @@ abstract class BaseModel
     public function validate(&$errors){
         foreach($this->schema as $key => $schemaOptions){
             if(isset($this->data[$key]) && is_array($schemaOptions)){
+                debug_to_logFile($this->data[$key]);
                 $valueErrors = $this->validateValue($key, $this->data[$key], $schemaOptions);
 
                 if(is_array($valueErrors)){
@@ -179,8 +180,7 @@ abstract class BaseModel
             }
             break;
         }
-        if(count($errors) > 0){
-        }
+
         return count($errors) > 0 ? $errors : true;
     }
 
