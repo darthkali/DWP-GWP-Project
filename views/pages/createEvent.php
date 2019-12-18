@@ -15,6 +15,12 @@ use FSR_AI\location; ?>
 
         <h1><?=$headline?></h1>
 
+        <? if(isset($eingabeError)){ ;?> <div class="error"><?
+            foreach($eingabeError as $error){?>
+                <?=$error?><br>
+            <?}?></div> <? } ?>
+
+
         <!-- name -->
         <label for="name">EVENTNAME</label>
         <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required value="<?=isset($eventData['NAME']) ? $eventData['NAME'] : ''?>">

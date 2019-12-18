@@ -29,6 +29,7 @@ class EventController extends Controller
             foreach ($params as $key => $value) {
                 $booking->__set($key, $value);
             }
+
             $booking->save();
             $_SESSION['eventButton'] = 'Abmelden';
         }else{
@@ -81,6 +82,12 @@ class EventController extends Controller
                 $event = new event($params);
                 foreach ($params as $key => $value) {
                     $event->__set($key, $value);
+                }
+
+                $eingabeError = [];
+                if(!$event->validate($eingabeError)){
+                    $this->_params['eingabeError'] = $eingabeError;
+                    return false;
                 }
                 $event->save();
                 $dataDir .= $pictureName;

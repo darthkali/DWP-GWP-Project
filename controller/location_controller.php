@@ -24,6 +24,12 @@ class LocationController extends Controller{
             foreach ($params as $key => $value) {
                 $location->__set($key, $value);
             }
+
+            $eingabeError = [];
+            if(!$location->validate($eingabeError)){
+                $this->_params['eingabeError'] = $eingabeError;
+                return false;
+            }
             $location->save();
             sendHeaderByControllerAndAction('event', 'EventManagement');
         }

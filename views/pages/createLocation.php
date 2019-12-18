@@ -6,6 +6,11 @@
 
         <h1>Location erstellen</h1>
 
+        <? if(isset($eingabeError)){ ;?> <div class="error"><?
+            foreach($eingabeError as $error){?>
+                <?=$error?><br>
+            <?}?></div> <? } ?>
+
         <!-- street -->
         <label for="locationStreet">Straße</label>
         <input type = "text" id="locationStreet" name="locationStreet" placeholder="Straße" required>

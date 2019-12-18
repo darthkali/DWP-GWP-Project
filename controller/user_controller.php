@@ -207,6 +207,14 @@ class UserController extends Controller{
 
             $newUser = new User($params);
             if (User::checkUniqueUserEntity($params['EMAIL']) === null) {
+
+                // validation from the inputFields
+                $eingabeError = [];
+                if(!$newUser->validate($eingabeError)){
+                    $this->_params['eingabeError'] = $eingabeError;
+                    return false;
+                }
+
                 $newUser->save();
                 sendHeaderByControllerAndAction('user', 'login');
             } else {

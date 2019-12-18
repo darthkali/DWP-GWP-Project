@@ -8,6 +8,11 @@
         <h5>Hier kannst du dich Registrieren!</h5>
 
 
+        <? if(isset($eingabeError)){ ;?> <div class="error"><?
+            foreach($eingabeError as $error){?>
+                <?=$error?><br>
+            <?}?></div> <? } ?>
+
         <!-- firstname -->
         <label for="firstnameRegistration">VORNAME </label>
         <input type = "text" id="firstnameRegistration" name="firstnameRegistration" required

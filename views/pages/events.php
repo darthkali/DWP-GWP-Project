@@ -15,6 +15,7 @@ $design = '';
 
     <h1>Unsere Events</h1>
 
+
     <?while($counter <= 1) :?>
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>
