@@ -142,13 +142,10 @@ class User extends BaseModel
                 ];
                 $newUser = new user($params);
                 $newUser->save();
-                debug_to_logFile('password Refresh');
                 return true;
             }
-            debug_to_logFile('password ok');
             return true;
         }
-        debug_to_logFile('password nok');
         return false;
     }
 
@@ -260,5 +257,22 @@ class User extends BaseModel
             default:
                 return $sortUser = '';
         }
+    }
+
+    public static function checkPassword($password, &$error){
+
+        if(!preg_match('/[!@#$%&?.]/',$password)) {
+            $error =  "Das Passwort muss mindestens eines der folgenden Zeichen beinhalten: ! @ # . $ % & ? ";
+            return false;
+        }
+        elseif(!preg_match("#[A-Z]+#",$password)) {
+            $error =  "Das Passwort muss mindestens einen Großbuchstaben beinhalten";
+            return false;
+        }
+        elseif(!preg_match("#[a-z]+#",$password)) {
+            $error =  "Das Passwort muss mindestens eine Kleinbuchstaben beinhalten";
+            return false;
+        }
+        return true;
     }
 }

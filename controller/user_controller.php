@@ -197,8 +197,13 @@ class UserController extends Controller{
     public function actionRegistration(){
         $this->_params['title'] = 'Registrieren';
         $this->_params['errorMessage'] = '';
+        $this->_params['errorMessagePassword'] = '';
+
+
+
 
         if (isset($_POST['submitRegistration'])) {
+
             $params = [
                 'FIRSTNAME'        => ( $_POST['firstnameRegistration']   === '')  ? null : $_POST['firstnameRegistration']  ,
                 'LASTNAME'         => ( $_POST['lastnameRegistration']    === '')  ? null : $_POST['lastnameRegistration']   ,
@@ -218,6 +223,7 @@ class UserController extends Controller{
                     return false;
                 }
 
+                if(!User::checkPassword($_POST['passwordRegistration'], $this->_params['errorMessagePassword'])){return false;}
                 $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordRegistration']));
 
                 $newUser->save();
