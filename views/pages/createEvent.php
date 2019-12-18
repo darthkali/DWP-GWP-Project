@@ -20,18 +20,19 @@ use FSR_AI\location; ?>
                 <?=$error?><br>
             <?}?></div> <? } ?>
 
-
         <!-- name -->
-        <label for="name">EVENTNAME</label>
-        <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required value="<?=isset($eventData['NAME']) ? $eventData['NAME'] : ''?>">
+        <label for="eventName">EVENTNAME</label>
+        <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required
+               value="<?=isset($eventData['NAME']) ? $eventData['NAME'] : ''?>">
 
         <!-- date -->
-        <label for="date">DATUM</label>
-        <input type = "date" id="eventDate" name="eventDate" placeholder="Datum" required value="<?=isset($eventData['DATE']) ? $eventData['DATE'] : ''?>">
+        <label for="eventDate">DATUM</label>
+        <input type = "date" id="eventDate" name="eventDate" placeholder="Datum" required
+               value="<?=isset($eventData['DATE']) ? $eventData['DATE'] : ''?>">
 
         <!-- location drop down menu -->
-        <label for="location">ORT</label>
-        <select name="eventLocation" required value="Test">
+        <label for="eventLocation">ORT</label>
+        <select id="eventLocation" name="eventLocation">
 
             <?foreach ($locationsList as $location) : ?>
                 <?$selected = '';
@@ -43,7 +44,7 @@ use FSR_AI\location; ?>
         </select>
 
         <!-- description -->
-        <label for="description">BESCHREIBUNG</label>
+        <label for="eventDescription">BESCHREIBUNG</label>
         <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required><?=isset($eventData['DESCRIPTION']) ? $eventData['DESCRIPTION'] : ''?></textarea>
 
         <label for="picture">BILD</label>

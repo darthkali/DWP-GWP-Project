@@ -16,7 +16,7 @@ class Location extends BaseModel
         'ROOM'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 1, 'max' => 9  ]
     ];
 
-    public function buildLocationDetails($locationId){
+    public static function buildLocationDetails($locationId){
 
         $location = self::findOne('id = '.$locationId);
         $locationDetails = $location['CITY'].', '.$location['ZIPCODE'].', '.$location['STREET'].' '.$location['NUMBER'];
