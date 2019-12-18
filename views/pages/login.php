@@ -13,7 +13,7 @@
         <!-- username -->
         <label for="email">EMAIL </label>
         <input type = "text" id="email" name="email" required
-            <?=isset($_POST['email']) ? 'value="'.htmlspecialchars($_POST['email']).'"' : ''?>>
+               value = "<?=isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''?>">
 
         <!-- password -->
         <label for="password">PASSWORT </label>
@@ -21,7 +21,6 @@
 
         <!-- button -->
         <button type="submit" name="submit" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
-       <!-- <input type="submit" name="submit" value="Login now!" /><br />-->
 
         <!-- checkbox -->
         <div class="checkBox">

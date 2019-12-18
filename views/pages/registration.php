@@ -16,17 +16,17 @@
         <!-- firstname -->
         <label for="firstnameRegistration">VORNAME </label>
         <input type = "text" id="firstnameRegistration" name="firstnameRegistration" required
-            <?=isset($_POST['firstnameRegistration']) ? 'value="'.htmlspecialchars($_POST['firstnameRegistration']).'"' : ''?>>
+               value = "<?=isset($_POST['firstnameRegistration']) ? htmlspecialchars($_POST['firstnameRegistration']) : ''?>">
 
         <!-- lastname -->
         <label for="lastnameRegistration">NACHNAME </label>
         <input type = "text" id="lastnameRegistration" name="lastnameRegistration" required
-        <?=isset($_POST['lastnameRegistration']) ? 'value="'.htmlspecialchars($_POST['lastnameRegistration']).'"' : ''?>>
+               value = "<?=isset($_POST['lastnameRegistration']) ? htmlspecialchars($_POST['lastnameRegistration']) : ''?>">
 
         <!-- email -->
         <label for="emailRegistration">EMAIL </label>
         <input type = "email" id="emailRegistration" name="emailRegistration" required
-        <?=isset($_POST['emailRegistration']) ? 'value="'.htmlspecialchars($_POST['emailRegistration']).'"' : ''?>>
+               value = "<?=isset($_POST['emailRegistration']) ? htmlspecialchars($_POST['emailRegistration']) : ''?>">
 
         <? if($errorMessage != ''){?> <div class="error"><?echo $errorMessage?></div> <? } ?>
 
@@ -36,7 +36,7 @@
         <!-- date of birth -->
         <label for="dateOfBirthRegistration">GEBURTSDATUM </label>
         <input type = "date" id="dateOfBirthRegistration" name="dateOfBirthRegistration" required
-        <?=isset($_POST['dateOfBirthRegistration']) ? 'value="'.htmlspecialchars($_POST['dateOfBirthRegistration']).'"' : ''?>>
+               value = "<?=isset($_POST['dateOfBirthRegistration']) ? htmlspecialchars($_POST['dateOfBirthRegistration']) : ''?>">
 
         <!-- buttons -->
         <button type="submit" name="submitRegistration">Speichern<i class="fa fa-floppy-o" aria-hidden="true"></i></button>

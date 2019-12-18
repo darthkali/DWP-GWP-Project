@@ -7,15 +7,17 @@
 
         <!-- name -->
         <label for="name">NAME</label>
-        <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required>
+        <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required
+               value = "<?=isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''?>">
 
         <!-- email -->
         <label for="mail">EMAIL</label>
-        <input type = "email" id="mail" name="mail" placeholder="Ihre E-Mail-Adresse" required>
+        <input type = "email" id="mail" name="mail" placeholder="Ihre E-Mail-Adresse" required
+               value = "<?=isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : ''?>">
 
         <!-- subject -->
         <label for="textarea">ANMERKUNGEN</label>
-        <textarea type = "textarea" id="textarea" name="text" placeholder="Anmerkungen"></textarea>
+        <textarea type = "textarea" id="textarea" name="text" placeholder="Anmerkungen"><?=isset($_POST['textarea']) ? htmlspecialchars($_POST['textarea']) : ''?></textarea>
 
         <!-- button -->
         <button type="submit" name="senden" onclick="<?sendMail(true);?>">Anmelden</button>
