@@ -119,6 +119,7 @@ class UserController extends Controller{
         $this->_params['userFunction'] = $userProfilInformations['userFunction'];
         $this->_params['allRoles'] = $userProfilInformations['allRoles'];
         $this->_params['allFunctions'] = $userProfilInformations['allFunctions'];
+        $this->_params['errorMessagePassword'] = '';
 
         // if the user was not found, than we go to the error page.
         // so we can ensure, that the user will be found by the system and not by an edit (e.g.: in the URL) from outside
@@ -135,8 +136,6 @@ class UserController extends Controller{
 
             $pictureName = User::createUploadedPictureName('pictureProfil');
 
-            $password = (isset($_POST['changePasswordCheckbox'])) ? $_POST['passwordProfil'] : null;
-
             $params = [
                 'ID'               => ($userProfilInformations['userProfil']['ID'] === '')  ? null : $userProfilInformations['userProfil']['ID'],
                 'FIRSTNAME'        => ( $_POST['firstnameProfil']   === '')  ? null : $_POST['firstnameProfil']  ,
@@ -145,7 +144,7 @@ class UserController extends Controller{
                 'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil']      ,
                 'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName               ,
                 'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
-                'PASSWORD'         => ( $password === '')  ? null : $password,
+                'PASSWORD'         => ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'],
             ];
             $newUser = new User($params);
 
@@ -160,7 +159,8 @@ class UserController extends Controller{
 
             // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){
-              $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
+                if(!User::checkPassword($_POST['passwordProfil'], $this->_params['errorMessagePassword'])){return false;}
+                $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
             if (User::checkUniqueUserEntity($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) == null) {
@@ -198,9 +198,6 @@ class UserController extends Controller{
         $this->_params['title'] = 'Registrieren';
         $this->_params['errorMessage'] = '';
         $this->_params['errorMessagePassword'] = '';
-
-
-
 
         if (isset($_POST['submitRegistration'])) {
 

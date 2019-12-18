@@ -33,6 +33,7 @@
         <label for="passwordRegistration">PASSWORT </label>
         <input type = "password" id="passwordRegistration" name="passwordRegistration" required >
         <? if($errorMessagePassword != ''){?> <div class="error"><?echo $errorMessagePassword?></div> <? } ?>
+
         <!-- date of birth -->
         <label for="dateOfBirthRegistration">GEBURTSDATUM </label>
         <input type = "date" id="dateOfBirthRegistration" name="dateOfBirthRegistration" required

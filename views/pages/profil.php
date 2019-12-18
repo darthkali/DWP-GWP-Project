@@ -38,6 +38,7 @@ use FSR_AI\role;
 
         <label for="passwordProfil">PASSWORT </label>
         <input type = "password" id="passwordProfil" name="passwordProfil">
+            <? if($errorMessagePassword != ''){?> <div class="error"><?echo $errorMessagePassword?></div> <? } ?>
 
             <div class="checkBox">
                 <input type="checkbox" name="changePasswordCheckbox" id="changePasswordCheckbox">
