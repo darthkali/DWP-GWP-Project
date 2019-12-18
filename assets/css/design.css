@@ -105,7 +105,7 @@ div#FooterRight a img {
     background-color: var(--secondary-bg-color);
     padding: 10px;
     color: var(--secondary-text-color);
-    border-radius:10px;
+    border-radius:2px;
 }
 
 .Content button:hover{
@@ -134,7 +134,7 @@ div#FooterRight a img {
     width: 100%;
     margin: 10px auto 10px auto;
     padding: 10px;
-    border-style: solid;
+    border-bottom: solid;
     border-width: 1px;
     border-color: var(--border-color);
     border-radius: 3px;

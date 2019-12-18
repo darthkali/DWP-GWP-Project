@@ -11,7 +11,7 @@ class LocationController extends Controller{
 
         if (isset($_POST['submitCreateLocation'])) {
 
-            if($_POST['locationRoom'] == '') $_POST['locationRoom'] = null;
+            //if($_POST['locationRoom'] == '') $_POST['locationRoom'] = null;
 
             $params = [
                 'STREET'    => $_POST['locationStreet'  ],
