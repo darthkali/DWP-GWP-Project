@@ -200,11 +200,11 @@ class UserController extends Controller{
 
         if (isset($_POST['submitRegistration'])) {
             $params = [
-                'FIRSTNAME' => $_POST['firstnameRegistration'],
-                'LASTNAME' => $_POST['lastnameRegistration'],
-                'DATE_OF_BIRTH' => $_POST['dateOfBirthRegistration'],
-                'EMAIL' => $_POST['emailRegistration'],
-                'PASSWORD' => User::generatePasswordHash($_POST['passwordRegistration']),
+                'FIRSTNAME'        => ( $_POST['firstnameRegistration']   === '')  ? null : $_POST['firstnameRegistration']  ,
+                'LASTNAME'         => ( $_POST['lastnameRegistration']    === '')  ? null : $_POST['lastnameRegistration']   ,
+                'DATE_OF_BIRTH'    => ( $_POST['dateOfBirthRegistration'] === '')  ? null : $_POST['dateOfBirthRegistration'],
+                'EMAIL'            => ( $_POST['emailRegistration']       === '')  ? null : $_POST['emailRegistration']      ,
+                'PASSWORD'         => ( $_POST['passwordRegistration'] === '')  ? null : $_POST['passwordRegistration'],
                 'ROLE_ID' => 3
             ];
 
@@ -217,6 +217,8 @@ class UserController extends Controller{
                     $this->_params['eingabeError'] = $eingabeError;
                     return false;
                 }
+
+                $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordRegistration']));
 
                 $newUser->save();
                 sendHeaderByControllerAndAction('user', 'login');
