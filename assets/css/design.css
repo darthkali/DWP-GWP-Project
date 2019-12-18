@@ -13,15 +13,11 @@ nav, section, footer {display: block;}
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: TransitWeb, Arial, sans-serif;
     box-sizing: border-box;
     color: var(--primary-text-color);
     text-decoration: none;
 }
-
-
-
-
 
 /* ----------------------------------   Image   ---------------------------------- */
 .center {
