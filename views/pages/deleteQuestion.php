@@ -1,5 +1,6 @@
 <?php
 
+use FSR_AI\Event;
 use FSR_AI\function_FSR;
 use FSR_AI\MemberHistory;
 use FSR_AI\User;
@@ -10,14 +11,34 @@ use FSR_AI\User;
 </div>
 
 <div class="Content" id="fadeIn">
-
+    <img src="<?=ROOTPATH.'assets\images\caution.png'?>" alt="ProfilPageImage">
     <?if(isset($_GET['userId'])){?>
-    <h1>Wollen Sie den User wirklich Löschen?</h1>
+    <h3>Wollen Sie den Nutzer:</h3>
+    <h1>
+        <?
+        $user = User::findOne('ID = '. $_GET['userId']);
+        echo User::getFullName($user['FIRSTNAME'] , $user['LASTNAME'])
+
+        ?>
+    </h1>
+    <h3> wirklich Löschen?</h3>
+    <div class="deleteQuestion">
         <a href="?c=user&a=userManagement&userId=<?= $_GET['userId']?>"><button type="button">Löschen</button></a>
         <a href="?c=user&a=userManagement"><button type="button">Abbrechen</button></a>
+    </div>
     <?}else{?>
-    <h1>Wollen Sie das Event wirklich Löschen?</h1>
-    <a href="?c=event&a=eventManagement&eventId=<?=$_GET['eventId']?>&pictureName=<?=$_GET['pictureName']?>"><button type="button">Löschen</button></a>
-    <a href="?c=event&a=eventManagement"><button type="button">Abbrechen</button></a>
+    <h3>Wollen Sie das Event:</h3>
+    <h1>
+        <?
+        $event = Event::findOne('ID = '. $_GET['eventId']);
+        echo $event['NAME']
+
+        ?>
+    </h1>
+    <h3> wirklich Löschen?</h3>
+    <div class="deleteQuestion">
+        <a href="?c=event&a=eventManagement&eventId=<?=$_GET['eventId']?>&pictureName=<?=$_GET['pictureName']?>"><button type="button">Löschen</button></a>
+        <a href="?c=event&a=eventManagement"><button type="button">Abbrechen</button></a>
+    </div>
     <?}?>
 </div>

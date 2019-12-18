@@ -34,10 +34,10 @@ use FSR_AI\Role;
             <td><?=Role::generateRoleByRoleID($account['ROLE_ID'])?></td>
             <td><?=Function_FSR::generateFunctionFSRNameByUserID($account['MEMBER_ID'])?></td>
             <td>
-                <? if($_SESSION['userId'] <> $account['ID']){?>
-                <a href="?c=user&a=profil&userId=<?=$account['ID']?>">
+                <? if($_SESSION['userId'] <> $account['MEMBER_ID']){?>
+                <a href="?c=user&a=profil&userId=<?=$account['MEMBER_ID']?>">
                     <input type="image" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit"></a>
-                <a href="?c=pages&a=deleteQuestion&userId=<?=$account['ID']?>">
+                <a href="?c=pages&a=deleteQuestion&userId=<?=$account['MEMBER_ID']?>">
                     <input type="image"  title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete"></a>
                 <?}?>
             </td>

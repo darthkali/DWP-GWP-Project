@@ -77,20 +77,27 @@ div#FooterRight a img {
 
 /* ----------------------------------   Content   ---------------------------------- */
 .Content {
-    background: var(--primary-bg-color);
+    background-color: var(--primary-bg-color);
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
     padding: 10px 20px 10px 20px;
+
 }
 
-.Content h1{
+.Content h1, h3{
     text-align: center;
 }
 
 .Content select{
     text-align: center;
     text-align-last: center;
+}
+
+.Content img{
+    display: block;
+    text-align: center;
+    margin: 20px auto;
 }
 
 
@@ -575,4 +582,9 @@ table input:hover{
     background: var(--error-color);
     text-align: center;
     border-radius: 3px;
+}
+.deleteQuestion {
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
 }

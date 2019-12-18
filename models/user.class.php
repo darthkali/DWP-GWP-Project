@@ -200,7 +200,6 @@ class User extends BaseModel
         ];
     }
 
-
     public static function generateSortClauseForMember($sortMemberGET){
         switch ($sortMemberGET) {
             case 1:
@@ -231,7 +230,6 @@ class User extends BaseModel
                 return $sortMember = '';
         }
     }
-
 
     public static function generateSortClauseForUser($sortUserGET){
         switch ($sortUserGET) {
