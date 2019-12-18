@@ -132,19 +132,20 @@ class UserController extends Controller{
         if (isset($_POST['submitProfil'])) {
 
             // generate a Filename and replace the old File(Picture) with the new one
-            $pictureName = User::putTheUploadetFileOnTheServerAndRemoveTheOldOne('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE']);
+
+            $pictureName = User::createUploadedPictureName('pictureProfil');
 
             $password = (isset($_POST['changePasswordCheckbox'])) ? $_POST['passwordProfil'] : null;
 
             $params = [
-                'ID'            => $userProfilInformations['userProfil']['ID']  ?? null,
-                'FIRSTNAME'     => $_POST['firstnameProfil']                    ?? null,
-                'LASTNAME'      => $_POST['lastnameProfil']                     ?? null,
-                'DATE_OF_BIRTH' => $_POST['dateOfBirthProfil']                  ?? null,
-                'EMAIL'         => $_POST['emailProfil']                        ?? null,
-                'PICTURE'       => $pictureName                                 ?? null,
-                'DESCRIPTION'   => $_POST['descriptionProfil']                  ?? null,
-                'PASSWORD'      => $password
+                'ID'               => ($userProfilInformations['userProfil']['ID'] === '')  ? null : $userProfilInformations['userProfil']['ID'],
+                'FIRSTNAME'        => ( $_POST['firstnameProfil']   === '')  ? null : $_POST['firstnameProfil']  ,
+                'LASTNAME'         => ( $_POST['lastnameProfil']    === '')  ? null : $_POST['lastnameProfil']   ,
+                'DATE_OF_BIRTH'    => ( $_POST['dateOfBirthProfil'] === '')  ? null : $_POST['dateOfBirthProfil'],
+                'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil']      ,
+                'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName               ,
+                'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
+                'PASSWORD'         => ( $password === '')  ? null : $password,
             ];
             $newUser = new User($params);
 
@@ -154,6 +155,8 @@ class UserController extends Controller{
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
+
+            User::putTheUploadetFileOnTheServerAndRemoveTheOldOne('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
 
             // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){

@@ -59,9 +59,7 @@ function sendHeaderByControllerAndAction($controller, $action){
     header('Location: ?c=' .$controller . '&a=' . $action);
 }
 
-function createUploadedPictureName($modelName, $uploadedPictureFile){
-    return $modelName.date('d-m-Y-H-i-s').strstr($_FILES[$uploadedPictureFile]['name'], '.');
-}
+
 
 function testLogOut(){
     setcookie('userId','',-1,'/');
