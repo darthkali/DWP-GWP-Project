@@ -12,10 +12,10 @@ class Role extends BaseModel
     const USER   = 3;
 
     protected $schema = [
-        'ID'               => [ 'type' => BaseModel::TYPE_INT ],
+        'ID'               => [ 'type' => BaseModel::TYPE_INT    ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'NAME'             => [ 'type' => BaseModel::TYPE_STRING ]
+        'NAME'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 6, 'max' => 13 ]
     ];
 
     public static function generateRoleByRoleID($roleID){

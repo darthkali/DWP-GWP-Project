@@ -10,13 +10,13 @@ class MemberHistory extends BaseModel
     const TABLENAME = '`MEMBER_HISTORY`';
 
     protected $schema = [
-        'ID'               => [ 'type' => BaseModel::TYPE_INT ],
+        'ID'               => [ 'type' => BaseModel::TYPE_INT    ],
+        'MEMBER_ID'        => [ 'type' => BaseModel::TYPE_INT    ],
+        'FUNCTION_FSR_ID'  => [ 'type' => BaseModel::TYPE_INT    ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'START_DATE'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'END_DATE'         => [ 'type' => BaseModel::TYPE_STRING ],
-        'MEMBER_ID'        => [ 'type' => BaseModel::TYPE_INT  ],
-        'FUNCTION_FSR_ID'  => [ 'type' => BaseModel::TYPE_INT ]
+        'END_DATE'         => [ 'type' => BaseModel::TYPE_STRING ]
 
     ];
 

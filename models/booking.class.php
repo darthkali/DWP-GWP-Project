@@ -5,11 +5,11 @@ class Booking extends BaseModel{
     const TABLENAME = '`booking`';
 
     protected $schema = [
-        'ID'               => [ 'type' => BaseModel::TYPE_INT ],
+        'ID'               => [ 'type' => BaseModel::TYPE_INT    ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'EVENT_ID'        => [ 'type' => BaseModel::TYPE_INT ],
-        'USER_ID'          => [ 'type' => BaseModel::TYPE_INT ]
+        'EVENT_ID'         => [ 'type' => BaseModel::TYPE_INT    ],
+        'USER_ID'          => [ 'type' => BaseModel::TYPE_INT    ]
     ];
 
     public static function buildWhereBooking($userId, $eventId){

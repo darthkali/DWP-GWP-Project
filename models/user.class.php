@@ -6,17 +6,17 @@ class User extends BaseModel
     const TABLENAME = '`USER`';
 
     public $schema = [
-        'ID'               => [ 'type' => BaseModel::TYPE_INT ],
+        'ID'               => [ 'type' => BaseModel::TYPE_INT    ],
+        'ROLE_ID'          => [ 'type' => BaseModel::TYPE_INT    ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'FIRSTNAME'        => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 5 ],
-        'LASTNAME'         => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 5 ],
-        'DATE_OF_BIRTH'    => [ 'type' => BaseModel::TYPE_STRING],
-        'DESCRIPTION'      => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 300 ],
-        'PICTURE'          => [ 'type' => BaseModel::TYPE_STRING ],
-        'EMAIL'            => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 60 ],
-        'PASSWORD'         => [ 'type' => BaseModel::TYPE_STRING,'min' => 2, 'max' => 60 ],
-        'ROLE_ID'          => [ 'type' => BaseModel::TYPE_INT ]
+        'DATE_OF_BIRTH'    => [ 'type' => BaseModel::TYPE_STRING ],
+        'FIRSTNAME'        => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2,   'max' => 21   ],
+        'LASTNAME'         => [ 'type' => BaseModel::TYPE_STRING, 'min' => 2,   'max' => 24   ],
+        'DESCRIPTION'      => [ 'type' => BaseModel::TYPE_STRING, 'min' => 100, 'max' => 1000 ],
+        'PICTURE'          => [ 'type' => BaseModel::TYPE_STRING, 'min' => 1,   'max' => 28   ],
+        'EMAIL'            => [ 'type' => BaseModel::TYPE_STRING, 'min' => 3,   'max' => 62   ],
+        'PASSWORD'         => [ 'type' => BaseModel::TYPE_STRING, 'min' => 8,   'max' => 60   ]
     ];
 
     public static function findUserBySessionUserID(){

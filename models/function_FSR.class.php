@@ -7,10 +7,10 @@ class Function_FSR extends BaseModel
     const TABLENAME = '`FUNCTION_FSR`';
 
     protected $schema = [
-        'ID'               => [ 'type' => BaseModel::TYPE_INT ],
+        'ID'               => [ 'type' => BaseModel::TYPE_INT    ],
         'CREATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
         'UPDATED_AT'       => [ 'type' => BaseModel::TYPE_STRING ],
-        'NAME'             => [ 'type' => BaseModel::TYPE_STRING ]
+        'NAME'             => [ 'type' => BaseModel::TYPE_STRING,'min' => 6, 'max' => 30 ]
     ];
 
     public static function generateFunctionFSRNameByFunctionID($functionID){

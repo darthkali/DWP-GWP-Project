@@ -6,14 +6,14 @@ class Event extends BaseModel
     const TABLENAME = '`event`';
 
     protected $schema = [
-        'ID'            => ['type' => BaseModel::TYPE_INT   ],
-        'CREATED_AT'    => ['type' => BaseModel::TYPE_STRING],
-        'UPDATED_AT'    => ['type' => BaseModel::TYPE_STRING],
-        'NAME'          => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45],
-        'DATE'          => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 45],
-        'DESCRIPTION'   => ['type' => BaseModel::TYPE_STRING, 'min' => 2, 'max' => 300],
-        'PICTURE'       => ['type' => BaseModel::TYPE_STRING],
-        'LOCATION_ID'   => ['type' => BaseModel::TYPE_INT   ]
+        'ID'            => ['type' => BaseModel::TYPE_INT    ],
+        'LOCATION_ID'   => ['type' => BaseModel::TYPE_INT    ],
+        'CREATED_AT'    => ['type' => BaseModel::TYPE_STRING ],
+        'UPDATED_AT'    => ['type' => BaseModel::TYPE_STRING ],
+        'DATE'          => ['type' => BaseModel::TYPE_STRING ],
+        'NAME'          => ['type' => BaseModel::TYPE_STRING, 'min' => 8,   'max' => 64   ],
+        'DESCRIPTION'   => ['type' => BaseModel::TYPE_STRING, 'min' => 100, 'max' => 1000 ],
+        'PICTURE'       => ['type' => BaseModel::TYPE_STRING, 'min' => 1,   'max' => 29   ]
     ];
 
     public static function getDateDiffBetweenEventAndCurrentDate($eventDate){
