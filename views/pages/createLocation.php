@@ -28,6 +28,6 @@
 
         <!-- button -->
         <button type="submit" name="submitCreateLocation">Location erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
-        <button type="reset">Eingaben Löschen</button>
+        <button type="reset">Eingaben Löschen <i class="fa fa-times" aria-hidden="true"></i> </button>
     </form>
 </div>
