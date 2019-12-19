@@ -1,8 +1,8 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/mail.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'mail.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="index.php?c=pages&a=Contact" method="post">
+    <form autocomplete="off" action="?c=pages&a=Contact" method="post">
         <h1>Kontakt</h1>
 
         <!-- firstname -->

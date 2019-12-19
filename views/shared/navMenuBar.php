@@ -1,5 +1,4 @@
 <?php
-
 use FSR_AI\role;
 use FSR_AI\User;
 ?>
@@ -45,7 +44,7 @@ use FSR_AI\User;
 
 <div class="NavContent">
     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=start">
-        <img src="/FSAI-Site/assets/images/ailogo_groß.png" alt="AiLogo">
+        <img src=<?=IMAGEPATH.'ailogo_groß.png'?> alt="AiLogo">
         <h4>Fachschaftsrat</h4>
     </a>
 </div>

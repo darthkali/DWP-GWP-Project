@@ -4,13 +4,17 @@ use FSR_AI\Booking;
 
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/network.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'network.jpg'?>" alt="ProfilPageImage">
 </div>
 <div class="Content" id="fadeIn">
     <h1>Eventverwaltung</h1>
 
-    <a href="?c=event&a=CreateEvent&eventAction=create"><button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button></a>
-    <a href="?c=location&a=CreateLocation"><button type="button">Neue Location erstellen</button></a>
+    <a href="?c=event&a=CreateEvent&eventAction=create">
+        <button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+    </a>
+    <a href="?c=location&a=CreateLocation">
+        <button type="button">Neue Location erstellen</button>
+    </a>
 
    <table>
        <tr>
@@ -33,8 +37,12 @@ use FSR_AI\Booking;
                 <td><?=Booking::getRegistrationsByEventID($event['ID'])['EVENT']?></td>
                 <td><?=$event['PICTURE']?></td>
                 <td>
-                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
-                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"><input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;"></a>
+                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>">
+                        <input type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?> alt="Edit" >
+                    </a>
+                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>">
+                        <input type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?> alt="Delete" >
+                    </a>
                 </td>
             </tr>
         <?endforeach;?>
@@ -62,8 +70,8 @@ use FSR_AI\Booking;
                 <td><?=Booking::getRegistrationsByEventID($event['ID'])['EVENT']?></td>
                 <td><?=$event['PICTURE']?></td>
                 <td>
-                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>"><input type="image" name="edit[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit" style="outline:0;"></a>
-                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"><input type="image" name="delete[8c9aa635455b033d2bcb9c3b24489ec7]" title="Event entfernen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete" style="outline:0;"></a>
+                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>"><input type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?> alt="Edit"></a>
+                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"><input type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?> alt="Delete"></a>
                 </td>
             </tr>
         <?endforeach;?>

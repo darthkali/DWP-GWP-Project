@@ -6,7 +6,7 @@ use FSR_AI\User;
 
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets\images\team.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'team.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">
@@ -46,7 +46,7 @@ use FSR_AI\User;
             </div>
         <? foreach($userList as $user) : ?>
             <div class="userBox">
-                <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
+                <img class="center" src=<?=IMAGEPATH.'upload/users/'.$user['PICTURE']?> alt="ProfilPageImage">
                 <p><h2><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h2>
                 <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['MEMBER_ID'])?></strong>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br>

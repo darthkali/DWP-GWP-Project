@@ -28,7 +28,7 @@ class Controller{
 			if(isset($noLayout) && $noLayout === true) {
 				echo $body;
 			}else{
-				include __DIR__.'/../views/layout.php';
+				include __DIR__ . '/../views/layout.php';
 			}
 		}else{
             sendHeaderByControllerAndAction('pages', 'errorPage');

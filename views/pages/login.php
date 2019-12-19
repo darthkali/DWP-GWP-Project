@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/key.jpg'?>" alt="LoginPagePicture">
+    <img class="center" src="<?=IMAGEPATH.'key.jpg'?>" alt="LoginPagePicture">
 </div>
 
 <div class="Content" id="fadeIn">

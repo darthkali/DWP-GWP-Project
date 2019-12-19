@@ -4,7 +4,7 @@ use FSR_AI\role;
 
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">

@@ -9,7 +9,7 @@ $counter = 0;
 $design = '';
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/firework.jpg'?>" alt="Bild Eventseite">
+    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt="Bild Eventseite">
 </div>
 <div class="Content" id="fadeIn">
 
@@ -30,7 +30,7 @@ $design = '';
                 <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) : ?>
                     <?if(Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <div class="ContentEvents" id="EventButton">
-                            <a href="index.php?c=event&a=Booking&eventId=<?=$event['ID']?>">
+                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>">
                                 <button><?=Booking::checkRegistrationForEvent($event['ID']) ? 'Von dem Event abmelden' : 'Für das Event anmelden';?></button></a>
                         </div>
                     <?else: ?>

@@ -1,17 +1,13 @@
 <?php
-
 use FSR_AI\Event;
-use FSR_AI\function_FSR;
-use FSR_AI\MemberHistory;
 use FSR_AI\User;
-
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets\images\network.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'network.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">
-    <img src="<?=ROOTPATH.'assets\images\caution.png'?>" alt="ProfilPageImage">
+    <img src="<?=IMAGEPATH.'caution.png'?>" alt="ProfilPageImage">
     <?if(isset($_GET['userId'])){?>
     <h3>Wollen Sie den Nutzer:</h3>
     <h1>

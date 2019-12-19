@@ -36,9 +36,9 @@ use FSR_AI\Role;
             <td>
                 <? if($_SESSION['userId'] <> $account['MEMBER_ID']){?>
                 <a href="?c=user&a=profil&userId=<?=$account['MEMBER_ID']?>">
-                    <input type="image" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit"></a>
+                    <input type="image" title="User bearbeiten" src=<?=IMAGEPATH.'edit.png'?> alt="Edit"></a>
                 <a href="?c=pages&a=deleteQuestion&userId=<?=$account['MEMBER_ID']?>">
-                    <input type="image"  title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete"></a>
+                    <input type="image" title="User löschen" src=<?=IMAGEPATH.'entfernen.png'?> alt="Delete"></a>
                 <?}?>
             </td>
         </tr>
@@ -75,9 +75,9 @@ use FSR_AI\Role;
                 <td>
                     <? if($_SESSION['userId'] <> $account['ID']){?>
                         <a href="?c=user&a=profil&userId=<?=$account['ID']?>">
-                            <input type="image" title="User bearbeiten" src="/FSAI-Site/assets/images/edit.png" alt="Edit"></a>
+                            <input type="image" title="User bearbeiten" src=<?=IMAGEPATH.'edit.png'?> alt="Edit"></a>
                         <a href="?c=pages&a=deleteQuestion&userId=<?=$account['ID']?>">
-                            <input type="image"  title="User löschen" src="/FSAI-Site/assets/images/entfernen.png" alt="Delete"></a>
+                            <input type="image" title="User löschen" src=<?=IMAGEPATH.'entfernen.png'?> alt="Delete"></a>
                     <?}?>
                 </td>
             </tr>

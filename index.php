@@ -1,6 +1,6 @@
 <?
 // Session start
-session_save_path(__DIR__ . DIRECTORY_SEPARATOR . '/data');
+session_save_path(__DIR__ . DIRECTORY_SEPARATOR);
 session_start();
 
 // includes
@@ -10,7 +10,7 @@ require_once 'init/20_imports.php';
 $controllerName = $_GET['c'] ?? 'pages';
 $actionName = $_GET['a'] ?? 'start';
 
-$controllerPath = __DIR__.'/controller/'.$controllerName.'_controller.php';
+$controllerPath = __DIR__ . '/controller/' .$controllerName.'_controller.php';
 
 if(file_exists($controllerPath))
 {

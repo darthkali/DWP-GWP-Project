@@ -1,6 +1,6 @@
 
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/programmer.png'?>" alt="Picture Dataprotection">
+    <img class="center" src="<?=IMAGEPATH.'programmer.png'?>" alt="Picture Dataprotection">
 </div>
 <div class="Content" id="fadeIn">
         <h1>Datenschutzerklärung</h1>

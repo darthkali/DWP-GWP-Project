@@ -38,12 +38,12 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
     <link rel="shortcut icon" type="image/png" href="<?=ROOTPATH.'assets/images/ailogo_groß.png'?>">
 </head>
 	<body>
-        <?include __DIR__ . '/shared/navMenuBar.php'; ?>
+        <? include __DIR__ . '/shared/navMenuBar.php'; ?>
 
 			<?=$body?>
 
 		<footer>
-            <?include __DIR__ . '/shared/footer.php'; ?>
+            <? include __DIR__ . '/shared/footer.php'; ?>
         </footer>
 	</body>
 </html>

@@ -1,9 +1,9 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/matrix.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'matrix.jpg'?>" alt="ProfilPageImage">
 </div>
 
 <div class="Content" id="fadeIn">
-    <form autocomplete= "off" action="index.php?c=user&a=Registration" method="post" >
+    <form autocomplete= "off" action="?c=user&a=Registration" method="post" >
         <h1>Registrierung</h1>
         <h5>Hier kannst du dich Registrieren!</h5>
 

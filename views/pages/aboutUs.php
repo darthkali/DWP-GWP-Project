@@ -1,10 +1,10 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=ROOTPATH.'assets/images/laptop.jpg'?>" alt="Bild Über Uns Seite">
+    <img class="center" src="<?=IMAGEPATH.'laptop.jpg'?>" alt="Bild Über Uns Seite">
 </div>
 <div class="Content" id="fadeIn">
     <div class="aboutUs">
         <h1>Das sind wir, der Fachschaftsrat!</h1><br>
-        <img src="<?=ROOTPATH.'assets/images/campusplan.png'?>">
+        <img src="<?=IMAGEPATH.'campusplan.png'?>">
         <p>
             <h3>Liebe Studierende, liebe Studieninteressierte,</h3>
             <br>
