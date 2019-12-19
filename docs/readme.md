@@ -20,62 +20,62 @@ Internet Browser
 
 Einrichten von XAMPP
 
-1. Port anpassen (optional)
-* Wenn der Port (standard 80) bereits benutzt wird, z.b. von Skype, dann muss man hier eine Alternative einstellen
-* Nach der httpd.conf suchen:
-* über ControlPanel - Apache Konfig -> Apache(httpd.conf)
-* c:\xampp\apache\conf\httpd.conf
+1. ##### Port anpassen (optional)
 
-* Suche nach dem EIntrag: Listen 80 (oder mit bereits anderer Portnummer)
-* Ändern der Portnummer auf z.B.: 8085 (über 1024)
+   ###### Wenn der Port (standard 80) bereits benutzt wird, z.b. von Skype, dann muss man hier eine Alternative einstellen
 
-* Im ControlPanel auf Konfig (Rechtes Menüband ganz oben) -> Dienste und Ports einstellen
-* Hier im Reiter Apache den neuen Port eintragen
+    * nach der httpd.conf suchen und den Port ändern:
+        * über ControlPanel - Apache Konfig -> Apache(`httpd.conf`)
+        * `C:\xampp\apache\conf\httpd.conf`
+        * Suche nach dem EIntrag: Listen 80 (oder mit bereits anderer Portnummer)
+        * ändern der Portnummer auf z.B.: 8085 (muss über 1024 sein)
 
-2. ShortOpen Tags einstellen
-* Nach der php.ini suchen:
-* über ControlPanel - Apache Konfig -> PHP(php.ini)
-* c:\xampp\php\php.ini
+    * Port im ControlPanel ändern
+        * Im ControlPanel auf Konfig (Rechtes Menüband ganz oben) -> Dienste und Ports einstellen
+        * hier im Reiter `Apache` den neuen Port eintragen
 
-* Suche nach dem EIntrag: short_open_tag=off suchen
-* Ändern auf short_open_tag=on
+2. ##### ShortOpen Tags einstellen
+   ###### Damit die in dem Projekt genutzten ShortOpenTags (`<? ?>` statt `<?php ?>`) funktionieren
+   
+    * Nach der php.ini suchen:
+        * über ControlPanel - Apache Konfig -> PHP(`php.ini`)
+        * `C:\xampp\php\php.ini`
+    
+    * Suche nach dem EIntrag: 
+        * `short_open_tag=off`
+        * ändern auf `short_open_tag=on`
 
 3. Projekt importieren
-* Das Gesamte Projekt in den htdocs Ordner Klonen (Standard: C:\xampp\htdocs)
+    * das Gesamte Projekt in den htdocs Ordner klonen oder aus dem Zip-Archiv entpacken (Standard: `C:\xampp\htdocs`)
 
 4. Datenbankimportieren
-* über ControlPanel - MySQL starten
-* MySql - Admin (ruft die phpmyadmin seite auf)
-* Importieren
-* Datei auswählen (hier den SQL Script welcher sich im projektordner unter ..\FSAI-Site\src\database liegt auswählen)
-* Zeichencodierung: utf-8
-* Format: SQL
+    * über ControlPanel - MySQL starten
+    * MySql - `Admin` (ruft die phpmyadmin Seite auf)
+    * Im der Oberen Menüleiste auf `Importieren` klicken
+    * Auf `Datei auswählen` klicken
+           
+        * hier den SQL Script welcher sich im projektordner unter `..\FSAI-Site\src\database` befindet auswählen
+    
+    * Zeichencodierung: `utf-8`
+    * Format: `SQL`
 
 5. Aufruf der Seite
-* Im Browser localhost:8085/FSAI-Site ausführen (Port muss ggf dem oben gewählten angepasst werden)
+    * Im Browser `localhost:8085/FSAI-Site` ausführen (Port muss ggf dem oben gewählten angepasst werden)
 
 6. Login
-* Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
-* Administrator:  E-Mail: admin@fh    PW: Admin@fh
-* Mitglied:       E-Mail: mitglied@fh PW: Mitglied@fh
-* Nutzer:         E-Mail: nutzer@fh   PW: Nutzer@fh
+    * Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
+    * **Administrator**:--E-Mail: `admin@fh`-------PW: `Admin@fh`
+    * **Mitglied**:----------E-Mail: `mitglied@fh`---PW: `Mitglied@fh`
+    * **Nutzer**:------------E-Mail: `nutzer@fh`------PW: `Nutzer@fh`
 
 ## Built With
 
+* [XAMPP](https://www.apachefriends.org/de/index.html) - Apache-Distribution, die MariaDB und PHP enthält.
 * [PHP-Storm](https://www.jetbrains.com/phpstorm/) - IDE für HTML, CSS und PHP
 * [Web-Storm](https://www.jetbrains.com/webstorm/) - IDE für JavaScript
 * [Adobe XD](https://www.adobe.com/de/products/xd.html) - Tool für die Erstellung des Designs
 * [Visio](https://products.office.com/de-de/visio) - Tool für die Erstellung der Diagramme / Charts / ...
 * [MySQL-Workbench](https://www.mysql.com/de/products/workbench/) - Erstellung der Datenbank
-
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
@@ -85,9 +85,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
