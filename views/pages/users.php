@@ -47,9 +47,9 @@ use FSR_AI\User;
         <? foreach($userList as $user) : ?>
             <div class="userBox">
                 <img class="center" src="/FSAI-Site/assets/images/upload/users/<?=$user['PICTURE']?>" alt="ProfilPageImage">
-                <p><h1><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h1>
+                <p><h2><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h2>
                 <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['MEMBER_ID'])?></strong>
-                    <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br><br>
+                    <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br>
                     <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['MEMBER_ID']);
 
                     ?>
@@ -58,7 +58,7 @@ use FSR_AI\User;
                             $endDate = date("d.m.y", strtotime($member['END_DATE']));
                             $functionFSR = function_FSR::generateFunctionFSRNameByFunctionID($member['FUNCTION_FSR_ID']);
                         ?>
-                <?=$startDate?><strong> bis </strong><?=$endDate?> : <?=$functionFSR?> <br>
+                        <?=$startDate?><strong> bis </strong><?=$endDate?> : <?=$functionFSR?> <br>
                     <?php endforeach; ?>
                 </p>
                 <br>

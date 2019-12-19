@@ -21,7 +21,7 @@ html, body {
     margin:0;
     padding:0;
     overflow: hidden;   /* hide the scrollbar, if content grows over the page size */
-    line-height: 1.45em;
+
     font-size: 17px;
 }
 
@@ -40,7 +40,17 @@ input, textarea, select{
     box-sizing: border-box;
     color: var(--primary-text-color);
     text-decoration: none;
-    vertical-align: baseline;
+    line-height: 1.45em;
+}
+
+h1{
+    line-height: 100%;
+    text-align: center;
+}
+
+h2, h3, h4, h5, h6{
+    line-height: 100%;
+    text-align: left;
 }
 
 /* ----------------------------------   Image   ---------------------------------- */
@@ -63,15 +73,6 @@ footer {
     background: var(--secondary-bg-color);
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
     vertical-align: middle;
-}
-h1{
-    line-height: 100%;
-    text-align: center;
-}
-
-h2, h3, h4, h5, h6{
-    line-height: 100%;
-     text-align: left;
 }
 
 
@@ -529,6 +530,7 @@ table input:hover{
     width: 20%;
     float: right;
     box-shadow: var(--shadow);
+    margin: 5px;
 }
 
 .userBox h1{

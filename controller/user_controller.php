@@ -89,7 +89,7 @@ class UserController extends Controller{
             $sortUser = User::generateSortClauseForUser($_GET['sortUser']);
         }
 
-        $this->_params['accountsMember'] = User::find('ROLE_ID <> ' . role::USER, 'getusermemberhistory', $sortMember);
+        $this->_params['accountsMember'] = User::find('ROLE_ID <> ' . role::USER . ' AND END_DATE is null', 'getusermemberhistory', $sortMember);
         $this->_params['accountsUser'] = User::find('ROLE_ID = ' . role::USER, null, $sortUser);//, 'getusermemberhistory', $sortUser);
 
         if(isset($_GET['userId'])){
