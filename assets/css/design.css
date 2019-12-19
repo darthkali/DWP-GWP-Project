@@ -27,6 +27,10 @@ html, body {
 
 nav, section, footer {display: block;}
 
+input, textarea, select{
+    font-size: 17px;
+}
+
 /* adjustments for all Elements - set the default parameters for all browsers to Null*/
 * {
     margin: 0;
@@ -36,7 +40,7 @@ nav, section, footer {display: block;}
     box-sizing: border-box;
     color: var(--primary-text-color);
     text-decoration: none;
-    vertical-align: baseline
+    vertical-align: baseline;
 }
 
 /* ----------------------------------   Image   ---------------------------------- */
@@ -133,14 +137,12 @@ div#FooterRight a img {
     padding: 10px;
     color: var(--secondary-text-color);
     border-radius:2px;
+    font-size: 17px;
+    /*margin-top: 10px;*/
 }
 
 .Content button:hover{
     color: var(--hover-color);
-}
-
-.Content button{
-    margin-top: 10px;
 }
 
 .Content table{
@@ -164,7 +166,6 @@ div#FooterRight a img {
     border-bottom: solid;
     border-width: 1px;
     border-color: var(--border-color);
-    border-radius: 3px;
     overflow: hidden;
 }
 
@@ -172,9 +173,6 @@ div#ContentEventsInPast{
     opacity: 0.3;
 }
 
-div#ContentEventsInPast:hover{
-    opacity: 1;
-}
 
 .ContentEvents img{
     margin-left: 1%;
@@ -484,6 +482,9 @@ table input:hover{
 
 .aboutUs a:hover{
     color: var(--hover-color);
+}
+.aboutUs i{
+    color: var(--primary-text-color);
 }
 
 
