@@ -1,8 +1,8 @@
 <?
 if($create == true){
-    $action = 'index.php?c=event&a=CreateEvent';
+    $action = 'index.php?c=event&a=CreateEvent&eventAction=create';
 }else{
-    $action = 'index.php?c=event&a=CreateEvent&eventId='.$eventData['ID'].'&pictureName='.$eventData['PICTURE'];
+    $action = 'index.php?c=event&a=CreateEvent&eventAction=edit&eventId='.$eventData['ID'].'&pictureName='.$eventData['PICTURE'];
 }
 
 use FSR_AI\location; ?>

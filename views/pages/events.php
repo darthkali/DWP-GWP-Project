@@ -19,7 +19,7 @@ $design = '';
     <?while($counter <= 1) :?>
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>
-                <img src="/FSAI-Site/assets/images/upload/events/<?=$event['PICTURE']?>">
+                <img src=<?=IMAGEPATH.'upload/events/'.$event['PICTURE']?>>
                 <div>
                     <h2><?=$event['NAME']?></h2>
                     <p>

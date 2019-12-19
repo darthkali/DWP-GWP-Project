@@ -64,7 +64,8 @@ class EventController extends Controller
 
             $eventId = $_GET['eventId'] ?? null;
             if($_FILES['eventPicture']['name'] != null){
-                $pictureName = createUploadedPictureName('event', 'eventPicture');
+                $pictureName = Event::createUploadedPictureName('eventPicture');
+
                 if(isset($_GET['pictureName'])){
                     unlink($dataDir.$_GET['pictureName']);
                 }
@@ -90,6 +91,7 @@ class EventController extends Controller
                     return false;
                 }
                 $event->save();
+
                 $dataDir .= $pictureName;
                 move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
             }
