@@ -56,9 +56,9 @@ Im Browser localhost:8085/FSAI-Site ausführen (Port muss ggf dem oben gewählte
 
 6. Login
 Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
-*Administrator:  E-Mail: admin@fh    PW: Admin@fh
-*Mitglied:       E-Mail: mitglied@fh PW: Mitglied@fh
-*Nutzer:         E-Mail: nutzer@fh   PW: Nutzer@fh
+* Administrator:  E-Mail: admin@fh    PW: Admin@fh
+* Mitglied:       E-Mail: mitglied@fh PW: Mitglied@fh
+* Nutzer:         E-Mail: nutzer@fh   PW: Nutzer@fh
 
 ## Built With
 
