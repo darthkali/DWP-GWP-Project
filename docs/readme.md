@@ -45,10 +45,10 @@ Einrichten von XAMPP
         * `short_open_tag=off`
         * ändern auf `short_open_tag=on`
 
-3. Projekt importieren
+3. ##### Projekt importieren
     * das Gesamte Projekt in den htdocs Ordner klonen oder aus dem Zip-Archiv entpacken (Standard: `C:\xampp\htdocs`)
 
-4. Datenbankimportieren
+4. ##### Datenbankimportieren
     * über ControlPanel - MySQL starten
     * MySql - `Admin` (ruft die phpmyadmin Seite auf)
     * Im der Oberen Menüleiste auf `Importieren` klicken
@@ -59,12 +59,12 @@ Einrichten von XAMPP
     * Zeichencodierung: `utf-8`
     * Format: `SQL`
 
-5. Aufruf der Seite
+5. ##### Aufruf der Seite
     * Im Browser `localhost:8085/FSAI-Site` ausführen (Port muss ggf dem oben gewählten angepasst werden)
 
-6. Login
+6. ##### Login
     * Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
-    * **Administrator**:--E-Mail: `admin@fh`-------PW: `Admin@fh`
+    * **Administrator**:---E-Mail: `admin@fh`-------PW: `Admin@fh`
     * **Mitglied**:----------E-Mail: `mitglied@fh`---PW: `Mitglied@fh`
     * **Nutzer**:------------E-Mail: `nutzer@fh`------PW: `Nutzer@fh`
 
