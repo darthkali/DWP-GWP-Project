@@ -1,6 +1,6 @@
 <?
 // Session start
-session_save_path(__DIR__ . DIRECTORY_SEPARATOR);
+session_save_path(__DIR__ . '/data');
 session_start();
 
 // includes
@@ -12,35 +12,26 @@ $actionName = $_GET['a'] ?? 'start';
 
 $controllerPath = __DIR__ . '/controller/' .$controllerName.'_controller.php';
 
-if(file_exists($controllerPath))
-{
+if(file_exists($controllerPath)) {
     require_once $controllerPath;
 
     $controllerClassName = '\\FSR_AI\\'.ucfirst($controllerName).'Controller';
 
-
-    if(class_exists($controllerClassName))
-    {
+    if(class_exists($controllerClassName)) {
         $controllerInstance = new $controllerClassName($actionName, $controllerName);
 
         $actionMethodName = 'action'.ucfirst($actionName);
 
-        if(method_exists($controllerInstance, $actionMethodName))
-        {
+        if(method_exists($controllerInstance, $actionMethodName)) {
             $controllerInstance->$actionMethodName();
             $controllerInstance->renderHTML();
-        }
-        else
-        {
+        } else {
             sendHeaderByControllerAndAction('pages', 'errorPage');
         }
-    }
-    else
-    {
+    } else {
         sendHeaderByControllerAndAction('pages', 'errorPage');
     }
-}
-else{
+} else{
     sendHeaderByControllerAndAction('pages', 'errorPage');
 }
 ?>
