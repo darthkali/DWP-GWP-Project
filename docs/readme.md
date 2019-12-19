@@ -21,41 +21,41 @@ Internet Browser
 Einrichten von XAMPP
 
 1. Port anpassen (optional)
-  Wenn der Port (standard 80) bereits benutzt wird, z.b. von Skype, dann muss man hier eine Alternative einstellen
-Nach der httpd.conf suchen:
+* Wenn der Port (standard 80) bereits benutzt wird, z.b. von Skype, dann muss man hier eine Alternative einstellen
+* Nach der httpd.conf suchen:
 * über ControlPanel - Apache Konfig -> Apache(httpd.conf)
 * c:\xampp\apache\conf\httpd.conf
 
-Suche nach dem EIntrag: Listen 80 (oder mit bereits anderer Portnummer)
-Ändern der Portnummer auf z.B.: 8085 (über 1024)
+* Suche nach dem EIntrag: Listen 80 (oder mit bereits anderer Portnummer)
+* Ändern der Portnummer auf z.B.: 8085 (über 1024)
 
-Im ControlPanel auf Konfig (Rechtes Menüband ganz oben) -> Dienste und Ports einstellen
-Hier im Reiter Apache den neuen Port eintragen
+* Im ControlPanel auf Konfig (Rechtes Menüband ganz oben) -> Dienste und Ports einstellen
+* Hier im Reiter Apache den neuen Port eintragen
 
 2. ShortOpen Tags einstellen
-Nach der php.ini suchen:
+* Nach der php.ini suchen:
 * über ControlPanel - Apache Konfig -> PHP(php.ini)
 * c:\xampp\php\php.ini
 
-Suche nach dem EIntrag: short_open_tag=off suchen
-Ändern auf short_open_tag=on
+* Suche nach dem EIntrag: short_open_tag=off suchen
+* Ändern auf short_open_tag=on
 
 3. Projekt importieren
-Das Gesamte Projekt in den htdocs Ordner Klonen (Standard: C:\xampp\htdocs)
+* Das Gesamte Projekt in den htdocs Ordner Klonen (Standard: C:\xampp\htdocs)
 
 4. Datenbankimportieren
-über ControlPanel - MySQL starten
-MySql - Admin (ruft die phpmyadmin seite auf)
-Importieren
-Datei auswählen (hier den SQL Script welcher sich im projektordner unter ..\FSAI-Site\src\database liegt auswählen)
-Zeichencodierung: utf-8
-Format: SQL
+* über ControlPanel - MySQL starten
+* MySql - Admin (ruft die phpmyadmin seite auf)
+* Importieren
+* Datei auswählen (hier den SQL Script welcher sich im projektordner unter ..\FSAI-Site\src\database liegt auswählen)
+* Zeichencodierung: utf-8
+* Format: SQL
 
 5. Aufruf der Seite
-Im Browser localhost:8085/FSAI-Site ausführen (Port muss ggf dem oben gewählten angepasst werden)
+* Im Browser localhost:8085/FSAI-Site ausführen (Port muss ggf dem oben gewählten angepasst werden)
 
 6. Login
-Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
+* Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
 * Administrator:  E-Mail: admin@fh    PW: Admin@fh
 * Mitglied:       E-Mail: mitglied@fh PW: Mitglied@fh
 * Nutzer:         E-Mail: nutzer@fh   PW: Nutzer@fh
