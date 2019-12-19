@@ -17,29 +17,27 @@ nav a {
     color: var(--secondary-text-color);
     text-align: center;
     text-decoration: none;
-    font-size: 17px;
 }
 
 .dropdown {
     float: left;
     overflow: hidden;
-    height: 100%;
 }
 
 .dropdown .dropbtn {
-    font-size: 17px;
     border: none;
     outline: none;
     color: var(--secondary-text-color);
     background-color: inherit;
     font-family: inherit;
     margin: 0;
-    height: 100%;
+    height: 60px;
     width: 70px;
 }
 
 nav a, .dropbtn {
-    padding: 20px;          /* space around the boxes */
+    padding: 18px 20px;          /* space around the boxes */
+    height: 60px;
 }
 
 .dropdown-content {
@@ -58,23 +56,12 @@ nav a, .dropbtn {
     text-decoration: none;
     display: block;
     text-align: left;
+    height: 100%;
 }
 
 .dropdown form{
     width: 100%;
 }
-
-/*TODO: ist der Bereich wirklich notwendig?*/
-/*.dropdown input{*/
-/*    width: 100%;*/
-/*    background-color: var(--secondary-bg-color);*/
-/*    color: var(--secondary-text-color);*/
-/*    margin: 0;*/
-/*    text-align: left;*/
-/*    border-style: none;*/
-/*    border-radius: 0;*/
-/*    font-size: 17px;*/
-/*}*/
 
 .dropdown i{
     color: var(--secondary-text-color);
@@ -107,12 +94,13 @@ label.responsive-nav-label {
 .NavContent {
     display: block;
     height: 60px;
-    font-size: 2em;
+    font-size: 2em; /* TODO: ggf entfernen*/
     white-space: nowrap;
     padding: 10px;
     margin-left: 10px;
     width:100%;
 }
+
 
 .NavContent h4{
     vertical-align: 9px;

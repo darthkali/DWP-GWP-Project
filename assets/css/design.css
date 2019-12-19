@@ -1,9 +1,28 @@
+/* first for IE 4–8 */
+@font-face {
+    font-family: TransitWeb;
+    src: url('../fonts/FFTransitWeb/Regular/TransitWeb.eot');
+}
+
+/* then for WOFF-capable browsers */
+@font-face {
+    font-family: TransitWeb;
+    src: url('../fonts/FFTransitWeb/Regular/TransitWeb.woff') format("woff");
+}
+
+/* go on with normal style definitions */
+body {
+    font-family: TransitWeb, sans-serif;
+}
+
 /* backgroundcolor from the Main Page */
 html, body {
     height:100%;
     margin:0;
     padding:0;
     overflow: hidden;   /* hide the scrollbar, if content grows over the page size */
+    line-height: 1.45em;
+    font-size: 17px;
 }
 
 nav, section, footer {display: block;}
@@ -17,6 +36,7 @@ nav, section, footer {display: block;}
     box-sizing: border-box;
     color: var(--primary-text-color);
     text-decoration: none;
+    vertical-align: baseline
 }
 
 /* ----------------------------------   Image   ---------------------------------- */
@@ -40,6 +60,16 @@ footer {
     z-index: 1;             /* Layer Position in Z-Direction - 1 = second Layer*/
     vertical-align: middle;
 }
+h1{
+    line-height: 100%;
+    text-align: center;
+}
+
+h2, h3, h4, h5, h6{
+    line-height: 100%;
+     text-align: left;
+}
+
 
 div#FooterLeft {
     float: left;
@@ -59,7 +89,6 @@ div#FooterMiddle{
     float: left;
     width: 34%;
     text-align: center;
-    font-size: 16px;
     color: var(--secondary-text-color);
 }
 
@@ -81,12 +110,8 @@ div#FooterRight a img {
     height: calc(100% - 100px); /* calculate the Height from the Contentfield - Size from the Window - (height Nav-Bar + height Footer) */
     position: relative;
     overflow: auto;
-    padding: 10px 20px 10px 20px;
+    padding: 20px;
 
-}
-
-.Content h1, h3{
-    text-align: center;
 }
 
 .Content select{
@@ -103,7 +128,6 @@ div#FooterRight a img {
 
 /* ----------------------------------   Button   ---------------------------------- */
 .Content button{
-    font-size: 16px;
     text-align: center;
     background-color: var(--secondary-bg-color);
     padding: 10px;
@@ -255,7 +279,6 @@ form input, form textarea, form select {
     background-color: var(--primary-bg-color);
     width: 100%;
     height: 50px;
-    font-size: 18px;
     padding: 12px 20px;
     margin: 5px 0 5px;
     border-style: solid;
@@ -306,7 +329,6 @@ form [type="file"]:hover {
      display: inline;
     width: auto;
     vertical-align: center;
-    font-size: 16px;
     margin: 4px auto auto auto;
 }
 
@@ -421,10 +443,7 @@ table input:hover{
 }
 
 .pictureRaster h1{
-    width: 100%;
     text-align: left;
-    font-size: 40px;
-    margin-bottom: 10px;
 }
 
 
@@ -450,23 +469,24 @@ table input:hover{
 }
 
 /* ----------------------------------   UeberUnsPage   ---------------------------------- */
-.usPage h1{
-    margin-bottom: 3%;
-}
-
-.usPage img{
+.aboutUs img{
     width: 30%;
     float: right;
 }
 
-.usPage div{
-    overflow: hidden;
+.aboutUs iframe{
+    display: block;
+    padding: 0 10px;
+    float: left;
+    width:40%;
+    height: 400px;
 }
 
-.usPage iframe{
-    display: block;
-    margin: 4% auto 1% auto;
+.aboutUs a:hover{
+    color: var(--hover-color);
 }
+
+
 
 /* ----------------------------------   UserPage   ---------------------------------- */
 .userPageBox{
@@ -511,7 +531,6 @@ table input:hover{
 }
 
 .userBox h1{
-    font-size: 20px;
     text-align: left;
 }
 
@@ -534,7 +553,6 @@ table input:hover{
 .filterBox .sortFilterBox select{
     /*background-color: var(--primary-bg-color);*/
     height: 30px;
-    font-size: 14px;
     margin: 5px 0 5px 0;
     border-style: solid;
     border-width: 1px;
@@ -563,7 +581,6 @@ table input:hover{
 }
 
 .checkBox{
-    font-size: 14px;
     display: block;
     padding: 5px;
 }

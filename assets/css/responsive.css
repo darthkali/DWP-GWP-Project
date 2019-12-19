@@ -3,6 +3,7 @@
     nav{
         padding-right: 0;    /* margin to the right side, to get space for the submenu */
         overflow: auto;
+
     }
 
     .navfloat{
