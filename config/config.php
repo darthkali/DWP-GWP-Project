@@ -7,7 +7,6 @@ define('USER_PICTURE_PATH', ROOTPATH.'assets/images/upload/users/');
 define('IMAGEPATH',ROOTPATH.'assets/images/');
 
 
-
 define('PEPPER', '.m9h-RL=^M/72;tdU\Bz');
 define('HASHOPTIONS', $options = ['cost' => 13]);
 

@@ -15,7 +15,7 @@ use FSR_AI\location; ?>
 
         <h1><?=$headline?></h1>
 
-        <? if(isset($eingabeError)){ ;?> <div class="error"><?
+        <? if(isset($eingabeError)){?> <div class="error"><?
             foreach($eingabeError as $error){?>
                 <?=$error?><br>
             <?}?></div> <? } ?>

@@ -12,7 +12,7 @@ use FSR_AI\role;
         <h1>Meine Daten</h1>
         <h5>Hier kannst du deine Daten ändern!</h5>
 
-        <? if(isset($eingabeError)){ ;?> <div class="error"><?
+        <? if(isset($eingabeError)){?> <div class="error"><?
             foreach($eingabeError as $error){?>
                 <?=$error?><br>
             <?}?></div> <? } ?>

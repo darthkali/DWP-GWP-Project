@@ -53,7 +53,7 @@ use FSR_AI\User;
                     <? $userMember = MemberHistory::generateAllClosedMemberHistory($user['MEMBER_ID']);
 
                     ?>
-                    <? foreach ($userMember as $member) :                     ;?>
+                    <? foreach ($userMember as $member):?>
                         <?  $startDate = date("d.m.y",strtotime($member['START_DATE']));
                             $endDate = date("d.m.y", strtotime($member['END_DATE']));
                             $functionFSR = function_FSR::generateFunctionFSRNameByFunctionID($member['FUNCTION_FSR_ID']);
