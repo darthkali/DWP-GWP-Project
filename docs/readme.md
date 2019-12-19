@@ -3,36 +3,41 @@ Im Rahmen des Projektes zum Thema Grundlagen und Dynamische Webentwicklung haben
 
 ## Getting Started
 
-Hier erfahren Sie wie Sie die Webseite auf Ihrem System INstallieren und starten können.
+Hier erfahren Sie wie Sie die Webseite auf Ihrem System Installieren und starten können.
 
 ### Voraussetzungen
 
 Was wird für die Installation / Ausführung der Webseite benötigt.
 
 ```
-Xammp
-mySQL
+XAMPP Version: 7.3.5
+Control Panel Version: 3.2.3  [ Compiled: Mar 7th 2019 ] (in XAMPP enthalten)
+phpmyadmin
 Internet Browser
 ```
 
 ### Installing
 
-TODO
-A step by step series of examples that tell you how to get a development env running
+Einrichten von XAMPP
 
-Say what the step will be
+1. Port anpassen (optional)
+  Wenn der Port (standard 80) bereits benutzt wird, z.b. von Skype, dann muss man hier eine Alternative einstellen
+Nach der httpd.conf suchen:
+* über ControlPanel - Apache Konfig -> Apache(httpd.conf
+* c:\xampp\apache\conf\httpd.conf
 
-```
-Give the example
-```
+Suche nach dem EIntrag: Listen 80 (oder mit bereits anderer Portnummer)
+Ändern der Portnummer auf z.B.: 8085 (über 1024)
 
-And repeat
+Im ControlPanel auf Konfig (Rechtes Menüband ganz oben) -> Dienste und Ports einstellen
+Hier im Reiter Apache den neuen Port eintragen
 
-```
-until finished
-```
+2. Projekt importieren
+Das Gesamte Projekt in den htdocs Ordner Klonen (Standard: C:\xampp\htdocs)
 
-End with an example of getting some data out of the system or using it for a little demo
+3. Aufruf der Seite
+Im Browser localhost:8085/FSAI-Site ausführen (Port muss ggf dem oben gewählten angepasst werden)
+
 
 ## Built With
 
