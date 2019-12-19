@@ -19,7 +19,7 @@ Internet Browser
 ### Installing
 
 Einrichten von XAMPP
-
+```
 1. Port anpassen (optional)
   Wenn der Port (standard 80) bereits benutzt wird, z.b. von Skype, dann muss man hier eine Alternative einstellen
 Nach der httpd.conf suchen:
@@ -31,13 +31,15 @@ Suche nach dem EIntrag: Listen 80 (oder mit bereits anderer Portnummer)
 
 Im ControlPanel auf Konfig (Rechtes Menüband ganz oben) -> Dienste und Ports einstellen
 Hier im Reiter Apache den neuen Port eintragen
-
+```
+```
 2. Projekt importieren
 Das Gesamte Projekt in den htdocs Ordner Klonen (Standard: C:\xampp\htdocs)
-
+```
+```
 3. Aufruf der Seite
 Im Browser localhost:8085/FSAI-Site ausführen (Port muss ggf dem oben gewählten angepasst werden)
-
+```
 
 ## Built With
 
