@@ -515,10 +515,9 @@ table input:hover{
     width: 100%;
     margin: 10px auto 10px auto;
     padding: 10px;
-    border-style: solid;
+    border-bottom: solid;
     border-width: 1px;
     border-color: var(--border-color);
-    border-radius: 3px;
     overflow: hidden;
 }
 .userBox:hover{
@@ -610,4 +609,37 @@ table input:hover{
     width: fit-content;
     margin-right: auto;
     margin-left: auto;
+}
+
+.errorinput{
+    position: relative;
+}
+
+.errorinput input{
+    border: 1px solid #dd0009;!important;
+}
+
+.errorinput::after{
+    content: '!';
+    color: #dd0009;
+    position: absolute;
+    cursor: pointer;
+    right: 10px;
+    bottom: 7px;
+    title: "Fehler";
+}
+
+.error-message{
+    position: absolute;
+    color: #dd0009;
+    left: 0;
+    padding: 0;
+    font-size: 12px;
+    width: 100%;
+    display: none;
+    z-index: 1;
+}
+
+.errorinput .error-message{
+    display: block;
 }
