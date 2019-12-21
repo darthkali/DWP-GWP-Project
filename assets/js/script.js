@@ -34,21 +34,29 @@ document.addEventListener('DOMContentLoaded', function () {
             emailRegistration.parentNode.className = emailRegistration .parentNode.className.split(" errorinput").join("");
         }
 
-        // TODO: Regex korrekt einbauen
+        // TODO: je nach Fall passende Errormeldung ausgeben
         if(passwordRegistration.value.length < 8 || passwordRegistration.value.length > 60){
+            passwordRegistration.parentNode.className += " errorinput";
+            validate = false;
+        }else if(passwordRegistration.value.match(/[A-Z]/) === null || passwordRegistration.value.match(/[a-z]/) === null) {
+            passwordRegistration.parentNode.className += " errorinput";
+            validate = false;
+        }else if(passwordRegistration.value.match(/[0-9]/) === null) {
+            passwordRegistration.parentNode.className += " errorinput";
+            validate = false;
+        }else if(passwordRegistration.value.match(/[!@#.$%&?]/) === null) {
             passwordRegistration.parentNode.className += " errorinput";
             validate = false;
         }else{
             passwordRegistration.parentNode.className = passwordRegistration .parentNode.className.split(" errorinput").join("");
         }
 
-        // TODO: DateOfBirth einbauen
-        // if(dateOfBirthRegistration.value.length < 3){
-        //     dateOfBirthRegistration.parentNode.className += " errorinput";
-        //     validate = false;
-        // }else{
-        //     dateOfBirthRegistration.parentNode.className = dateOfBirthRegistration .parentNode.className.split(" errorinput").join("");
-        // }
+        if(dateOfBirthRegistration.value.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/i) === null){
+            dateOfBirthRegistration.parentNode.className += " errorinput";
+            validate = false;
+        }else{
+            dateOfBirthRegistration.parentNode.className = dateOfBirthRegistration .parentNode.className.split(" errorinput").join("");
+        }
 
         return validate;
     }

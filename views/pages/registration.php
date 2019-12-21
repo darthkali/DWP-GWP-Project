@@ -42,7 +42,7 @@
         <div class"input">
             <label for="passwordRegistration">PASSWORT </label>
             <input type = "password" id="passwordRegistration" name="passwordRegistration" required >
-            <span class="error-message">Das Passwort muss zwischen 8 und 60 Zeichen besitzen</span>
+            <span class="error-message">Das Passwort muss zwischen 8 und 60 Zeichen besitzen, und aus Groß-, Kleinbuchstaben und Sonderzeichen bestehen</span>
             <? if($errorMessagePassword != ''){?> <div class="error"><?echo $errorMessagePassword?></div> <? } ?>
         </div>
 
@@ -51,7 +51,7 @@
             <label for="dateOfBirthRegistration">GEBURTSDATUM </label>
             <input type = "date" id="dateOfBirthRegistration" name="dateOfBirthRegistration" required
                    value = "<?=isset($_POST['dateOfBirthRegistration']) ? htmlspecialchars($_POST['dateOfBirthRegistration']) : ''?>">
-            <span class="error-message">Der Name muss mind. 3 Yeichen haben</span>
+            <span class="error-message">Das Datum muss im Format TT-MM-JJJJ sein</span>
         </div>
 
         <!-- buttons -->
