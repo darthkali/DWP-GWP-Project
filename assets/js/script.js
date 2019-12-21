@@ -27,8 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lastnameRegistration.parentNode.className = lastnameRegistration .parentNode.className.split(" errorinput").join("");
         }
 
-        // TODO: Reihenfolge muss geprüft werden x@x
-        if(emailRegistration.value.length < 3 || emailRegistration.value.length > 62 || emailRegistration.value.match(/[@]/i) === null){
+        if(emailRegistration.value.length < 3 || emailRegistration.value.length > 62 || emailRegistration.value.match(/[0-9A-Z!#$%&'*+-/=?^_`.{|}~][@][0-9A-Z][0-9A-Z.]/i) === null){
             emailRegistration.parentNode.className += " errorinput";
             validate = false;
         }else{

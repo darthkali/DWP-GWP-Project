@@ -166,7 +166,7 @@ class User extends BaseModel
             $userRole = $user['ROLE_ID'];
             $userInformation = '';
             $title = 'Profil';
-            if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] = true) {
+            if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) {
                 $colorModeChecked = 'checked';
             }else{
                 $colorModeChecked = '';

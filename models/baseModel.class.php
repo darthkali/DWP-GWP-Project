@@ -117,7 +117,7 @@ abstract class BaseModel
         $db = $GLOBALS['db'];
 
         try{
-            $sql = 'DELETE ' . 'FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
+            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
             $db->exec($sql);
             return true;
 
@@ -131,7 +131,7 @@ abstract class BaseModel
     public static function deleteWhere($where){
         $db = $GLOBALS['db'];
         try{
-            $sql = 'DELETE ' . 'FROM ' . self::tablename() . ' WHERE ' . $where;
+            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE ' . $where;
             $db->exec($sql);
 
             return true;
