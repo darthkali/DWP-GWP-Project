@@ -18,7 +18,7 @@
             <label for="firstnameRegistration">VORNAME </label>
             <input type = "text" id="firstnameRegistration" name="firstnameRegistration" required
                    value = "<?=isset($_POST['firstnameRegistration']) ? htmlspecialchars($_POST['firstnameRegistration']) : ''?>"/>
-            <span class="error-message">Der Vorname muss zwischen 2 und 21 Zeichen liegen</span>
+            <span class="error-message" id="errorFirstnameRegistration"></span>
         </div>
 
         <!-- lastname -->
@@ -26,7 +26,7 @@
             <label for="lastnameRegistration">NACHNAME </label>
             <input type = "text" id="lastnameRegistration" name="lastnameRegistration" required
                    value = "<?=isset($_POST['lastnameRegistration']) ? htmlspecialchars($_POST['lastnameRegistration']) : ''?>" />
-            <span class="error-message">Der Nachname muss zwischen 2 und 24 Zeichen liegen</span>
+            <span class="error-message" id="errorLastnameRegistration"></span>
         </div>
 
         <!-- email -->
@@ -34,7 +34,7 @@
             <label for="emailRegistration">EMAIL </label>
             <input type = "email" id="emailRegistration" name="emailRegistration" required
                    value = "<?=isset($_POST['emailRegistration']) ? htmlspecialchars($_POST['emailRegistration']) : ''?>">
-             <span class="error-message">Die E-Mail muss im Format x@x vorliegen und darf maximal 62 Zeichen beinhalten</span>
+             <span class="error-message" id="errorEmailRegistration" ></span>
             <? if($errorMessage != ''){?> <div class="error"><?echo $errorMessage?></div> <? } ?>
         </div>
 
@@ -42,16 +42,16 @@
         <div class"input">
             <label for="passwordRegistration">PASSWORT </label>
             <input type = "password" id="passwordRegistration" name="passwordRegistration" required >
-            <span class="error-message">Das Passwort muss zwischen 8 und 60 Zeichen besitzen, und aus Groß-, Kleinbuchstaben und Sonderzeichen bestehen</span>
+            <span class="error-message" id="errorPasswordRegistration"></span>
             <? if($errorMessagePassword != ''){?> <div class="error"><?echo $errorMessagePassword?></div> <? } ?>
         </div>
 
         <!-- date of birth -->
-            <div class"input">
+        <div class"input">
             <label for="dateOfBirthRegistration">GEBURTSDATUM </label>
             <input type = "date" id="dateOfBirthRegistration" name="dateOfBirthRegistration" required
                    value = "<?=isset($_POST['dateOfBirthRegistration']) ? htmlspecialchars($_POST['dateOfBirthRegistration']) : ''?>">
-            <span class="error-message">Das Datum muss im Format TT-MM-JJJJ sein</span>
+            <span class="error-message" id="errorDateOfBirthRegistration"></span>
         </div>
 
         <!-- buttons -->
