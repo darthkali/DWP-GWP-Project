@@ -25,14 +25,15 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
     <title><?=$title?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/design.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/navigation.css'?>">
-    <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/responsive.css'?>">
+    <link rel="stylesheet" href="<?=CSSPATH.'design.css'?>">
+    <link rel="stylesheet" href="<?=CSSPATH.'navigation.css'?>">
+    <link rel="stylesheet" href="<?=CSSPATH.'responsive.css'?>">
+    <link rel="stylesheet" href="<?=CSSPATH.'aswesomeFonts.css'?>">
 
     <?  if(isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) {?>
-        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/darkMode.css'?>">
+        <link rel="stylesheet" href="<?=CSSPATH.'darkMode.css'?>">
     <?}else{?>
-        <link rel="stylesheet" href="<?=ROOTPATH.'assets/css/normalMode.css'?>">
+        <link rel="stylesheet" href="<?=CSSPATH.'normalMode.css'?>">
     <?}?>
 
     <link rel="shortcut icon" type="image/png" href="<?=ROOTPATH.'assets/images/ailogo_groß.png'?>">

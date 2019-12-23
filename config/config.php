@@ -6,6 +6,8 @@ define('DATABASE',ROOTPATH.'src/database/db.json');
 define('USER_PICTURE_PATH', ROOTPATH.'assets/images/upload/users/');
 define('IMAGEPATH',ROOTPATH.'assets/images/');
 define('JAVASCRIPTPATH', ROOTPATH.'assets/js/');
+define('CSSPATH', ROOTPATH.'assets/css/');
+define('FONTPATH', ROOTPATH.'assets/fonts/');
 
 define('PEPPER', '.m9h-RL=^M/72;tdU\Bz');
 define('HASHOPTIONS', $options = ['cost' => 13]);
