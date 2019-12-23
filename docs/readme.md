@@ -1,6 +1,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/darthkali/dwp-gwp-project/badge/master?s=17405f65133fc8d0a0ea804b4fb6c4fac532809e)](https://www.codefactor.io/repository/github/darthkali/dwp-gwp-project/overview/master)
 
-https://img.shields.io/bitbucket/issues/darthkali/dwp-gwp-project?style=plastic
+[![CodeFactor](https://img.shields.io/bitbucket/issues/darthkali/dwp-gwp-project?style=plastic)
 https://img.shields.io/github/tag/expressjs/express.svg
 
 # Webseite des Fachschaftsrates der Angewandten Informatik
