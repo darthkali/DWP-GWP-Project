@@ -30,7 +30,7 @@
         </div>
 
         <!-- email -->
-        <div class"input">
+        <div class="input">
             <label for="emailRegistration">EMAIL </label>
             <input type = "email" id="emailRegistration" name="emailRegistration" required
                    value = "<?=isset($_POST['emailRegistration']) ? htmlspecialchars($_POST['emailRegistration']) : ''?>">
@@ -39,15 +39,15 @@
         </div>
 
         <!-- password -->
-        <div class"input">
+        <div class="input">
             <label for="passwordRegistration">PASSWORT </label>
             <input type = "password" id="passwordRegistration" name="passwordRegistration" required >
             <span class="error-message" id="errorPasswordRegistration"></span>
-            <? if($errorMessagePassword != ''){?> <div class="error"><?echo $errorMessagePassword?></div> <? } ?>
+            <? if($errorMessagePassword != ''){?> <div class="error"><?echo $errorMessagePassword?></div><? } ?>
         </div>
 
         <!-- date of birth -->
-        <div class"input">
+        <div class="input">
             <label for="dateOfBirthRegistration">GEBURTSDATUM </label>
             <input type = "date" id="dateOfBirthRegistration" name="dateOfBirthRegistration" required
                    value = "<?=isset($_POST['dateOfBirthRegistration']) ? htmlspecialchars($_POST['dateOfBirthRegistration']) : ''?>">
