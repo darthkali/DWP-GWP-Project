@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var password = document.getElementById('password'+ pageName);
         var dateOfBirth = document.getElementById('dateOfBirth'+ pageName);
         var description = document.getElementById('description'+ pageName);
+        var changePasswordCheckbox = document.getElementById('changePasswordCheckbox');
         var validate = true;
 
 
@@ -59,21 +60,23 @@ document.addEventListener('DOMContentLoaded', function () {
             email.parentNode.className = email .parentNode.className.split(" errorinput").join("");
         }
 
-        //PASSWORT
-        if(password.value.length < 8){
-            validate = setErrorInput(password,'Das Passwort muss mind. 8 Zeichen lang sein!');
-        }else if(password.value.length > 60){
-            validate = setErrorInput(password,'Das Passwort darf max. 60 lang sein!');
-        }else if(password.value.match(/[A-Z]/) === null){
-            validate = setErrorInput(password,'Das Passwort muss mind. einen Großbuchstaben besitzen!');
-        }else if(password.value.match(/[a-z]/) === null) {
-            validate = setErrorInput(password,'Das Passwort muss mind. einen Kleinbuchstaben besitzen!');
-        }else if(password.value.match(/[0-9]/) === null) {
-            validate = setErrorInput(password,'Das Passwort muss mind. eine Zahl besitzen!');
-        }else if(password.value.match(/[!@#.$%&?]/) === null) {
-            validate = setErrorInput(password,'Das Passwort muss mind. ein Sonderzeichen besitzen (!@#.$%&?)!');
-        }else{
-            password.parentNode.className = password .parentNode.className.split(" errorinput").join("");
+        if(pageName === 'Registration' || changePasswordCheckbox.checked === true){
+            //PASSWORT
+            if(password.value.length < 8){
+                validate = setErrorInput(password,'Das Passwort muss mind. 8 Zeichen lang sein!');
+            }else if(password.value.length > 60){
+                validate = setErrorInput(password,'Das Passwort darf max. 60 lang sein!');
+            }else if(password.value.match(/[A-Z]/) === null){
+                validate = setErrorInput(password,'Das Passwort muss mind. einen Großbuchstaben besitzen!');
+            }else if(password.value.match(/[a-z]/) === null) {
+                validate = setErrorInput(password,'Das Passwort muss mind. einen Kleinbuchstaben besitzen!');
+            }else if(password.value.match(/[0-9]/) === null) {
+                validate = setErrorInput(password,'Das Passwort muss mind. eine Zahl besitzen!');
+            }else if(password.value.match(/[!@#.$%&?]/) === null) {
+                validate = setErrorInput(password,'Das Passwort muss mind. ein Sonderzeichen besitzen (!@#.$%&?)!');
+            }else{
+                password.parentNode.className = password .parentNode.className.split(" errorinput").join("");
+            }
         }
 
         //DATE OF BIRTH
@@ -84,20 +87,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // only for Profil Page
-        if(pageName === 'Profil'){
-            // FIRSTNAME
-            if(description.value.length < 2){
-                validate = setErrorInput(description,'Der Vorname muss mindestens 2 Zeichen besitzen!');
-            }else if(firstname.value.length > 21){
-                validate = setErrorInput(description,'Der Vorname darf maximal 21 Zeichen besitzen!');
+        if(pageName === 'Profil'){ // TODO:  && Role  === ADMIN OR MEMBER ){
+            // DESCRIPTION
+            if(description.value.length < 100){
+                validate = setErrorInput(description,'Der Beschreibung muss mindestens 100 Zeichen besitzen!');
+            }else if(description.value.length > 1000){
+                validate = setErrorInput(description,'Der Beschreibung darf maximal 1000 Zeichen besitzen!');
             }else{
                 description.parentNode.className = description.parentNode.className.split(" errorinput").join("");
             }
-
-            // TODO: restliche Profil Felder prüfen
-            // TODO: prüfen ob die unterschiedlichen Ansichten Probleme Breiten: Admin, Mitglied, Nutzer
-            // TODO: prüfen ob der Zugriff von der Nutzerverwaltung auch funktioniert!
-
         }
 
 
@@ -105,6 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return validate;
     }
+
 
 
     function setErrorInput(inputField, errorMessage) {

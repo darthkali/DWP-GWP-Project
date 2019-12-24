@@ -51,6 +51,6 @@ use FSR_AI\location; ?>
         <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required)?>>
 
         <!-- button -->
-        <button type="submit" name="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
     </form>
 </div>
