@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    if(typeof document.getElementsByName('submitCreateLocation')[0] != 'undefined') {
+        document.getElementsByName('submitCreateLocation')[0].onclick = function () {
+            return validateLocation();
+        };
+    }
+
     function validateRegistrationOrProfil(pageName) {
 
         var firstname  = document.getElementById('firstname' + pageName);
@@ -117,16 +123,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var validate = true;
 
 
-        // FIRSTNAME
+        // EVENTNAME
         if(eventName.value.length < 8){
-            validate = setErrorInput(eventName,'Der Vorname muss mindestens 2 Zeichen besitzen!');
+            validate = setErrorInput(eventName,'Der Eventname muss mindestens 8 Zeichen besitzen!');
         }else if(eventName.value.length > 64){
-            validate = setErrorInput(eventName,'Der Vorname darf maximal 21 Zeichen besitzen!');
+            validate = setErrorInput(eventName,'Der Eventname darf maximal 64 Zeichen besitzen!');
         }else{
             eventName.parentNode.className = eventName.parentNode.className.split(" errorinput").join("");
         }
 
-        //DATE OF BIRTH
+        //EVENTDATE
         if(eventDate.value.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/i) === null){
             validate = setErrorInput(eventDate,'Das Datum muss im Format TT-MM-JJJJ sein');
         }else{
@@ -155,29 +161,49 @@ document.addEventListener('DOMContentLoaded', function () {
         var validate = true;
 
 
-        // FIRSTNAME
-        if(eventName.value.length < 8){
-            validate = setErrorInput(eventName,'Der Vorname muss mindestens 2 Zeichen besitzen!');
-        }else if(eventName.value.length > 64){
-            validate = setErrorInput(eventName,'Der Vorname darf maximal 21 Zeichen besitzen!');
+        // STREET
+        if(locationStreet.value.length < 3){
+            validate = setErrorInput(locationStreet,'Die Straße muss mindestens 3 Zeichen besitzen!');
+        }else if(locationStreet.value.length > 50){
+            validate = setErrorInput(eventNlocationStreetame,'Die Straße darf maximal 50 Zeichen besitzen!');
         }else{
-            eventName.parentNode.className = eventName.parentNode.className.split(" errorinput").join("");
+            locationStreet.parentNode.className = locationStreet.parentNode.className.split(" errorinput").join("");
         }
 
-        //DATE OF BIRTH
-        if(eventDate.value.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/i) === null){
-            validate = setErrorInput(eventDate,'Das Datum muss im Format TT-MM-JJJJ sein');
+        // NUMBER
+        if(locationNumber.value.length < 1){
+            validate = setErrorInput(locationNumber,'Die Nummer muss mindestens 1 Zeichen besitzen!');
+        }else if(locationNumber.value.length > 5){
+            validate = setErrorInput(locationNumber,'Die Nummer darf maximal 5 Zeichen besitzen!');
+        }else if(locationNumber.value.match(/^[0-9]*$/i) === null){
+            validate = setErrorInput(locationNumber,'Es sind nur Zahlen zugelassen!');
         }else{
-            eventDate.parentNode.className = eventDate .parentNode.className.split(" errorinput").join("");
+            locationNumber.parentNode.className = locationNumber.parentNode.className.split(" errorinput").join("");
         }
 
-        // DESCRIPTION
-        if(eventDescription.value.length < 100){
-            validate = setErrorInput(eventDescription,'Der Beschreibung muss mindestens 100 Zeichen besitzen!');
-        }else if(eventDescription.value.length > 1000){
-            validate = setErrorInput(eventDescription,'Der Beschreibung darf maximal 1000 Zeichen besitzen!');
+        // ZIPCODE
+        if(locationZipcode.value.length !== 5){
+            validate = setErrorInput(locationZipcode,'Die Postleitzahl muss aus genau 5 Ziffern bestehen');
+        }else if(locationZipcode.value.match(/^[0-9]*$/i) === null){
+            validate = setErrorInput(locationZipcode,'Es sind nur Zahlen zugelassen!');
         }else{
-            eventDescription.parentNode.className = eventDescription.parentNode.className.split(" errorinput").join("");
+            locationZipcode.parentNode.className = locationZipcode.parentNode.className.split(" errorinput").join("");
+        }
+
+        // CITY
+        if(locationCity.value.length < 1){
+            validate = setErrorInput(locationCity,'Die Stadt muss mindestens 1 Zeichen besitzen!');
+        }else if(locationCity.value.length > 58){
+            validate = setErrorInput(locationCity,'Die Stadt darf maximal 58 Zeichen besitzen!');
+        }else{
+            locationCity.parentNode.className = locationCity.parentNode.className.split(" errorinput").join("");
+        }
+
+        // ROOM
+        if(locationRoom.value.length > 9){
+            validate = setErrorInput(locationRoom,'Der Raum darf maximal 9 Zeichen besitzen!');
+        }else{
+            locationRoom.parentNode.className = locationRoom.parentNode.className.split(" errorinput").join("");
         }
 
         return validate;

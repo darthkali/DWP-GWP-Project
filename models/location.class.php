@@ -13,7 +13,7 @@ class Location extends BaseModel
         'NUMBER'           => [ 'type' => BaseModel::TYPE_STRING, 'min' => 1, 'max' => 5  ],
         'ZIPCODE'          => [ 'type' => BaseModel::TYPE_STRING, 'min' => 5, 'max' => 5  ],
         'CITY'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 1, 'max' => 58 ],
-        'ROOM'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 1, 'max' => 9  ]
+        'ROOM'             => [ 'type' => BaseModel::TYPE_STRING, 'min' => 0, 'max' => 9  ]
     ];
 
     public static function buildLocationDetails($locationId){
