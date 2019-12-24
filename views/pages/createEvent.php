@@ -21,14 +21,20 @@ use FSR_AI\location; ?>
             <?}?></div> <? } ?>
 
         <!-- name -->
-        <label for="eventName">EVENTNAME</label>
-        <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required
-               value="<?=isset($eventData['NAME']) ? $eventData['NAME'] : ''?>">
+        <div class="input">
+            <label for="eventName">EVENTNAME</label>
+            <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required
+                   value="<?=isset($eventData['NAME']) ? $eventData['NAME'] : ''?>">
+                <span class="error-message" id="errorEventName"></span>
+        </div>
 
         <!-- date -->
-        <label for="eventDate">DATUM</label>
-        <input type = "date" id="eventDate" name="eventDate" placeholder="Datum" required
-               value="<?=isset($eventData['DATE']) ? $eventData['DATE'] : ''?>">
+        <div class="input">
+            <label for="eventDate">DATUM</label>
+            <input type = "date" id="eventDate" name="eventDate" placeholder="Datum" required
+                   value="<?=isset($eventData['DATE']) ? $eventData['DATE'] : ''?>">
+                <span class="error-message" id="errorEventDate"></span>
+        </div>
 
         <!-- location drop down menu -->
         <label for="eventLocation">ORT</label>
@@ -44,8 +50,11 @@ use FSR_AI\location; ?>
         </select>
 
         <!-- description -->
-        <label for="eventDescription">BESCHREIBUNG</label>
-        <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required><?=isset($eventData['DESCRIPTION']) ? $eventData['DESCRIPTION'] : ''?></textarea>
+        <div class="input">
+            <label for="eventDescription">BESCHREIBUNG</label>
+            <textarea type = "textarea" id="eventDescription" name="eventDescription" placeholder="Beschreibung" required><?=isset($eventData['DESCRIPTION']) ? $eventData['DESCRIPTION'] : ''?></textarea>
+                <span class="error-message" id="errorEventDescription"></span>
+        </div>
 
         <label for="picture">BILD</label>
         <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required)?>>
@@ -54,3 +63,4 @@ use FSR_AI\location; ?>
         <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
     </form>
 </div>
+<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>

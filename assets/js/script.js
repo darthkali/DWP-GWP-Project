@@ -12,6 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    if(typeof document.getElementsByName('submitEvent')[0] != 'undefined') {
+        document.getElementsByName('submitEvent')[0].onclick = function () {
+            return validateEvent();
+        };
+    }
 
     function validateRegistrationOrProfil(pageName) {
 
@@ -104,7 +109,79 @@ document.addEventListener('DOMContentLoaded', function () {
         return validate;
     }
 
+    function validateEvent() {
 
+        var eventName  = document.getElementById('eventName');
+        var eventDate = document.getElementById('eventDate');
+        var eventDescription= document.getElementById('eventDescription');
+        var validate = true;
+
+
+        // FIRSTNAME
+        if(eventName.value.length < 8){
+            validate = setErrorInput(eventName,'Der Vorname muss mindestens 2 Zeichen besitzen!');
+        }else if(eventName.value.length > 64){
+            validate = setErrorInput(eventName,'Der Vorname darf maximal 21 Zeichen besitzen!');
+        }else{
+            eventName.parentNode.className = eventName.parentNode.className.split(" errorinput").join("");
+        }
+
+        //DATE OF BIRTH
+        if(eventDate.value.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/i) === null){
+            validate = setErrorInput(eventDate,'Das Datum muss im Format TT-MM-JJJJ sein');
+        }else{
+            eventDate.parentNode.className = eventDate .parentNode.className.split(" errorinput").join("");
+        }
+
+        // DESCRIPTION
+        if(eventDescription.value.length < 100){
+            validate = setErrorInput(eventDescription,'Der Beschreibung muss mindestens 100 Zeichen besitzen!');
+        }else if(eventDescription.value.length > 1000){
+            validate = setErrorInput(eventDescription,'Der Beschreibung darf maximal 1000 Zeichen besitzen!');
+        }else{
+            eventDescription.parentNode.className = eventDescription.parentNode.className.split(" errorinput").join("");
+        }
+
+        return validate;
+    }
+
+    function validateLocation(){
+
+        var locationStreet  = document.getElementById('locationStreet');
+        var locationNumber = document.getElementById('locationNumber');
+        var locationZipcode= document.getElementById('locationZipcode');
+        var locationCity= document.getElementById('locationCity');
+        var locationRoom= document.getElementById('locationRoom');
+        var validate = true;
+
+
+        // FIRSTNAME
+        if(eventName.value.length < 8){
+            validate = setErrorInput(eventName,'Der Vorname muss mindestens 2 Zeichen besitzen!');
+        }else if(eventName.value.length > 64){
+            validate = setErrorInput(eventName,'Der Vorname darf maximal 21 Zeichen besitzen!');
+        }else{
+            eventName.parentNode.className = eventName.parentNode.className.split(" errorinput").join("");
+        }
+
+        //DATE OF BIRTH
+        if(eventDate.value.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/i) === null){
+            validate = setErrorInput(eventDate,'Das Datum muss im Format TT-MM-JJJJ sein');
+        }else{
+            eventDate.parentNode.className = eventDate .parentNode.className.split(" errorinput").join("");
+        }
+
+        // DESCRIPTION
+        if(eventDescription.value.length < 100){
+            validate = setErrorInput(eventDescription,'Der Beschreibung muss mindestens 100 Zeichen besitzen!');
+        }else if(eventDescription.value.length > 1000){
+            validate = setErrorInput(eventDescription,'Der Beschreibung darf maximal 1000 Zeichen besitzen!');
+        }else{
+            eventDescription.parentNode.className = eventDescription.parentNode.className.split(" errorinput").join("");
+        }
+
+        return validate;
+    }
 
     function setErrorInput(inputField, errorMessage) {
         inputField.parentNode.className += " errorinput";
