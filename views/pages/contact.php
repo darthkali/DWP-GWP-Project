@@ -5,7 +5,6 @@
     <form autocomplete="off" action="?c=pages&a=Contact" method="post">
         <h1>Kontakt</h1>
 
-
         <? if(isset($eingabeError)){?>
             <div class="error"><?
                 foreach($eingabeError as $error){?>
@@ -13,30 +12,44 @@
                 <?}?>
             </div> <? } ?>
 
-        <!-- firstname -->
-        <label for="name">NAME</label>
-        <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required
-               value = "<?=isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''?>">
+        <!-- name -->
+        <div class="input">
+            <label for="name">NAME</label>
+            <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required
+                   value = "<?=isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''?>">
+            <span class="error-message" id="errorName"></span>
+        </div>
 
         <!-- email -->
-        <label for="mail">EMAIL</label>
-        <input type = "email" id="mail" name="mail" placeholder="Ihre E-Mail-Adresse" required
-               value = "<?=isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : ''?>">
+        <div class="input">
+            <label for="mail">EMAIL</label>
+            <input type = "email" id="mail" name="mail" placeholder="Ihre E-Mail-Adresse" required
+                   value = "<?=isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : ''?>">
+            <span class="error-message" id="errorMail"></span>
+        </div>
 
         <!-- subject -->
-        <label for="subject">BETREFF</label>
-        <input type = "text" id="subject" name="subject" placeholder="Betreff" required
-               value = "<?=isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : ''?>">
+        <div class="input">
+            <label for="subject">BETREFF</label>
+            <input type = "text" id="subject" name="subject" placeholder="Betreff" required
+                   value = "<?=isset($_POST['subject']) ? htmlspecialchars($_POST['subject']) : ''?>">
+            <span class="error-message" id="errorSubject"></span>
+        </div>
 
-        <!-- subject -->
-        <label for="textarea">DEIN ANLIEGEN</label>
-        <textarea type = "textarea" id="textarea" name="text" required placeholder="Dein Anliegen"><?=isset($_POST['textarea']) ? htmlspecialchars($_POST['textarea']) : ''?></textarea>
+        <!-- text -->
+        <div class="input">
+            <label for="text">DEIN ANLIEGEN</label>
+            <textarea type = "textarea" id="text" name="text" required placeholder="Dein Anliegen"><?=isset($_POST['textarea']) ? htmlspecialchars($_POST['textarea']) : ''?></textarea>
+            <span class="error-message" id="errorTextarea"></span>
+        </div>
 
         <!-- button -->
-        <button type="submit" name="sendMail">Abschicken</button>
+        <button type="submit" name="sendMail" id="sendMail">Abschicken</button>
         <button type="reset">Löschen</button>
     </form>
 </div>
+
+<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
 
 <!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
 <!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>

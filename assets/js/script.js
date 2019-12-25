@@ -30,6 +30,13 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    if(typeof document.getElementsByName('sendMail')[0] != 'undefined') {
+        console.log("aljcha")
+        document.getElementsByName('sendMail')[0].onclick = function () {
+            return validateContact();
+        };
+    }
+
     function validateRegistrationOrProfil(pageName) {
 
         var firstname  = document.getElementById('firstname' + pageName);
@@ -211,6 +218,63 @@ document.addEventListener('DOMContentLoaded', function () {
         }else{
             locationRoom.parentNode.className = locationRoom.parentNode.className.split(" errorinput").join("");
         }
+
+        return validate;
+    }
+
+    function validateContact(){
+
+        var contactName  = document.getElementById('name');
+        var contactMail = document.getElementById('mail');
+        var contactSubject= document.getElementById('subject');
+        var contactText= document.getElementById('text');
+        var validate = true;
+
+
+        // NAME
+        if(contactName.value.length < 2){
+            validate = setErrorInput(contactName,'Der Name muss mindestens 2 Zeichen besitzen!');
+        }else if(contactName.value.length > 50){
+            validate = setErrorInput(contactName,'Der Name darf maximal 50 Zeichen besitzen!');
+        }else{
+            contactName.parentNode.className = contactName.parentNode.className.split(" errorinput").join("");
+        }
+
+        //EMAIL
+        if(contactMail.value.length < 3){
+            validate = setErrorInput(contactMail,'Die E-Mail muss mind. 3 Zeichen lang sein!');
+        }else if(contactMail.value.length > 62){
+            validate = setErrorInput(contactMail,'Die E-Mail darf max. 62 Zeichen lang sein!');
+        }else if(contactMail.value.match(/[@]/i) === null){
+            validate = setErrorInput(contactMail,'Die E-Mail muss ein @-Zeichen enthalten!');
+        }else if(contactMail.value.match(/[0-9A-Z!#$%&'*+-/=?^_`.{|}~][@]/i) === null){
+            validate = setErrorInput(contactMail,'Vor dem @ muss eine Eingabe erfolgen!');
+        }else if(contactMail.value.match(/[@][0-9A-Z.]/i) === null){
+            validate = setErrorInput(contactMail,'Direkt nach dem @ muss eine Eingabe erfolgen!');
+        }else if(contactMail.value.match(/[@][0-9A-Z]/i) === null){
+            validate = setErrorInput(contactMail,'Direkt nach dem @ darf kein Punkt folgen!');
+        }else{
+            contactMail.parentNode.className = contactMail .parentNode.className.split(" errorinput").join("");
+        }
+
+        // SUBJECT
+        if(contactSubject.value.length < 2){
+            validate = setErrorInput(contactSubject,'Der Titel muss mindestens 2 Zeichen besitzen!');
+        }else if(contactSubject.value.length > 50){
+            validate = setErrorInput(contactSubject,'Der Titel darf maximal 50 Zeichen besitzen!');
+        }else{
+            contactSubject.parentNode.className = contactSubject.parentNode.className.split(" errorinput").join("");
+        }
+
+        // TEXT
+        if(contactText.value.length < 10){
+            validate = setErrorInput(contactText,'Das Anliegen muss mindestens 10 Zeichen besitzen!');
+        }else if(contactText.value.length > 1000){
+            validate = setErrorInput(contactText,'Das Anliegen darf maximal 1000 Zeichen besitzen!');
+        }else{
+            contactText.parentNode.className = contactText.parentNode.className.split(" errorinput").join("");
+        }
+
 
         return validate;
     }
