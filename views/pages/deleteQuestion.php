@@ -28,7 +28,6 @@ use FSR_AI\User;
         <?
         $event = Event::findOne('ID = '. $_GET['eventId']);
         echo $event['NAME']
-
         ?>
     </h1>
     <h3> wirklich Löschen?</h3>

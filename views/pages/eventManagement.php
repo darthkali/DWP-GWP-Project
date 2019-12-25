@@ -38,10 +38,11 @@ use FSR_AI\Booking;
                 <td><?=$event['PICTURE']?></td>
                 <td>
                     <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>">
-                        <input type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?> alt="Edit" >
+                        <input alt="Edit" type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?>>
                     </a>
-                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>">
-                        <input type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?> alt="Delete" >
+                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"
+                       onclick="return deleteQuestionEvent(this, <?=$event['ID']?>, <?=$event['PICTURE']?>)">
+                        <input alt="Delete" type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?>>
                     </a>
                 </td>
             </tr>
@@ -70,11 +71,16 @@ use FSR_AI\Booking;
                 <td><?=Booking::getRegistrationsByEventID($event['ID'])['EVENT']?></td>
                 <td><?=$event['PICTURE']?></td>
                 <td>
-                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>"><input type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?> alt="Edit"></a>
-                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"><input type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?> alt="Delete"></a>
+                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>">
+                        <input alt="Edit" type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?> ></a>
+                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"
+                       onclick="return deleteQuestionEvent(this, <?=$event['ID']?>, <?=$event['PICTURE']?>)">
+                        <input alt="Delete" type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?> ></a>
                 </td>
             </tr>
         <?endforeach;?>
     </table>
 
 </div>
+
+<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>

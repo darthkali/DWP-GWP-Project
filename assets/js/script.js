@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
+    if(typeof document.getElementsByName('test')[0] != 'undefined') {
+        document.getElementsByName('test')[0].onclick = function () {
+            ask_first();
+        };
+    }
+
     if(typeof document.getElementsByName('submitCreateLocation')[0] != 'undefined') {
         document.getElementsByName('submitCreateLocation')[0].onclick = function () {
             return validateLocation();
@@ -224,4 +230,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+function deleteQuestionUser(link, userID) {
+    link.href = "?c=user&a=userManagement&userId=" + userID;
+    return window.confirm("Wollen Sie den Nutzer wirklich löschen?");
+}
+
+function deleteQuestionEvent(link, eventID, pictureID) {
+    console.log(link);
+    link.href = "?c=event&a=eventManagement&eventId=" + eventID + "&pictureName=" + "'" + pictureID + "'";
+    return window.confirm("Wollen Sie das Event wirklich löschen?");
+}
 
