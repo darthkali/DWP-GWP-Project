@@ -17,7 +17,24 @@ class PagesController extends Controller{
     public function actionContact(){
         $this->_params['title'] = 'Kontakt';
 
+
         if (isset($_POST['sendMail'])) {
+
+            $params = [
+                'NAME'          => ($_POST['name']      === '') ? null : $_POST['name'],
+                'EMAIL'         => ($_POST['mail']      === '') ? null : $_POST['mail'],
+                'TOPIC'         => ($_POST['subject']   === '') ? null : $_POST['subject'],
+                'DESCRIPTION'   => ($_POST['text']      === '') ? null : $_POST['text']
+            ];
+
+            $newContact = new Contact($params);
+            // validation from the inputFields
+            $eingabeError = [];
+            if(!$newContact->validate($eingabeError)){
+                $this->_params['eingabeError'] = $eingabeError;
+                return false;
+            }
+
             $header = array();
             $header[] = "MIME-Version: 1.0";
             $header[] = "Content-type: text/plain; charset=utf-8";
@@ -45,7 +62,7 @@ class PagesController extends Controller{
         //Permissions for the page
         $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
         $errorPage = 'Location: ?c=pages&a=error'; // send the user to the error page if he has no permission
-        User::checkUserPermissionForPage($accessUser,$errorPage);
+        User::checkUserPermissionForPage($accessUser);
         $this->_params['title'] = 'Nutzer Löschen';
     }
 }

@@ -8,10 +8,12 @@
         <h5>Hier kannst du dich Registrieren!</h5>
 
 
-        <? if(isset($eingabeError)){?> <div class="error"><?
+        <? if(isset($eingabeError)){?>
+            <div class="error"><?
             foreach($eingabeError as $error){?>
                 <?=$error?><br>
-            <?}?></div> <? } ?>
+            <?}?>
+            </div> <? } ?>
 
         <!-- firstname -->
         <div class="input">

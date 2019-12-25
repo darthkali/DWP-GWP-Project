@@ -5,6 +5,14 @@
     <form autocomplete="off" action="?c=pages&a=Contact" method="post">
         <h1>Kontakt</h1>
 
+
+        <? if(isset($eingabeError)){?>
+            <div class="error"><?
+                foreach($eingabeError as $error){?>
+                    <?=$error?><br>
+                <?}?>
+            </div> <? } ?>
+
         <!-- firstname -->
         <label for="name">NAME</label>
         <input type = "text" id="name" name="name" placeholder="Vor- und Nachname" required
