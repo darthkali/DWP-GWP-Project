@@ -66,9 +66,7 @@ class UserController extends Controller{
         setcookie('userId','',-1,'/');
         setcookie('password','',-1,'/');
         setcookie('colorMode','',-1,'/');
-        unset($_SESSION['users']);
         session_destroy();
-        session_write_close();
         sendHeaderByControllerAndAction('pages', 'Start');
     }
 
