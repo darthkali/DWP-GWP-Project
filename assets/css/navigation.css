@@ -47,7 +47,7 @@ nav a, .dropbtn {
     min-width: 160px;
     z-index: 1;
     margin-left: -110px;
-    height: 50px;
+    height: 55px;
 }
 
 .dropdown-content a {

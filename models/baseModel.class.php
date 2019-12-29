@@ -11,8 +11,7 @@ abstract class BaseModel
     protected $data = [];  // data which goes into the table
 
     // baseModel constructor
-    public function __construct($params)
-    {
+    public function __construct($params){
         foreach ($this->schema as $key => $value){
             if(isset($params[$key])){
                 $this->{$key} = $params[$key];
@@ -23,8 +22,7 @@ abstract class BaseModel
     }
 
     // magic method to get $data files
-    public function  __get($key)
-    {
+    public function  __get($key){
         if(array_key_exists($key, $this->data)){
             return $this->data[$key];
         }
@@ -32,8 +30,7 @@ abstract class BaseModel
     }
 
     // megic method to set $data files
-    public function  __set($key, $value)
-    {
+    public function  __set($key, $value){
         if(array_key_exists($key, $this->schema)){
             $this->data[$key] = $value;
             return;
@@ -43,7 +40,6 @@ abstract class BaseModel
 
     //decides if we have an id, then the entity is already there, than we take the update, else we need an insert
     public function save(&$errors = null){
-
         if($this->ID === null){
             $this->insert($errors);
         }else{
@@ -73,15 +69,17 @@ abstract class BaseModel
             $sql = trim($sql, ',');
             $valueString = trim($valueString, ',');
             $sql .= ')'.$valueString.');';
-
             $statement = $db->prepare($sql);
+
+            $db->beginTransaction();
             $statement->execute();
+            $db->commit();
 
             return true;
-
         }
         catch(\PDOException $e){
             $errors[] = 'Error inserting '.get_called_class();
+            $db->rollBack();
         }
         return false;
     }
@@ -102,12 +100,16 @@ abstract class BaseModel
             $sql = trim($sql, ',');
             $sql .= ' WHERE id = ' . $this->data['ID'];
             $statement = $db->prepare($sql);
-            $statement->execute();
-            return true;
 
+            $db->beginTransaction();
+            $statement->execute();
+            $db->commit();
+
+            return true;
         }
         catch(\PDOException $e){
             $errors[] = 'Error updating '.get_called_class();
+            $db->rollBack();
         }
         return false;
     }
@@ -118,12 +120,16 @@ abstract class BaseModel
 
         try{
             $sql = 'DELETE FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
+
+            $db->beginTransaction();
             $db->exec($sql);
+            $db->commit();
             return true;
 
         }
         catch(\PDOException $e){
             $errors[] = 'Error deleting '.get_called_class();
+            $db->rollBack();
         }
         return false;
     }
@@ -132,13 +138,16 @@ abstract class BaseModel
         $db = $GLOBALS['db'];
         try{
             $sql = 'DELETE FROM ' . self::tablename() . ' WHERE ' . $where;
+
+            $db->beginTransaction();
             $db->exec($sql);
+            $db->commit();
 
             return true;
-
         }
         catch(\PDOException $e){
             $errors[] = 'Error deleting '.get_called_class();
+            $db->rollBack();
         }
         return false;
     }
@@ -239,7 +248,7 @@ abstract class BaseModel
 
     public static function putTheUploadetFileOnTheServerAndRemoveTheOldOne($inputFieldName, $filePath, $fileName, $pictureName ){
         if (basename($_FILES[$inputFieldName]['name']) != null) {
-            unlink($filePath.$fileName,);
+            unlink($filePath.$fileName);
             $picturePath = $filePath . $pictureName;
             move_uploaded_file($_FILES[$inputFieldName]['tmp_name'], $picturePath);
             return $pictureName;

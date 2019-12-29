@@ -30,7 +30,6 @@ class User extends BaseModel
 
     public static function findUserByLoginDataFromPost(){
         $email    = $_POST['email'] ?? null;
-
         $where = " EMAIL = '" . $email . "';" ;
         $users = self::find($where);
         foreach($users as $user){
@@ -60,7 +59,6 @@ class User extends BaseModel
     }
 
     public static function getAge($dateOfBirth){
-
         return date_diff(date_create($dateOfBirth), date_create(date('d.m.Y')))->format('%y');
     }
 
@@ -69,9 +67,7 @@ class User extends BaseModel
     }
 
     public static function checkUserPermissionForPage($roleIdWithPermission){
-
         $user = User::findUserBySessionUserID();
-
         if($user  != null) {
             $access = false;                            // default no access to the page
 
@@ -99,7 +95,6 @@ class User extends BaseModel
     public static function checkUniqueUserEntity($email){
         $where = " EMAIL = '" . $email . "';'";
         return self::findOne($where)['ID'];
-
     }
 
     public static function changeUserRoleAndFunction($userID, $newRole, $newfunctionFSR = null){
