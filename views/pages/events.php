@@ -14,7 +14,34 @@ $design = '';
 
     <h1>Unsere Events</h1>
 
+    <div class="filterBox">
+<form>
 
+            <div class="sortFilterBox">
+                <label for="sortByUser">Sortieren nach: </label> <br>
+                <select name="sortByUser" id="sortByUser">
+                    <option value = 1 >  Funktion</option>
+                    <option value = 2 >  Vorname - Aufsteigend</option>
+                    <option value = 3 >  Vorname - Absteigend</option>
+                    <option value = 4 >  Nachname - Aufsteigend</option>
+                    <option value = 5 >  Nachname - Absteigend</option>
+                </select>
+            </div>
+
+            <div class="sortFilterBox">
+                <label for="startDateEventFilter">Anfangsdatum </label><br>
+                <input type = "date" id="startDateEventFilter" name="startDateEventFilter"/>
+            </div>
+
+            <div class="sortFilterBox">
+                <label for="endDateEventFilter">Enddatum </label><br>
+                <input type = "date" id="endDateEventFilter" name="endDateEventFilter"/>
+            </div>
+
+            <!-- buttons -->
+            <button type="submit" name="filterID">Filter anwenden</button>
+</form>
+    </div>
     <?while($counter <= 1) :?>
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>

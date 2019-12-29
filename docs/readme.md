@@ -5,6 +5,7 @@
 ![CodeFactor](https://img.shields.io/badge/MariaDB-10.4.8-Yellow)
 
 
+
 # Webseite des Fachschaftsrates der Angewandten Informatik
 Im Rahmen des Projektes zum Thema Grundlagen und Dynamische Webentwicklung haben wir uns entschieden eine Webseite für den FSR AI zu erstellen.
 
