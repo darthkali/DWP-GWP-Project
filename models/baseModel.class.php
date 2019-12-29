@@ -1,6 +1,8 @@
 <?php
 namespace FSR_AI;
 
+use PDOException;
+
 abstract class BaseModel
 {
     const TYPE_INT = 'int';
@@ -26,7 +28,10 @@ abstract class BaseModel
         if(array_key_exists($key, $this->data)){
             return $this->data[$key];
         }
-        throw new \Exception('You can not access to property "'.$key.'"" for the class "'.get_called_class());
+        $message = 'You can not access to property "'.$key.'"" for the class "'.get_called_class();
+        error_to_logFile($message);
+        throw new \Exception($message);
+
     }
 
     // megic method to set $data files
@@ -35,7 +40,9 @@ abstract class BaseModel
             $this->data[$key] = $value;
             return;
         }
-        throw new \Exception('You can not access to property "'.$key.'"" for the class "'.get_called_class());
+        $message = 'You can not access to property "'.$key.'"" for the class "'.get_called_class();
+        error_to_logFile($message);
+        throw new \Exception($message);
     }
 
     //decides if we have an id, then the entity is already there, than we take the update, else we need an insert
@@ -77,8 +84,11 @@ abstract class BaseModel
 
             return true;
         }
-        catch(\PDOException $e){
+        catch(PDOException $e){
             $errors[] = 'Error inserting '.get_called_class();
+            foreach($errors  as $error){
+                error_to_logFile($error);
+            }
             $db->rollBack();
         }
         return false;
@@ -107,8 +117,11 @@ abstract class BaseModel
 
             return true;
         }
-        catch(\PDOException $e){
+        catch(PDOException $e){
             $errors[] = 'Error updating '.get_called_class();
+            foreach($errors  as $error){
+                error_to_logFile($error);
+            }
             $db->rollBack();
         }
         return false;
@@ -125,10 +138,12 @@ abstract class BaseModel
             $db->exec($sql);
             $db->commit();
             return true;
-
         }
-        catch(\PDOException $e){
+        catch(PDOException $e){
             $errors[] = 'Error deleting '.get_called_class();
+            foreach($errors  as $error){
+                error_to_logFile($error);
+            }
             $db->rollBack();
         }
         return false;
@@ -145,8 +160,11 @@ abstract class BaseModel
 
             return true;
         }
-        catch(\PDOException $e){
+        catch(PDOException $e){
             $errors[] = 'Error deleting '.get_called_class();
+            foreach($errors  as $error){
+                error_to_logFile($error);
+            }
             $db->rollBack();
         }
         return false;
@@ -220,9 +238,11 @@ abstract class BaseModel
             $sql .= ' '.$orderBy;
             $result = $db->query($sql)->fetchAll();
         }
-        catch(\PDOException $e)
+        catch(PDOException $e)
         {
-            die('Select statment failed: ' . $e->getMessage());
+            $message = 'Select statment failed: ' . $e->getMessage();
+            error_to_logFile($message);
+            die($message);
         }
 
         return $result;
@@ -240,8 +260,10 @@ abstract class BaseModel
             }
             $result = $db->query($sql)->fetch();
         }
-        catch(\PDOException $e){
-            die('Select statment failed: ' . $e->getMessage());
+        catch(PDOException $e){
+            $message = 'Select statment failed: ' . $e->getMessage();
+            error_to_logFile($message);
+            die($message);
         }
         return $result;
     }

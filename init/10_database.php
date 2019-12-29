@@ -12,6 +12,8 @@ $db = null;
 try{
     $db = new PDO($dns, $dbuser, $dbpassword, $options);
 }
-catch(\PDOException $e){
-    die( 'Database connection failed: ' . $e->getMessage() );
+catch(PDOException $e){
+    $message = 'Database connection failed: ' . $e->getMessage();
+    error_to_logFile($message);
+    die($message);
 }

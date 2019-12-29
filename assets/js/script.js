@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if(typeof document.getElementsByName('sendMail')[0] != 'undefined') {
-        console.log("aljcha")
         document.getElementsByName('sendMail')[0].onclick = function () {
             return validateContact();
         };
@@ -121,9 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 description.parentNode.className = description.parentNode.className.split(" errorinput").join("");
             }
         }
-
-
-
 
         return validate;
     }

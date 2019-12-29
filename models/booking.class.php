@@ -1,6 +1,8 @@
 <?php
 namespace FSR_AI;
 
+use PDOException;
+
 class Booking extends BaseModel{
     const TABLENAME = '`booking`';
 
@@ -28,8 +30,10 @@ class Booking extends BaseModel{
             $sql =  'SELECT count(EVENT_ID)  AS EVENT FROM booking WHERE EVENT_ID = '. $eventID;
             $result = $db->query($sql)->fetch();
         }
-        catch(\PDOException $e){
-            die('Select statment failed: ' . $e->getMessage());
+        catch(PDOException $e){
+            $message = 'Select statment failed: ' . $e->getMessage();
+            error_to_logFile($message);
+            die($message);
         }
         return $result;
     }

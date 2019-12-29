@@ -98,8 +98,6 @@ class User extends BaseModel
     }
 
     public static function changeUserRoleAndFunction($userID, $newRole, $newfunctionFSR = null){
-    // TODO: transaction Control? Maybe we need a rollback if some of this inserts / updates will fail
-
         $user = self::findOne('ID = ' . $userID);
         $actualRole = $user['ROLE_ID'];
 
