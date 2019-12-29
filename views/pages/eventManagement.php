@@ -12,21 +12,27 @@ use FSR_AI\Booking;
         <button type="button">Neue Location erstellen</button>
     </a>
 
+    <?  // generate Variables for the new Events
+    $topic          = 'Noch kommende Events';
+    $sortEvent = 'sortEvent';
+    $events      = $eventList;
+
+    for ($i = 1; $i <= 2; $i++) { ?>
    <table>
        <tr>
-       <th>Noch kommende Events</th>
+       <th><?=$topic?></th>
        </tr>
         <tr>
-            <? $sortName = (isset($_GET['sortEvent']) && $_GET['sortEvent'] == 1) ? 2 : 1;?>
-            <? $sortDate = (isset($_GET['sortEvent']) && $_GET['sortEvent'] == 3) ? 4 : 3;?>
+            <? $sortName = (isset($_GET[$sortEvent]) && $_GET[$sortEvent] == 1) ? 2 : 1;?>
+            <? $sortDate = (isset($_GET[$sortEvent]) && $_GET[$sortEvent] == 3) ? 4 : 3;?>
 
-            <th><a href="?c=event&a=eventManagement&sortEvent=<?=$sortName?>"> Eventname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-            <th><a href="?c=event&a=eventManagement&sortEvent=<?=$sortDate?>"> Datum <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=event&a=eventManagement&<?=$sortEvent?>=<?=$sortName?>"> Eventname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
+            <th><a href="?c=event&a=eventManagement&<?=$sortEvent?>=<?=$sortDate?>"> Datum <i class="fa fa-sort" aria-hidden="true"></i></a></th>
             <th>Registrierungen</th>
             <th>Bild</th>
             <th>Optionen</th>
         </tr>
-        <?foreach($eventList as $event) : ?>
+        <?foreach($events as $event) : ?>
             <tr>
                 <td><?=$event['NAME']?></td>
                 <td><?=date_format(date_create($event['DATE']), 'd.m.Y')?></td>
@@ -42,40 +48,16 @@ use FSR_AI\Booking;
                     </a>
                 </td>
             </tr>
-        <?endforeach;?>
+        <?endforeach;
+
+        // generate Variables for the old Events
+        $topic          = 'Abgelaufene Events';
+        $sortEvent = 'sortEventOld';
+        $events      = $eventListOld;
+
+        ?>
    </table>
-
-
-    <table>
-        <tr>
-            <th>Abgelaufene Events</th>
-        </tr>
-        <tr>
-            <? $sortName = (isset($_GET['sortEventOld']) && $_GET['sortEventOld'] == 1) ? 2 : 1;?>
-            <? $sortDate = (isset($_GET['sortEventOld']) && $_GET['sortEventOld'] == 3) ? 4 : 3;?>
-
-            <th><a href="?c=event&a=eventManagement&sortEventOld=<?=$sortName?>"> Eventname <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-            <th><a href="?c=event&a=eventManagement&sortEventOld=<?=$sortDate?>"> Datum <i class="fa fa-sort" aria-hidden="true"></i></a></th>
-            <th>Registrierungen</th>
-            <th>Bild</th>
-            <th>Optionen</th>
-        </tr>
-        <?foreach($eventListOld as $event) : ?>
-            <tr>
-                <td><?=$event['NAME']?></td>
-                <td><?=date_format(date_create($event['DATE']), 'd.m.Y')?></td>
-                <td><?=Booking::getRegistrationsByEventID($event['ID'])['EVENT']?></td>
-                <td><?=$event['PICTURE']?></td>
-                <td>
-                    <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>">
-                        <input alt="Edit" type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?> ></a>
-                    <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"
-                       onclick="return deleteQuestionEvent(this, <?=$event['ID']?>, <?=$event['PICTURE']?>)">
-                        <input alt="Delete" type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?> ></a>
-                </td>
-            </tr>
-        <?endforeach;?>
-    </table>
+    <? } ?>
 
 </div>
 
