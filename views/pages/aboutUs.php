@@ -4,7 +4,7 @@
 <div class="Content" id="fadeIn">
     <div class="aboutUs">
         <h1>Das sind wir, der Fachschaftsrat!</h1><br>
-        <img src="<?=IMAGEPATH.'campusplan.png'?>">
+        <img src="<?=IMAGEPATH.'campusplan.png'?>" alt="">
         <p>
             <h3>Liebe Studierende, liebe Studieninteressierte,</h3>
             <br>

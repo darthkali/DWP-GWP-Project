@@ -27,7 +27,7 @@ function crateDataOfFilesFromDirectory($dir, $numberOfOutputFiles){
     $allFiles = scandir($dir);
 
     // delete the array indexes with '.' and '..'
-    foreach ($allFiles as $delete) {
+    foreach ($allFiles as $delete => &$val) {
         if($allFiles[$delete] == "." or $allFiles[$delete] == '..'){
             unset($allFiles[$delete]);
         }
