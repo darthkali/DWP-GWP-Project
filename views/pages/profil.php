@@ -4,7 +4,7 @@ use FSR_AI\role;
 
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'matrix.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'matrix.jpg'?>" alt = "Silhouette  eines Mannes umhüllt mit einer grünen Matrix">
 </div>
 
 <div class="Content" id="fadeIn">

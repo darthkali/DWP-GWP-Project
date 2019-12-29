@@ -3,7 +3,7 @@ use FSR_AI\Event;
 use FSR_AI\User;
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'network.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'network.jpg'?>" alt = "mehrere Netwerkswitches mit Kabeln">
 </div>
 
 <div class="Content" id="fadeIn">

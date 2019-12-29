@@ -3,5 +3,5 @@
     <?$gif = crateDataOfFilesFromDirectory("assets/images/ErrorGifs", 1);?>
 
     <!--print the pictures which has selected before with the '$rand_keys'-->
-    <img src="<?=IMAGEPATH?>ErrorGifs/<?=$gif?>" alt="AiLogo">;
+    <img src="<?=IMAGEPATH?>ErrorGifs/<?=$gif?>" alt = "Errormeldung 404">;
 </div>

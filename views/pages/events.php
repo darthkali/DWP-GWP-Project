@@ -1,5 +1,4 @@
 <?php
-
 use FSR_AI\Booking;
 use FSR_AI\Event;
 use FSR_AI\Location;
@@ -9,7 +8,7 @@ $counter = 0;
 $design = '';
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt="Bild Eventseite">
+    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
 </div>
 <div class="Content" id="fadeIn">
 
@@ -19,7 +18,7 @@ $design = '';
     <?while($counter <= 1) :?>
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>
-                <img src=<?=IMAGEPATH.'upload/events/'.$event['PICTURE']?>>
+                <img src=<?=IMAGEPATH.'upload/events/'.$event['PICTURE']?> alt = "Eventbild">
                 <div>
                     <h2><?=$event['NAME']?></h2>
                     <p>

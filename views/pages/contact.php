@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'mail.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
 <div class="Content" id="fadeIn">
     <form autocomplete="off" action="?c=pages&a=Contact" method="post">

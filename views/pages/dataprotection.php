@@ -1,6 +1,6 @@
 
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'programmer.png'?>" alt="Picture Dataprotection">
+ <img class="center" src="--><?//=IMAGEPATH.'programmer.png'?><!--" alt = "Picture Dataprotection"> <!-- TODO: anderes Bild oder Titel-->
 </div>
 <div class="Content" id="fadeIn">
         <h1>Datenschutzerklärung</h1>

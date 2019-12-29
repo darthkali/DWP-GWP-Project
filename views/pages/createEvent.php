@@ -7,7 +7,7 @@ if($create == true){
 
 use FSR_AI\location; ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
 </div>
 <div class="Content" id="fadeIn">
 

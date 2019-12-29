@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'key.jpg'?>" alt="LoginPagePicture">
+    <img class="center" src="<?=IMAGEPATH.'key.jpg'?>" alt = "Statue mit großem Schlüssel in der Hand">
 </div>
 
 <div class="Content" id="fadeIn">

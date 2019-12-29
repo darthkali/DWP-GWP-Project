@@ -7,13 +7,13 @@
                 Die Fachschaft kümmert sich um die Kommunikation der Studenten untereinander und zwischen der Studenten- und Professorenschaft. Besonderes Engagement gilt der Gestaltung des studentischen Lebens, sowie der Einflussnahme auf die Entwicklung der FH und unseres Studienganges durch die Mitarbeit in den Gremien.<br><br>
                 Die Fachschaft organisiert und veranstaltet Parties zu besonderen Anlässen, z.B. zum Semesteranfang oder das Bergfest. Weiterhin beteiligen sich Fachschaftmitglieder als studentische Ansprechpartner am "Tag der offenen Tür" und arbeiten eng mit dem StuRa zusammen.<br>
             </p>
-        <img src= <?=IMAGEPATH.'ailogo_groß_schatten.png'?> alt="AiLogo">
+        <img src= <?=IMAGEPATH.'ailogo_groß_schatten.png'?> alt = "Logo der Fachschaft Angewandte Informatik">
         </div>
         <ul>
             <?$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);?>
 <!--            print the pictures which has selected before with the '$rand_keys'-->
             <?foreach($images as $datei) : ?> <!-- Ausgabeschleife-->
-                <li><a href="<?=IMAGEPATH?>PictureRaster/<?=$datei?>" target="_blank"><img src="<?=IMAGEPATH?>PictureRaster/<?=$datei?>" alt="AiLogo"
+                <li><a href="<?=IMAGEPATH?>PictureRaster/<?=$datei?>" target="_blank"><img src="<?=IMAGEPATH?>PictureRaster/<?=$datei?>" alt = "Bilder der Fachschaft Angewandte Informatik"
             <?endforeach;?>
         </ul>
     </div>

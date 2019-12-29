@@ -1,11 +1,7 @@
 <?php
-
 use FSR_AI\Booking;
-
 ?>
-<div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'network.jpg'?>" alt="ProfilPageImage">
-</div>
+
 <div class="Content" id="fadeIn">
     <h1>Eventverwaltung</h1>
 

@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'street.jpg'?>" alt="ProfilPageImage">
+    <img class="center" src="<?=IMAGEPATH.'street.jpg'?>" alt = "Alte Straße durch eine Häuserschlucht">
 </div>
 <div class="Content" id="fadeIn">
     <form autocomplete="off" action="?c=location&a=CreateLocation" method="post">
