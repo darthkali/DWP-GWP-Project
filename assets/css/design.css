@@ -663,6 +663,11 @@ table input:hover{
     margin-left: auto;
 }
 
+.deleteQuestion h3{
+    text-align: center;
+    line-height: 1.45em;
+}
+
 .errorinput{
     position: relative;
 }

@@ -7,8 +7,10 @@ use FSR_AI\User;
 </div>
 
 <div class="Content" id="fadeIn">
+
     <img src="<?=IMAGEPATH.'caution.png'?>" alt="ProfilPageImage">
     <?if(isset($_GET['userId'])){?>
+        <div class="deleteQuestion">
     <h3>Wollen Sie den Nutzer:</h3>
     <h1>
         <?
@@ -17,12 +19,13 @@ use FSR_AI\User;
 
         ?>
     </h1>
-    <h3> wirklich Löschen?</h3>
-    <div class="deleteQuestion">
+    <h3> wirklich Löschen?</h3><br>
+
         <a href="?c=user&a=userManagement&userId=<?= $_GET['userId']?>"><button type="button">Löschen</button></a>
         <a href="?c=user&a=userManagement"><button type="button">Abbrechen</button></a>
     </div>
     <?}else{?>
+        <div class="deleteQuestion">
     <h3>Wollen Sie das Event:</h3>
     <h1>
         <?
@@ -31,7 +34,7 @@ use FSR_AI\User;
         ?>
     </h1>
     <h3> wirklich Löschen?</h3>
-    <div class="deleteQuestion">
+
         <a href="?c=event&a=eventManagement&eventId=<?=$_GET['eventId']?>&pictureName=<?=$_GET['pictureName']?>"><button type="button">Löschen</button></a>
         <a href="?c=event&a=eventManagement"><button type="button">Abbrechen</button></a>
     </div>
