@@ -240,6 +240,25 @@ class User extends BaseModel
         }
     }
 
+    public static function generateSortClauseForUserPage($sortUserPOST){
+        switch ($sortUserPOST){
+            case 1:
+                return $filterSort = 'ORDER BY FUNCTION_FSR_ID';
+            case 2:
+                return $filterSort = 'ORDER BY FIRSTNAME';
+            case 3:
+                return $filterSort = 'ORDER BY FIRSTNAME DESC';
+            case 4:
+                return $filterSort = 'ORDER BY LASTNAME';
+            case 5:
+                return $filterSort = 'ORDER BY LASTNAME DESC';
+            default:
+                return  $filterSort = '';
+        }
+    }
+
+
+
     public static function checkPassword($password, &$error){
 
         if(!preg_match('/[!@#$%&?.]/',$password)) {

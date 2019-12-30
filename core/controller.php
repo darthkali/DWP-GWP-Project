@@ -13,7 +13,7 @@ class Controller{
 	}
 
 	public function renderHTML(){
-		$viewPath = $this->viewPath($this->_actionName, $this->_controllerName);
+		$viewPath = $this->viewPath($this->_actionName);
 
 		if(file_exists($viewPath)){
 			extract($this->_params);
@@ -35,7 +35,7 @@ class Controller{
 		}
 	}
 
-	protected function viewPath($actionName = null, $controllerName = null){
+	protected function viewPath($actionName = null){
 		return __DIR__ . '/../views/pages/' .$actionName.'.php';
 	}
 }

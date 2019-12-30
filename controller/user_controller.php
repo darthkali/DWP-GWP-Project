@@ -10,24 +10,14 @@ class UserController extends Controller{
         $filterSort = 'ORDER BY FUNCTION_FSR_ID';
         $this->_params['valueFilter'] = 0;
         $this->_params['valueSort'] = 1;
-        //debug_to_logFile($_POST['functionFSRUser']);
+
         if(isset($_POST['functionFSRUser']) && $_POST['functionFSRUser'] != 0){
             $filterFunction = ' and FUNCTION_FSR_ID = '. $_POST['functionFSRUser'];
             $this->_params['valueFilter'] = $_POST['functionFSRUser'];
         }
 
         if(isset($_POST['sortByUser'])){
-            switch ($_POST['sortByUser']){
-                case 1: $filterSort = 'ORDER BY FUNCTION_FSR_ID';
-                    break;
-                case 2: $filterSort = 'ORDER BY FIRSTNAME';
-                    break;
-                case 3: $filterSort = 'ORDER BY FIRSTNAME DESC';
-                    break;
-                case 4: $filterSort = 'ORDER BY LASTNAME';
-                    break;
-                case 5: $filterSort = 'ORDER BY LASTNAME DESC';
-            }
+            $filterSort = User::generateSortClauseForUserPage($_POST['sortByUser']);
             $this->_params['valueSort'] = $_POST['sortByUser'];
         }
 
@@ -42,11 +32,10 @@ class UserController extends Controller{
         $this->_params['errorMessage'] = 'Nutzername oder Passwort sind nicht korrekt!';
         $error = false;
 
-        if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false)
-        {
+        if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false){
             if (isset($_POST['submit']) && isset($_POST['email'])&& isset($_POST['password'])) {
                 $user = User::findUserByLoginDataFromPost() ?? null;
-                if($user) {
+                if($user){
                     User::writeLoginDataToActiveSession(true, $user['ID']);
                     $cookieData = array("userId"=>$user['ID'], "password"=>$user['PASSWORD']);
                     isset($_POST['rememberMe']) ? User::createLongLifeCookie($cookieData): null;
@@ -76,8 +65,8 @@ class UserController extends Controller{
         User::checkUserPermissionForPage($accessUser);
 
         $this->_params['title'] = 'Nutzerverwaltung';
-        $sortMember = 'ORDER BY FIRSTNAME';
-        $sortUser ='ORDER BY FIRSTNAME';
+        $sortMember             = 'ORDER BY FIRSTNAME';
+        $sortUser               = 'ORDER BY FIRSTNAME';
 
         if(isset($_GET['sortMember'])) {
             $sortMember = User::generateSortClauseForMember($_GET['sortMember']);
@@ -108,15 +97,15 @@ class UserController extends Controller{
         // a user (also the admin) will change his own profil
         $userProfilInformations = User::generateUserProfilInformations();
 
-        $this->_params['userRole'] = $userProfilInformations['userRole'];
-        $this->_params['userInformation'] = $userProfilInformations['userInformation'];
-        $this->_params['title'] = $userProfilInformations['title'];
-        $this->_params['colorModeChecked'] = $userProfilInformations['colorModeChecked'];
-        $this->_params['userProfil'] = $userProfilInformations['userProfil'];
-        $this->_params['errorMessage'] = $userProfilInformations['errorMessage'];
-        $this->_params['userFunction'] = $userProfilInformations['userFunction'];
-        $this->_params['allRoles'] = $userProfilInformations['allRoles'];
-        $this->_params['allFunctions'] = $userProfilInformations['allFunctions'];
+        $this->_params['userRole']          = $userProfilInformations['userRole'];
+        $this->_params['userInformation']   = $userProfilInformations['userInformation'];
+        $this->_params['title']             = $userProfilInformations['title'];
+        $this->_params['colorModeChecked']  = $userProfilInformations['colorModeChecked'];
+        $this->_params['userProfil']        = $userProfilInformations['userProfil'];
+        $this->_params['errorMessage']      = $userProfilInformations['errorMessage'];
+        $this->_params['userFunction']      = $userProfilInformations['userFunction'];
+        $this->_params['allRoles']          = $userProfilInformations['allRoles'];
+        $this->_params['allFunctions']      = $userProfilInformations['allFunctions'];
         $this->_params['errorMessagePassword'] = '';
 
         // if the user was not found, than we go to the error page.
@@ -131,16 +120,15 @@ class UserController extends Controller{
         if (isset($_POST['submitProfil'])) {
 
             // generate a Filename and replace the old File(Picture) with the new one
-
             $pictureName = User::createUploadedPictureName('pictureProfil');
 
             $params = [
                 'ID'               => ( $userProfilInformations['userProfil']['ID'] === '')  ? null : $userProfilInformations['userProfil']['ID'],
-                'FIRSTNAME'        => ( $_POST['firstnameProfil']   === '')  ? null : $_POST['firstnameProfil']  ,
-                'LASTNAME'         => ( $_POST['lastnameProfil']    === '')  ? null : $_POST['lastnameProfil']   ,
+                'FIRSTNAME'        => ( $_POST['firstnameProfil']   === '')  ? null : $_POST['firstnameProfil'],
+                'LASTNAME'         => ( $_POST['lastnameProfil']    === '')  ? null : $_POST['lastnameProfil'],
                 'DATE_OF_BIRTH'    => ( $_POST['dateOfBirthProfil'] === '')  ? null : $_POST['dateOfBirthProfil'],
-                'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil']      ,
-                'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName               ,
+                'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil'],
+                'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName,
                 'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
                 'PASSWORD'         => ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'],
             ];
@@ -205,7 +193,7 @@ class UserController extends Controller{
                 'DATE_OF_BIRTH'    => ( $_POST['dateOfBirthRegistration'] === '')  ? null : $_POST['dateOfBirthRegistration'],
                 'EMAIL'            => ( $_POST['emailRegistration']       === '')  ? null : $_POST['emailRegistration']      ,
                 'PASSWORD'         => ( $_POST['passwordRegistration'] === '')  ? null : $_POST['passwordRegistration'],
-                'ROLE_ID' => 3
+                'ROLE_ID'          => 3
             ];
 
             $newUser = new User($params);

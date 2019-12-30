@@ -14,7 +14,7 @@ use FSR_AI\User;
     <div class="userPageBox">
     <h1>Unsere Mitglieder</h1>
     <div class="filterBox">
-        <form>
+        <form method="post">
             <div class="sortFilterBox">
                 <label for="sortByUser">Sortieren nach: </label><br>
                 <select name="sortByUser" id="sortByUser">
