@@ -69,27 +69,20 @@ class User extends BaseModel
     public static function checkUserPermissionForPage($roleIdWithPermission){
         $user = User::findUserBySessionUserID();
         if($user  != null) {
-            $access = false;                            // default no access to the page
-
-            if(is_array($roleIdWithPermission)){
+            if (is_array($roleIdWithPermission)) {
                 foreach ($roleIdWithPermission as $index) { // check the Array with the role ID´s that have access
                     if ($user['ROLE_ID'] == $index) {
-                        $access = true;                     //give the permission to join the page
-                        break;
+                        return true;                     //give the permission to join the page
                     }
                 }
-            }else{
+            } else {
                 if ($user['ROLE_ID'] == $roleIdWithPermission) {
-                    $access = true;                     //give the permission to join the page
+                    return true;                     //give the permission to join the page
                 }
             }
-
-            if (!$access) {
-                sendHeaderByControllerAndAction('pages', 'errorPage');
-            }
-        }else{
-            sendHeaderByControllerAndAction('pages', 'errorPage');
         }
+        sendHeaderByControllerAndAction('pages', 'errorPage');
+        return false;
     }
 
     public static function checkUniqueUserEntity($email){
@@ -98,6 +91,7 @@ class User extends BaseModel
     }
 
     public static function changeUserRoleAndFunction($userID, $newRole, $newfunctionFSR = null){
+        // TODO: Ducumentation about this
         $user = self::findOne('ID = ' . $userID);
         $actualRole = $user['ROLE_ID'];
 
@@ -107,19 +101,15 @@ class User extends BaseModel
 
         if($actualRole == Role::USER && $newRole != Role::USER){
             Function_FSR::changeUserFunction($userID,$newfunctionFSR);
-            Role::changeUserRole($userID,$newRole);
-            return true;
         }else if($actualRole != Role::USER && $newRole == Role::USER){
             Function_FSR::changeUserFunction($userID,6);
             Role::changeUserRole($userID,$newRole);
-            return true;
         }else if ($actualRole == Role::MEMBER && $newRole == Role::ADMIN || $actualRole == Role::ADMIN && $newRole == Role::MEMBER) {
             Function_FSR::changeUserFunction($userID,$newfunctionFSR);
             Role::changeUserRole($userID,$newRole);
         }else{
             Function_FSR::changeUserFunction($user['ID'], $newfunctionFSR);
         }
-        return true;
     }
 
     public static function generatePasswordHash($password){
@@ -174,7 +164,6 @@ class User extends BaseModel
         $allRoles = Role::find();
         $allFunctions = Function_FSR::find();
 
-
         return $paramsInformations = [
             'userProfil'        => $user,
             'accessUser'        => $accessUser,
@@ -224,7 +213,7 @@ class User extends BaseModel
     public static function generateSortClauseForUser($sortUserGET){
         switch ($sortUserGET) {
             case 1:
-                return   $sortUser = 'ORDER BY FIRSTNAME';
+                return $sortUser = 'ORDER BY FIRSTNAME';
             case 2:
                 return $sortUser = 'ORDER BY FIRSTNAME DESC';
             case 3:
@@ -232,7 +221,7 @@ class User extends BaseModel
             case 4:
                 return  $sortUser = 'ORDER BY LASTNAME DESC';
             case 5:
-                return    $sortUser = 'ORDER BY DATE_OF_BIRTH ';
+                return  $sortUser = 'ORDER BY DATE_OF_BIRTH ';
             case 6:
                 return  $sortUser = 'ORDER BY DATE_OF_BIRTH DESC';
             case 7:
@@ -248,7 +237,7 @@ class User extends BaseModel
             case 12:
                 return  $sortUser = 'ORDER BY FUNCTION_FSR_ID DESC';
             default:
-                return $sortUser = '';
+                return  $sortUser = '';
         }
     }
 
