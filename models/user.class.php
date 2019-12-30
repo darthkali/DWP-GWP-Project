@@ -95,9 +95,7 @@ class User extends BaseModel
         $user = self::findOne('ID = ' . $userID);
         $actualRole = $user['ROLE_ID'];
 
-        if ($actualRole == Role::USER && $newRole == Role::USER) {
-            return true;
-        }
+        if ($actualRole == Role::USER && $newRole == Role::USER) {return true;}
 
         if($actualRole == Role::USER && $newRole != Role::USER){
             Function_FSR::changeUserFunction($userID,$newfunctionFSR);
@@ -110,6 +108,7 @@ class User extends BaseModel
         }else{
             Function_FSR::changeUserFunction($user['ID'], $newfunctionFSR);
         }
+        return true;
     }
 
     public static function generatePasswordHash($password){

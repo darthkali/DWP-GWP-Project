@@ -1,12 +1,8 @@
 <?php
-
 namespace FSR_AI;
-
-use MongoDB\BSON\Timestamp;
 
 class MemberHistory extends BaseModel
 {
-
     const TABLENAME = '`MEMBER_HISTORY`';
 
     protected $schema = [
@@ -32,32 +28,31 @@ class MemberHistory extends BaseModel
         $timestamp = time();
         $datum = date("Y-m-d", $timestamp);
         $params = [
-            'START_DATE' => $datum,
-            'MEMBER_ID' => $userID,
-            'FUNCTION_FSR_ID' => $functionFSR,
+            'START_DATE'        => $datum,
+            'MEMBER_ID'         => $userID,
+            'FUNCTION_FSR_ID'   => $functionFSR,
         ];
-        //debug_to_logFile();
         $newMemberHistory = new MemberHistory($params);
         $newMemberHistory->save();
     }
 
     public static function closeActualMemberHistory($userID){
-
         $memberHistory = self::generateActualMemberHistory($userID);
         if($memberHistory === null){
             return false;
         }else{
-            $memberHistoryID = self::generateActualMemberHistory($userID)['ID'];
+            $memberHistoryID = $memberHistory['ID'];
         }
 
         $timestamp = time();
         $datum = date("Y-m-d", $timestamp);
         $params = [
-            'ID' => $memberHistoryID,
-            'END_DATE' => $datum
+            'ID'        => $memberHistoryID,
+            'END_DATE'  => $datum
         ];
 
         $newMemberHistory = new MemberHistory($params);
         $newMemberHistory->save();
+        return true;
     }
 }

@@ -1,8 +1,6 @@
 <?php
 namespace FSR_AI;
 
-use MongoDB\BSON\Timestamp;
-
 class Role extends BaseModel
 {
     const TABLENAME = '`ROLE`';
@@ -23,7 +21,6 @@ class Role extends BaseModel
         return $role['NAME'];
     }
 
-
     public static function changeUserRole($userID, $newRole){
         $params = [
             'ID' => $userID,
@@ -33,5 +30,4 @@ class Role extends BaseModel
         $newUser->save();
         return true;
     }
-
 }

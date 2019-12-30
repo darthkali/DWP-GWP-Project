@@ -5,12 +5,12 @@ use PDOException;
 
 abstract class BaseModel
 {
-    const TYPE_INT = 'int';
-    const TYPE_FLOAT = 'float';
+    const TYPE_INT    = 'int';
+    const TYPE_FLOAT  = 'float';
     const TYPE_STRING = 'string';
 
     protected $schema = []; // schema for the database table (attribute names from the Table)
-    protected $data = [];  // data which goes into the table
+    protected $data   = [];  // data which goes into the table
 
     // baseModel constructor
     public function __construct($params){
@@ -31,7 +31,6 @@ abstract class BaseModel
         $message = 'You can not access to property "'.$key.'"" for the class "'.get_called_class();
         error_to_logFile($message);
         throw new \Exception($message);
-
     }
 
     // megic method to set $data files
@@ -213,8 +212,7 @@ abstract class BaseModel
     // gives the tablename from the class
     public static function tablename(){
         $class = get_called_class();
-        if(defined($class.'::TABLENAME'))
-        {
+        if(defined($class.'::TABLENAME')) {
             return $class::TABLENAME;
         }
         return null;
@@ -224,8 +222,7 @@ abstract class BaseModel
         $db  = $GLOBALS['db'];
         $result = null;
 
-        try
-        {
+        try {
             if(!$viewName) {
                $viewName = self::tablename();
             }
@@ -238,8 +235,7 @@ abstract class BaseModel
             $sql .= ' '.$orderBy;
             $result = $db->query($sql)->fetchAll();
         }
-        catch(PDOException $e)
-        {
+        catch(PDOException $e) {
             $message = 'Select statment failed: ' . $e->getMessage();
             error_to_logFile($message);
             die($message);
