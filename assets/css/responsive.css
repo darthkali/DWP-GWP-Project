@@ -53,6 +53,17 @@
 
     }
 
+    .startContent p{
+        width: 100%;
+    }
+
+    .eventCounterStart{
+        float: none;
+        width: 100%;
+    }
+
+
+
     /* ----------------------------------   Site - Picture   ---------------------------------- */
     .SitePicture {display: none ;}
 

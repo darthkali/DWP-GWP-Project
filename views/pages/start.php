@@ -7,7 +7,19 @@
                 Die Fachschaft kümmert sich um die Kommunikation der Studenten untereinander und zwischen der Studenten- und Professorenschaft. Besonderes Engagement gilt der Gestaltung des studentischen Lebens, sowie der Einflussnahme auf die Entwicklung der FH und unseres Studienganges durch die Mitarbeit in den Gremien.<br><br>
                 Die Fachschaft organisiert und veranstaltet Parties zu besonderen Anlässen, z.B. zum Semesteranfang oder das Bergfest. Weiterhin beteiligen sich Fachschaftmitglieder als studentische Ansprechpartner am "Tag der offenen Tür" und arbeiten eng mit dem StuRa zusammen.<br>
             </p>
-        <img src= <?=IMAGEPATH.'ailogo_groß_schatten.png'?> alt = "Logo der Fachschaft Angewandte Informatik">
+<!--        <img src= --><?//=IMAGEPATH.'ailogo_groß_schatten.png'?><!-- alt = "Logo der Fachschaft Angewandte Informatik">-->
+
+            <div class="eventCounterStart">
+                <h3>Tage bis zum nächsten Event</h3>
+                <div class="daysToEvent">3</div>
+                <p>Sommerfest AI <br>
+                    20.05.2018  <br></p>
+
+                <img src=<?=IMAGEPATH . 'upload/events/sommerfest.jpg'?> alt = "Eventbild">
+                <i>Hier gehtss zu unserer Eventseite</i>
+
+
+            </div>
         </div>
         <ul>
             <?$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);?>

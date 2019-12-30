@@ -25,7 +25,6 @@
         </p>
 
         <br><br>
-
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2511.6968035214013!2d11.039306415910632!3d50.98479465659891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a472a47d51a0b7%3A0x16ba89c33fce2610!2sFachhochschule%20Erfurt!5e0!3m2!1sde!2sde!4v1576622523914!5m2!1sde!2sde"></iframe>
 
         <p>
