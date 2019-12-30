@@ -1,8 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class Event extends BaseModel
-{
+class Event extends BaseModel{
     const TABLENAME = '`event`';
 
     protected $schema = [
@@ -35,6 +34,4 @@ class Event extends BaseModel
                 return $sortEvent = '';
         }
     }
-
-
 }

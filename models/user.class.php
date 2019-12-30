@@ -257,8 +257,6 @@ class User extends BaseModel
         }
     }
 
-
-
     public static function checkPassword($password, &$error){
 
         if(!preg_match('/[!@#$%&?.]/',$password)) {

@@ -1,8 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class Function_FSR extends BaseModel
-{
+class Function_FSR extends BaseModel{
     const TABLENAME = '`FUNCTION_FSR`';
 
     protected $schema = [

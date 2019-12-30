@@ -1,8 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class Role extends BaseModel
-{
+class Role extends BaseModel{
     const TABLENAME = '`ROLE`';
 
     const ADMIN  = 1;

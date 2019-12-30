@@ -1,8 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class MemberHistory extends BaseModel
-{
+class MemberHistory extends BaseModel{
     const TABLENAME = '`MEMBER_HISTORY`';
 
     protected $schema = [

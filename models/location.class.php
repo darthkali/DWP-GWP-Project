@@ -1,8 +1,7 @@
 <?php
 namespace FSR_AI;
 
-class Location extends BaseModel
-{
+class Location extends BaseModel{
     const TABLENAME = '`location`';
 
     protected $schema = [

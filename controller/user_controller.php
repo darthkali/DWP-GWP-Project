@@ -1,5 +1,4 @@
 <?php
-
 namespace FSR_AI;
 
 class UserController extends Controller{
