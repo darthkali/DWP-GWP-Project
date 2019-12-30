@@ -26,7 +26,6 @@ nav a {
 
 .dropdown .dropbtn {
     border: none;
-    outline: none;
     color: var(--secondary-text-color);
     background-color: inherit;
     font-family: inherit;
