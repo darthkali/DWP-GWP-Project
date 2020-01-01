@@ -53,7 +53,7 @@
 
     }
 
-    .startContent p{
+    .startContent {
         width: 100%;
     }
 
@@ -62,6 +62,12 @@
         width: 100%;
     }
 
+    .pictureRaster hr{
+        display: block;
+        width: 100%;
+        border-top: inset;
+        border-width: 1px;
+    }
 
 
     /* ----------------------------------   Site - Picture   ---------------------------------- */

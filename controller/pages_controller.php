@@ -5,6 +5,16 @@ class PagesController extends Controller{
 
     public function actionStart(){
         $this->_params['title'] = 'Startseite';
+
+       $event = Event::findOne('DATE > curdate() order by DATE LIMIT 1;');
+//       if($event != null){
+//           $this->_params['nextEvent'] = $event;
+//       }else{
+//        $this->_params['nextEvent'] =
+//       }
+
+        $this->_params['nextEvent'] = $event;
+
     }
 
     public function actionAboutUs(){
