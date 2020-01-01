@@ -728,8 +728,6 @@ table input:hover{
 .eventCounterStart a:hover > img, a:hover > i{
     opacity: 0.5;
     filter: alpha(opacity=50); /* For IE8 and earlier */
-    border-top-left-radius: 100px;
-    border-bottom-right-radius: 100px;
 }
 
 .daysToEvent{

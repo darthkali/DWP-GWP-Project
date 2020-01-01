@@ -16,11 +16,17 @@ use FSR_AI\Event;
 
                     <h3>Tage bis zum nächsten Event</h3>
                     <div class="daysToEvent"><?=str_replace('-','',Event::getDateDiffBetweenEventAndCurrentDate($nextEvent['DATE']))?></div>
-                    <?=$nextEvent['NAME']?> <br>
-                    <?=date_format(date_create($nextEvent['DATE']), 'd.m.Y')?><br>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=events">
-                    <img src=<?=IMAGEPATH . 'upload/events/'.$nextEvent['PICTURE']?> alt = "Eventbild">
+                    <? if($nextEvent != null){?>
+                    <?=$nextEvent['NAME']?> <br>
+                        <?=date_format(date_create($nextEvent['DATE']), 'd.m.Y')?><br>
+                        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=events">
+                        <img src=<?=IMAGEPATH . 'upload/events/'.$nextEvent['PICTURE']?> alt = "Eventbild">
+                            <? }else{?>
+                            Aktuell ist kein weiteres Event geplant
+                            <?}?>
                     <br>
+
                     <i class="fas fa-share"> Zur Eventseite</i>
                     </a>
                 </div>
