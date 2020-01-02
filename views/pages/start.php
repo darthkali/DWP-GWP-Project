@@ -15,7 +15,12 @@ use FSR_AI\Event;
                 <div class="eventCounterStart">
 
                     <h3>Tage bis zum nächsten Event</h3>
-                    <div class="daysToEvent"><?=str_replace('-','',Event::getDateDiffBetweenEventAndCurrentDate($nextEvent['DATE']))?></div>
+                    <div class="daysToEvent">
+                        <div class="daysToEventDigit"><?=$daysUntilEvent['hundreds']?> </div>
+                        <div class="daysToEventDigit"><?=$daysUntilEvent['tens']?> </div>
+                        <div class="daysToEventDigit"><?=$daysUntilEvent['ones']?> </div>
+                    </div>
+
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=events">
                     <? if($nextEvent != null){?>
                     <?=$nextEvent['NAME']?> <br>

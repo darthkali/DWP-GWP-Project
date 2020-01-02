@@ -731,15 +731,17 @@ table input:hover{
 }
 
 .daysToEvent{
-    display: block;
-    width: 90px;
-    height: 50px;
-    padding: 0;
-    margin: 5px auto;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 5px;
-    text-align: center;
-    font-size: 40px;
+    display:  block;
+    margin: 5px;
 }
-
+.daysToEventDigit {
+    display: inline-block;
+    width: 40px;
+    padding: 5px 0 0 0;
+    margin: 0;
+    text-align: center;
+    font-size: 50px;
+    color: var(--secondary-text-color);
+    line-height: 100%;
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(46, 46, 46, 1) 49%, rgba(0, 0, 0, 1) 50%, rgba(46, 46, 46, 1) 51%, rgba(0, 0, 0, 1) 100%);
+}

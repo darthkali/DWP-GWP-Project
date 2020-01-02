@@ -6,15 +6,30 @@ class PagesController extends Controller{
     public function actionStart(){
         $this->_params['title'] = 'Startseite';
 
-       $event = Event::findOne('DATE > curdate() order by DATE LIMIT 1;');
-//       if($event != null){
-//           $this->_params['nextEvent'] = $event;
-//       }else{
-//        $this->_params['nextEvent'] =
-//       }
+        $nextEvent = Event::findOne('DATE >= curdate() order by DATE LIMIT 1;');
+        $this->_params['nextEvent']  = $nextEvent;
+        $days = str_replace(['-', '+'],'',Event::getDateDiffBetweenEventAndCurrentDate($nextEvent['DATE']));
 
-        $this->_params['nextEvent'] = $event;
+        switch(strlen($days)){
+            case 1:
+                $days = '00'.$days;
+                break;
+            case 2:
+                $days = '0'.$days;
+                break;
+        }
 
+        $daysUntilEvent=[
+            'hundreds'  => $days[0],
+            'tens'      => $days[1],
+            'ones'      => $days[2]
+            ];
+        $this->_params['daysUntilEvent'] = $daysUntilEvent;
+
+foreach ($daysUntilEvent as $digit){
+
+        debug_to_logFile($digit);
+}
     }
 
     public function actionAboutUs(){
