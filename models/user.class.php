@@ -159,7 +159,7 @@ class User extends BaseModel
         if($user == null){return null;}
 
         $errorMessage = '';
-        $userFunction = MemberHistory::generateActualMemberHistory($user['ID']);
+        $userFunction =\FSR_AI\MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID'];
         $allRoles = Role::find();
         $allFunctions = Function_FSR::find();
 
