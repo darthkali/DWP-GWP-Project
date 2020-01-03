@@ -1,6 +1,3 @@
-<?php
-use FSR_AI\Event;
-?>
 <div class="Content" id="fadeInIndexPage">
     <div class="pictureRaster">
         <div>
@@ -26,7 +23,7 @@ use FSR_AI\Event;
                     <?=$nextEvent['NAME']?> <br>
                         <?=date_format(date_create($nextEvent['DATE']), 'd.m.Y')?><br>
                         <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=events">
-                        <img src=<?=IMAGEPATH . 'upload/events/'.$nextEvent['PICTURE']?> alt = "Eventbild">
+                        <img src=<?=EVENT_PICTURE_PATH.$nextEvent['PICTURE']?> alt = "Eventbild">
                             <? }else{?>
                             Aktuell ist kein weiteres Event geplant
                             <?}?>
@@ -38,10 +35,10 @@ use FSR_AI\Event;
         </div>
         <hr>
         <ul>
-            <?$images = crateDataOfFilesFromDirectory("assets/images/PictureRaster/", 12);?>
+            <?$images = crateDataOfFilesFromDirectory("assets/images/pictureRaster/", 12);?>
 <!--            print the pictures which has selected before with the '$rand_keys'-->
             <?foreach($images as $datei) : ?> <!-- Ausgabeschleife-->
-                <li><a href="<?=IMAGEPATH?>PictureRaster/<?=$datei?>" target="_blank"><img src="<?=IMAGEPATH?>PictureRaster/<?=$datei?>" alt = "Bilder der Fachschaft Angewandte Informatik"
+                <li><a href="<?=PICTURE_RASTER_PATH.$datei?>" target="_blank"><img src="<?=PICTURE_RASTER_PATH.$datei?>" alt = "Bilder der Fachschaft Angewandte Informatik"
             <?endforeach;?>
         </ul>
     </div>

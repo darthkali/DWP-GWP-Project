@@ -41,7 +41,7 @@ use FSR_AI\User;
 
 <div class="NavContent">
     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?p=start">
-        <img src=<?=IMAGEPATH.'ailogo_groß.png'?> alt = "Logo der Angewandten Informatik">
+        <img src=<?=PAGE_IMAGE_PATH.'ailogo_groß.png'?> alt = "Logo der Angewandten Informatik">
         <h4>Fachschaftsrat</h4>
     </a>
 </div>

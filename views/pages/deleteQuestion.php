@@ -3,11 +3,11 @@ use FSR_AI\Event;
 use FSR_AI\User;
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'network.jpg'?>" alt = "mehrere Netwerkswitches mit Kabeln">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'network.jpg'?>" alt = "mehrere Netwerkswitches mit Kabeln">
 </div>
 
 <div class="Content" id="fadeIn">
-    <img src="<?=IMAGEPATH.'caution.png'?>" alt="ProfilPageImage">
+    <img src="<?=PAGE_IMAGE_PATH.'caution.png'?>" alt="ProfilPageImage">
 
     <?if(isset($_GET['userId'])){
       $title = 'Wollen Sie den Nutzer:';

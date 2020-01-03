@@ -1,10 +1,8 @@
 <?php
-
 use FSR_AI\role;
-
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'matrix.jpg'?>" alt = "Silhouette  eines Mannes umhüllt mit einer grünen Matrix">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'matrix.jpg'?>" alt = "Silhouette  eines Mannes umhüllt mit einer grünen Matrix">
 </div>
 
 <div class="Content" id="fadeIn">
@@ -120,4 +118,4 @@ use FSR_AI\role;
         <button type="reset"> Eingabe Löschen <i class="fa fa-times" aria-hidden="true"></i> </button>
     </form>
 </div>
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

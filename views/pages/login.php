@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'key.jpg'?>" alt = "Statue mit großem Schlüssel in der Hand">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'key.jpg'?>" alt = "Statue mit großem Schlüssel in der Hand">
 </div>
 
 <div class="Content" id="fadeIn">
@@ -8,7 +8,6 @@
         <h5>Bitte einloggen um dein Profil zu sehen!</h5>
 
         <? if($errorValid){ ?> <div class="error"><?echo $errorMessage?></div> <? } ?>
-
 
         <!-- username -->
         <label for="email">EMAIL </label>

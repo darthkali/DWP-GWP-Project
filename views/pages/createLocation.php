@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'street.jpg'?>" alt = "Alte Straße durch eine Häuserschlucht">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'street.jpg'?>" alt = "Alte Straße durch eine Häuserschlucht">
 </div>
 <div class="Content" id="fadeIn">
     <form autocomplete="off" action="?c=location&a=CreateLocation" method="post">
@@ -56,4 +56,4 @@
         <button type="reset">Eingaben Löschen <i class="fa fa-times" aria-hidden="true"></i> </button>
     </form>
 </div>
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

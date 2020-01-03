@@ -55,9 +55,9 @@ use FSR_AI\Role;
             <td>
                 <? if($_SESSION['userId'] <> $account[$ID]){?>
                 <a href="?c=user&a=profil&userId=<?=$account[$ID]?>">
-                    <input alt="Edit" type="image" title="User bearbeiten" src=<?=IMAGEPATH.'edit.png'?> ></a>
+                    <input alt="Edit" type="image" title="User bearbeiten" src=<?=PAGE_IMAGE_PATH.'edit.png'?> ></a>
                 <a href="?c=pages&a=deleteQuestion&userId=<?=$account[$ID]?>" onclick="return deleteQuestionUser(this, <?=$account[$ID]?>);">
-                    <input alt="Delete" type="image" title="User löschen" src=<?=IMAGEPATH.'entfernen.png'?> ></a>
+                    <input alt="Delete" type="image" title="User löschen" src=<?=PAGE_IMAGE_PATH.'entfernen.png'?> ></a>
                 <?}?>
             </td>
         </tr>
@@ -76,4 +76,4 @@ use FSR_AI\Role;
     <? } ?>
 </div>
 
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

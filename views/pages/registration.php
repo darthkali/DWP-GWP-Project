@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'matrix.jpg'?>" alt = "Silhouette  eines Mannes umhüllt mit einer grünen Matrix">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'matrix.jpg'?>" alt = "Silhouette  eines Mannes umhüllt mit einer grünen Matrix">
 </div>
 
 <div class="Content" id="fadeIn">
@@ -61,4 +61,4 @@
         <button type="reset"> Verwerfen</button>
     </form>
 </div>
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

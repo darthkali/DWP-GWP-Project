@@ -7,7 +7,7 @@ if($create == true){
 
 use FSR_AI\location; ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
 </div>
 <div class="Content" id="fadeIn">
 
@@ -63,4 +63,4 @@ use FSR_AI\location; ?>
         <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
     </form>
 </div>
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

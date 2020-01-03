@@ -743,5 +743,4 @@ table input:hover{
     font-size: 50px;
     color: var(--secondary-text-color);
     line-height: 100%;
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(46, 46, 46, 1) 49%, rgba(0, 0, 0, 1) 50%, rgba(46, 46, 46, 1) 51%, rgba(0, 0, 0, 1) 100%);
-}
+    background: -webkit-linear-gradient(top, #131313 0%,#757575 48%,#000000 50%,#757575 52%,#131313 100%); /* Chrome10-25,Safari5.1-6 */}

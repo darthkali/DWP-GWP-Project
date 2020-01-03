@@ -8,7 +8,7 @@ $counter = 0;
 $design = '';
 ?>
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
 </div>
 <div class="Content" id="fadeIn">
 
@@ -45,7 +45,7 @@ $design = '';
     <?while($counter <= 1) :?>
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>
-                <img src=<?=IMAGEPATH.'upload/events/'.$event['PICTURE']?> alt = "Eventbild">
+                <img src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                 <div>
                     <h2><?=$event['NAME']?></h2>
                     <p>

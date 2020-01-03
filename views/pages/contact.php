@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'mail.jpg'?>" alt = "Roter Postkasten">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
 <div class="Content" id="fadeIn">
     <form autocomplete="off" action="?c=pages&a=Contact" method="post">
@@ -49,7 +49,7 @@
     </form>
 </div>
 
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>
 
 <!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
 <!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>

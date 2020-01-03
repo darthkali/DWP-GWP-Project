@@ -40,11 +40,11 @@ use FSR_AI\Booking;
                 <td><?=$event['PICTURE']?></td>
                 <td>
                     <a href="?c=event&a=CreateEvent&eventAction=edit&eventId=<?=$event['ID']?>">
-                        <input alt="Edit" type="image" title="Event bearbeiten" src=<?=IMAGEPATH.'edit.png'?>>
+                        <input alt="Edit" type="image" title="Event bearbeiten" src=<?=PAGE_IMAGE_PATH.'edit.png'?>>
                     </a>
                     <a href="?c=pages&a=deleteQuestion&eventAction=delete&eventId=<?=$event['ID']?>&pictureName=<?=$event['PICTURE']?>"
                        onclick="return deleteQuestionEvent(this, <?=$event['ID']?>, <?=$event['PICTURE']?>)">
-                        <input alt="Delete" type="image" title="Event entfernen" src=<?=IMAGEPATH.'entfernen.png'?>>
+                        <input alt="Delete" type="image" title="Event entfernen" src=<?=PAGE_IMAGE_PATH.'entfernen.png'?>>
                     </a>
                 </td>
             </tr>
@@ -61,4 +61,4 @@ use FSR_AI\Booking;
 
 </div>
 
-<script src="<?=JAVASCRIPTPATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

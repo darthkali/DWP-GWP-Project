@@ -1,12 +1,11 @@
 <?php
-
 use FSR_AI\function_FSR;
 use FSR_AI\MemberHistory;
 use FSR_AI\User;
-
 ?>
+
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=IMAGEPATH.'team.jpg'?>" alt = "8 Männer beim Tauziehen">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'team.jpg'?>" alt = "8 Männer beim Tauziehen">
 </div>
 
 <div class="Content" id="fadeIn">
@@ -43,7 +42,7 @@ use FSR_AI\User;
     </div>
         <? foreach($userList as $user) : ?>
             <div class="userBox">
-                <img class="center" src=<?=IMAGEPATH.'upload/users/'.$user['PICTURE']?> alt = "Bilder der mitglieder der Fachschaft der Angewandten informatik">
+                <img class="center" src=<?=USER_PICTURE_PATH.$user['PICTURE']?> alt = "Bilder der mitglieder der Fachschaft der Angewandten informatik">
                 <p><h2><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h2>
                 <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['MEMBER_ID'])?></strong>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br>
