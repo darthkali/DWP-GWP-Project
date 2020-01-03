@@ -105,6 +105,8 @@ class UserController extends Controller{
         $this->_params['userFunction']      = $userProfilInformations['userFunction'];
         $this->_params['allRoles']          = $userProfilInformations['allRoles'];
         $this->_params['allFunctions']      = $userProfilInformations['allFunctions'];
+        $this->_params['pageTopic']         = $userProfilInformations['pageTopic'];
+        $this->_params['pageSubTopic']      = $userProfilInformations['pageSubTopic'];
         $this->_params['errorMessagePassword'] = '';
 
         // if the user was not found, than we go to the error page.

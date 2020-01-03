@@ -141,6 +141,8 @@ class User extends BaseModel
             $title = 'Nutzer Ändern';
             $colorModeChecked = '';
             $action = 'userManagement';
+            $pageTopic = self::getFullName($user['FIRSTNAME'], $user['LASTNAME']);
+            $pageSubTopic = '';
         }else{
             $accessUser = [role::ADMIN, role::MEMBER, role::USER];    // which user(role_id) has permission to join the page
             $where = 'ID = ' . $_SESSION['userId'];
@@ -148,6 +150,8 @@ class User extends BaseModel
             $userRole = $user['ROLE_ID'];
             $userInformation = '';
             $title = 'Profil';
+            $pageTopic = 'Meine Daten';
+            $pageSubTopic = 'Hier kannst du deine Daten ändern!';
             if (isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) {
                 $colorModeChecked = 'checked';
             }else{
@@ -174,6 +178,8 @@ class User extends BaseModel
             'userFunction'      => $userFunction,
             'allRoles'          => $allRoles,
             'allFunctions'      => $allFunctions,
+            'pageTopic'         => $pageTopic,
+            'pageSubTopic'      => $pageSubTopic,
             'action'            => $action
         ];
     }

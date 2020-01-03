@@ -7,8 +7,8 @@ use FSR_AI\role;
 
 <div class="Content" id="fadeIn">
     <form autocomplete= "off" action="?c=user&a=profil<?=$userInformation?>" method="post" enctype="multipart/form-data" >
-        <h1>Meine Daten</h1>
-        <h5>Hier kannst du deine Daten ändern!</h5>
+        <h1><?=$pageTopic?></h1>
+        <h5><?=$pageSubTopic?></h5>
 
         <? if(isset($eingabeError)){?> <div class="error"><?
             foreach($eingabeError as $error){?>
