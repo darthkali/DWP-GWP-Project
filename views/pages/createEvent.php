@@ -38,7 +38,7 @@ use FSR_AI\location; ?>
 
         <!-- location drop down menu -->
         <label for="eventLocation">ORT</label>
-        <select id="eventLocation" name="eventLocation">
+        <select class="dropDownMenu" id="eventLocation" name="eventLocation">
 
             <?foreach ($locationsList as $location) : ?>
                 <?$selected = '';

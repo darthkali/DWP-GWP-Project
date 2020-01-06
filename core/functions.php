@@ -53,7 +53,3 @@ function crateDataOfFilesFromDirectory($dir, $numberOfOutputFiles){
 function sendHeaderByControllerAndAction($controller, $action){
     header('Location: ?c=' .$controller . '&a=' . $action);
 }
-
-
-
-

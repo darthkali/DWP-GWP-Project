@@ -121,7 +121,7 @@ div#FooterRight a img {
 
 .Content select{
     text-align: center;
-    text-align-last: center;
+    text-align-last: left;
 }
 
 .Content img{
@@ -168,6 +168,16 @@ div#FooterRight a img {
     border-width: 1px;
     border-color: var(--border-color);
     overflow: hidden;
+}
+
+.RegistrationButton{
+
+    background-color: #bb6600!important;
+}
+
+.RegistrationButton:hover{
+
+    color: #df8500 !important;
 }
 
 div#ContentEventsInPast{

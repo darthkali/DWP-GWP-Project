@@ -316,6 +316,7 @@ function deleteQuestionUser(link, userID) {
 function deleteQuestionEvent(link, eventID, pictureID) {
     console.log(link);
     link.href = "?c=event&a=eventManagement&eventId=" + eventID + "&pictureName=" + "'" + pictureID + "'";
+
     return window.confirm("Wollen Sie das Event wirklich löschen?");
 }
 
