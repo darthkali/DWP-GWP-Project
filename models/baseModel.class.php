@@ -125,28 +125,6 @@ abstract class BaseModel{
         return false;
     }
 
-    // deletes an entity from the database
-    public function delete(&$errors = null){
-        $db = $GLOBALS['db'];
-
-        try{
-            $sql = 'DELETE FROM ' . self::tablename() . ' WHERE id = ' . $this->id;
-
-            $db->beginTransaction();
-            $db->exec($sql);
-            $db->commit();
-            return true;
-        }
-        catch(PDOException $e){
-            $errors[] = 'Error deleting '.get_called_class();
-            foreach($errors  as $error){
-                error_to_logFile($error);
-            }
-            $db->rollBack();
-        }
-        return false;
-    }
-
     public static function deleteWhere($where){
         $db = $GLOBALS['db'];
         try{
