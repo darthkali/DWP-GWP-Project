@@ -1,40 +1,48 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    // Validation Profil
     if(typeof document.getElementsByName('submitProfil')[0] != 'undefined'){
         document.getElementsByName('submitProfil')[0].onclick = function () {
             return validateRegistrationOrProfil('Profil');
         };
     }
 
+    // Validation Login
+    if(typeof document.getElementsByName('submitLogin')[0] != 'undefined') {
+        document.getElementsByName('submitLogin')[0].onclick = function () {
+            return validateLogin();
+        };
+    }
+
+    // Validation Registration
     if(typeof document.getElementsByName('submitRegistration')[0] != 'undefined') {
         document.getElementsByName('submitRegistration')[0].onclick = function () {
             return validateRegistrationOrProfil('Registration');
         };
     }
 
+    // Validation Event
     if(typeof document.getElementsByName('submitEvent')[0] != 'undefined') {
         document.getElementsByName('submitEvent')[0].onclick = function () {
             return validateEvent();
         };
     }
 
-    if(typeof document.getElementsByName('test')[0] != 'undefined') {
-        document.getElementsByName('test')[0].onclick = function () {
-            ask_first();
-        };
-    }
-
+    // Validation Location
     if(typeof document.getElementsByName('submitCreateLocation')[0] != 'undefined') {
         document.getElementsByName('submitCreateLocation')[0].onclick = function () {
             return validateLocation();
         };
     }
 
+    // Validation Contact
     if(typeof document.getElementsByName('sendMail')[0] != 'undefined') {
         document.getElementsByName('sendMail')[0].onclick = function () {
             return validateContact();
         };
     }
+
+
 
     function validateRegistrationOrProfil(pageName) {
 
@@ -120,6 +128,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 description.parentNode.className = description.parentNode.className.split(" errorinput").join("");
             }
         }
+
+        return validate;
+    }
+
+    function validateLogin(pageName) {
+
+
+        var validate = true;
+
+        //TODO: prüfen ob es den Nutzer schon gibt
 
         return validate;
     }

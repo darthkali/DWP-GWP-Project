@@ -277,6 +277,10 @@ class User extends BaseModel
             $error =  "Das Passwort muss mindestens eine Kleinbuchstaben beinhalten";
             return false;
         }
+        elseif(!preg_match("#[0-9]+#",$password)) {
+            $error =  "Das Passwort muss mindestens eine Zahl beinhalten";
+            return false;
+        }
         return true;
     }
 }

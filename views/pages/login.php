@@ -8,7 +8,9 @@
         <h5>Bitte einloggen um dein Profil zu sehen!</h5>
 
         <? if($errorValid){ ?> <div class="error"><?echo $errorMessage?></div> <? } ?>
-
+        <div class="input">
+            <span class="error-message" id="errorEmailLogin"></span>
+        </div>
         <!-- username -->
         <label for="email">EMAIL </label>
         <input type = "text" id="email" name="email" required
@@ -19,7 +21,7 @@
         <input type = "password" id="password" name="password" >
 
         <!-- button -->
-        <button type="submit" name="submit" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
+        <button type="submit" name="submitLogin" id="submitLogin" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
 
         <!-- checkbox -->
         <div class="checkBox">
@@ -29,4 +31,4 @@
             <?=isset($_POST['rememberMe']) ? 'checked' : ''?>
     </form>
 </div>
-
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>
