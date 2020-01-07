@@ -14,16 +14,13 @@ $design = '';
     <h1>Unsere Events</h1>
 
     <div class="filterBox">
-        <form>
+        <form method = post>
 
                     <div class="sortFilterBox">
-                        <label for="sortByUser">Sortieren nach: </label> <br>
-                        <select name="sortByUser" id="sortByUser">
-                            <option value = 1 >  ---------</option>
-                            <option value = 2 >  Eventname - Aufsteigend</option>
-                            <option value = 3 >  Eventname - Absteigend</option>
-                            <option value = 4 >  Datum - Aufsteigend</option>
-                            <option value = 5 >  Datum - Absteigend</option>
+                        <label for="sortByEventName">Sortieren nach: </label> <br>
+                        <select name="sortByEventName" id="sortByEventName">
+                            <option value = 1 <?=($valueSort == 1) ? 'selected' : ''?> >  Eventname - Aufsteigend</option>
+                            <option value = 2 <?=($valueSort == 2) ? 'selected' : ''?> >  Eventname - Absteigend</option>
                         </select>
                     </div>
 

@@ -7,8 +7,28 @@ class EventController extends Controller
 {
     public function actionEvents(){
         $this->_params['title'] = 'Events';
-        $eventListFuture = Event::find('to_days(curdate()) - to_days(DATE) <= 0', 'geteventinfo', ' order by DATE');
-        $eventListPast = Event::find('to_days(curdate()) - to_days(DATE) > 0', 'geteventinfo', ' order by DATE desc');
+        $whereForEventsInFuture = 'to_days(curdate()) - to_days(DATE) <= 0';
+        $whereForEventsInPast = 'to_days(curdate()) - to_days(DATE) > 0';
+
+        $filterFunction = '';
+        $filterSort = 'ORDER BY DATE';
+        $this->_params['valueFilter'] = 0;
+        $this->_params['valueSort'] = 2;
+
+        if(isset($_POST['sortByEventName'])){
+            $filterSort = Event::generateSortClauseForEvent($_POST['sortByEventName']);
+            $this->_params['valueSort'] = $_POST['sortByEventName'];
+        }
+
+        if(isset($_POST['startDateEventFilter']) && isset($_POST['endDateEventFilter'])){
+            if($_POST['startDateEventFilter'] != null && $_POST['endDateEventFilter'] != null) {
+                $filterFunction = ' and DATE BETWEEN "' . $_POST['startDateEventFilter'] . '" AND "' . $_POST['endDateEventFilter'].'"';
+            }
+        }
+
+        $eventListFuture = Event::find($whereForEventsInFuture . $filterFunction, 'geteventinfo', $filterSort);
+        $eventListPast = Event::find($whereForEventsInPast . $filterFunction, 'geteventinfo', $filterSort);
+
         $this->_params['eventListFuture'] = $eventListFuture;
         $this->_params['eventListPast'] = $eventListPast;
     }
