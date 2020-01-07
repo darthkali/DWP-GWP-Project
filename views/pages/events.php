@@ -30,12 +30,13 @@ $design = '';
 
                     <div class="sortFilterBox">
                         <label for="startDateEventFilter">Anfangsdatum </label><br>
-                        <input type = "date" id="startDateEventFilter" name="startDateEventFilter"/>
+                        <input type = "date" id="startDateEventFilter" name="startDateEventFilter" placeholder="Datum"
+                               value="<?=isset($earliestDate) ? $earliestDate : ''?>">
                     </div>
 
                     <div class="sortFilterBox">
                         <label for="endDateEventFilter">Enddatum </label><br>
-                        <input type = "date" id="endDateEventFilter" name="endDateEventFilter"/>
+                        <input type = "date" id="endDateEventFilter" name="endDateEventFilter" value="<?=isset($latestDate) ? $latestDate : ''?>"/>
                     </div>
 
                     <!-- buttons -->

@@ -6,10 +6,12 @@ namespace FSR_AI;
 class EventController extends Controller
 {
     public function actionEvents(){
-        $this->_params['title'] = 'Events';
-        $whereForEventsInFuture = 'to_days(curdate()) - to_days(DATE) <= 0';
-        $whereForEventsInPast = 'to_days(curdate()) - to_days(DATE) > 0';
+        $this->_params['title']     = 'Events';
+        $this->_params['earliestDate'] = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo)')['DATE'];
+        $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
 
+        $whereForEventsInFuture     = 'to_days(curdate()) - to_days(DATE) <= 0';
+        $whereForEventsInPast       = 'to_days(curdate()) - to_days(DATE) > 0';
         $filterFunction = '';
         $filterSort = 'ORDER BY DATE';
         $this->_params['valueFilter'] = 0;
@@ -23,8 +25,12 @@ class EventController extends Controller
         if(isset($_POST['startDateEventFilter']) && isset($_POST['endDateEventFilter'])){
             if($_POST['startDateEventFilter'] != null && $_POST['endDateEventFilter'] != null) {
                 $filterFunction = ' and DATE BETWEEN "' . $_POST['startDateEventFilter'] . '" AND "' . $_POST['endDateEventFilter'].'"';
+                $this->_params['earliestDate']  = $_POST['startDateEventFilter'];
+                $this->_params['latestDate']    = $_POST['endDateEventFilter'];
             }
         }
+
+
 
         $eventListFuture = Event::find($whereForEventsInFuture . $filterFunction, 'geteventinfo', $filterSort);
         $eventListPast = Event::find($whereForEventsInPast . $filterFunction, 'geteventinfo', $filterSort);
@@ -61,6 +67,7 @@ class EventController extends Controller
 
         $this->_params['locationsList'] = Location::find();
         $dataDir = 'assets/images/upload/events/';
+
 
         if(isset($_GET['eventAction'])) {
             if ($_GET['eventAction'] == 'edit') {
