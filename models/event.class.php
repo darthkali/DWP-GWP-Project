@@ -30,6 +30,10 @@ class Event extends BaseModel{
                 return $sortEvent = 'ORDER BY DATE';
             case 4:
                 return $sortEvent = 'ORDER BY DATE DESC';
+            case 5:
+                return $sortEvent = 'ORDER BY LOCATION_ID';
+            case 6:
+                return $sortEvent = 'ORDER BY LOCATION_ID DESC';
             default:
                 return $sortEvent = '';
         }

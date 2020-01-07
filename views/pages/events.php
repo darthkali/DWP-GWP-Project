@@ -17,10 +17,14 @@ $design = '';
         <form method = post>
 
                     <div class="sortFilterBox">
-                        <label for="sortByEventName">Sortieren nach: </label> <br>
-                        <select name="sortByEventName" id="sortByEventName">
+                        <label for="sortByEvent">Sortieren nach: </label> <br>
+                        <select name="sortByEvent" id="sortByEvent">
                             <option value = 1 <?=($valueSort == 1) ? 'selected' : ''?> >  Eventname - Aufsteigend</option>
                             <option value = 2 <?=($valueSort == 2) ? 'selected' : ''?> >  Eventname - Absteigend</option>
+                            <option value = 3 <?=($valueSort == 3) ? 'selected' : ''?> >  Datum - Aufsteigend</option>
+                            <option value = 4 <?=($valueSort == 4) ? 'selected' : ''?> >  Datum - Absteigend</option>
+                            <option value = 5 <?=($valueSort == 5) ? 'selected' : ''?> >  Ort - Aufsteigend</option>
+                            <option value = 6 <?=($valueSort == 6) ? 'selected' : ''?> >  Ort - Absteigend</option>
                         </select>
                     </div>
 

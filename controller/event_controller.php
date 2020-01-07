@@ -15,9 +15,9 @@ class EventController extends Controller
         $this->_params['valueFilter'] = 0;
         $this->_params['valueSort'] = 2;
 
-        if(isset($_POST['sortByEventName'])){
-            $filterSort = Event::generateSortClauseForEvent($_POST['sortByEventName']);
-            $this->_params['valueSort'] = $_POST['sortByEventName'];
+        if(isset($_POST['sortByEvent'])){
+            $filterSort = Event::generateSortClauseForEvent($_POST['sortByEvent']);
+            $this->_params['valueSort'] = $_POST['sortByEvent'];
         }
 
         if(isset($_POST['startDateEventFilter']) && isset($_POST['endDateEventFilter'])){
