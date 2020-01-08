@@ -7,11 +7,13 @@ class EventController extends Controller
 {
     public function actionEvents(){
         $this->_params['title']     = 'Events';
-        $this->_params['earliestDate'] = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo)')['DATE'];
-        $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
 
         $whereForEventsInFuture     = 'to_days(curdate()) - to_days(DATE) <= 0';
-        $whereForEventsInPast       = 'to_days(curdate()) - to_days(DATE) > 0';
+        $whereForEventsInPast       = 'to_days(curdate()) - to_days(DATE) > 0 AND to_days(curdate()) - to_days(DATE) < 182';
+
+        $this->_params['earliestDate'] = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE '.$whereForEventsInPast.')')['DATE'];
+        $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
+
         $filterFunction = '';
         $filterSort = 'ORDER BY DATE';
         $this->_params['valueFilter'] = 0;
@@ -29,8 +31,6 @@ class EventController extends Controller
                 $this->_params['latestDate']    = $_POST['endDateEventFilter'];
             }
         }
-
-
 
         $eventListFuture = Event::find($whereForEventsInFuture . $filterFunction, 'geteventinfo', $filterSort);
         $eventListPast = Event::find($whereForEventsInPast . $filterFunction, 'geteventinfo', $filterSort);
