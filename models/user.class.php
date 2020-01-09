@@ -20,7 +20,7 @@ class User extends BaseModel
     ];
 
     public static function findUserBySessionUserID(){
-        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+        if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
             $where = 'ID = ' . $_SESSION['userId'];     // build the where statement
             return self::findOne($where);
         }else{
