@@ -46,7 +46,7 @@ $design = '';
 
     <?if($eventListPast == null && $eventListFuture == null) : ?>
     <div class="ContentEvents">
-        <h1>Leider gibt es gerade keine Events:(</h1>
+        <h1>Leider gibt es zu diesem Zeitpunkt keine Events:(</h1>
     </div>
     <?endif;?>
 
