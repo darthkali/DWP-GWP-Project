@@ -61,6 +61,8 @@ class EventController extends Controller
         }else{
             Booking::deleteWhere(Booking::buildWhereBooking($userId, $eventId));
         }
+        sendHeaderByControllerAndAction('event', 'events');
+        exit(0);
     }
 
     public function actionCreateEvent(){

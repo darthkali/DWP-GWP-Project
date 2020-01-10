@@ -1,3 +1,0 @@
-<?
-sendHeaderByControllerAndAction('event', 'events');
-die;
