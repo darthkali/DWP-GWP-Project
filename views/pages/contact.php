@@ -5,12 +5,13 @@
     <form autocomplete="off" action="?c=pages&a=Contact" method="post">
         <h1>Kontakt</h1>
 
-        <? if(isset($eingabeError)){?>
-            <div class="error"><?
-                foreach($eingabeError as $error){?>
+        <?if(isset($eingabeError)) :?>
+            <div class="error">
+                <?foreach($eingabeError as $error) :?>
                     <?=$error?><br>
-                <?}?>
-            </div> <? } ?>
+                <?endforeach;?>
+            </div>
+        <? endif; ?>
 
         <!-- name -->
         <div class="input">
