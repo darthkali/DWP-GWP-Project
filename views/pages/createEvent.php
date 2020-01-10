@@ -4,7 +4,7 @@ if($create == true){
 }else{
     $action = 'index.php?c=event&a=CreateEvent&eventAction=edit&eventId='.$eventData['ID'].'&pictureName='.$eventData['PICTURE'];
 }
-
+//die($required);
 use FSR_AI\location; ?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=PAGE_IMAGE_PATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
@@ -24,7 +24,7 @@ use FSR_AI\location; ?>
         <div class="input">
             <label for="eventName">EVENTNAME</label>
             <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required
-                   value="<?=isset($eventData['NAME']) ? $eventData['NAME'] : ''?>">
+                   value="<?=isset($eventData['NAME']) ? htmlspecialchars($eventData['NAME']) : ''?>">
                 <span class="error-message" id="errorEventName"></span>
         </div>
 
@@ -57,7 +57,7 @@ use FSR_AI\location; ?>
         </div>
 
         <label for="picture">BILD</label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required)?>>
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required) ? $required : ''?>>
 
         <!-- button -->
         <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>

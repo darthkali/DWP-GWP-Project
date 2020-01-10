@@ -241,7 +241,7 @@ abstract class BaseModel{
         return $result;
     }
 
-    public static function putTheUploadetFileOnTheServerAndRemoveTheOldOne($inputFieldName, $filePath, $fileName, $pictureName ){
+    public static function putTheUploadedFileOnTheServerAndRemoveTheOldOne($inputFieldName, $filePath, $fileName, $pictureName ){
         if (basename($_FILES[$inputFieldName]['name']) != null) {
             unlink($filePath.$fileName);
             $picturePath = $filePath . $pictureName;

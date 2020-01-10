@@ -142,7 +142,7 @@ class UserController extends Controller{
                 return false;
             }
 
-            User::putTheUploadetFileOnTheServerAndRemoveTheOldOne('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
+            User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', USER_PICTURE_PATH , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
 
             // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){

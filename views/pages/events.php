@@ -43,6 +43,13 @@ $design = '';
                     <button type="submit" name="filterID">Filter anwenden</button>
         </form>
     </div>
+
+    <?if($eventListPast == null && $eventListFuture == null) : ?>
+    <div class="ContentEvents">
+        <h1>Leider gibt es gerade keine Events:(</h1>
+    </div>
+    <?endif;?>
+
     <?for($i = 0; $i <= 1; $i++) : ?>
         <?foreach($eventList as $event) :?>
             <div class="ContentEvents" <?=$design?>>
