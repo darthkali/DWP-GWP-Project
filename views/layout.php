@@ -30,15 +30,15 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
     <link rel="stylesheet" href="<?=CSS_PATH.'responsive.css'?>">
     <link rel="stylesheet" href="<?=CSS_PATH.'aswesomeFonts.css'?>">
 
-    <?  if(isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) {?>
+    <?  if(isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) :?>
         <link rel="stylesheet" href="<?=CSS_PATH.'darkMode.css'?>">
-    <?}else{?>
+    <?else : ?>
         <link rel="stylesheet" href="<?=CSS_PATH.'normalMode.css'?>">
-    <?}?>
+    <?endif;?>
 
     <link rel="shortcut icon" type="image/png" href="<?=ROOTPATH.'assets/images/ailogo_groß.png'?>">
 </head>
-	<body>
+	<body onload="return changeUrl('<?=$title?>')">
         <? include __DIR__ . '/shared/navMenuBar.php'; ?>
 
 			<?=$body?>
@@ -48,3 +48,4 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
         </footer>
 	</body>
 </html>
+<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>

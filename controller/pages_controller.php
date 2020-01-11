@@ -33,7 +33,7 @@ foreach ($daysUntilEvent as $digit){
     }
 
     public function actionAboutUs(){
-        $this->_params['title'] = 'Über Uns';
+        $this->_params['title'] = 'Unser Team';
     }
 
     public function actionContact(){

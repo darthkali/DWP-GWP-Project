@@ -1,6 +1,9 @@
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=PAGE_IMAGE_PATH.'code.png'?>" alt = "Bild Impressum"> <!-- TODO: anderes Bild oder Titel-->
 </div>
+<script type="text/javascript">
+    ChangeUrl('Test', 'Test1')
+</script>
 <div class="Content" id="fadeIn">
     <h1>Impressum</h1>
     <p>Informationspflicht laut § 5 TMG.</p>
