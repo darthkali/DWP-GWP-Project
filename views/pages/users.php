@@ -12,8 +12,8 @@ use FSR_AI\User;
 
     <div class="userPageBox">
     <h1>Unsere Mitglieder</h1>
-    <div class="filterBox">
-        <form method="post">
+
+        <form method="post" class="filterBox">
             <div class="sortFilterBox">
                 <label for="sortByUser">Sortieren nach: </label><br>
                 <select name="sortByUser" id="sortByUser">
@@ -37,9 +37,10 @@ use FSR_AI\User;
             </div>
             <br>
             <!-- buttons -->
-            <button type="submit" name="filterID">Filter anwenden</button>
+            <div class="sortFilterBox" id="ButtonInCenter">
+                <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden</button>
+            </div>
         </form>
-    </div>
         <? foreach($userList as $user) : ?>
             <div class="userBox">
                 <img class="center" src=<?=USER_PICTURE_PATH.$user['PICTURE']?> alt = "Bilder der mitglieder der Fachschaft der Angewandten informatik">

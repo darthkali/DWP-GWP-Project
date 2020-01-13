@@ -38,7 +38,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
 
     <link rel="shortcut icon" type="image/png" href="<?=ROOTPATH.'assets/images/ailogo_groß.png'?>">
 </head>
-	<body onload="return changeUrl('<?=$title?>')">
+    <body>          <!--	  onload="return changeUrl('<?//=$title?>//')"-->
         <? include __DIR__ . '/shared/navMenuBar.php'; ?>
 
 			<?=$body?>

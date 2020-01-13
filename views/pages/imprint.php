@@ -1,5 +1,5 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=PAGE_IMAGE_PATH.'code.png'?>" alt = "Bild Impressum"> <!-- TODO: anderes Bild oder Titel-->
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'code.png'?>" alt = "If statement that set your life motto from sad to be awesome!">
 </div>
 <div class="Content" id="fadeIn">
     <h1>Impressum</h1>

@@ -11,8 +11,8 @@ class EventController extends Controller
         $whereForEventsInFuture     = 'to_days(curdate()) - to_days(DATE) <= 0';
         $whereForEventsInPast       = 'to_days(curdate()) - to_days(DATE) > 0 AND to_days(curdate()) - to_days(DATE) < 183';
 
-        $this->_params['earliestDate'] = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE '.$whereForEventsInPast.')')['DATE']; // get min Date from Events last 6 Months
-        $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
+//        $this->_params['earliestDate'] = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE '.$whereForEventsInPast.')')['DATE']; // get min Date from Events last 6 Months
+//        $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
 
         $filterFunction = '';
         $filterSort = 'ORDER BY DATE';

@@ -160,6 +160,7 @@ div#FooterRight a img {
 }
 
 /* ----------------------------------   Content Events   ---------------------------------- */
+
 .ContentEvents {
     width: 100%;
     margin: 10px auto 10px auto;
@@ -213,14 +214,13 @@ div#EventButton{
     margin-bottom: 0;
     border-style: none;
 }
-
 /* ----------------------------------   Error - Page   ---------------------------------- */
 .ErrorPage{
     text-align: center;
 }
 
 .ErrorPage h1{
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 /* ----------------------------------   Site - Picture   ---------------------------------- */
@@ -239,20 +239,20 @@ div#EventButton{
 
 /* ----------------------------------   Animation  ---------------------------------- */
 div#fadeInIndexPage {
-    animation: animationFadeIn ease 3s;
+    animation: animationFadeIn ease 2s;
 }
 
 div#fadeIn {
-    animation: animationFadeIn ease 3s;
+    animation: animationFadeIn ease 2s;
 }
 
 div#fadeInImg {
-    animation: animationFadeIn ease 1.5s;
+    animation: animationFadeIn ease 1s;
 }
 
 @keyframes animationFadeIn{
     0% {
-        opacity:0;
+        opacity:0.5;
     }
     100% {
         opacity:1;
@@ -351,10 +351,6 @@ form [type="file"]:hover {
 .checkBox input[type="checkbox"]:hover, .checkBox input[type="checkbox"]:focus {
     box-shadow: none;
 }
-
-
-
-
 
 /* redesign the Date-Type for Input-Fields */
 form [type="date"] {
@@ -456,10 +452,6 @@ table input:hover{
     text-align: left;
 }
 
-
-
-
-
 .startContent{
     margin-bottom: 10px;
     display: inline-block;
@@ -514,11 +506,6 @@ table input:hover{
     text-align: center;
 }
 
-.userPageBox button{
-    height: 35px;
-    padding:5px;
-}
-
 .userBox{
     display: block;
     width: 100%;
@@ -545,30 +532,46 @@ table input:hover{
 }
 
 /* ----------------------------------   Filter Sortieren   ---------------------------------- */
+.FilterBoxButton{
+    height: 30px;
+    padding:5px!important;
+    margin-left: 0;
+}
+
+#ButtonInCenter{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
 
 .filterBox{
-    display: block;
+    max-width: 100%!important;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
     width:100%;
     padding: 0;
-    /*background-color: #0000dd;*/
+}
 
+.sortFilterBox > div {
+    background-color: #0000dd !important;
+}
+
+.filterBox > div{
+    width: 250px;
+    /*background-color: #bb6600;*/
 }
 
 .sortFilterBox{
-    float: left;
     margin: 0 10px 10px 0;
     padding: 0;
 }
 
-
 .sortFilterBox [type="date"] {
     height: 30px;
-}
-
-
-.sortFilterBox input {
-    height: 30px;
-    width: 150px;
+    width: 250px;
 }
 
 .filterBox .sortFilterBox select{
@@ -591,7 +594,6 @@ table input:hover{
 }
 
 .filterBox form button{
-    float: none;
     margin: 0;
 }
 

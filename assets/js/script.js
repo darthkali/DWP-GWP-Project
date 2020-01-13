@@ -319,12 +319,12 @@ function deleteQuestionEvent(link, eventID, pictureID) {
     return window.confirm("Wollen Sie das Event wirklich löschen?");
 }
 
-function changeUrl(url) {
-
-    if (typeof (history.pushState) != "undefined") {
-        var obj = { Title: 'PageName' , Url: url};
-        history.pushState(obj, obj.Title, obj.Url);
-    } else {
-        alert("Browser does not support HTML5.");
-    }
-}
+// function changeUrl(url) {
+//
+//     if (typeof (history.pushState) != "undefined") {
+//         var obj = { Title: 'PageName' , Url: url};
+//         history.pushState(obj, obj.Title, obj.Url);
+//     } else {
+//         alert("Browser does not support HTML5.");
+//     }
+// }
