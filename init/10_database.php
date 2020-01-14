@@ -14,6 +14,5 @@ try{
 }
 catch(PDOException $e){
     $message = 'Database connection failed: ' . $e->getMessage();
-    error_to_logFile($message);
     die($message);
 }
