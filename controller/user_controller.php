@@ -133,11 +133,12 @@ class UserController extends Controller{
                 'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
                 'PASSWORD'         => ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'],
             ];
+
             $newUser = new User($params);
 
-            // validation from the inputFields
             $eingabeError = [];
-            if(!$newUser->validate($eingabeError)){
+
+            if(!User::validateUser($newUser, $eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }

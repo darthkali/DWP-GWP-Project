@@ -11,9 +11,19 @@ use FSR_AI\role;
         <h5><?=$pageSubTopic?></h5>
 
         <? if(isset($eingabeError)){?> <div class="error"><?
-            foreach($eingabeError as $error){?>
-                <?=$error?><br>
-            <?}?></div> <? } ?>
+            if(is_array($eingabeError)){
+                foreach($eingabeError as $error){?>
+                    <?=$error?> <br>
+                <?}
+            }else{
+                echo $eingabeError;
+            }?>
+
+
+
+        </div>
+
+        <? } ?>
 
         <!-- firstname -->
         <div class="input">

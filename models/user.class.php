@@ -284,4 +284,33 @@ class User extends BaseModel
         }
         return true;
     }
+
+    public static function validateUser($newUser, &$eingabeError){
+        if (!$newUser->validate($eingabeError)) {
+            return false;
+        }
+        if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
+            array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
+        }
+
+        if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('LASTNAME'))) {
+            array_push($eingabeError, 'Der Nachname darf nur aus Buchstaben bestehen');
+        }
+        if (!preg_match('/[.]/', $newUser->__get('EMAIL'))) {
+            array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
+        }
+
+        // TODO: Datum Validieren
+//        if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
+//            debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
+//            array_push($eingabeError, 'Datum');
+//        }
+
+        if(count($eingabeError) == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }
