@@ -15,9 +15,9 @@ class EventController extends Controller
         $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
 
         $filterFunction = '';
-        $filterSort = 'ORDER BY DATE';
+        $filterSort = 'ORDER BY DATE desc';
         $this->_params['valueFilter'] = 0;
-        $this->_params['valueSort'] = 2;
+        $this->_params['valueSort'] = 4;
 
         if(isset($_POST['sortByEvent'])){
             $filterSort = Event::generateSortClauseForEvent($_POST['sortByEvent']);
