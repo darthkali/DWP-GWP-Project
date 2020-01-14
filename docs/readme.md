@@ -1,8 +1,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/darthkali/dwp-gwp-project/badge/master?s=17405f65133fc8d0a0ea804b4fb6c4fac532809e)](https://www.codefactor.io/repository/github/darthkali/dwp-gwp-project/overview/master)
 
-![CodeFactor](https://img.shields.io/badge/PHP-7.3.11-blue)
+![CodeFactor](https://img.shields.io/badge/PHP-7.4.1-blue)
 ![CodeFactor](https://img.shields.io/badge/xampp-7.3.5-orange)
-![CodeFactor](https://img.shields.io/badge/MariaDB-10.4.8-Yellow)
+![CodeFactor](https://img.shields.io/badge/MariaDB-10.4.11-Yellow)
 
 
 
@@ -19,7 +19,7 @@ Was wird für die Installation / Ausführung der Webseite benötigt.
 
 ```
 XAMPP Version: 7.3.5
-Control Panel Version: 3.2.3  [ Compiled: Mar 7th 2019 ] (in XAMPP enthalten)
+Control Panel Version: 3.2.4  [ Compiled: Mar 7th 2019 ] (in XAMPP enthalten)
 phpmyadmin
 Internet Browser
 ```
