@@ -560,8 +560,8 @@ table input:hover{
 }
 
 .filterBox > div{
-    width: 250px;
     /*background-color: #bb6600;*/
+
 }
 
 .sortFilterBox{
@@ -571,7 +571,7 @@ table input:hover{
 
 .sortFilterBox [type="date"] {
     height: 30px;
-    width: 250px;
+    padding: 5px!important;
 }
 
 .filterBox .sortFilterBox select{

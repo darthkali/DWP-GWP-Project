@@ -75,6 +75,16 @@
 
     /* ----------------------------------  NavContent   ---------------------------------- */
     .NavContent {font-size: 1.8em;}
+
+    .sortFilterBox [type="date"] {
+        height: 30px;
+        width: 250px;
+        padding: 5px!important;
+    }
+    .sortFilterBox{
+        width: 250px;
+    }
+
 }
 
 /* ----------------------------------   pictureRaster   ---------------------------------- */

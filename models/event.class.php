@@ -38,4 +38,15 @@ class Event extends BaseModel{
                 return $sortEvent = '';
         }
     }
+
+    public static function getDateFromTheEarliestEvent(){
+
+        $eventDate = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE to_days(curdate()) - to_days(DATE) > 0 AND to_days(curdate()) - to_days(DATE) < 183)');
+        return empty($eventDate) ? date('d.m.Y') : $eventDate['DATE'];
+    }
+
+    public static function getDateFromTheLatestEvent(){
+
+        return Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
+    }
 }

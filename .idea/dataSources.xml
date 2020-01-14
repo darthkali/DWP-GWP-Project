@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="fsraidatabase@localhost" uuid="152f8a93-1083-4026-b79a-1992a8ccb706">
-      <driver-ref>mysql.8</driver-ref>
+    <data-source source="LOCAL" name="fsraidatabase@localhost" uuid="cfbec6f8-3038-4ed4-acfa-b83714b72db4">
+      <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/fsraidatabase</jdbc-url>
+      <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mariadb://localhost:3306/fsraidatabase</jdbc-url>
     </data-source>
   </component>
 </project>

@@ -78,7 +78,6 @@ $design = '';
                             </div>
                         <?else : ?>
                             <div><strong>Das Event ist schonvorbei!!</strong></div>
-                            <?Booking::deleteWhere('EVENT_ID = '.$event['ID']);?>
                         <?endif;?>
                     <?else : ?>
                         <div class="ContentEventsButton"><strong>Zum anmelden bitte anmelden!</strong></div>

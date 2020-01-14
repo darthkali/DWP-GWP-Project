@@ -6,18 +6,17 @@ namespace FSR_AI;
 class EventController extends Controller
 {
     public function actionEvents(){
-        $this->_params['title']     = 'Events';
+        $this->_params['title'] = 'Events';
 
-        $whereForEventsInFuture     = 'to_days(curdate()) - to_days(DATE) <= 0';
-        $whereForEventsInPast       = 'to_days(curdate()) - to_days(DATE) > 0';
+        $whereForEventsInPast = 'to_days(curdate()) - to_days(DATE) > 0';
 
-        $this->_params['earliestDate'] = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE '.$whereForEventsInPast.' AND to_days(curdate()) - to_days(DATE) < 183)')['DATE']; // get min Date from Events last 6 Months
-        $this->_params['latestDate']   = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
+        $this->_params['earliestDate'] = Event::getDateFromTheEarliestEvent();  //Get earliest date of event list
+        $this->_params['latestDate']   = Event::getDateFromTheLatestEvent();    //Get latest date of event list
 
         $filterFunction = '';
         $filterSort = 'ORDER BY DATE desc';
-        $this->_params['valueFilter'] = 0;
-        $this->_params['valueSort'] = 4;
+        $this->_params['valueFilter']   = 0;
+        $this->_params['valueSort']     = 4;
 
         if(isset($_POST['sortByEvent'])){
             $filterSort = Event::generateSortClauseForEvent($_POST['sortByEvent']);
@@ -34,11 +33,11 @@ class EventController extends Controller
             $whereForEventsInPast .= ' AND to_days(curdate()) - to_days(DATE) < 183';
         }
 
-        $eventListFuture = Event::find($whereForEventsInFuture . $filterFunction, 'geteventinfo', $filterSort);
-        $eventListPast = Event::find($whereForEventsInPast . $filterFunction, 'geteventinfo', $filterSort);
+        $eventListFuture    = Event::find('to_days(curdate()) - to_days(DATE) <= 0' . $filterFunction, 'geteventinfo', $filterSort);
+        $eventListPast      = Event::find($whereForEventsInPast . $filterFunction, 'geteventinfo', $filterSort);
 
-        $this->_params['eventListFuture'] = $eventListFuture;
-        $this->_params['eventListPast'] = $eventListPast;
+        $this->_params['eventListFuture']   = $eventListFuture;
+        $this->_params['eventListPast']     = $eventListPast;
     }
 
     public function actionBooking(){
