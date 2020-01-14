@@ -142,7 +142,8 @@ class EventController extends Controller
         if(isset($_GET['eventId'])) {
             $dataDir = 'assets/images/upload/events/';
             unlink($dataDir . $_GET['pictureName']);
-            Event::deleteWhere('id = ' . $_GET['eventId']);
+            Booking::deleteWhere('EVENT_ID = '.$_GET['eventId']);
+            Event::deleteWhere('ID = ' . $_GET['eventId']);
             sendHeaderByControllerAndAction('event', 'EventManagement');
         }
 
