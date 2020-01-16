@@ -131,8 +131,13 @@ class UserController extends Controller{
                 'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil'],
                 'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName,
                 'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
-                'PASSWORD'         => ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'],
+                'PASSWORD'         => null
             ];
+
+
+            if(isset($_POST['passwordProfil'])){
+                $params['PASSWORD' ] = ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'];
+            }
 
             $newUser = new User($params);
 
@@ -151,7 +156,7 @@ class UserController extends Controller{
                 $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
-            if (User::checkUniqueUserEntity($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) == null) {
+            if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == null) {
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
@@ -199,11 +204,11 @@ class UserController extends Controller{
             ];
 
             $newUser = new User($params);
-            if (User::checkUniqueUserEntity($params['EMAIL']) === null) {
+            if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) === null) {
 
                 // validation from the inputFields
                 $eingabeError = [];
-                if(!$newUser->validate($eingabeError)){
+                if(!User::validateUser($newUser, $eingabeError)){
                     $this->_params['eingabeError'] = $eingabeError;
                     return false;
                 }

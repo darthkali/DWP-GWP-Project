@@ -132,16 +132,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return validate;
     }
 
-    function validateLogin() {
-
-
-        var validate = true;
-
-        //TODO: prüfen ob es den Nutzer schon gibt
-
-        return validate;
-    }
-
     function validateEvent() {
 
         var eventName  = document.getElementById('eventName');
