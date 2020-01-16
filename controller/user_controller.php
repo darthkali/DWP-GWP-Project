@@ -136,7 +136,6 @@ class UserController extends Controller{
 
 
             if(isset($_POST['passwordProfil'])){
-                debug_to_logFile('password: ' . $_POST['passwordProfil']);
                 $params['PASSWORD' ] = ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'];
             }
 
