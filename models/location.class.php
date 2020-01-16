@@ -42,7 +42,6 @@ class Location extends BaseModel{
             array_push($eingabeError, 'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen');
         }
 
-
         if(count($eingabeError) == 0){
             return true;
         }else{
