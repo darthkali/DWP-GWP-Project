@@ -131,8 +131,14 @@ class UserController extends Controller{
                 'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil'],
                 'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName,
                 'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
-                'PASSWORD'         => ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'],
+                'PASSWORD'         => null
             ];
+
+
+            if(isset($_POST['passwordProfil'])){
+                debug_to_logFile('password: ' . $_POST['passwordProfil']);
+                $params['PASSWORD' ] = ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'];
+            }
 
             $newUser = new User($params);
 
@@ -151,7 +157,7 @@ class UserController extends Controller{
                 $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
-            if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) == null) {
+            if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == null) {
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
