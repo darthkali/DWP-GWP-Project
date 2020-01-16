@@ -16,7 +16,8 @@ class MemberHistory extends BaseModel{
     ];
 
     public static function generateActualMemberHistory($userID){
-        return self::findOne('MEMBER_ID = '. $userID . ' and END_DATE is null');
+        $hist = self::findOne('MEMBER_ID = '. $userID . ' and END_DATE is null');
+        return $hist;
     }
 
     public static function generateAllClosedMemberHistory($userID){

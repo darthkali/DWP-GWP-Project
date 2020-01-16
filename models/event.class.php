@@ -49,4 +49,24 @@ class Event extends BaseModel{
 
         return Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
     }
+
+    public static function validateEvent($newEvent, &$eingabeError){
+        if (!$newEvent->validate($eingabeError)) {
+            return false;
+        }
+        if (!preg_match('/^[A-Za-z0-9]*$/', $newEvent->__get('NAME'))) {
+            array_push($eingabeError, 'Der Eventname darf nur aus Buchstaben und Zahlen bestehen bestehen');
+        }
+        // TODO: Datum Validieren
+//        if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
+//            debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
+//            array_push($eingabeError, 'Datum');
+//        }
+
+        if(count($eingabeError) == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
