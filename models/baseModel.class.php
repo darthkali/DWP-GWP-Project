@@ -223,7 +223,7 @@ abstract class BaseModel{
 
     public static function findOne($where = ''){
         $db  = $GLOBALS['db'];
-        $result = 'null';
+        $result = null;
 
         try{
             $sql = 'SELECT * FROM ' . self::tablename();

@@ -85,9 +85,9 @@ class User extends BaseModel
         return false;
     }
 
-    public static function checkUniqueUserEntity($email){
+    public static function checkUniqueUserEntityAndReturnID($email){
         $where = " EMAIL = '" . $email . "';'";
-        return self::findOne($where)['ID'];
+        return self::findOne($where) != null ? self::findOne($where)['ID'] : null;
     }
 
     public static function changeUserRoleAndFunction($userID, $newRole, $newfunctionFSR = null){
@@ -286,9 +286,9 @@ class User extends BaseModel
     }
 
     public static function validateUser($newUser, &$eingabeError){
-        if (!$newUser->validate($eingabeError)) {
-            return false;
-        }
+        $newUser->validate($eingabeError);
+
+        debug_to_logFile($newUser->__get('FIRSTNAME'));
         if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
             array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
         }

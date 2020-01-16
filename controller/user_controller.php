@@ -151,7 +151,7 @@ class UserController extends Controller{
                 $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordProfil']));
              }
 
-            if (User::checkUniqueUserEntity($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) == null) {
+            if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntity($params['EMAIL']) == null) {
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
@@ -199,11 +199,11 @@ class UserController extends Controller{
             ];
 
             $newUser = new User($params);
-            if (User::checkUniqueUserEntity($params['EMAIL']) === null) {
+            if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) === null) {
 
                 // validation from the inputFields
                 $eingabeError = [];
-                if(!$newUser->validate($eingabeError)){
+                if(!User::validateUser($newUser, $eingabeError)){
                     $this->_params['eingabeError'] = $eingabeError;
                     return false;
                 }
