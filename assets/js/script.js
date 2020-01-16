@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return validate;
     }
 
-    function validateLogin(pageName) {
+    function validateLogin() {
 
 
         var validate = true;
