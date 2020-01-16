@@ -20,11 +20,19 @@ class LocationController extends Controller{
             ];
             $location = new location($params);
 
+            // validation from the inputFields
             $eingabeError = [];
-            if(!$location->validate($eingabeError)){
+            if(!Location::validateLocation($location, $eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
+
+
+//            $eingabeError = [];
+//            if(!$location->validate($eingabeError)){
+//                $this->_params['eingabeError'] = $eingabeError;
+//                return false;
+//            }
 
             $location->save();
             sendHeaderByControllerAndAction('event', 'EventManagement');

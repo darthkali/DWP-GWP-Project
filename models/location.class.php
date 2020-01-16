@@ -24,28 +24,24 @@ class Location extends BaseModel{
     }
 
     public static function validateLocation($newLocation, &$eingabeError){
-        if (!$newLocation->validate($eingabeError)) {
-            return false;
-        }
+        $newLocation->validate($eingabeError);
+
         if (!preg_match('/^[A-Za-z -]*$/', $newLocation->__get('STREET'))) {
             array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
         }
 
-        if (!preg_match('/^[0-9]*[a-z]*$/', $newLocation->__get('NUMBER'))) {
-            array_push($eingabeError, 'Der Nachname darf nur aus Buchstaben bestehen');
+        if (!preg_match('/^[0-9]+[a-z]?$/', $newLocation->__get('NUMBER'))) {
+            array_push($eingabeError, 'Die Nummer darf nur aus Zahlen und Buchstaben bestehen (Zahl als erstes)');
         }
 
-        if (!preg_match('/^[0-9]*$/', $newLocation->__get('NUMBER'))) {
-            array_push($eingabeError, 'Der Nachname darf nur aus Zahlen bestehen');
+        if (!preg_match('/^[0-9]*$/', $newLocation->__get('ZIPCODE'))) {
+            array_push($eingabeError, 'Die Postleitzahl darf nur aus Zahlen bestehen');
         }
 
-        if (!preg_match('/^[A-Za-z]*$/', $newLocation->__get('CITY'))) {
-            array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
+        if (!preg_match('/^[A-Za-z -]*$/', $newLocation->__get('CITY'))) {
+            array_push($eingabeError, 'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen');
         }
 
-        if (!preg_match('/[.]/', $newLocation->__get('EMAIL'))) {
-            array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
-        }
 
         if(count($eingabeError) == 0){
             return true;
