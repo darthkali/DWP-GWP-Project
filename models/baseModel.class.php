@@ -244,7 +244,7 @@ abstract class BaseModel{
     public static function putTheUploadedFileOnTheServerAndRemoveTheOldOne($inputFieldName, $filePath, $fileName, $pictureName ){
         if (basename($_FILES[$inputFieldName]['name']) != null) {
             unlink($filePath.$fileName);
-            $picturePath = $filePath . $pictureName;
+            $picturePath = $filePath.$pictureName;
             move_uploaded_file($_FILES[$inputFieldName]['tmp_name'], $picturePath);
             return $pictureName;
         }
