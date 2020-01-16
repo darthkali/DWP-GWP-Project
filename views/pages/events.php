@@ -44,7 +44,6 @@ $design = '';
                 </div>
             </form>
 
-
         <?if($eventListPast == null && $eventListFuture == null) : ?>
         <div class="ContentEvents">
             <h1>Leider gibt es zu diesem Zeitpunkt keine Events:(</h1>
@@ -54,33 +53,39 @@ $design = '';
         <?for($i = 0; $i <= 1; $i++) : ?>
             <?foreach($eventList as $event) :?>
                 <div class="ContentEvents" <?=$design?>>
-                    <img src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
+                    <img id="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                     <div>
                         <h2><?=$event['NAME']?></h2>
                         <p>
-                            <strong>Datum: </strong> <?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
+                            <strong>Datum: </strong><?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
                             <strong>Ort: </strong><?=Location::buildLocationDetails($event['LOCATION_ID']);?> </p>
-                        <p><?=$event['DESCRIPTION']?></p>
+                        <p id="eventBox"><?=$event['DESCRIPTION']?></p>
                     </div>
-                    <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) : ?>
-                        <?if(Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
-                            <div class="ContentEvents" id="EventButton">
-                                <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>">
-                                    <?
-                                    if(Booking::checkRegistrationForEvent($event['ID'])){
-                                        $buttonText = 'Von dem Event abmelden';
-                                        $buttonClass = 'RegistrationButton';
-                                    }else{
-                                        $buttonText = 'Für das Event anmelden';
-                                        $buttonClass = null;
-                                    }?>
-                                    <button class ="<?=$buttonClass?>"><?=$buttonText?></button></a>
-                            </div>
-                        <?else : ?>
-                            <div><strong>Das Event ist schonvorbei!!</strong></div>
-                        <?endif;?>
+
+                    <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
+                        <!--What happened when logged in and event is in future-->
+                        <div class="ContentEvents" id="EventButton">
+                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>">
+                                <?
+                                if(Booking::checkRegistrationForEvent($event['ID'])){
+                                    $buttonText = 'Von dem Event abmelden';
+                                    $buttonClass = 'RegistrationButton';
+                                }else{
+                                    $buttonText = 'Für das Event anmelden';
+                                    $buttonClass = null;
+                                }?>
+                            <button id="eventBox" class ="<?=$buttonClass?>"><?=$buttonText?></button></a>
+                        </div>
                     <?else : ?>
-                        <div class="ContentEventsButton"><strong>Zum anmelden bitte anmelden!</strong></div>
+                        <?if(Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0): ?>
+                            <!--What happened when not logged in but event is in future -->
+                            <?$buttonText = 'Zum anmelden bitte anmelden!!'?>
+                        <?else :?>
+                            <!--What happened when not logged in and event is in past -->
+                            <?$buttonText = 'Das Event ist vorbei!'?>
+                        <?endif;?>
+                        <div  id="eventBox"><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
+                        <!--<a id="buttonForShowMore"></a>-->
                     <?endif;?>
                 </div>
             <?endforeach;?>

@@ -315,16 +315,16 @@ function deleteQuestionUser(link, userID) {
 
 function deleteQuestionEvent(link, eventID, pictureID) {
     link.href = "?c=event&a=eventManagement&eventId=" + eventID + "&pictureName=" + pictureID;
-
     return window.confirm("Wollen Sie das Event wirklich löschen?");
 }
 
-// function changeUrl(url) {
+//Noch im Test bzw Aufbau
+
+// function changeCssWithJavaScriptForEventbox(){
 //
-//     if (typeof (history.pushState) != "undefined") {
-//         var obj = { Title: 'PageName' , Url: url};
-//         history.pushState(obj, obj.Title, obj.Url);
-//     } else {
-//         alert("Browser does not support HTML5.");
+//     if(window.outerWidth < 700){
+//
+//     }else{
+//
 //     }
 // }
