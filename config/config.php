@@ -25,4 +25,3 @@ define('HASHOPTIONS', $options = ['cost' => 13]);
 
 // Define Filesize for picture upload
 ini_set('upload_max_filesize', '10M');
-

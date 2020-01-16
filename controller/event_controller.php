@@ -95,18 +95,14 @@ class EventController extends Controller
             $eventId = $_GET['eventId'] ?? null;
             if($_FILES['eventPicture']['name'] != null){
                 $pictureName = Event::createUploadedPictureName('eventPicture');
-
-                if(isset($_GET['pictureName'])){
-                    unlink($dataDir.$_GET['pictureName']);
-                }
             }
 
             if (isset($_POST['eventName'])) {
                 $params = [
-                    'ID'            => ($eventId === '')  ? null : $eventId,
-                    'NAME'          => ($_POST['eventName'  ] === '')  ? null : $_POST['eventName' ],
-                    'DATE'          => ($_POST['eventDate'  ] === '')  ? null : $_POST['eventDate' ],
-                    'PICTURE'       => ($pictureName === '')  ? null : $pictureName,
+                    'ID'            => ($eventId                    === '')  ? null : $eventId,
+                    'NAME'          => ($_POST['eventName'  ]       === '')  ? null : $_POST['eventName' ],
+                    'DATE'          => ($_POST['eventDate'  ]       === '')  ? null : $_POST['eventDate' ],
+                    'PICTURE'       => ($pictureName                === '')  ? null : $pictureName,
                     'LOCATION_ID'   => ($_POST['eventLocation'    ] === '')  ? null : $_POST['eventLocation'    ],
                     'DESCRIPTION'   => ($_POST['eventDescription' ] === '')  ? null : $_POST['eventDescription' ],
                 ];
@@ -121,9 +117,7 @@ class EventController extends Controller
                     return false;
                 }
                 $event->save();
-
-                $dataDir .= $pictureName;
-                move_uploaded_file($_FILES['eventPicture']['tmp_name'], $dataDir);
+                Event::putTheUploadedFileOnTheServerAndRemoveTheOldOne('eventPicture', $dataDir, $_GET['pictureName'], $pictureName) ;
             }
             sendHeaderByControllerAndAction('event', 'EventManagement');
         }
