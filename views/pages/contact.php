@@ -2,7 +2,7 @@
     <img class="center" src="<?=PAGE_IMAGE_PATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="?c=pages&a=Contact" method="post">
+    <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="form">
         <h1>Kontakt</h1>
 
         <?if(isset($eingabeError)) :?>
@@ -51,6 +51,7 @@
 </div>
 
 <script src="<?=JAVA_SCRIPT_PATH.'validateContact.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'contactAjax.js'?>"></script>
 
 <!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
 <!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>
