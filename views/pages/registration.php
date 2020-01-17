@@ -61,4 +61,4 @@
         <button type="reset"> Verwerfen</button>
     </form>
 </div>
-<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'validateRegistrationProfil.js'?>"></script>

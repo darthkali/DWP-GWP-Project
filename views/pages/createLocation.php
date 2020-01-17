@@ -56,4 +56,4 @@
         <button type="reset">Eingaben Löschen <i class="fa fa-times" aria-hidden="true"></i> </button>
     </form>
 </div>
-<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'validateLocation.js'?>"></script>

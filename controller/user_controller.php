@@ -120,19 +120,22 @@ class UserController extends Controller{
         // changes from the User
         if (isset($_POST['submitProfil'])) {
 
-            // generate a Filename and replace the old File(Picture) with the new one
-            $pictureName = User::createUploadedPictureName('pictureProfil');
-
             $params = [
                 'ID'               => ( $userProfilInformations['userProfil']['ID'] === '')  ? null : $userProfilInformations['userProfil']['ID'],
                 'FIRSTNAME'        => ( $_POST['firstnameProfil']   === '')  ? null : $_POST['firstnameProfil'],
                 'LASTNAME'         => ( $_POST['lastnameProfil']    === '')  ? null : $_POST['lastnameProfil'],
                 'DATE_OF_BIRTH'    => ( $_POST['dateOfBirthProfil'] === '')  ? null : $_POST['dateOfBirthProfil'],
                 'EMAIL'            => ( $_POST['emailProfil']       === '')  ? null : $_POST['emailProfil'],
-                'PICTURE'          => ( $pictureName                === '')  ? null : $pictureName,
-                'DESCRIPTION'      => ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'],
+                'PICTURE'          => null,
+                'DESCRIPTION'      => null,
                 'PASSWORD'         => null
             ];
+
+            // generate a Filename and replace the old File(Picture) with the new one
+            if($userProfilInformations['userRole'] === Role::ADMIN or $userProfilInformations['userRole'] === Role::MEMBER){
+                $params['PICTURE' ]     =  $pictureName = User::createUploadedPictureName('pictureProfil');
+                $params['DESCRIPTION' ] = ( $_POST['descriptionProfil']    === '')  ? null : $_POST['descriptionProfil'];
+            }
 
 
             if(isset($_POST['passwordProfil'])){
@@ -149,6 +152,7 @@ class UserController extends Controller{
             }
 
             User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
+
             // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){
                 if(!User::checkPassword($_POST['passwordProfil'], $this->_params['errorMessagePassword'])){return false;}

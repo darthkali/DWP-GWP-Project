@@ -52,14 +52,14 @@ $design = '';
 
         <?for($i = 0; $i <= 1; $i++) : ?>
             <?foreach($eventList as $event) :?>
-                <div class="ContentEvents" data-event-id="<?=$event['ID']?>" id="<?=$event['ID']?>-event" <?=$design?>>
+                <div class="ContentEvents" <?=$design?>>
                     <img id="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                     <div>
                         <h2><?=$event['NAME']?></h2>
                         <p>
                             <strong>Datum: </strong><?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
                             <strong>Ort: </strong><?=Location::buildLocationDetails($event['LOCATION_ID']);?> </p>
-                        <p id="eventBox"><?=$event['DESCRIPTION']?></p>
+                        <p><?=$event['DESCRIPTION']?></p>
                     </div>
 
                     <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
@@ -84,7 +84,7 @@ $design = '';
                             <!--What happened when not logged in and event is in past -->
                             <?$buttonText = 'Das Event ist vorbei!'?>
                         <?endif;?>
-                        <div  id="eventBox" ><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
+                        <div ><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
                         <!--<a id="buttonForShowMore"></a>-->
                     <?endif;?>
                 </div>
