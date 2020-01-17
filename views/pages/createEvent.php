@@ -4,7 +4,6 @@ if($create == true){
 }else{
     $action = 'index.php?c=event&a=CreateEvent&eventAction=edit&eventId='.$eventData['ID'].'&pictureName='.$eventData['PICTURE'];
 }
-//die($required);
 use FSR_AI\location; ?>
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=PAGE_IMAGE_PATH.'firework.jpg'?>" alt = "Großer Turm mit Feuerwerk">
@@ -15,10 +14,13 @@ use FSR_AI\location; ?>
 
         <h1><?=$headline?></h1>
 
-        <? if(isset($eingabeError)){?> <div class="error"><?
-            foreach($eingabeError as $error){?>
+        <? if(isset($eingabeError)) :?>
+            <div class="error">
+            <?foreach($eingabeError as $error) : ?>
                 <?=$error?><br>
-            <?}?></div> <? } ?>
+            <?endforeach;?>
+            </div>
+        <?endif;?>
 
         <!-- name -->
         <div class="input">

@@ -52,7 +52,7 @@ $design = '';
 
         <?for($i = 0; $i <= 1; $i++) : ?>
             <?foreach($eventList as $event) :?>
-                <div class="ContentEvents" <?=$design?>>
+                <div class="ContentEvents" data-event-id="<?=$event['ID']?>" id="<?=$event['ID']?>-event" <?=$design?>>
                     <img id="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                     <div>
                         <h2><?=$event['NAME']?></h2>
@@ -65,7 +65,7 @@ $design = '';
                     <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <!--What happened when logged in and event is in future-->
                         <div class="ContentEvents" id="EventButton">
-                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>">
+                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>#<?=$event['ID']?>-event">
                                 <?
                                 if(Booking::checkRegistrationForEvent($event['ID'])){
                                     $buttonText = 'Von dem Event abmelden';
@@ -84,7 +84,7 @@ $design = '';
                             <!--What happened when not logged in and event is in past -->
                             <?$buttonText = 'Das Event ist vorbei!'?>
                         <?endif;?>
-                        <div  id="eventBox"><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
+                        <div  id="eventBox" ><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
                         <!--<a id="buttonForShowMore"></a>-->
                     <?endif;?>
                 </div>

@@ -310,11 +310,11 @@ function deleteQuestionEvent(link, eventID, pictureID) {
 
 //Noch im Test bzw Aufbau
 
-// function changeCssWithJavaScriptForEventbox(){
-//
-//     if(window.outerWidth < 700){
-//
-//     }else{
-//
-//     }
-// }
+function changeCssWithJavaScriptForEventbox(){
+    document.querySelectorAll()
+     if(window.outerWidth < 700){
+
+     }else{
+
+     }
+ }
