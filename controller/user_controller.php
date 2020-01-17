@@ -220,10 +220,22 @@ class UserController extends Controller{
                 $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordRegistration']));
 
                 $newUser->save();
+
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => null]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
+
                 sendHeaderByControllerAndAction('user', 'login');
+
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => $this->_params['errorMessage']]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
             }
         }
+
     }
 }

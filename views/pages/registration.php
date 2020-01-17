@@ -3,17 +3,21 @@
 </div>
 
 <div class="Content" id="fadeIn">
-    <form autocomplete= "off" action="?c=user&a=Registration" method="post" >
+    <form autocomplete= "off" action="?c=user&a=Registration" method="post"  id="formRegistration">
         <h1>Registrierung</h1>
         <h5>Hier kannst du dich Registrieren!</h5>
 
 
-        <? if(isset($eingabeError)){?>
-            <div class="error"><?
-            foreach($eingabeError as $error){?>
-                <?=$error?><br>
-            <?}?>
-            </div> <? } ?>
+        <div class="errorBox" style="display: <?=isset($eingabeError)?'':'none'?>;" id="errorBox">
+            <? if(isset($eingabeError)){?>
+                <div class="error"><?
+                    foreach($eingabeError as $error){?>
+                        <?=$error?><br>
+                    <?}?>
+                </div>
+            <? } ?>
+        </div>
+
 
         <!-- firstname -->
         <div class="input">
@@ -62,3 +66,4 @@
     </form>
 </div>
 <script src="<?=JAVA_SCRIPT_PATH.'validateRegistrationProfil.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'registrationAjax.js'?>"></script>
