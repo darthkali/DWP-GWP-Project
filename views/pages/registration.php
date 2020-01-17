@@ -61,7 +61,7 @@
         </div>
 
         <!-- buttons -->
-        <button type="submit" id="submitRegistration" name="submitRegistration">Speichern<i class="far fa-save" aria-hidden="true"></i></button>
+        <button type="submit" id="submitRegistration" name="submitRegistration">Registrieren<i class="fas fa-pencil-alt" aria-hidden="true"></i></button>
         <button type="reset"> Verwerfen <i class="fa fa-times" aria-hidden="true"></i></button>
     </form>
 </div>
