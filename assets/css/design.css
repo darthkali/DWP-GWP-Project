@@ -755,4 +755,10 @@ table input:hover{
     font-size: 50px;
     color: var(--secondary-text-color);
     line-height: 100%;
-    background: -webkit-linear-gradient(top, #131313 0%,#757575 48%,#000000 50%,#757575 52%,#131313 100%); /* Chrome10-25,Safari5.1-6 */}
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#131313+1,757575+48,000000+50,757575+52,131313+100 */
+    background: #131313; /* Old browsers */
+    background: -moz-linear-gradient(top, #131313 1%, #757575 48%, #000000 50%, #757575 52%, #131313 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #131313 1%, #757575 48%, #000000 50%, #757575 52%, #131313 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #131313 1%, #757575 48%, #000000 50%, #757575 52%, #131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#131313', GradientType=0); /* IE6-9 */
+}
