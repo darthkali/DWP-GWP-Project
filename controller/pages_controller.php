@@ -57,6 +57,8 @@ foreach ($daysUntilEvent as $digit){
                 return false;
             }
 
+            Contact::sendMail();
+        /*
             $header = array();
             $header[] = "MIME-Version: 1.0";
             $header[] = "Content-type: text/plain; charset=utf-8";
@@ -66,6 +68,7 @@ foreach ($daysUntilEvent as $digit){
 
             mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header));
             sendHeaderByControllerAndAction('pages', 'Contact');
+        */
         }
     }
 
