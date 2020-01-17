@@ -22,6 +22,3 @@ define('EVENT_PICTURE_PATH', IMAGE_PATH.'upload/events/');
 // Password Hash
 define('PEPPER', '.m9h-RL=^M/72;tdU\Bz');
 define('HASHOPTIONS', $options = ['cost' => 13]);
-
-// Define Filesize for picture upload
-ini_set('upload_max_filesize', '10M');
