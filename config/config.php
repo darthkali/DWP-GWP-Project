@@ -1,12 +1,8 @@
 <?
-//ROOT
-//efine('ROOTPATH',strlen(dirname($_SERVER['SCRIPT_NAME'])) >1 ? dirname($_SERVER['SCRIPT_NAME']).'/' : '/');
-define('ROOTPATH','../');
-
 // main Paths
-define('ASSETS_PATH', ROOTPATH.'assets/');
-define('CONTROLLER_PATH', ROOTPATH.'controller/');
-define('MODELS_PATH', ROOTPATH.'models/');
+define('ASSETS_PATH', '../assets/');
+define('CONTROLLER_PATH', '../controller/');
+define('MODELS_PATH', '../models/');
 
 // sub Paths
 define('JAVA_SCRIPT_PATH', ASSETS_PATH.'js/');
