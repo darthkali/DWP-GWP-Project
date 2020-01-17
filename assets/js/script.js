@@ -58,41 +58,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // FIRSTNAME
         if(firstname.value.length < 2){
-            validate = setErrorInput(firstname,'Der Vorname muss mindestens 2 Zeichen besitzen!');
+            validate = setErrorInput(firstname,'Der Vorname muss mindestens 2 Zeichen besitzen!', 'firstname' + pageName);
         }else if(firstname.value.length > 21){
-            validate = setErrorInput(firstname,'Der Vorname darf maximal 21 Zeichen besitzen!');
+            validate = setErrorInput(firstname,'Der Vorname darf maximal 21 Zeichen besitzen!','firstname' + pageName);
         }else if(firstname.value.match(/^[A-Za-z]*$/i) === null){
-            validate = setErrorInput(firstname,'Der Vorname darf nur aus Buchstaben bestehen!');
+            validate = setErrorInput(firstname,'Der Vorname darf nur aus Buchstaben bestehen!','firstname' + pageName);
         }else{
             firstname.parentNode.className = firstname.parentNode.className.split(" errorinput").join("");
         }
 
         // LASTNAME
         if(lastname.value.length < 2){
-            validate = setErrorInput(lastname,'Der Nachname muss mindestens 2 Zeichen besitzen!');
+            validate = setErrorInput(lastname,'Der Nachname muss mindestens 2 Zeichen besitzen!', 'lastname' + pageName);
         }else if(lastname.value.length > 24){
-            validate = setErrorInput(lastname,'Der Nachname darf maximal 24 Zeichen besitzen!');
+            validate = setErrorInput(lastname,'Der Nachname darf maximal 24 Zeichen besitzen!', 'lastname' + pageName);
         }else if(lastname.value.match(/^[A-Za-z]*$/i) === null){
-            validate = setErrorInput(lastname,'Der Nachname darf nur aus Buchstaben bestehen!');
+            validate = setErrorInput(lastname,'Der Nachname darf nur aus Buchstaben bestehen!', 'lastname' + pageName);
         }else{
             lastname.parentNode.className = lastname.parentNode.className.split(" errorinput").join("");
         }
 
         //EMAIL
         if(email.value.length < 3){
-            validate = setErrorInput(email,'Die E-Mail muss mind. 3 Zeichen lang sein!');
+            validate = setErrorInput(email,'Die E-Mail muss mind. 3 Zeichen lang sein!', 'email' + pageName);
         }else if(email.value.length > 62){
-            validate = setErrorInput(email,'Die E-Mail darf max. 62 Zeichen lang sein!');
+            validate = setErrorInput(email,'Die E-Mail darf max. 62 Zeichen lang sein!', 'email' + pageName);
         }else if(email.value.match(/[@]/i) === null){
-            validate = setErrorInput(email,'Die E-Mail muss ein @-Zeichen enthalten!');
+            validate = setErrorInput(email,'Die E-Mail muss ein @-Zeichen enthalten!', 'email' + pageName);
         }else if(email.value.match(/[0-9A-Z!#$%&'*+-/=?^_`.{|}~][@]/i) === null){
-            validate = setErrorInput(email,'Vor dem @ muss eine Eingabe erfolgen!');
+            validate = setErrorInput(email,'Vor dem @ muss eine Eingabe erfolgen!', 'email' + pageName);
         }else if(email.value.match(/[@][0-9A-Z.]/i) === null){
-            validate = setErrorInput(email,'Direkt nach dem @ muss eine Eingabe erfolgen!');
+            validate = setErrorInput(email,'Direkt nach dem @ muss eine Eingabe erfolgen!', 'email' + pageName);
         }else if(email.value.match(/[@][0-9A-Z]/i) === null){
-            validate = setErrorInput(email,'Direkt nach dem @ darf kein Punkt folgen!');
+            validate = setErrorInput(email,'Direkt nach dem @ darf kein Punkt folgen!', 'email' + pageName);
         }else if(email.value.match(/[@][0-9A-Z-.]+[.]{1}[a-z]+/i) === null){
-            validate = setErrorInput(email,'Die E-Mail muss eine Domain enthalten!');
+            validate = setErrorInput(email,'Die E-Mail muss eine Domain enthalten!', 'email' + pageName);
         }else{
             email.parentNode.className = email .parentNode.className.split(" errorinput").join("");
         }
@@ -100,17 +100,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if(pageName === 'Registration' || changePasswordCheckbox.checked === true){
             //PASSWORT
             if(password.value.length < 8){
-                validate = setErrorInput(password,'Das Passwort muss mind. 8 Zeichen lang sein!');
+                validate = setErrorInput(password,'Das Passwort muss mind. 8 Zeichen lang sein!', 'password' + pageName);
             }else if(password.value.length > 60){
-                validate = setErrorInput(password,'Das Passwort darf max. 60 lang sein!');
+                validate = setErrorInput(password,'Das Passwort darf max. 60 lang sein!', 'password' + pageName);
             }else if(password.value.match(/[A-Z]/) === null){
-                validate = setErrorInput(password,'Das Passwort muss mind. einen Großbuchstaben besitzen!');
+                validate = setErrorInput(password,'Das Passwort muss mind. einen Großbuchstaben besitzen!', 'password' + pageName);
             }else if(password.value.match(/[a-z]/) === null) {
-                validate = setErrorInput(password,'Das Passwort muss mind. einen Kleinbuchstaben besitzen!');
+                validate = setErrorInput(password,'Das Passwort muss mind. einen Kleinbuchstaben besitzen!', 'password' + pageName);
             }else if(password.value.match(/[0-9]/) === null) {
-                validate = setErrorInput(password,'Das Passwort muss mind. eine Zahl besitzen!');
+                validate = setErrorInput(password,'Das Passwort muss mind. eine Zahl besitzen!', 'password' + pageName);
             }else if(password.value.match(/[!@#.$%&?]/) === null) {
-                validate = setErrorInput(password,'Das Passwort muss mind. ein Sonderzeichen besitzen (!@#.$%&?)!');
+                validate = setErrorInput(password,'Das Passwort muss mind. ein Sonderzeichen besitzen (!@#.$%&?)!', 'password' + pageName);
             }else{
                 password.parentNode.className = password .parentNode.className.split(" errorinput").join("");
             }
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         //DATE OF BIRTH
         if(dateOfBirth.value.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/i) === null){
-            validate = setErrorInput(dateOfBirth,'Das Datum muss im Format TT-MM-JJJJ sein');
+            validate = setErrorInput(dateOfBirth,'Das Datum muss im Format TT-MM-JJJJ sein', 'dateOfBirth' + pageName);
         }else{
             dateOfBirth.parentNode.className = dateOfBirth .parentNode.className.split(" errorinput").join("");
         }
@@ -127,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if(pageName === 'Profil'){ // TODO:  && Role  === ADMIN OR MEMBER ){
             // DESCRIPTION
             if(description.value.length < 100){
-                validate = setErrorInput(description,'Der Beschreibung muss mindestens 100 Zeichen besitzen!');
+                validate = setErrorInput(description,'Der Beschreibung muss mindestens 100 Zeichen besitzen!', 'description' + pageName);
             }else if(description.value.length > 1000){
-                validate = setErrorInput(description,'Der Beschreibung darf maximal 1000 Zeichen besitzen!');
+                validate = setErrorInput(description,'Der Beschreibung darf maximal 1000 Zeichen besitzen!', 'description' + pageName);
             }else{
                 description.parentNode.className = description.parentNode.className.split(" errorinput").join("");
             }
@@ -188,22 +188,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // STREET
         if(locationStreet.value.length < 3){
-            validate = setErrorInput(locationStreet,'Die Straße muss mindestens 3 Zeichen besitzen!');
+            validate = setErrorInput(locationStreet,'Die Straße muss mindestens 3 Zeichen besitzen!', 'locationStreet');
+            window.location.hash = "locationStreet";
         }else if(locationStreet.value.length > 50){
-            validate = setErrorInput(locationStreet,'Die Straße darf maximal 50 Zeichen besitzen!');
+            validate = setErrorInput(locationStreet,'Die Straße darf maximal 50 Zeichen besitzen!', 'locationStreet');
+            window.location.hash = "locationStreet";
         }else if(locationStreet.value.match(/^[A-Za-z -]*$/i) === null){
-            validate = setErrorInput(locationStreet,'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
+            validate = setErrorInput(locationStreet,'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!', 'locationStreet');
+            window.location.hash = "locationStreet";
         }else{
             locationStreet.parentNode.className = locationStreet.parentNode.className.split(" errorinput").join("");
         }
 
         // NUMBER
         if(locationNumber.value.length < 1){
-            validate = setErrorInput(locationNumber,'Die Nummer muss mindestens 1 Zeichen besitzen!');
+            validate = setErrorInput(locationNumber,'Die Nummer muss mindestens 1 Zeichen besitzen!', 'locationNumber');
+            window.location.hash = "locationNumber";
         }else if(locationNumber.value.length > 5){
-            validate = setErrorInput(locationNumber,'Die Nummer darf maximal 5 Zeichen besitzen!');
+            validate = setErrorInput(locationNumber,'Die Nummer darf maximal 5 Zeichen besitzen!', 'locationNumber');
+            window.location.hash = "locationNumber";
         }else if(locationNumber.value.match(/^[0-9]+[ ]?[a-z]?$/i) === null){
-            validate = setErrorInput(locationNumber,'Es sind nur Zahlen und 1 Buchstabe zugelassen!');
+            validate = setErrorInput(locationNumber,'Es sind nur Zahlen und 1 Buchstabe zugelassen!', 'locationNumber');
+            window.location.hash = "locationNumber";
         }else{
             locationNumber.parentNode.className = locationNumber.parentNode.className.split(" errorinput").join("");
         }
@@ -211,27 +217,33 @@ document.addEventListener('DOMContentLoaded', function () {
         // ZIPCODE
         console.log(locationZipcode.value.length)
         if(locationZipcode.value.length !== 5){
-            validate = setErrorInput(locationZipcode,'Die Postleitzahl muss aus genau 5 Ziffern bestehen');
+            validate = setErrorInput(locationZipcode,'Die Postleitzahl muss aus genau 5 Ziffern bestehen', 'locationZipcode');
+            window.location.hash = "locationZipcode";
         }else if(locationZipcode.value.match(/^[0-9]*$/i) === null){
-            validate = setErrorInput(locationZipcode,'Es sind nur Zahlen zugelassen!');
+            validate = setErrorInput(locationZipcode,'Es sind nur Zahlen zugelassen!', 'locationZipcode');
+            window.location.hash = "locationZipcode";
         }else{
             locationZipcode.parentNode.className = locationZipcode.parentNode.className.split(" errorinput").join("");
         }
 
         // CITY
         if(locationCity.value.length < 1){
-            validate = setErrorInput(locationCity,'Die Stadt muss mindestens 1 Zeichen besitzen!');
+            validate = setErrorInput(locationCity,'Die Stadt muss mindestens 1 Zeichen besitzen!', 'locationCity');
+            window.location.hash = "locationCity";
         }else if(locationCity.value.length > 58){
-            validate = setErrorInput(locationCity,'Die Stadt darf maximal 58 Zeichen besitzen!');
+            validate = setErrorInput(locationCity,'Die Stadt darf maximal 58 Zeichen besitzen!', 'locationCity');
+            window.location.hash = "locationCity";
         }else if(locationCity.value.match(/^[A-Za-z -]*$/i) === null){
-            validate = setErrorInput(locationCity,'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
+            validate = setErrorInput(locationCity,'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!', 'locationCity');
+            window.location.hash = "locationCity";
         }else{
             locationCity.parentNode.className = locationCity.parentNode.className.split(" errorinput").join("");
         }
 
         // ROOM
         if(locationRoom.value.length > 9){
-            validate = setErrorInput(locationRoom,'Der Raum darf maximal 9 Zeichen besitzen!');
+            validate = setErrorInput(locationRoom,'Der Raum darf maximal 9 Zeichen besitzen!', 'locationRoom');
+            window.location.hash = "locationRoom";
         }else{
             locationRoom.parentNode.className = locationRoom.parentNode.className.split(" errorinput").join("");
         }
@@ -250,48 +262,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // NAME
         if(contactName.value.length < 2){
-            validate = setErrorInput(contactName,'Der Name muss mindestens 2 Zeichen besitzen!');
+            validate = setErrorInput(contactName,'Der Name muss mindestens 2 Zeichen besitzen!', 'contactName');
         }else if(contactName.value.length > 50){
-            validate = setErrorInput(contactName,'Der Name darf maximal 50 Zeichen besitzen!');
+            validate = setErrorInput(contactName,'Der Name darf maximal 50 Zeichen besitzen!', 'contactName');
         }else if(contactName.value.match(/^[A-Za-z -]*$/i) === null){
-            validate = setErrorInput(contactName,'Der Name darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
+            validate = setErrorInput(contactName,'Der Name darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!', 'contactName');
         }else{
             contactName.parentNode.className = contactName.parentNode.className.split(" errorinput").join("");
         }
 
         //EMAIL
         if(contactMail.value.length < 3){
-            validate = setErrorInput(contactMail,'Die E-Mail muss mind. 3 Zeichen lang sein!');
+            validate = setErrorInput(contactMail,'Die E-Mail muss mind. 3 Zeichen lang sein!', 'contactMail');
         }else if(contactMail.value.length > 62){
-            validate = setErrorInput(contactMail,'Die E-Mail darf max. 62 Zeichen lang sein!');
+            validate = setErrorInput(contactMail,'Die E-Mail darf max. 62 Zeichen lang sein!', 'contactMail');
         }else if(contactMail.value.match(/[@]/i) === null){
-            validate = setErrorInput(contactMail,'Die E-Mail muss ein @-Zeichen enthalten!');
+            validate = setErrorInput(contactMail,'Die E-Mail muss ein @-Zeichen enthalten!', 'contactMail');
         }else if(contactMail.value.match(/[0-9A-Z!#$%&'*+-/=?^_`.{|}~][@]/i) === null){
-            validate = setErrorInput(contactMail,'Vor dem @ muss eine Eingabe erfolgen!');
+            validate = setErrorInput(contactMail,'Vor dem @ muss eine Eingabe erfolgen!', 'contactMail');
         }else if(contactMail.value.match(/[@][0-9A-Z.]/i) === null){
-            validate = setErrorInput(contactMail,'Direkt nach dem @ muss eine Eingabe erfolgen!');
+            validate = setErrorInput(contactMail,'Direkt nach dem @ muss eine Eingabe erfolgen!', 'contactMail');
         }else if(contactMail.value.match(/[@][0-9A-Z]/i) === null){
-            validate = setErrorInput(contactMail,'Direkt nach dem @ darf kein Punkt folgen!');
+            validate = setErrorInput(contactMail,'Direkt nach dem @ darf kein Punkt folgen!', 'contactMail');
         }else if(contactMail.value.match(/[@][0-9A-Z-.]+[.]{1}[a-z]+/i) === null){
-            validate = setErrorInput(contactMail,'Die E-Mail muss eine Domain enthalten!');
+            validate = setErrorInput(contactMail,'Die E-Mail muss eine Domain enthalten!', 'contactMail');
         }else{
             contactMail.parentNode.className = contactMail .parentNode.className.split(" errorinput").join("");
         }
 
         // SUBJECT
         if(contactSubject.value.length < 2){
-            validate = setErrorInput(contactSubject,'Der Titel muss mindestens 2 Zeichen besitzen!');
+            validate = setErrorInput(contactSubject,'Der Titel muss mindestens 2 Zeichen besitzen!', 'contactSubject');
         }else if(contactSubject.value.length > 50){
-            validate = setErrorInput(contactSubject,'Der Titel darf maximal 50 Zeichen besitzen!');
+            validate = setErrorInput(contactSubject,'Der Titel darf maximal 50 Zeichen besitzen!', 'contactSubject');
         }else{
             contactSubject.parentNode.className = contactSubject.parentNode.className.split(" errorinput").join("");
         }
 
         // TEXT
         if(contactText.value.length < 10){
-            validate = setErrorInput(contactText,'Das Anliegen muss mindestens 10 Zeichen besitzen!');
+            validate = setErrorInput(contactText,'Das Anliegen muss mindestens 10 Zeichen besitzen!', 'contactText');
         }else if(contactText.value.length > 1000){
-            validate = setErrorInput(contactText,'Das Anliegen darf maximal 1000 Zeichen besitzen!');
+            validate = setErrorInput(contactText,'Das Anliegen darf maximal 1000 Zeichen besitzen!', 'contactText');
         }else{
             contactText.parentNode.className = contactText.parentNode.className.split(" errorinput").join("");
         }
@@ -300,9 +312,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return validate;
     }
 
-    function setErrorInput(inputField, errorMessage) {
+    function setErrorInput(inputField, errorMessage, jumpToDiv) {
         inputField.parentNode.className += " errorinput";
         document.getElementById('error' + setFirstLetterToUpperCase(inputField.name)).innerText = errorMessage;
+        window.location.hash = jumpToDiv;
         return false;
     }
 
