@@ -288,7 +288,7 @@ class User extends BaseModel
     public static function validateUser($newUser, &$eingabeError){
         $newUser->validate($eingabeError);
 
-        debug_to_logFile($newUser->__get('FIRSTNAME'));
+        debug_to_logFile($newUser->__get('EMAIL'));
         if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
             array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
         }
@@ -296,7 +296,7 @@ class User extends BaseModel
         if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('LASTNAME'))) {
             array_push($eingabeError, 'Der Nachname darf nur aus Buchstaben bestehen');
         }
-        if (!preg_match('/[.]/', $newUser->__get('EMAIL'))) {
+        if (!preg_match('/[0-9A-Za-z_.]*[@][0-9A-Za-z-.]+[.][a-z]*/', $newUser->__get('EMAIL'))) {
             array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
         }
 

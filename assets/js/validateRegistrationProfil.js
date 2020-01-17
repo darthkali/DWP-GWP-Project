@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', function () {
             dateOfBirth.parentNode.className = dateOfBirth .parentNode.className.split(" errorinput").join("");
         }
 
-        // only for Profil Page
-        if(pageName === 'Profil'){ // TODO:  && Role  === ADMIN OR MEMBER ){
+        if (document.getElementById('description'+ pageName)) {
+            console.log('description'+ pageName);
             // DESCRIPTION
             if(description.value.length < 100){
                 validate = setErrorInput(description,'Der Beschreibung muss mindestens 100 Zeichen besitzen!', 'description' + pageName);
