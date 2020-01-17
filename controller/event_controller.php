@@ -58,7 +58,7 @@ class EventController extends Controller
             }
 
             $booking->save();
-            $_SESSION['eventButton'] = 'Abmelden';
+            //$_SESSION['eventButton'] = 'Abmelden';
         }else{
             Booking::deleteWhere(Booking::buildWhereBooking($userId, $eventId));
         }

@@ -307,7 +307,6 @@ function deleteQuestionEvent(link, eventID, pictureID) {
     link.href = "?c=event&a=eventManagement&eventId=" + eventID + "&pictureName=" + pictureID;
     return window.confirm("Wollen Sie das Event wirklich löschen?");
 }
-
 //Noch im Test bzw Aufbau
 
 // function changeCssWithJavaScriptForEventbox(){
