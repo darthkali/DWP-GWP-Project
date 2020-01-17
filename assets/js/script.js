@@ -61,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(firstname,'Der Vorname muss mindestens 2 Zeichen besitzen!');
         }else if(firstname.value.length > 21){
             validate = setErrorInput(firstname,'Der Vorname darf maximal 21 Zeichen besitzen!');
+        }else if(firstname.value.match(/^[A-Za-z]*$/i) === null){
+            validate = setErrorInput(firstname,'Der Vorname darf nur aus Buchstaben bestehen!');
         }else{
             firstname.parentNode.className = firstname.parentNode.className.split(" errorinput").join("");
         }
@@ -70,6 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(lastname,'Der Nachname muss mindestens 2 Zeichen besitzen!');
         }else if(lastname.value.length > 24){
             validate = setErrorInput(lastname,'Der Nachname darf maximal 24 Zeichen besitzen!');
+        }else if(lastname.value.match(/^[A-Za-z]*$/i) === null){
+            validate = setErrorInput(lastname,'Der Nachname darf nur aus Buchstaben bestehen!');
         }else{
             lastname.parentNode.className = lastname.parentNode.className.split(" errorinput").join("");
         }
@@ -87,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(email,'Direkt nach dem @ muss eine Eingabe erfolgen!');
         }else if(email.value.match(/[@][0-9A-Z]/i) === null){
             validate = setErrorInput(email,'Direkt nach dem @ darf kein Punkt folgen!');
+        }else if(email.value.match(/[@][0-9A-Z-.]+[.]{1}[a-z]+/i) === null){
+            validate = setErrorInput(email,'Die E-Mail muss eine Domain enthalten!');
         }else{
             email.parentNode.className = email .parentNode.className.split(" errorinput").join("");
         }
@@ -145,6 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(eventName,'Der Eventname muss mindestens 8 Zeichen besitzen!');
         }else if(eventName.value.length > 64){
             validate = setErrorInput(eventName,'Der Eventname darf maximal 64 Zeichen besitzen!');
+        }else if(eventName.value.match(/^[A-Za-z0-9 -]*$/i) === null){
+            validate = setErrorInput(eventNlocationStreetame,'Der Eventname darf nur aus Buchstaben, Zahlen, Leerzeichen und Bindestrichen bestehen!');
         }else{
             eventName.parentNode.className = eventName.parentNode.className.split(" errorinput").join("");
         }
@@ -182,7 +190,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if(locationStreet.value.length < 3){
             validate = setErrorInput(locationStreet,'Die Straße muss mindestens 3 Zeichen besitzen!');
         }else if(locationStreet.value.length > 50){
-            validate = setErrorInput(eventNlocationStreetame,'Die Straße darf maximal 50 Zeichen besitzen!');
+            validate = setErrorInput(locationStreet,'Die Straße darf maximal 50 Zeichen besitzen!');
+        }else if(locationStreet.value.match(/^[A-Za-z -]*$/i) === null){
+            validate = setErrorInput(locationStreet,'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }else{
             locationStreet.parentNode.className = locationStreet.parentNode.className.split(" errorinput").join("");
         }
@@ -192,13 +202,14 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(locationNumber,'Die Nummer muss mindestens 1 Zeichen besitzen!');
         }else if(locationNumber.value.length > 5){
             validate = setErrorInput(locationNumber,'Die Nummer darf maximal 5 Zeichen besitzen!');
-        }else if(locationNumber.value.match(/^[0-9]*$/i) === null){
-            validate = setErrorInput(locationNumber,'Es sind nur Zahlen zugelassen!');
+        }else if(locationNumber.value.match(/^[0-9]+[ ]?[a-z]?$/i) === null){
+            validate = setErrorInput(locationNumber,'Es sind nur Zahlen und 1 Buchstabe zugelassen!');
         }else{
             locationNumber.parentNode.className = locationNumber.parentNode.className.split(" errorinput").join("");
         }
 
         // ZIPCODE
+        console.log(locationZipcode.value.length)
         if(locationZipcode.value.length !== 5){
             validate = setErrorInput(locationZipcode,'Die Postleitzahl muss aus genau 5 Ziffern bestehen');
         }else if(locationZipcode.value.match(/^[0-9]*$/i) === null){
@@ -212,6 +223,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(locationCity,'Die Stadt muss mindestens 1 Zeichen besitzen!');
         }else if(locationCity.value.length > 58){
             validate = setErrorInput(locationCity,'Die Stadt darf maximal 58 Zeichen besitzen!');
+        }else if(locationCity.value.match(/^[A-Za-z -]*$/i) === null){
+            validate = setErrorInput(locationCity,'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }else{
             locationCity.parentNode.className = locationCity.parentNode.className.split(" errorinput").join("");
         }
@@ -240,6 +253,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(contactName,'Der Name muss mindestens 2 Zeichen besitzen!');
         }else if(contactName.value.length > 50){
             validate = setErrorInput(contactName,'Der Name darf maximal 50 Zeichen besitzen!');
+        }else if(contactName.value.match(/^[A-Za-z -]*$/i) === null){
+            validate = setErrorInput(contactName,'Der Name darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }else{
             contactName.parentNode.className = contactName.parentNode.className.split(" errorinput").join("");
         }
@@ -257,6 +272,8 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(contactMail,'Direkt nach dem @ muss eine Eingabe erfolgen!');
         }else if(contactMail.value.match(/[@][0-9A-Z]/i) === null){
             validate = setErrorInput(contactMail,'Direkt nach dem @ darf kein Punkt folgen!');
+        }else if(contactMail.value.match(/[@][0-9A-Z-.]+[.]{1}[a-z]+/i) === null){
+            validate = setErrorInput(contactMail,'Die E-Mail muss eine Domain enthalten!');
         }else{
             contactMail.parentNode.className = contactMail .parentNode.className.split(" errorinput").join("");
         }
