@@ -45,8 +45,8 @@
         </div>
 
         <!-- button -->
-        <button type="submit" name="sendMail" id="sendMail">Abschicken</button>
-        <button type="reset">Löschen</button>
+        <button type="submit" name="sendMail" id="sendMail">Abschicken <i class="far fa-paper-plane" aria-hidden="true"></i></button>
+        <button type="reset">Löschen <i class="fa fa-times" aria-hidden="true"></i></button>
     </form>
 </div>
 

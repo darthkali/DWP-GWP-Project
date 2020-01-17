@@ -21,7 +21,7 @@
         <input type = "password" id="password" name="password" >
 
         <!-- button -->
-        <button type="submit" name="submitLogin" id="submitLogin" value="anmelden">LOGIN<i class="fa fa-sign-in fa-lg" aria-hidden="true"></i></button>
+        <button type="submit" name="submitLogin" id="submitLogin" value="anmelden">LOGIN<i class="fas fa-sign-in-alt" aria-hidden="true"></i></button>
 
         <!-- checkbox -->
         <div class="checkBox">

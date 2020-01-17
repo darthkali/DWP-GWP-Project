@@ -6,10 +6,10 @@ use FSR_AI\Booking;
     <h1>Eventverwaltung</h1>
 
     <a href="?c=event&a=CreateEvent&eventAction=create">
-        <button type="button">Neues Event anlegen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="button">Neues Event anlegen<i class="fas fa-glass-cheers" aria-hidden="true"></i></button>
     </a>
     <a href="?c=location&a=CreateLocation">
-        <button type="button">Neue Location erstellen</button>
+        <button type="button">Neue Location erstellen<i class="fas fa-map-marker-alt" aria-hidden="true"></i></button>
     </a>
 
     <?  // generate Variables for the new Events

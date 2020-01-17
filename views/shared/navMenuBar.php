@@ -18,21 +18,21 @@ use FSR_AI\User;
             <div class="dropdown-content">
                 <? if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false){?>
                     <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=login">Login</a>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=registration">Registrieren</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=registration"><i class="fas fa-user" aria-hidden="true"></i> Registrieren</a>
                 <? } else {
                     $user = User::findUserBySessionUserID();
                     $roleID = $user['ROLE_ID'];
                     ?>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=profil">Profil</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=profil"> <i class="fas fa-user" aria-hidden="true"></i> Profil</a>
 
                     <? if($roleID == role::ADMIN || $roleID == role::MEMBER){?>
-                        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=eventManagement">Eventverwaltung</a>
+                        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=event&a=eventManagement"> <i class="fas fa-glass-cheers" aria-hidden="true"></i> Eventverwaltung </a>
                     <?}
 
                     if($roleID == role::ADMIN){?>
-                        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=userManagement">Nutzerverwaltung</a>
+                        <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=userManagement"> <i class="fas fa-users" aria-hidden="true"></i> Nutzerverwaltung</a>
                     <?}?>
-                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=logOut">Abmelden</a>
+                    <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=user&a=logOut"> <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Abmelden</a>
                 <?}?>
             </div>
         </div>

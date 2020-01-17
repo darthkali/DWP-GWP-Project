@@ -40,7 +40,7 @@ $design = '';
 
                 <!-- buttons -->
                 <div class="sortFilterBox" id="ButtonInCenter">
-                    <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden</button>
+                    <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden <i class="fas fa-filter" aria-hidden="true"></i></button>
                 </div>
             </form>
 
@@ -70,11 +70,13 @@ $design = '';
                                 if(Booking::checkRegistrationForEvent($event['ID'])){
                                     $buttonText = 'Von dem Event abmelden';
                                     $buttonClass = 'RegistrationButton';
+                                    $buttonIcon = 'fa fa-times';
                                 }else{
                                     $buttonText = 'Für das Event anmelden';
                                     $buttonClass = null;
+                                    $buttonIcon = 'fas fa-pencil-alt';
                                 }?>
-                                <button id ="test" class ="<?=$buttonClass?>"><?=$buttonText?></button>
+                                <button id ="test" class ="<?=$buttonClass?>"><?=$buttonText?> <i class="<?=$buttonIcon?>" aria-hidden="true"></i></button>
                             </a>
                         </div>
                     <?else : ?>
