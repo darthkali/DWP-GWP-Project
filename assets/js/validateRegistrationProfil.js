@@ -67,22 +67,24 @@ document.addEventListener('DOMContentLoaded', function () {
             email.parentNode.className = email .parentNode.className.split(" errorinput").join("");
         }
 
-        if (document.getElementById('password'+ pageName) && changePasswordCheckbox.checked === true) {
-            //PASSWORT
-            if(password.value.length < 8){
-                validate = setErrorInput(password,'Das Passwort muss mind. 8 Zeichen lang sein!', 'password' + pageName);
-            }else if(password.value.length > 60){
-                validate = setErrorInput(password,'Das Passwort darf max. 60 lang sein!', 'password' + pageName);
-            }else if(password.value.match(/[A-Z]/) === null){
-                validate = setErrorInput(password,'Das Passwort muss mind. einen Großbuchstaben besitzen!', 'password' + pageName);
-            }else if(password.value.match(/[a-z]/) === null) {
-                validate = setErrorInput(password,'Das Passwort muss mind. einen Kleinbuchstaben besitzen!', 'password' + pageName);
-            }else if(password.value.match(/[0-9]/) === null) {
-                validate = setErrorInput(password,'Das Passwort muss mind. eine Zahl besitzen!', 'password' + pageName);
-            }else if(password.value.match(/[!@#.$%&?]/) === null) {
-                validate = setErrorInput(password,'Das Passwort muss mind. ein Sonderzeichen besitzen (!@#.$%&?)!', 'password' + pageName);
-            }else{
-                password.parentNode.className = password .parentNode.className.split(" errorinput").join("");
+        if (document.getElementById('password'+ pageName)) {
+            if(pageName === 'Registration' || changePasswordCheckbox.checked === true){
+                //PASSWORT
+                if (password.value.length < 8) {
+                    validate = setErrorInput(password, 'Das Passwort muss mind. 8 Zeichen lang sein!', 'password' + pageName);
+                } else if (password.value.length > 60) {
+                    validate = setErrorInput(password, 'Das Passwort darf max. 60 lang sein!', 'password' + pageName);
+                } else if (password.value.match(/[A-Z]/) === null) {
+                    validate = setErrorInput(password, 'Das Passwort muss mind. einen Großbuchstaben besitzen!', 'password' + pageName);
+                } else if (password.value.match(/[a-z]/) === null) {
+                    validate = setErrorInput(password, 'Das Passwort muss mind. einen Kleinbuchstaben besitzen!', 'password' + pageName);
+                } else if (password.value.match(/[0-9]/) === null) {
+                    validate = setErrorInput(password, 'Das Passwort muss mind. eine Zahl besitzen!', 'password' + pageName);
+                } else if (password.value.match(/[!@#.$%&?]/) === null) {
+                    validate = setErrorInput(password, 'Das Passwort muss mind. ein Sonderzeichen besitzen (!@#.$%&?)!', 'password' + pageName);
+                } else {
+                    password.parentNode.className = password.parentNode.className.split(" errorinput").join("");
+                }
             }
         }
 
