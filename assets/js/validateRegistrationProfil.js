@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             email.parentNode.className = email .parentNode.className.split(" errorinput").join("");
         }
 
-        if (document.getElementById('password'+ pageName)) {
+        if (document.getElementById('password'+ pageName) && changePasswordCheckbox.checked === true) {
             //PASSWORT
             if(password.value.length < 8){
                 validate = setErrorInput(password,'Das Passwort muss mind. 8 Zeichen lang sein!', 'password' + pageName);

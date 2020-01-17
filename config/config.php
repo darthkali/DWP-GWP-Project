@@ -1,6 +1,7 @@
 <?
 //ROOT
-define('ROOTPATH',strlen(dirname($_SERVER['SCRIPT_NAME'])) >1 ? dirname($_SERVER['SCRIPT_NAME']).'/' : '/');
+//efine('ROOTPATH',strlen(dirname($_SERVER['SCRIPT_NAME'])) >1 ? dirname($_SERVER['SCRIPT_NAME']).'/' : '/');
+define('ROOTPATH','../');
 
 // main Paths
 define('ASSETS_PATH', ROOTPATH.'assets/');

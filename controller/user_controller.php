@@ -56,6 +56,7 @@ class UserController extends Controller{
         setcookie('colorMode','',-1,'/');
         session_destroy();
         sendHeaderByControllerAndAction('pages', 'Start');
+        exit(0);
     }
 
     public function actionUserManagement(){
@@ -132,7 +133,7 @@ class UserController extends Controller{
             ];
 
             // generate a Filename and replace the old File(Picture) with the new one
-            if($userProfilInformations['userRole'] === Role::ADMIN or $userProfilInformations['userRole'] === Role::MEMBER){
+            if($userProfilInformations['userRole'] == Role::ADMIN or $userProfilInformations['userRole'] == Role::MEMBER){
                 $params['PICTURE' ]     =  $pictureName = User::createUploadedPictureName('pictureProfil');
                 $params['DESCRIPTION' ] = ( $_POST['descriptionProfil']    === '')  ? null : $_POST['descriptionProfil'];
             }
