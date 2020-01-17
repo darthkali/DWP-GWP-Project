@@ -63,4 +63,4 @@ use FSR_AI\location; ?>
         <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
     </form>
 </div>
-<script src="<?=JAVA_SCRIPT_PATH.'script.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'validateEvent.js'?>"></script>
