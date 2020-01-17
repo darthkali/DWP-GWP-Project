@@ -52,7 +52,8 @@ foreach ($daysUntilEvent as $digit){
             $newContact = new Contact($params);
             // validation from the inputFields
             $eingabeError = [];
-            if(!$newContact->validate($eingabeError)){
+
+            if(!Contact::validateContact($newContact, $eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }

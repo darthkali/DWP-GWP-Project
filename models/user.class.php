@@ -288,7 +288,6 @@ class User extends BaseModel
     public static function validateUser($newUser, &$eingabeError){
         $newUser->validate($eingabeError);
 
-        debug_to_logFile($newUser->__get('EMAIL'));
         if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
             array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
         }
@@ -300,11 +299,10 @@ class User extends BaseModel
             array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
         }
 
-        // TODO: Datum Validieren
-//        if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
-//            debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
-//            array_push($eingabeError, 'Datum');
-//        }
+        if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
+            debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
+            array_push($eingabeError, 'Datum');
+        }
 
         if(count($eingabeError) == 0){
             return true;

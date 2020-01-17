@@ -10,16 +10,19 @@ class Contact extends BaseModel{
     ];
 
 
-    public static function validateLocation($newContact, &$eingabeError){
-        if (!$newContact->validate($eingabeError)) {
-            return false;
-        }
+    public static function validateContact($newContact, &$eingabeError){
+        $newContact->validate($eingabeError);
+
         if (!preg_match('/^[A-Za-z ]*$/', $newContact->__get('NAME'))) {
-            array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
+            array_push($eingabeError, 'Der Name darf nur aus Buchstaben und Leerzeichen!');
         }
 
-        if (!preg_match('/[.]/', $newContact->__get('EMAIL'))) {
+        if (!preg_match('/[0-9A-Za-z_.]*[@][0-9A-Za-z-.]+[.][a-z]*/', $newContact->__get('EMAIL'))) {
             array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
+        }
+
+        if (!preg_match('/^[A-Za-z0-9 ]*$/', $newContact->__get('SUBJECT'))) {
+            array_push($eingabeError, 'Der Betreff darf nur aus Buchstaben, Zahlen und Leerzeichen!');
         }
 
         if(count($eingabeError) == 0){

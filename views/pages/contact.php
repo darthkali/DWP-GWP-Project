@@ -51,7 +51,6 @@
 </div>
 
 <script src="<?=JAVA_SCRIPT_PATH.'validateContact.js'?>"></script>
-<script src="<?=JAVA_SCRIPT_PATH.'contactAjax.js'?>"></script>
 
 <!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
 <!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>
