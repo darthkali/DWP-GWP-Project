@@ -3,6 +3,7 @@
 define('ASSETS_PATH', '../assets/');
 define('CONTROLLER_PATH', '../controller/');
 define('MODELS_PATH', '../models/');
+define('DOC_PATH', '../docs/');
 
 // sub Paths
 define('JAVA_SCRIPT_PATH', ASSETS_PATH.'js/');
