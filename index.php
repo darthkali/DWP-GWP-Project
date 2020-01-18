@@ -7,8 +7,14 @@ session_start();
 require_once 'init/10_database.php';
 require_once 'init/20_imports.php';
 
+
+
 $controllerName = $_GET['c'] ?? 'pages';
 $actionName = $_GET['a'] ?? 'start';
+
+if(!isset($_GET['c']) or !$_GET['a']){
+    header('Location: index.php/?c=' .$controllerName . '&a=' . $actionName);
+}
 
 $controllerPath = __DIR__ . '/controller/' .$controllerName.'_controller.php';
 

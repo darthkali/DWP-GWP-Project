@@ -25,10 +25,12 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
     <title><?=$title?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="<?=CSS_PATH.'design.css'?>">
     <link rel="stylesheet" href="<?=CSS_PATH.'navigation.css'?>">
     <link rel="stylesheet" href="<?=CSS_PATH.'responsive.css'?>">
     <link rel="stylesheet" href="<?=CSS_PATH.'aswesomeFonts.css'?>">
+    
     <?debug_to_logFile(CSS_PATH.'aswesomeFonts.css');?>
     <?  if(isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) :?>
         <link rel="stylesheet" href="<?=CSS_PATH.'darkMode.css'?>">

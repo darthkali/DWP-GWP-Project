@@ -671,6 +671,15 @@ table input:hover{
     margin-right: auto;
     margin-left: auto;
 }
+.deleteQuestion button{
+    margin: 5px auto;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    width:auto;
+    padding: 10px;
+
+}
 
 .deleteQuestion h3{
     text-align: center;
