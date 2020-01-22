@@ -45,8 +45,8 @@ foreach ($daysUntilEvent as $digit){
             $params = [
                 'NAME'          => ($_POST['name']      === '') ? null : $_POST['name'],
                 'EMAIL'         => ($_POST['mail']      === '') ? null : $_POST['mail'],
-                'TOPIC'         => ($_POST['subject']   === '') ? null : $_POST['subject'],
-                'DESCRIPTION'   => ($_POST['text']      === '') ? null : $_POST['text']
+                'SUBJECT'         => ($_POST['subject']   === '') ? null : $_POST['subject'],
+                'TEXT'   => ($_POST['text']      === '') ? null : $_POST['text']
             ];
 
             $newContact = new Contact($params);
@@ -59,17 +59,6 @@ foreach ($daysUntilEvent as $digit){
             }
 
             Contact::sendMail();
-        /*
-            $header = array();
-            $header[] = "MIME-Version: 1.0";
-            $header[] = "Content-type: text/plain; charset=utf-8";
-            $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
-            $header[] = "Reply-To: ".$_POST['mail'];
-            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">\r\n\r\n" . $_POST['text'];
-
-            mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header));
-            sendHeaderByControllerAndAction('pages', 'Contact');
-        */
         }
     }
 

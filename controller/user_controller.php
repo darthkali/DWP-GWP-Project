@@ -132,9 +132,11 @@ class UserController extends Controller{
                 'PASSWORD'         => null
             ];
 
+            $pictureName = null;
             // generate a Filename and replace the old File(Picture) with the new one
             if($userProfilInformations['userRole'] == Role::ADMIN or $userProfilInformations['userRole'] == Role::MEMBER){
-                $params['PICTURE' ]     =  $pictureName = User::createUploadedPictureName('pictureProfil');
+                $pictureName = User::createUploadedPictureName('pictureProfil');
+                $params['PICTURE' ]     =  $pictureName;
                 $params['DESCRIPTION' ] = ( $_POST['descriptionProfil']    === '')  ? null : $_POST['descriptionProfil'];
             }
 
@@ -152,7 +154,9 @@ class UserController extends Controller{
                 return false;
             }
 
-            User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
+            if(!is_null($pictureName)){
+                User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
+            }
 
             // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){

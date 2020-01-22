@@ -51,13 +51,21 @@ class Event extends BaseModel{
     public static function validateEvent($newEvent, &$eingabeError){
         $newEvent->validate($eingabeError);
 
-        if (!preg_match('/^[A-Za-z0-9 -]*$/', $newEvent->__get('NAME'))) {
+        if ($newEvent->__get('NAME') === null) {
+            array_push($eingabeError, 'Der Eventname muss augefüllt werden!');
+        }else if (!preg_match('/^[A-Za-z0-9 -]*$/', $newEvent->__get('NAME'))) {
             array_push($eingabeError, 'Der Eventname darf nur aus Buchstaben und Zahlen bestehen bestehen');
         }
 
-        if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newEvent->__get('DATE_OF_BIRTH'))) {
+        if ($newEvent->__get('DATE') === null) {
+            array_push($eingabeError, 'Die Datum muss augefüllt werden!');
+        }else if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newEvent->__get('DATE'))) {
             debug_to_logFile($newEvent->__get('DATE_OF_BIRTH'));
-            array_push($eingabeError, 'Datum');
+            array_push($eingabeError, 'Das Datum muss dem Fomat TT.MM-YYY entsprechen');
+        }
+
+        if ($newEvent->__get('DESCRIPTION') === null) {
+            array_push($eingabeError, 'Die Beschreibung muss augefüllt werden!');
         }
 
         if(count($eingabeError) == 0){

@@ -26,19 +26,27 @@ class Location extends BaseModel{
     public static function validateLocation($newLocation, &$eingabeError){
         $newLocation->validate($eingabeError);
 
-        if (!preg_match('/^[A-Za-z -]*$/', $newLocation->__get('STREET'))) {
-            array_push($eingabeError, 'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
+        if ($newLocation->__get('STREET') === null) {
+            array_push($eingabeError, 'Der Straßenname muss augefüllt werden!');
+        }else  if (!preg_match('/^[A-Za-z -]*$/', $newLocation->__get('STREET'))) {
+           array_push($eingabeError, 'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }
 
-        if (!preg_match('/^[0-9]+[ ]?[a-z]?$/', $newLocation->__get('NUMBER'))) {
+        if ($newLocation->__get('NUMBER') === null) {
+            array_push($eingabeError, 'Die Nummer muss augefüllt werden!');
+        }else if (!preg_match('/^[0-9]+[ ]?[a-z]?$/', $newLocation->__get('NUMBER'))) {
             array_push($eingabeError, 'Die Nummer darf nur aus Zahlen und Buchstaben bestehen (Zahl als erstes)!');
         }
 
-        if (!preg_match('/^[0-9]*$/', $newLocation->__get('ZIPCODE'))) {
+        if ($newLocation->__get('ZIPCODE') === null) {
+            array_push($eingabeError, 'Die Postleitzahl muss augefüllt werden!');
+        }else if (!preg_match('/^[0-9]*$/', $newLocation->__get('ZIPCODE'))) {
             array_push($eingabeError, 'Die Postleitzahl darf nur aus Zahlen bestehen!');
         }
 
-        if (!preg_match('/^[A-Za-z -]*$/', $newLocation->__get('CITY'))) {
+        if ($newLocation->__get('CITY') === null) {
+            array_push($eingabeError, 'Die Stadt muss augefüllt werden!');
+        }else if (!preg_match('/^[A-Za-z -]*$/', $newLocation->__get('CITY'))) {
             array_push($eingabeError, 'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }
 

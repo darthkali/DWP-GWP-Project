@@ -266,7 +266,12 @@ class User extends BaseModel
 
     public static function checkPassword($password, &$error){
 
-        if(!preg_match('/[!@#$%&?.]/',$password)) {
+
+        if(!preg_match('/^.+$/',$password)) {
+            $error =  "Das Passwort darf nicht leer sein";
+            return false;
+        }
+        elseif(!preg_match('/[!@#$%&?.]/',$password)) {
             $error =  "Das Passwort muss mindestens eines der folgenden Zeichen beinhalten: ! @ # . $ % & ? ";
             return false;
         }
@@ -288,20 +293,29 @@ class User extends BaseModel
     public static function validateUser($newUser, &$eingabeError){
         $newUser->validate($eingabeError);
 
-        if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
-            array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
+        if ($newUser->__get('FIRSTNAME') === null) {
+            array_push($eingabeError, 'Der Vorname muss augefüllt werden!');
+        }elseif (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
+           array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
         }
 
-        if (!preg_match('/^[A-Za-z]*$/', $newUser->__get('LASTNAME'))) {
+        if ($newUser->__get('LASTNAME') === null) {
+            array_push($eingabeError, 'Der Nachname muss augefüllt werden!');
+        } elseif (!preg_match('/^[A-Za-z]*$/', $newUser->__get('LASTNAME'))) {
             array_push($eingabeError, 'Der Nachname darf nur aus Buchstaben bestehen');
         }
-        if (!preg_match('/[0-9A-Za-z_.]*[@][0-9A-Za-z-.]+[.][a-z]*/', $newUser->__get('EMAIL'))) {
+
+        if ($newUser->__get('EMAIL') === null) {
+            array_push($eingabeError, 'Die E-Mail muss augefüllt werden!');
+        }elseif (!preg_match('/[0-9A-Za-z_.]*[@][0-9A-Za-z-.]+[.][a-z]*/', $newUser->__get('EMAIL'))) {
             array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
         }
 
-        if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
+        if ($newUser->__get('DATE_OF_BIRTH') === null) {
+            array_push($eingabeError, 'Das Datum muss augefüllt werden!');
+        }elseif (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
             debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
-            array_push($eingabeError, 'Datum');
+            array_push($eingabeError, 'Das Datum muss dem Fomat TT.MM-YYY entsprechen');
         }
 
         if(count($eingabeError) == 0){

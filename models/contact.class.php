@@ -13,19 +13,29 @@ class Contact extends BaseModel{
     public static function validateContact($newContact, &$eingabeError){
         $newContact->validate($eingabeError);
 
-        if (!preg_match('/^[A-Za-z ]*$/', $newContact->__get('NAME'))) {
-            array_push($eingabeError, 'Der Name darf nur aus Buchstaben und Leerzeichen!');
+       if ($newContact->__get('NAME') === null) {
+            array_push($eingabeError, 'Der Name muss augefüllt werden!');
+        }else  if (!preg_match('/^[A-Za-z ]*$/', $newContact->__get('NAME'))) {
+           array_push($eingabeError, 'Der Name darf nur aus Buchstaben und Leerzeichen!');
+       }
+
+       if ($newContact->__get('EMAIL') === null) {
+           array_push($eingabeError, 'Die E-Mail muss augefüllt werden!');
+       }else if (!preg_match('/[0-9A-Za-z_.]*[@][0-9A-Za-z-.]+[.][a-z]*/', $newContact->__get('EMAIL'))) {
+           array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
+       }
+
+       if ($newContact->__get('SUBJECT') === null) {
+           array_push($eingabeError, 'Der Betreff muss augefüllt werden!');
+       }else if (!preg_match('/^[A-Za-z0-9 ]*$/', $newContact->__get('SUBJECT'))) {
+           array_push($eingabeError, 'Der Betreff darf nur aus Buchstaben, Zahlen und Leerzeichen!');
+       }
+
+        if ($newContact->__get('TEXT') === null) {
+            array_push($eingabeError, 'Das Anliegen muss augefüllt werden!');
         }
 
-        if (!preg_match('/[0-9A-Za-z_.]*[@][0-9A-Za-z-.]+[.][a-z]*/', $newContact->__get('EMAIL'))) {
-            array_push($eingabeError, 'Die E-Mail muss eine Domain enthalten');
-        }
-
-        if (!preg_match('/^[A-Za-z0-9 ]*$/', $newContact->__get('SUBJECT'))) {
-            array_push($eingabeError, 'Der Betreff darf nur aus Buchstaben, Zahlen und Leerzeichen!');
-        }
-
-        if(count($eingabeError) == 0){
+       if(count($eingabeError) == 0){
             return true;
         }else{
             return false;

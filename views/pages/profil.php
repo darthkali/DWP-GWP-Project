@@ -28,7 +28,7 @@ use FSR_AI\role;
         <!-- firstname -->
         <div class="input">
             <label for="firstnameProfil">VORNAME </label>
-            <input type = "text" id="firstnameProfil" name="firstnameProfil" required
+            <input type = "text" id="firstnameProfil" name="firstnameProfil"
                value = "<?=isset($_POST['firstnameProfil']) ? htmlspecialchars($_POST['firstnameProfil']) : htmlspecialchars($userProfil['FIRSTNAME'])?>">
             <span class="error-message" id="errorFirstnameProfil"></span>
         </div>
@@ -36,7 +36,7 @@ use FSR_AI\role;
         <!-- lastname -->
         <div class="input">
             <label for="lastnameProfil">NACHNAME </label>
-            <input type = "text" id="lastnameProfil" name="lastnameProfil" required
+            <input type = "text" id="lastnameProfil" name="lastnameProfil"
                value = "<?=isset($_POST['lastnameProfil']) ? htmlspecialchars($_POST['lastnameProfil']) : htmlspecialchars($userProfil['LASTNAME'])?>">
             <span class="error-message" id="errorLastnameProfil"></span>
         </div>
