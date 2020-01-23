@@ -40,7 +40,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
 
     <link rel="shortcut icon" type="image/png" href="<?=PAGE_IMAGE_PATH.'ailogo_groß.png'?>">
 </head>
-    <body><!--onresize="changeCssWithJavaScriptForEventbox()"-->
+    <body onresize="changeCssWithJavaScriptForEventbox()" onload="changeCssWithJavaScriptForEventbox()">
         <? include __DIR__ . '/shared/navMenuBar.php'; ?>
 
 			<?=$body?>

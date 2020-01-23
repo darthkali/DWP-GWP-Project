@@ -24,10 +24,17 @@ function deleteQuestionEvent(link, eventID, pictureID) {
 //Noch im Test bzw Aufbau
 
 function changeCssWithJavaScriptForEventbox(){
-    document.querySelectorAll()
-     if(window.outerWidth < 700){
+   var elements = document.querySelectorAll("#eventBox");
+   var showMoreButtons = document.querySelectorAll("#showMoreButton");
+   // if(window.outerWidth < 700){
+    // alert(showMoreButtons);
+        showMoreButtons.forEach(function(buttons){
+           buttons.style.display;
+        });
+        elements.forEach(function (items) {
+            items.style.display = "none";
+        });
+   // }else{
 
-     }else{
-
-     }
+    //}
  }

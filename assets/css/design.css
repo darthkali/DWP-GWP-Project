@@ -209,10 +209,13 @@ hr#ContentEventsLine{
     background-color: dimgrey;
 }
 
-div#EventButton{
+div#eventBox{
     padding: 0;
     margin-bottom: 0;
     border-style: none;
+}
+button#showMoreButton{
+
 }
 /* ----------------------------------   Error - Page   ---------------------------------- */
 .ErrorPage{

@@ -40,7 +40,7 @@ $design = '';
 
                 <!-- buttons -->
                 <div class="sortFilterBox" id="ButtonInCenter">
-                    <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden <i class="fas fa-filter" aria-hidden="true"></i></button>
+                    <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden</button>
                 </div>
             </form>
 
@@ -59,13 +59,14 @@ $design = '';
                         <p>
                             <strong>Datum: </strong><?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
                             <strong>Ort: </strong><?=Location::buildLocationDetails($event['LOCATION_ID']);?> </p>
-                        <p><?=$event['DESCRIPTION']?></p>
+                        <p id="eventBox"><?=$event['DESCRIPTION']?></p>
                     </div>
 
+                    <button id="showMoreButton">mehr anzeigen</button>
                     <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <!--What happened when logged in and event is in future-->
-                        <div class="ContentEvents" id="EventButton">
-                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>#<?=$event['ID']?>-event">
+                        <div class="ContentEvents" id="eventBox">
+                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>">
                                 <?
                                 if(Booking::checkRegistrationForEvent($event['ID'])){
                                     $buttonText = 'Von dem Event abmelden';
@@ -74,7 +75,8 @@ $design = '';
                                     $buttonText = 'Für das Event anmelden';
                                     $buttonClass = null;
                                 }?>
-                            <button id="eventBox" class ="<?=$buttonClass?>"><?=$buttonText?></button></a>
+                                <button id="eventBox" class ="<?=$buttonClass?>"><?=$buttonText?></button>
+                            </a>
                         </div>
                     <?else : ?>
                         <?if(Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0): ?>
@@ -84,7 +86,7 @@ $design = '';
                             <!--What happened when not logged in and event is in past -->
                             <?$buttonText = 'Das Event ist vorbei!'?>
                         <?endif;?>
-                        <div ><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
+                        <div><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
                         <!--<a id="buttonForShowMore"></a>-->
                     <?endif;?>
                 </div>
