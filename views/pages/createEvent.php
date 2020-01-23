@@ -62,7 +62,7 @@ use FSR_AI\location; ?>
         <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required) ? $required : ''?>>
 
         <!-- button -->
-        <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="far fa-save" aria-hidden="true"></i></i></button>
     </form>
 </div>
 <script src="<?=JAVA_SCRIPT_PATH.'validateEvent.js'?>"></script>

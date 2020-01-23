@@ -112,7 +112,7 @@ class EventController extends Controller
                 }
 
                 $eingabeError = [];
-                if(!$event->validate($eingabeError)){
+                if(!$event->validateEvent($event, $eingabeError)){
                     $this->_params['eingabeError'] = $eingabeError;
                     return false;
                 }

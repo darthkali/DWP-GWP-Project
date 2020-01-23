@@ -26,10 +26,10 @@ use FSR_AI\User;
     <div class="deleteQuestion">
         <h3><?=$title?></h3>
         <h1><?=$Name ?></h1>
-        <h3> wirklich Löschen?</h3><br>
+        <h3> wirklich Löschen? </h3>
 
-        <a href="<?=$hrefTarget?><?=$hrefDelete?>"><button type="button">Löschen</button></a>
-        <a href="<?=$hrefTarget?>"><button type="button">Abbrechen</button></a>
+        <a href="<?=$hrefTarget?><?=$hrefDelete?>"><button type="button">Löschen <i class="fas fa-user-slash"></i></button></a>
+        <a href="<?=$hrefTarget?>"><button type="button">Abbrechen <i class="fas fa-window-close"></i></button></a>
     </div>
 
 

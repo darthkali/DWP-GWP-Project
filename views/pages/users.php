@@ -38,7 +38,7 @@ use FSR_AI\User;
             <br>
             <!-- buttons -->
             <div class="sortFilterBox" id="ButtonInCenter">
-                <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden</button>
+                <button class="FilterBoxButton" type="submit" name="filterID">Filter anwenden <i class="fas fa-filter" aria-hidden="true"></i></button>
             </div>
         </form>
         <? foreach($userList as $user) : ?>

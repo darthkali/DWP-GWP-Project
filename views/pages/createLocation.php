@@ -52,7 +52,7 @@
         </div>
 
         <!-- button -->
-        <button type="submit" name="submitCreateLocation" id="submitCreateLocation">Location erstellen<i class="fa fa-floppy-o" aria-hidden="true"></i></button>
+        <button type="submit" name="submitCreateLocation" id="submitCreateLocation">Location erstellen<i class="far fa-save" aria-hidden="true"></i></button>
         <button type="reset">Eingaben Löschen <i class="fa fa-times" aria-hidden="true"></i> </button>
     </form>
 </div>

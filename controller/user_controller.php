@@ -56,6 +56,7 @@ class UserController extends Controller{
         setcookie('colorMode','',-1,'/');
         session_destroy();
         sendHeaderByControllerAndAction('pages', 'Start');
+        exit(0);
     }
 
     public function actionUserManagement(){
@@ -131,9 +132,11 @@ class UserController extends Controller{
                 'PASSWORD'         => null
             ];
 
+            $pictureName = null;
             // generate a Filename and replace the old File(Picture) with the new one
-            if($userProfilInformations['userRole'] === Role::ADMIN or $userProfilInformations['userRole'] === Role::MEMBER){
-                $params['PICTURE' ]     =  $pictureName = User::createUploadedPictureName('pictureProfil');
+            if($userProfilInformations['userRole'] == Role::ADMIN or $userProfilInformations['userRole'] == Role::MEMBER){
+                $pictureName = User::createUploadedPictureName('pictureProfil');
+                $params['PICTURE' ]     =  $pictureName;
                 $params['DESCRIPTION' ] = ( $_POST['descriptionProfil']    === '')  ? null : $_POST['descriptionProfil'];
             }
 
@@ -151,7 +154,9 @@ class UserController extends Controller{
                 return false;
             }
 
-            User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
+            if(!is_null($pictureName)){
+                User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
+            }
 
             // generate passwordHash and overwrite the clear password
             if(isset($_POST['changePasswordCheckbox'])){
@@ -220,10 +225,22 @@ class UserController extends Controller{
                 $newUser->__set('PASSWORD', User::generatePasswordHash($_POST['passwordRegistration']));
 
                 $newUser->save();
+
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => null]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
+
                 sendHeaderByControllerAndAction('user', 'login');
+
             } else {
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => $this->_params['errorMessage']]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
             }
         }
+
     }
 }

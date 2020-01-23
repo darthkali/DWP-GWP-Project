@@ -2,6 +2,8 @@
     <img class="center" src="<?=PAGE_IMAGE_PATH.'code.png'?>" alt = "If statement that set your life motto from sad to be awesome!">
 </div>
 <div class="Content" id="fadeIn">
+
+    <a href=<?=DOC_PATH.'Projektdokumentation.html'?>>avsdvsdfv</a>
     <h1>Impressum</h1>
     <p>Informationspflicht laut § 5 TMG.</p>
 

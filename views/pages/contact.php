@@ -2,7 +2,7 @@
     <img class="center" src="<?=PAGE_IMAGE_PATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="?c=pages&a=Contact" method="post">
+    <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="form">
         <h1>Kontakt</h1>
 
         <?if(isset($eingabeError)) :?>
@@ -45,8 +45,8 @@
         </div>
 
         <!-- button -->
-        <button type="submit" name="sendMail" id="sendMail">Abschicken</button>
-        <button type="reset">Löschen</button>
+        <button type="submit" name="sendMail" id="sendMail">Abschicken <i class="far fa-paper-plane" aria-hidden="true"></i></button>
+        <button type="reset">Löschen <i class="fa fa-times" aria-hidden="true"></i></button>
     </form>
 </div>
 

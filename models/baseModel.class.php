@@ -174,10 +174,10 @@ abstract class BaseModel{
                 break;
             case BaseModel::TYPE_STRING:{
                 if(isset($schemaOptions['min']) && mb_strlen($value) < $schemaOptions['min']){
-                    $errors[] = $attribute.': String needs min. '.$schemaOptions['min'].' characters!';
+                    $errors[] = $attribute.': Eingabe muss mindestens aus '.$schemaOptions['min'].' Zeichen bestehen!';
                 }
                 if(isset($schemaOptions['max']) && mb_strlen($value) > $schemaOptions['max']){
-                    $errors[] = $attribute.': String can have max. '.$schemaOptions['max'].' characters!';
+                    $errors[] = $attribute.': Eingabe darf maximal aus '.$schemaOptions['max'].' Zeichen bestehen!';
                 }
             }
             break;
