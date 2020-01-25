@@ -62,7 +62,7 @@ $design = '';
                         <p id="eventBox"><?=$event['DESCRIPTION']?></p>
                     </div>
 
-                    <button id="showMoreButton">mehr anzeigen</button>
+                    <button class="FilterBoxButton" id="showMoreButton">mehr anzeigen</button>
                     <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <!--What happened when logged in and event is in future-->
                         <div class="ContentEvents" id="eventBox">
@@ -86,8 +86,7 @@ $design = '';
                             <!--What happened when not logged in and event is in past -->
                             <?$buttonText = 'Das Event ist vorbei!'?>
                         <?endif;?>
-                        <div><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
-                        <!--<a id="buttonForShowMore"></a>-->
+                        <div id="eventBox"><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
                     <?endif;?>
                 </div>
             <?endforeach;?>

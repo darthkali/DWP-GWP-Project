@@ -32,7 +32,7 @@ class UserController extends Controller{
         $error = false;
 
         if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false){
-            if (isset($_POST['submitLogin']) && isset($_POST['email'])&& isset($_POST['password'])) {
+            if (isset($_POST['submitLogin']) && isset($_POST['email']) && isset($_POST['password'])) {
                 $user = User::findUserByLoginDataFromPost() ?? null;
                 if($user){
                     User::writeLoginDataToActiveSession(true, $user['ID']);

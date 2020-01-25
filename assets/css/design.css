@@ -182,12 +182,13 @@ div#FooterRight a img {
 }
 
 div#ContentEventsInPast{
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
+/*
 div#ContentEventsInPast:hover{
     opacity: 1;
-}
+}*/
 
 .ContentEvents img{
     margin-left: 1%;
@@ -215,7 +216,7 @@ div#eventBox{
     border-style: none;
 }
 button#showMoreButton{
-
+    display: none;
 }
 /* ----------------------------------   Error - Page   ---------------------------------- */
 .ErrorPage{

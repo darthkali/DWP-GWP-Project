@@ -24,17 +24,22 @@ function deleteQuestionEvent(link, eventID, pictureID) {
 //Noch im Test bzw Aufbau
 
 function changeCssWithJavaScriptForEventbox(){
-   var elements = document.querySelectorAll("#eventBox");
-   var showMoreButtons = document.querySelectorAll("#showMoreButton");
-   // if(window.outerWidth < 700){
-    // alert(showMoreButtons);
-        showMoreButtons.forEach(function(buttons){
-           buttons.style.display;
+    var elements = document.querySelectorAll("#eventBox");
+    var showMoreButtons = document.querySelectorAll("#showMoreButton");
+
+    if (window.outerWidth < 700) {
+        showMoreButtons.forEach(function (buttons) {
+            buttons.style.display = "block";
         });
         elements.forEach(function (items) {
             items.style.display = "none";
         });
-   // }else{
-
-    //}
+    } else {
+        showMoreButtons.forEach(function (buttons) {
+            buttons.style.display = "none";
+        });
+        elements.forEach(function (items) {
+            items.style.display = "block";
+        });
+    }
  }
