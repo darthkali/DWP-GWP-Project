@@ -41,11 +41,11 @@ nav a, .dropbtn {
 
 .dropdown-content {
     display: none;
-    width:200px;
+    width:210px;
     position: absolute;
     min-width: 160px;
     z-index: 1;
-    margin-left: -130px;
+    margin-left: -140px;
     height: 55px;
 }
 
