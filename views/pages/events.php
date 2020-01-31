@@ -53,16 +53,16 @@ $design = '';
         <?for($i = 0; $i <= 1; $i++) : ?>
             <?foreach($eventList as $event) :?>
                 <div class="ContentEvents" <?=$design?>>
-                    <img id="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
+                    <img data-img class="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                     <div>
                         <h2><?=$event['NAME']?></h2>
                         <p>
                             <strong>Datum: </strong><?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
                             <strong>Ort: </strong><?=Location::buildLocationDetails($event['LOCATION_ID']);?> </p>
-                        <p id="eventBox"><?=$event['DESCRIPTION']?></p>
+                        <p data-desc id="eventBox"><?=$event['DESCRIPTION']?></p>
                     </div>
 
-                    <button class="FilterBoxButton" id="showMoreButton">mehr anzeigen</button>
+                    <button data-showMore class="FilterBoxButton" id="showMoreButton" onclick="showMoreButtonClicked(this);">mehr anzeigen</button>
                     <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <!--What happened when logged in and event is in future-->
                         <div class="ContentEvents" id="eventBox">
@@ -75,7 +75,7 @@ $design = '';
                                     $buttonText = 'Für das Event anmelden';
                                     $buttonClass = null;
                                 }?>
-                                <button id="eventBox" class ="<?=$buttonClass?>"><?=$buttonText?></button>
+                                <button data-button class ="<?=$buttonClass?>"><?=$buttonText?></button>
                             </a>
                         </div>
                     <?else : ?>
@@ -86,7 +86,7 @@ $design = '';
                             <!--What happened when not logged in and event is in past -->
                             <?$buttonText = 'Das Event ist vorbei!'?>
                         <?endif;?>
-                        <div id="eventBox"><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
+                        <div data-statusText class="eventBox"><strong><?=isset($buttonText) ? $buttonText : ''?></strong></div>
                     <?endif;?>
                 </div>
             <?endforeach;?>

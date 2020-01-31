@@ -224,7 +224,11 @@ button#showMoreButton{
 }
 
 .ErrorPage h1{
-    margin-top: 5%;
+    margin-top: 5% !important;
+}
+
+.errorImg{
+    height: 100%;
 }
 
 /* ----------------------------------   Site - Picture   ---------------------------------- */

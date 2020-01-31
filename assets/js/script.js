@@ -24,7 +24,7 @@ function deleteQuestionEvent(link, eventID, pictureID) {
 //Noch im Test bzw Aufbau
 
 function changeCssWithJavaScriptForEventbox(){
-    var elements = document.querySelectorAll("#eventBox");
+    var elements = document.querySelectorAll("p[data-desc], img[data-img], button[data-button], div[data-statusText], h3[data-descTitle]");
     var showMoreButtons = document.querySelectorAll("#showMoreButton");
 
     if (window.outerWidth < 700) {
@@ -42,4 +42,13 @@ function changeCssWithJavaScriptForEventbox(){
             items.style.display = "block";
         });
     }
+ }
+
+ function showMoreButtonClicked(button){
+    changeCssWithJavaScriptForEventbox();
+    var elements = button.parentNode.querySelectorAll("p[data-desc], img[data-img], button[data-button], div[data-statusText]");
+    elements.forEach(function (items) {
+        items.style.display = "block";
+    });
+    button.style.display = "none";
  }

@@ -43,7 +43,7 @@ use FSR_AI\User;
         </form>
         <? foreach($userList as $user) : ?>
             <div class="userBox">
-                <img class="center" src=<?=USER_PICTURE_PATH.$user['PICTURE']?> alt = "Bilder der mitglieder der Fachschaft der Angewandten informatik">
+                <img data-img class="center" src=<?=USER_PICTURE_PATH.$user['PICTURE']?> alt = "Bilder der mitglieder der Fachschaft der Angewandten informatik">
                 <p><h2><?=User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);?></h2>
                 <strong><?=function_FSR::generateFunctionFSRNameByUserID($user['MEMBER_ID'])?></strong>
                     <?=User::getAge($user['DATE_OF_BIRTH'])?> Jahre<br>
@@ -59,8 +59,9 @@ use FSR_AI\User;
                     <?php endforeach; ?>
                 </p>
                 <br>
-                <h3>Beschreibung:</h3>
-                <p><?=$user['DESCRIPTION']?></p>
+                <h3 data-descTitle>Beschreibung:</h3>
+                <p data-desc><?=$user['DESCRIPTION']?></p>
+                <button data-showMore class="FilterBoxButton" id="showMoreButton" onclick="showMoreButtonClicked(this);">mehr anzeigen</button>
             </div>
         <?php endforeach; ?>
     </div>
