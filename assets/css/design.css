@@ -713,6 +713,7 @@ table input:hover{
 
 .error-message{
     position: absolute;
+    text-align: right;
     color: #dd0009;
     left: 0;
     padding: 0;
