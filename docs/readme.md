@@ -72,9 +72,9 @@ Einrichten von XAMPP
 
 6. ##### Login
     * Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
-    * **Administrator**:----E-Mail: `admin@fh`-------PW: `Admin1@fh`
-    * **Mitglied**:----------E-Mail: `mitglied@fh`----PW: `Mitglied1@fh`
-    * **Nutzer**:------------E-Mail: `nutzer@fh`------PW: `Nutzer1@fh`
+    * **Administrator**:----E-Mail: `admin@fh.de`-------PW: `Password.1`
+    * **Mitglied**:----------E-Mail: `mitglied@fh.de`----PW: `Password.1`
+    * **Nutzer**:------------E-Mail: `nutzer@fh.de`------PW: `Password.1`
 
 ## Built With
 
