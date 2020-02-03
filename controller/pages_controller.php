@@ -26,10 +26,10 @@ class PagesController extends Controller{
             ];
         $this->_params['daysUntilEvent'] = $daysUntilEvent;
 
-foreach ($daysUntilEvent as $digit){
+        foreach ($daysUntilEvent as $digit){
 
-        debug_to_logFile($digit);
-}
+                debug_to_logFile($digit);
+        }
     }
 
     public function actionAboutUs(){
@@ -59,6 +59,10 @@ foreach ($daysUntilEvent as $digit){
             }
 
             Contact::sendMail();
+            if(isset($_GET['ajax'])) {
+                echo json_encode(['error' => null]);
+                exit(0); // Valid EXIT with JSON OUTPUT
+            }
         }
     }
 

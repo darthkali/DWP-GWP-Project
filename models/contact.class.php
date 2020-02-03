@@ -42,8 +42,7 @@ class Contact extends BaseModel{
         }
     }
 
-    public static function sendMail()
-    {
+    public static function sendMail(){
         debug_to_logFile('asdasd');
         $header = array();
         $header[] = "MIME-Version: 1.0";

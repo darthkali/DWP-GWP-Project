@@ -1,8 +1,8 @@
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=PAGE_IMAGE_PATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
-<div class="Content" id="fadeIn">
-    <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="form">
+<div class="Content" id="fadeIn" style="pointer-events: none">
+    <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="formContact">
         <h1>Kontakt</h1>
 
         <?if(isset($eingabeError)) :?>
@@ -13,6 +13,16 @@
             </div>
         <? endif; ?>
 
+
+        <div class="successContact">
+            <h4>
+                <?=isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''?>
+                deine Kontaktanfrage wurde erfolgreich übermittelt!
+            </h4>
+
+            <button type="button">OK <i class="fa fa-times" aria-hidden="true"></i></button>
+
+        </div>
         <!-- name -->
         <div class="input">
             <label for="name">NAME</label>

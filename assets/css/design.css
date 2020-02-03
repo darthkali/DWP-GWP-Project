@@ -779,3 +779,30 @@ table input:hover{
     background: linear-gradient(to bottom, #131313 1%, #757575 48%, #000000 50%, #757575 52%, #131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#131313', GradientType=0); /* IE6-9 */
 }
+
+.successContact{
+    pointer-events: auto;
+    position: absolute;
+    padding: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    top: 20%;
+    background-color: var(--hover-color);
+    opacity: 90%;
+    height: 50%;
+    width: 100%;
+    border-radius: 10px;
+    z-index: 100;
+}
+
+.successContact h4{
+    display: block;
+    text-align: center;
+    color: var(--secondary-text-color);
+}
+
+.successContact button{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto ;
+}

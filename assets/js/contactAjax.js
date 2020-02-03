@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    var form = document.getElementById('formRegistration');
-    var submit = document.getElementById('submitRegistration');
-    var email = document.getElementById('emailRegistration');
+    var form = document.getElementById('formContact');
+    var submit = document.getElementById('sendMail');
+
 
     submit.addEventListener('click', function(event){
         event.stopPropagation(); // no send to the top element
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                     if(resJson !== null) {
                         if(resJson.error !== null) {
-                            Contact::sendMail();
+                            setErrorInput(email,resJson.error, 'errorEmailRegistration');
                         } else {
                             window.location = "index.php/?c=user&a=login";
                         }
