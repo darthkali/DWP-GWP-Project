@@ -708,11 +708,10 @@ table input:hover{
     position: absolute;
     cursor: pointer;
     right: 10px;
-    bottom: 7px;
+    bottom: 32px;
 }
 
 .error-message{
-    position: absolute;
     text-align: right;
     color: #dd0009;
     left: 0;
