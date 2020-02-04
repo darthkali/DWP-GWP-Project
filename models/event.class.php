@@ -60,7 +60,6 @@ class Event extends BaseModel{
         if ($newEvent->__get('DATE') === null) {
             array_push($eingabeError, 'Die Datum muss augefüllt werden!');
         }else if (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newEvent->__get('DATE'))) {
-            debug_to_logFile($newEvent->__get('DATE_OF_BIRTH'));
             array_push($eingabeError, 'Das Datum muss dem Fomat TT.MM-YYY entsprechen');
         }
 

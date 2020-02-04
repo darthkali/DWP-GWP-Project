@@ -91,14 +91,14 @@ class User extends BaseModel
     }
 
     public static function changeUserRoleAndFunction($userID, $newRole, $newfunctionFSR = null){
-        // TODO: Ducumentation about this
         $user = self::findOne('ID = ' . $userID);
         $actualRole = $user['ROLE_ID'];
 
         if ($actualRole == Role::USER && $newRole == Role::USER) {return true;}
 
         if($actualRole == Role::USER && $newRole != Role::USER){
-            Function_FSR::changeUserFunction($userID,$newfunctionFSR);
+            Function_FSR::changeUserFunction($userID, $newfunctionFSR);
+            Role::changeUserRole($userID,$newRole);
         }else if($actualRole != Role::USER && $newRole == Role::USER){
             Function_FSR::changeUserFunction($userID,6);
             Role::changeUserRole($userID,$newRole);
@@ -163,8 +163,13 @@ class User extends BaseModel
         if($user == null){return null;}
 
         $errorMessage = '';
-        $userFunction = isset(MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID']) ?? null;
-        //debug_to_logFile($userFunction);
+        $actualMemberHistory = MemberHistory::generateActualMemberHistory($user['ID']);
+        if ($actualMemberHistory != ''){
+            $userFunction = $actualMemberHistory['FUNCTION_FSR_ID'];
+        }else{
+            $userFunction = 0;
+        }
+
         $allRoles = Role::find();
         $allFunctions = Function_FSR::find();
 
@@ -314,7 +319,6 @@ class User extends BaseModel
         if ($newUser->__get('DATE_OF_BIRTH') === null) {
             array_push($eingabeError, 'Das Datum muss augefüllt werden!');
         }elseif (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
-            debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
             array_push($eingabeError, 'Das Datum muss dem Fomat TT.MM-YYY entsprechen');
         }
 

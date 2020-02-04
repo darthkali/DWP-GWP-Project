@@ -16,8 +16,7 @@ class MemberHistory extends BaseModel{
     ];
 
     public static function generateActualMemberHistory($userID){
-        $hist = self::findOne('MEMBER_ID = '. $userID . ' and END_DATE is null');
-        return $hist;
+        return self::findOne('MEMBER_ID = '. $userID . ' and END_DATE is null');
     }
 
     public static function generateAllClosedMemberHistory($userID){
@@ -33,12 +32,13 @@ class MemberHistory extends BaseModel{
             'FUNCTION_FSR_ID'   => $functionFSR,
         ];
         $newMemberHistory = new MemberHistory($params);
+
         $newMemberHistory->save();
     }
 
     public static function closeActualMemberHistory($userID){
         $memberHistory = self::generateActualMemberHistory($userID);
-        if($memberHistory === null){
+        if($memberHistory == ''){
             return false;
         }else{
             $memberHistoryID = $memberHistory['ID'];
