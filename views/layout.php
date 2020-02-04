@@ -31,7 +31,6 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
     <link rel="stylesheet" href="<?=CSS_PATH.'responsive.css'?>">
     <link rel="stylesheet" href="<?=CSS_PATH.'aswesomeFonts.css'?>">
     
-    <?debug_to_logFile(CSS_PATH.'aswesomeFonts.css');?>
     <?  if(isset($_COOKIE['colorMode']) && $_COOKIE['colorMode'] == true) :?>
         <link rel="stylesheet" href="<?=CSS_PATH.'darkMode.css'?>">
     <?else : ?>

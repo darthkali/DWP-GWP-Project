@@ -89,6 +89,10 @@ class UserController extends Controller{
 
     public function actionProfil(){
 
+        if (!isset($_SESSION['userId'])){
+            sendHeaderByControllerAndAction('pages', 'errorPage');
+        }
+
         // generate Informations about the User
         //
         // decide the Informations based on 2 points:
@@ -109,6 +113,7 @@ class UserController extends Controller{
         $this->_params['pageTopic']         = $userProfilInformations['pageTopic'];
         $this->_params['pageSubTopic']      = $userProfilInformations['pageSubTopic'];
         $this->_params['errorMessagePassword'] = '';
+
 
         // if the user was not found, than we go to the error page.
         // so we can ensure, that the user will be found by the system and not by an edit (e.g.: in the URL) from outside
