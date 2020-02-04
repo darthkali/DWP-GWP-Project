@@ -3,8 +3,7 @@ const DEBUG = true;
 const ERROR = true;
 
 function debug_to_logFile($message, $class = null){
-    if (is_dir(__DIR__.'/../logs')) {
-        echo "verzeichnis gibts schon"; } else {
+    if (!is_dir(__DIR__.'/../logs')) {
         mkdir (__DIR__.'/../logs', 4777);
     }
     if(DEBUG){
