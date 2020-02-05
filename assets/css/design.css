@@ -781,18 +781,24 @@ table input:hover{
 }
 
 .successContact{
-    pointer-events: auto;
+    display:none;
+
     position: absolute;
     padding: 20px;
     font-size: 1.5em;
     text-align: center;
-    top: 20%;
-    background-color: var(--hover-color);
-    opacity: 90%;
-    height: 50%;
-    width: 100%;
-    border-radius: 10px;
-    z-index: 100;
+    top: 15%;
+    background-color: var(--secondary-bg-color);
+
+    border-bottom: var(--hover-color);
+    border-bottom-style: solid;
+    border-bottom-width: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 80%;
+    left: 10%;
+
 }
 
 .successContact h4{

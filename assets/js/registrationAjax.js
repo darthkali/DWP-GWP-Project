@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
                     if(resJson !== null) {
                         if(resJson.error !== null) {
-                            Contact::sendMail();
+                            setErrorInput(email,resJson.error, 'errorEmailRegistration');
                         } else {
                             window.location = "index.php/?c=user&a=login";
                         }

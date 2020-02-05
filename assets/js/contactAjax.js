@@ -18,20 +18,21 @@ document.addEventListener('DOMContentLoaded', function(){
                 // HTTP-Status-Code is OK?
                 if(this.status === 200) {
                     var resJson = null;
-                    try {
-                        resJson = JSON.parse(this.response);
-                    }
-                    catch(err) {
-                        console.log('JSON invalid!');
-                    }
+                    // try {
+                    //     resJson = JSON.parse(this.response);
+                    // }
+                    // catch(err) {
+                    //     console.log('JSON invalid!');
+                    // }
+                    //
+                    // if(resJson !== null) {
+                    var successContact = document.getElementById('successContact');
+                    var formContact = document.getElementById('formContact');
+                    formContact.style.pointerEvents = "all";
+                    successContact.style.display = "block";
+                    setTimeout(() =>{window.location = "?c=user&a=login"}, 30000);
 
-                    if(resJson !== null) {
-                        if(resJson.error !== null) {
-                            setErrorInput(email,resJson.error, 'errorEmailRegistration');
-                        } else {
-                            window.location = "index.php/?c=user&a=login";
-                        }
-                    }
+                   // }
                 }else{
                     console.log('Worng Status Code, because of: ' + this.statusText);
                 }

@@ -57,9 +57,10 @@ class PagesController extends Controller{
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
-
+            //debug_to_logFile('test1');
             Contact::sendMail();
             if(isset($_GET['ajax'])) {
+                debug_to_logFile('test2');
                 echo json_encode(['error' => null]);
                 exit(0); // Valid EXIT with JSON OUTPUT
             }

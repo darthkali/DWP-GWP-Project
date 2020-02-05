@@ -1,26 +1,21 @@
 <div class="SitePicture" id="fadeInImg">
     <img class="center" src="<?=PAGE_IMAGE_PATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
-<div class="Content" id="fadeIn" style="pointer-events: none">
+<div class="Content" id="fadeIn">
     <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="formContact">
         <h1>Kontakt</h1>
 
-        <?if(isset($eingabeError)) :?>
-            <div class="error">
+        <div class="error" style="display: <?=isset($eingabeError)?'':'none'?>;" id="error">
                 <?foreach($eingabeError as $error) :?>
                     <?=$error?><br>
                 <?endforeach;?>
             </div>
-        <? endif; ?>
 
 
-        <div class="successContact">
+        <div class="successContact"  id="successContact">
             <h4>
-                <?=isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''?>
-                deine Kontaktanfrage wurde erfolgreich übermittelt!
+                Ihre Kontaktanfrage wurde erfolgreich übermittelt!
             </h4>
-
-            <button type="button">OK <i class="fa fa-times" aria-hidden="true"></i></button>
 
         </div>
         <!-- name -->
@@ -61,6 +56,7 @@
 </div>
 
 <script src="<?=JAVA_SCRIPT_PATH.'validateContact.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'contactAjax.js'?>"></script>
 
 <!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
 <!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>
