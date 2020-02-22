@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function(){
     submit.addEventListener('click', function(event){
         event.stopPropagation(); // no send to the top element
         event.preventDefault(); // no default action on submit
-
+        form.style.pointerEvents = "none";
         var request = new XMLHttpRequest();
         request.open(form.getAttribute('method'), form.getAttribute('action') + '&ajax=1', true);
 
@@ -28,7 +28,9 @@ document.addEventListener('DOMContentLoaded', function(){
                     if(resJson !== null) {
                         if(resJson.error !== null) {
                             setErrorInput(email,resJson.error, 'errorEmailRegistration');
+                            form.style.pointerEvents = "all";
                         } else {
+
                             location.replace("?c=user&a=login");
                         }
                     }
