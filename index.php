@@ -41,4 +41,3 @@ if(file_exists($controllerPath)) {
 } else{
     sendHeaderByControllerAndAction('pages', 'errorPage');
 }
-?>
