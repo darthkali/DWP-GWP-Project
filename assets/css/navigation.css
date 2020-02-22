@@ -72,7 +72,6 @@ nav a, .dropbtn {
     box-shadow: none;
 }
 
-
 nav a:hover, .dropdown:hover .dropbtn, .dropdown-content a:hover, .dropdown-content input:hover {
     background-color: var(--hover-color);
     color: var(--secondary-text-color);
@@ -94,13 +93,12 @@ label.responsive-nav-label {
 .NavContent {
     display: block;
     height: 60px;
-    font-size: 2em; /* TODO: ggf entfernen*/
+    font-size: 2em;
     white-space: nowrap;
     padding: 10px;
     margin-left: 10px;
     width:100%;
 }
-
 
 .NavContent h4{
     vertical-align: 9px;
@@ -117,7 +115,6 @@ label.responsive-nav-label {
 .NavContent a {
     display: inline;
     text-decoration: none;  /* delete underline from the links */
-
 }
 
 /* color selected navigation section */

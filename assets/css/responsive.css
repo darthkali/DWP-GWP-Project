@@ -3,7 +3,6 @@
     nav{
         padding-right: 0;    /* margin to the right side, to get space for the submenu */
         overflow: auto;
-
     }
 
     .navfloat{
@@ -36,26 +35,13 @@
         width: 100%;
     }
 
-    input#responsive-nav[type=checkbox]:checked ~ .navfloat{
-        display: block;
-    }
+    input#responsive-nav[type=checkbox]:checked ~ .navfloat{display: block;}
 
-    div#FooterLeft {
-        width: 70% !important;
-    }
+    div#FooterLeft {width: 70% !important;}
+    div#FooterMiddle{display: none !important;}
+    div#FooterRight{width: 30% !important;}
 
-    div#FooterMiddle{
-        display: none !important;
-    }
-
-    div#FooterRight{
-        width: 30% !important;
-
-    }
-
-    .startContent {
-        width: 100%;
-    }
+    .startContent {width: 100%;}
 
     .eventCounterStart{
         float: none;
@@ -80,14 +66,8 @@
         width: 250px;
         padding: 5px!important;
     }
-    .sortFilterBox{
-        width: 250px;
 
-    }
-
-
-
-
+    .sortFilterBox{width: 250px;}
 }
 
 /* ----------------------------------   pictureRaster   ---------------------------------- */
@@ -100,10 +80,9 @@
         width: 120%;
         left: -10%;
     }
-}              /* 1 Column  */
+}
+
 @media (max-height: 400px) {
     .ErrorImg{display: none}
-
-
 
 }

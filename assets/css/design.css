@@ -402,7 +402,6 @@ th a:hover{
     color:var(--hover-color);
 }
 
-
 th, td {
     text-align: center;
     padding: 8px;
@@ -434,7 +433,6 @@ table input{
 table input:hover{
     box-shadow: var(--shadow);
 }
-
 
 /* ----------------------------------   pictureRaster   ---------------------------------- */
 .pictureRaster{
@@ -472,15 +470,13 @@ table input:hover{
     text-align: justify;
 }
 
-
 .startContent img{
     width: 18%;
     margin-right: 100px;
     float: right;
-
 }
 
-/* ----------------------------------   UeberUnsPage   ---------------------------------- */
+/* ----------------------------------   AboutUs Page   ---------------------------------- */
 .aboutUs img{
     width: 30%;
     float: right;
@@ -497,11 +493,10 @@ table input:hover{
 .aboutUs a:hover{
     color: var(--hover-color);
 }
+
 .aboutUs i{
     color: var(--primary-text-color);
 }
-
-
 
 /* ----------------------------------   UserPage   ---------------------------------- */
 .userPageBox{
@@ -525,6 +520,7 @@ table input:hover{
     border-color: var(--border-color);
     overflow: hidden;
 }
+
 .userBox:hover{
     box-shadow: var(--shadow);
 }
@@ -566,11 +562,6 @@ table input:hover{
 
 .sortFilterBox > div {
     background-color: #0000dd !important;
-}
-
-.filterBox > div{
-    /*background-color: #bb6600;*/
-
 }
 
 .sortFilterBox{
@@ -639,13 +630,6 @@ table input:hover{
     margin-left: 10px;
 }
 
-
-/*.filterBox button{*/
-/*    display: block;*/
-/*    margin: 38px 0 0 0;*/
-
-/*}*/
-
 .filterBox .sortFilterBox select:hover{
     box-shadow: var(--shadow);
 }
@@ -655,6 +639,7 @@ table input:hover{
     box-shadow: var(--shadow);
 }
 
+/* ----------------------------------   CheckBox   ---------------------------------- */
 .checkBox{
     display: block;
     padding: 5px;
@@ -665,6 +650,7 @@ table input:hover{
     height: 15px;
     margin-right: 5px;
 }
+
 /* ----------------------------------   Error   ---------------------------------- */
 .error {
     display: block;
@@ -675,11 +661,13 @@ table input:hover{
     text-align: center;
     border-radius: 3px;
 }
+
 .deleteQuestion {
     width: fit-content;
     margin-right: auto;
     margin-left: auto;
 }
+
 .deleteQuestion button{
     margin: 5px auto;
     display: flex;
@@ -687,7 +675,6 @@ table input:hover{
     justify-content: flex-end;
     width:auto;
     padding: 10px;
-
 }
 
 .deleteQuestion h3{
@@ -727,6 +714,7 @@ table input:hover{
     display: block;
 }
 
+/* ----------------------------------   EventCounter StartPage   ---------------------------------- */
 .eventCounterStart{
     display: block;
     float: right;
@@ -752,7 +740,6 @@ table input:hover{
     height: 200px;
     width: auto;
     max-width: 100%;
-
 }
 
 .eventCounterStart a:hover > img, a:hover > i{
@@ -764,6 +751,7 @@ table input:hover{
     display:  block;
     margin: 5px;
 }
+
 .daysToEventDigit {
     display: inline-block;
     width: 40px;
@@ -781,16 +769,15 @@ table input:hover{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#131313', GradientType=0); /* IE6-9 */
 }
 
+/* ----------------------------------   success Contact   ---------------------------------- */
 .successContact{
     display:none;
-
     position: absolute;
     padding: 20px;
     font-size: 1.5em;
     text-align: center;
     top: 15%;
     background-color: var(--secondary-bg-color);
-
     border-bottom: var(--hover-color);
     border-bottom-style: solid;
     border-bottom-width: 10px;
@@ -799,7 +786,6 @@ table input:hover{
     height: 100px;
     width: 80%;
     left: 10%;
-
 }
 
 .successContact h4{
