@@ -7,7 +7,6 @@
         <h1>Registrierung</h1>
         <h5>Hier kannst du dich Registrieren!</h5>
 
-
         <div class="errorBox" style="display: <?=isset($eingabeError)?'':'none'?>;" id="errorBox">
             <? if(isset($eingabeError)){?>
                 <div class="error"><?
@@ -17,7 +16,6 @@
                 </div>
             <? } ?>
         </div>
-
 
         <!-- firstname -->
         <div class="input">
@@ -65,5 +63,6 @@
         <button type="reset"> Verwerfen <i class="fa fa-times" aria-hidden="true"></i></button>
     </form>
 </div>
+
 <script src="<?=JAVA_SCRIPT_PATH.'validateRegistrationProfil.js'?>"></script>
 <script src="<?=JAVA_SCRIPT_PATH.'registrationAjax.js'?>"></script>

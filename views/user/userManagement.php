@@ -17,8 +17,6 @@ use FSR_AI\Role;
         <tr>
             <th><?=$topic?></th>
         </tr>
-
-
         <tr>
             <?  $sortFirstname  = (isset($_GET[$sortMemberUser]) && $_GET[$sortMemberUser] == 1) ? 2 : 1;
                 $sortLastname   = (isset($_GET[$sortMemberUser]) && $_GET[$sortMemberUser] == 3) ? 4 : 3;
