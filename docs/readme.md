@@ -57,6 +57,10 @@ Einrichten von XAMPP
     * das Gesamte Projekt in den htdocs Ordner klonen oder aus dem Zip-Archiv entpacken (Standard: `C:\xampp\htdocs`)
 
 4. ##### Datenbankimportieren
+    * Es sind Standartmäßig 3 default User angelegt, welche sich später löschen lassen.
+    * **Username**:----'root'
+    * **Passwort**:----''
+
     * über ControlPanel - MySQL starten
     * MySql - `Admin` (ruft die phpmyadmin Seite auf)
     * Im der Oberen Menüleiste auf `Importieren` klicken

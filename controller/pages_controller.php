@@ -25,11 +25,6 @@ class PagesController extends Controller{
             'ones'      => $days[2]
             ];
         $this->_params['daysUntilEvent'] = $daysUntilEvent;
-
-foreach ($daysUntilEvent as $digit){
-
-        debug_to_logFile($digit);
-}
     }
 
     public function actionAboutUs(){
@@ -55,10 +50,26 @@ foreach ($daysUntilEvent as $digit){
 
             if(!Contact::validateContact($newContact, $eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => "Vailation Failed"]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
                 return false;
             }
 
-            Contact::sendMail();
+            $header = array();
+            $header[] = "MIME-Version: 1.0";
+            $header[] = "Content-type: text/plain; charset=utf-8";
+            $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
+            $header[] = "Reply-To: " . $_POST['mail'];
+            $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">\r\n\r\n" . $_POST['text'];
+
+            //mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header)); //TODO: Ajax geht nur ohne diese Zeile!
+
+            if(isset($_GET['ajax'])) {
+                echo json_encode(['error' => null]);
+                exit(0); // Valid EXIT with JSON OUTPUT
+            }
         }
     }
 

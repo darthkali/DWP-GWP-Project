@@ -29,14 +29,14 @@ document.addEventListener('DOMContentLoaded', function(){
                         if(resJson.error !== null) {
                             setErrorInput(email,resJson.error, 'errorEmailRegistration');
                         } else {
-                            window.location = "index.php/?c=user&a=login";
+                            location.replace("?c=user&a=login");
                         }
                     }
                 }else{
                     console.log('Worng Status Code, because of: ' + this.statusText);
                 }
             }
-        }
+        };
 
         var formData = new FormData(form);
         formData.append('submitRegistration', '1');

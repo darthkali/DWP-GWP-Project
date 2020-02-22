@@ -275,6 +275,7 @@ form {
     margin-left: auto;
     position: relative;
     color: var(--secondary-text-color);
+    pointer-events: auto;
 }
 
 form h1{
@@ -778,4 +779,37 @@ table input:hover{
     background: -webkit-linear-gradient(top, #131313 1%, #757575 48%, #000000 50%, #757575 52%, #131313 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, #131313 1%, #757575 48%, #000000 50%, #757575 52%, #131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#131313', endColorstr='#131313', GradientType=0); /* IE6-9 */
+}
+
+.successContact{
+    display:none;
+
+    position: absolute;
+    padding: 20px;
+    font-size: 1.5em;
+    text-align: center;
+    top: 15%;
+    background-color: var(--secondary-bg-color);
+
+    border-bottom: var(--hover-color);
+    border-bottom-style: solid;
+    border-bottom-width: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    width: 80%;
+    left: 10%;
+
+}
+
+.successContact h4{
+    display: block;
+    text-align: center;
+    color: var(--secondary-text-color);
+}
+
+.successContact button{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto ;
 }

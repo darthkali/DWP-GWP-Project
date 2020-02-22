@@ -42,16 +42,4 @@ class Contact extends BaseModel{
         }
     }
 
-    public static function sendMail(){
-
-        $header = array();
-        $header[] = "MIME-Version: 1.0";
-        $header[] = "Content-type: text/plain; charset=utf-8";
-        $header[] = "From: FSRAI-Kontaktformular <fsraiformular@web.de>";
-        $header[] = "Reply-To: " . $_POST['mail'];
-        $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">\r\n\r\n" . $_POST['text'];
-
-        mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header));
-        sendHeaderByControllerAndAction('pages', 'Contact');
-    }
 }

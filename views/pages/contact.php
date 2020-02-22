@@ -2,17 +2,22 @@
     <img class="center" src="<?=PAGE_IMAGE_PATH.'mail.jpg'?>" alt = "Roter Postkasten">
 </div>
 <div class="Content" id="fadeIn">
-    <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="form">
+    <form autocomplete="off" action="?c=pages&a=Contact" method="post" id="formContact">
         <h1>Kontakt</h1>
 
-        <?if(isset($eingabeError)) :?>
-            <div class="error">
+        <div class="error" style="display: <?=isset($eingabeError)?'':'none'?>;" id="error">
                 <?foreach($eingabeError as $error) :?>
                     <?=$error?><br>
                 <?endforeach;?>
             </div>
-        <? endif; ?>
 
+
+        <div class="successContact"  id="successContact">
+            <h4>
+                Ihre Kontaktanfrage wurde erfolgreich übermittelt!
+            </h4>
+
+        </div>
         <!-- name -->
         <div class="input">
             <label for="name">NAME</label>
@@ -41,7 +46,7 @@
         <div class="input">
             <label for="text">DEIN ANLIEGEN</label>
             <textarea type = "textarea" id="text" name="text" required placeholder="Dein Anliegen"><?=isset($_POST['textarea']) ? htmlspecialchars($_POST['textarea']) : ''?></textarea>
-            <span class="error-message" id="errorTextarea"></span>
+            <span class="error-message" id="errorText"></span>
         </div>
 
         <!-- button -->
@@ -51,6 +56,7 @@
 </div>
 
 <script src="<?=JAVA_SCRIPT_PATH.'validateContact.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'contactAjax.js'?>"></script>
 
 <!---------------------------------------------   Damit du von Xampp Email senden kannst  -------------------------------------------------------->
 <!------------------------------- Zur zeit gehen alle emails an eine web adresse von mir die ich nie benutze  ------------------------------------>
