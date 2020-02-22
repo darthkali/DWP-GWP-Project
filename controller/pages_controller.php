@@ -50,6 +50,10 @@ class PagesController extends Controller{
 
             if(!Contact::validateContact($newContact, $eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => "Vailation Failed"]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
                 return false;
             }
 
