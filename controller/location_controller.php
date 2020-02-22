@@ -1,7 +1,5 @@
 <?php
-
 namespace FSR_AI;
-
 
 class LocationController extends Controller{
 
@@ -26,13 +24,6 @@ class LocationController extends Controller{
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
-
-
-//            $eingabeError = [];
-//            if(!$location->validate($eingabeError)){
-//                $this->_params['eingabeError'] = $eingabeError;
-//                return false;
-//            }
 
             $location->save();
             sendHeaderByControllerAndAction('event', 'EventManagement');

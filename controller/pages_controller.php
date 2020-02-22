@@ -34,7 +34,6 @@ class PagesController extends Controller{
     public function actionContact(){
         $this->_params['title'] = 'Kontakt';
 
-
         if (isset($_POST['sendMail'])) {
 
             $params = [

@@ -2,7 +2,6 @@
 
 namespace FSR_AI;
 
-
 class EventController extends Controller
 {
     public function actionEvents(){
