@@ -3,6 +3,9 @@ const DEBUG = true;
 const ERROR = true;
 
 function debug_to_logFile($message, $class = null){
+    if (!is_dir(__DIR__.'/../logs')) {
+        mkdir (__DIR__.'/../logs', 4777);
+    }
     if(DEBUG){
         $class= ($class != null) ? $class:  '';
         $message = '['.(new DateTime())->format('Y-m-d H:i:s ').$class. ']' . $message. "\n";

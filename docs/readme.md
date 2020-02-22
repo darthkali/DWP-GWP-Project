@@ -70,6 +70,9 @@ Einrichten von XAMPP
     
     * Zeichencodierung: `utf-8`
     * Format: `SQL`
+    
+    * **Username**:----`'root'`
+    * **Passwort**:------`''`
 
 5. ##### Aufruf der Seite
     * Im Browser `localhost:8085/FSAI-Site` ausführen (Port muss ggf dem oben gewählten angepasst werden)

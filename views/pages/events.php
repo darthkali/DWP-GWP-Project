@@ -52,7 +52,7 @@ $design = '';
 
         <?for($i = 0; $i <= 1; $i++) : ?>
             <?foreach($eventList as $event) :?>
-                <div class="ContentEvents" <?=$design?>>
+                <div class="ContentEvents" <?=$design?> id="event-<?=$event['ID'];?>">
                     <img data-img class="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                     <div>
                         <h2><?=$event['NAME']?></h2>
@@ -66,7 +66,7 @@ $design = '';
                     <?if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true && Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0) : ?>
                         <!--What happened when logged in and event is in future-->
                         <div class="ContentEvents" id="eventBox">
-                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>">
+                            <a href="?c=event&a=Booking&eventId=<?=$event['ID']?>#event-<?=$event['ID']?>">
                                 <?
                                 if(Booking::checkRegistrationForEvent($event['ID'])){
                                     $buttonText = 'Von dem Event abmelden';

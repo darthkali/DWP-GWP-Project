@@ -97,7 +97,7 @@ use FSR_AI\role;
                     <label for="roleProfil">Rolle: </label> <br>
                     <select name="roleProfil" id="roleProfil">
                         <? foreach ($allRoles as $role) { ?>
-                            <option value= <?=$role['ID']?> <?=($userProfil['ROLE_ID'] == $role['ID']) ? 'selected' : ''?> ><?=$role['NAME']?></option>
+                            <option value= <?=$role['ID']?> <?=($userProfil['ROLE_ID'] === $role['ID']) ? 'selected' : ''?> ><?=$role['NAME']?></option>
                         <? } ?>
                     </select>
                     <span class="error-message" id="errorRoleProfil"></span>
@@ -107,7 +107,7 @@ use FSR_AI\role;
                 <label for="functionFSRProfil">Funktion im Fachschaftsrat:</label><br>
                 <select name="functionFSRProfil" id="functionFSRProfil">
                     <? foreach ($allFunctions as $function) { ?>
-                    <option value= <?=$function['ID']?> <?=($userFunction == $function['ID']) ? 'selected' : ''?> ><?=$function['NAME']?></option>
+                    <option value= <?=$function['ID']?> <?=($userFunction === $function['ID']) ? 'selected' : ''?> ><?=$function['NAME']?></option>
                     <? } ?>
                 </select>
                 <span class="error-message" id="errorFunctionFSRProfil"></span>

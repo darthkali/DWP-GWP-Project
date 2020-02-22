@@ -42,7 +42,9 @@ class Contact extends BaseModel{
         }
     }
 
-    public static function sendMail(){
+    public static function sendMail()
+    {
+        debug_to_logFile('asdasd');
         $header = array();
         $header[] = "MIME-Version: 1.0";
         $header[] = "Content-type: text/plain; charset=utf-8";
@@ -51,5 +53,6 @@ class Contact extends BaseModel{
         $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">\r\n\r\n" . $_POST['text'];
 
         mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header));
+        sendHeaderByControllerAndAction('pages', 'Contact');
     }
 }
