@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             var formContact = document.getElementById('formContact');
                             formContact.style.pointerEvents = "none";
                             successContact.style.display = "block";
+                            window.location.hash = 'formContact';
                             setTimeout(() => {
                                 location.replace("?c=pages&a=start");
                             }, 3000);
