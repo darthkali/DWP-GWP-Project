@@ -275,6 +275,7 @@ form {
     margin-left: auto;
     position: relative;
     color: var(--secondary-text-color);
+    pointer-events: auto;
 }
 
 form h1{

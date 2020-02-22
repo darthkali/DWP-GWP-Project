@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         if(resJson.error !== null) {
                             setErrorInput(email,resJson.error, 'errorEmailRegistration');
                         } else {
-                            var x = document.getElementById("submitRegistration").disabled;
-                            //location.replace("?c=user&a=login");
+                            location.replace("?c=user&a=login");
                         }
                     }
                 }else{

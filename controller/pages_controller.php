@@ -25,11 +25,6 @@ class PagesController extends Controller{
             'ones'      => $days[2]
             ];
         $this->_params['daysUntilEvent'] = $daysUntilEvent;
-
-        foreach ($daysUntilEvent as $digit){
-
-                debug_to_logFile($digit);
-        }
     }
 
     public function actionAboutUs(){
@@ -57,11 +52,10 @@ class PagesController extends Controller{
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
-            //debug_to_logFile('test1');
-            Contact::sendMail();
+            //Contact::sendMail();
             if(isset($_GET['ajax'])) {
                 debug_to_logFile('test2');
-                echo json_encode(['error' => 'Ihre Kontaktanfrage wurde erfolgreich übermittelt!']);
+                echo json_encode(['error' => null]);
                 exit(0); // Valid EXIT with JSON OUTPUT
             }
         }

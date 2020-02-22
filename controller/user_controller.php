@@ -227,7 +227,7 @@ class UserController extends Controller{
                 $newUser->save();
 
                 if(isset($_GET['ajax'])) {
-                    echo json_encode(['error' => null]);
+                    echo json_encode(["error" => null]);
                     exit(0); // Valid EXIT with JSON OUTPUT
                 }
 

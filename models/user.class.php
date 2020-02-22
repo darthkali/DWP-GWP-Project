@@ -164,7 +164,6 @@ class User extends BaseModel
 
         $errorMessage = '';
         $userFunction = isset(MemberHistory::generateActualMemberHistory($user['ID'])['FUNCTION_FSR_ID']) ?? null;
-        //debug_to_logFile($userFunction);
         $allRoles = Role::find();
         $allFunctions = Function_FSR::find();
 
@@ -314,7 +313,6 @@ class User extends BaseModel
         if ($newUser->__get('DATE_OF_BIRTH') === null) {
             array_push($eingabeError, 'Das Datum muss augefüllt werden!');
         }elseif (!preg_match('/[0-9]{4}-[0-9]{2}-[0-9]{2}/', $newUser->__get('DATE_OF_BIRTH'))) {
-            debug_to_logFile($newUser->__get('DATE_OF_BIRTH'));
             array_push($eingabeError, 'Das Datum muss dem Fomat TT.MM-YYY entsprechen');
         }
 

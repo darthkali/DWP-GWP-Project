@@ -14,33 +14,35 @@ document.addEventListener('DOMContentLoaded', function(){
         request.onreadystatechange = function() {
             // request finished?
             if(this.readyState === 4) { // XMLHttpRequest.DONE
-
-
+                console.log("1");
                 // // HTTP-Status-Code is OK?
                 if (this.status === 200) {
-                    var resJson = null;
+                    console.log("2");
+                    var resJson2 = null;
                     try {
-                        resJson = JSON.parse(this.response);
+                        resJson2 = JSON.parse(this.response);
                     } catch (err) {
                         console.log('JSON invalid!');
                     }
 
-                    if (resJson !== null) {
-                        if (resJson.error !== null) {
+                    if (resJson2 !== null) {
+                        console.log("3");
+                        if (resJson2.error == null) {
+                            console.log("4");
                             var successContact = document.getElementById('successContact');
                             var formContact = document.getElementById('formContact');
-                            formContact.style.pointerEvents = "all";
+                            formContact.style.pointerEvents = "none";
                             successContact.style.display = "block";
                             setTimeout(() => {
-                                window.location = "?c=user&a=login"
-                            }, 30000);
+                                location.replace("?c=pages&a=start");
+                            }, 3000);
                         }
                     }
                 } else {
                     console.log('Worng Status Code, because of: ' + this.statusText);
                 }
             }
-            };
+        };
 
         var formData = new FormData(form);
         formData.append('sendMail', '1');
