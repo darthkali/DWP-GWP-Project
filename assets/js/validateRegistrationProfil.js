@@ -109,5 +109,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return validate;
     }
-
 });

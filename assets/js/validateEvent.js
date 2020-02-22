@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
         var eventDescription= document.getElementById('eventDescription');
         var validate = true;
 
-
         // EVENTNAME
         if(eventName.value.length < 8){
             validate = setErrorInput(eventName,'Der Eventname muss mindestens 8 Zeichen besitzen!');
@@ -44,5 +43,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         return validate;
     }
-
 });

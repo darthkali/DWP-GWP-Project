@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     var form = document.getElementById('formContact');
     var submit = document.getElementById('sendMail');
-
+    var successContact = document.getElementById('successContact');
 
     submit.addEventListener('click', function(event){
         event.stopPropagation(); // no send to the top element
@@ -12,26 +12,20 @@ document.addEventListener('DOMContentLoaded', function(){
         request.open(form.getAttribute('method'), form.getAttribute('action') + '&ajax=1', true);
 
         request.onreadystatechange = function() {
-            // request finished?
             if(this.readyState === 4) { // XMLHttpRequest.DONE
-                console.log("1");
+
                 // // HTTP-Status-Code is OK?
                 if (this.status === 200) {
-                    console.log("2");
-                    var resJson2 = null;
+                    var resJson = null;
                     try {
-                        resJson2 = JSON.parse(this.response);
+                        resJson = JSON.parse(this.response);
                     } catch (err) {
                         console.log('JSON invalid!');
                     }
 
-                    if (resJson2 !== null) {
-                        console.log("3");
-                        if (resJson2.error == null) {
-                            console.log("4");
-                            var successContact = document.getElementById('successContact');
-                            var formContact = document.getElementById('formContact');
-                            formContact.style.pointerEvents = "none";
+                    if (resJson !== null) {
+                        if (resJson.error == null) {
+                            form.style.pointerEvents = "none";
                             successContact.style.display = "block";
                             window.location.hash = 'formContact';
                             setTimeout(() => {

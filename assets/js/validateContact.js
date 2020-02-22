@@ -64,8 +64,6 @@ document.addEventListener('DOMContentLoaded', function () {
             contactText.parentNode.className = contactText.parentNode.className.split(" errorinput").join("");
         }
 
-
         return validate;
     }
-
 });

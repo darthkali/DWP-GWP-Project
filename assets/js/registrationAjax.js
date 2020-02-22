@@ -8,11 +8,11 @@ document.addEventListener('DOMContentLoaded', function(){
         event.stopPropagation(); // no send to the top element
         event.preventDefault(); // no default action on submit
         form.style.pointerEvents = "none";
+
         var request = new XMLHttpRequest();
         request.open(form.getAttribute('method'), form.getAttribute('action') + '&ajax=1', true);
 
         request.onreadystatechange = function() {
-            // request finished?
             if(this.readyState === 4){ // XMLHttpRequest.DONE
 
                 // HTTP-Status-Code is OK?
@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function(){
                             setErrorInput(email,resJson.error, 'errorEmailRegistration');
                             form.style.pointerEvents = "all";
                         } else {
-
                             location.replace("?c=user&a=login");
                         }
                     }
