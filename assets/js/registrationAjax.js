@@ -29,7 +29,8 @@ document.addEventListener('DOMContentLoaded', function(){
                         if(resJson.error !== null) {
                             setErrorInput(email,resJson.error, 'errorEmailRegistration');
                         } else {
-                            window.location = "index.php/?c=user&a=login";
+                            var x = document.getElementById("submitRegistration").disabled;
+                            //location.replace("?c=user&a=login");
                         }
                     }
                 }else{
