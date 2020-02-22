@@ -8,9 +8,6 @@ foreach(glob('models/*.php') as $modelclass)
     require_once $modelclass;
 }
 
-
-
 require_once 'config/config.php';
 require_once 'core/functions.php';
 
-// TODO: Pfade anpassen
