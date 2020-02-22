@@ -13,34 +13,37 @@ document.addEventListener('DOMContentLoaded', function(){
 
         request.onreadystatechange = function() {
             // request finished?
-            if(this.readyState === 4){ // XMLHttpRequest.DONE
+            if(this.readyState === 4) { // XMLHttpRequest.DONE
 
-                // HTTP-Status-Code is OK?
-                if(this.status === 200) {
+
+                // // HTTP-Status-Code is OK?
+                if (this.status === 200) {
                     var resJson = null;
-                    // try {
-                    //     resJson = JSON.parse(this.response);
-                    // }
-                    // catch(err) {
-                    //     console.log('JSON invalid!');
-                    // }
-                    //
-                    // if(resJson !== null) {
-                    var successContact = document.getElementById('successContact');
-                    var formContact = document.getElementById('formContact');
-                    formContact.style.pointerEvents = "all";
-                    successContact.style.display = "block";
-                    setTimeout(() =>{window.location = "?c=user&a=login"}, 30000);
+                    try {
+                        resJson = JSON.parse(this.response);
+                    } catch (err) {
+                        console.log('JSON invalid!');
+                    }
 
-                   // }
-                }else{
+                    if (resJson !== null) {
+                        if (resJson.error !== null) {
+                            var successContact = document.getElementById('successContact');
+                            var formContact = document.getElementById('formContact');
+                            formContact.style.pointerEvents = "all";
+                            successContact.style.display = "block";
+                            setTimeout(() => {
+                                window.location = "?c=user&a=login"
+                            }, 30000);
+                        }
+                    }
+                } else {
                     console.log('Worng Status Code, because of: ' + this.statusText);
                 }
             }
-        };
+            };
 
         var formData = new FormData(form);
-        formData.append('submitRegistration', '1');
+        formData.append('sendMail', '1');
         request.send(formData);
     });
 });

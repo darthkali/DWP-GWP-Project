@@ -61,7 +61,7 @@ class PagesController extends Controller{
             Contact::sendMail();
             if(isset($_GET['ajax'])) {
                 debug_to_logFile('test2');
-                echo json_encode(['error' => null]);
+                echo json_encode(['error' => 'Ihre Kontaktanfrage wurde erfolgreich übermittelt!']);
                 exit(0); // Valid EXIT with JSON OUTPUT
             }
         }

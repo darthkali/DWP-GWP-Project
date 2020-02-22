@@ -46,7 +46,7 @@
         <div class="input">
             <label for="text">DEIN ANLIEGEN</label>
             <textarea type = "textarea" id="text" name="text" required placeholder="Dein Anliegen"><?=isset($_POST['textarea']) ? htmlspecialchars($_POST['textarea']) : ''?></textarea>
-            <span class="error-message" id="errorTextarea"></span>
+            <span class="error-message" id="errorText"></span>
         </div>
 
         <!-- button -->
