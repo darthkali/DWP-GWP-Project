@@ -328,5 +328,4 @@ class User extends BaseModel
             return false;
         }
     }
-
 }

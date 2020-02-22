@@ -41,5 +41,4 @@ class Contact extends BaseModel{
             return false;
         }
     }
-
 }

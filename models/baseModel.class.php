@@ -255,7 +255,4 @@ abstract class BaseModel{
     public static function createUploadedPictureName($uploadedPictureFile){
         return strtolower(str_replace(__NAMESPACE__ . '\\', '', get_called_class())).'-'.date('d-m-Y-H-i-s').strstr($_FILES[$uploadedPictureFile]['name'], '.');
     }
-
-
-
 }
