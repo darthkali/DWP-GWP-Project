@@ -44,7 +44,7 @@
             <br>
             fsai@fh erfurt.de
             <br>
-            <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=contact">Kontaktformular </a> <i class="fa fa-share" aria-hidden="true"></i>
+            <a href="<?=$_SERVER['SCRIPT_NAME']?>/?c=pages&a=contact">Kontaktformular <i class="fa fa-share" aria-hidden="true"></i></a>
         </p>
     </div>
 </div>
