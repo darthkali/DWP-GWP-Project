@@ -40,12 +40,19 @@ class Event extends BaseModel{
     }
 
     public static function getDateFromTheEarliestEvent(){
-        $eventDate = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE to_days(curdate()) - to_days(DATE) > 0 AND to_days(curdate()) - to_days(DATE) < 183)')['DATE'];
-        return empty($eventDate) ? Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo)')['DATE'] : $eventDate;
+
+        $eventDateInPast    = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo WHERE to_days(curdate()) - to_days(DATE) > 0 AND to_days(curdate()) - to_days(DATE) < 183)');
+        $eventDate          = Event::findOne('DATE = (SELECT min(DATE) FROM geteventinfo)');
+
+        $eventDate          = empty($eventDate) ? null : $eventDate['DATE'];
+        $eventDateInPast    = empty($eventDateInPast) ? $eventDate : $eventDateInPast['DATE'];
+
+        return $eventDateInPast;
     }
 
     public static function getDateFromTheLatestEvent(){
-        return Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)')['DATE'];
+        $eventDateInFuture = Event::findOne('DATE = (SELECT max(DATE) FROM geteventinfo)');
+        return empty($eventDateInFuture) ? null : $eventDateInFuture['DATE'];
     }
 
     public static function validateEvent($newEvent, &$eingabeError){
