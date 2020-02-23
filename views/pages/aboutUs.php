@@ -1,10 +1,10 @@
 <div class="SitePicture" id="fadeInImg">
-    <img class="center" src="<?=PAGE_IMAGE_PATH.'laptop.jpg'?>" alt = "Bild Über Uns Seite">
+    <img class="center" src="<?=PAGE_IMAGE_PATH.'laptop.jpg'?>" alt = "Laptop mit Kabeln">
 </div>
 <div class="Content" id="fadeIn">
     <div class="aboutUs">
         <h1>Das sind wir, der Fachschaftsrat!</h1><br>
-        <img src="<?=PAGE_IMAGE_PATH.'campusplan.png'?>" alt="Laptop mit Kabeln">
+        <img src="<?=PAGE_IMAGE_PATH.'campusplan.png'?>" alt="Bild vom Campusplan">
         <p>
             <h3>Liebe Studierende, liebe Studieninteressierte,</h3>
             <br>
@@ -26,8 +26,8 @@
 
         <br><br>
 
-        <img src="" alt="">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2511.6968035214013!2d11.039306415910632!3d50.98479465659891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a472a47d51a0b7%3A0x16ba89c33fce2610!2sFachhochschule%20Erfurt!5e0!3m2!1sde!2sde!4v1576622523914!5m2!1sde!2sde"></iframe>
+        <img data-MapImg class="aboutUsImageMap" src="<?=PAGE_IMAGE_PATH.'googleMapsScreenshot.png'?>" alt="Bild von der Karte von Google Maps">
+        <iframe data-Map src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2511.6968035214013!2d11.039306415910632!3d50.98479465659891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a472a47d51a0b7%3A0x16ba89c33fce2610!2sFachhochschule%20Erfurt!5e0!3m2!1sde!2sde!4v1576622523914!5m2!1sde!2sde"></iframe>
 
         <p>
             <h3>Ihr habt Fragen oder wollt uns einfach mal besuchen?</h3>

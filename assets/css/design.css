@@ -484,8 +484,17 @@ table input:hover{
     float: right;
 }
 
-.aboutUs iframe{
+.aboutUsImageMap{
+    margin: 0!important;
     display: block;
+    padding: 0 10px;
+    float: left!important;
+    width:40%!important;
+    height: 400px;
+}
+
+.aboutUs iframe{
+    display: none;
     padding: 0 10px;
     float: left;
     width:40%;
@@ -801,4 +810,9 @@ table input:hover{
     display: flex;
     margin-right: auto;
     margin-left: auto ;
+}
+/* ----------------------------------   Dokumentation   ---------------------------------- */
+.documentation p{
+    margin: 50px;
+
 }

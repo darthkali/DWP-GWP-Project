@@ -8,7 +8,8 @@ class PagesController extends Controller{
 
         $nextEvent = Event::findOne('DATE >= curdate() order by DATE LIMIT 1;');
         $this->_params['nextEvent']  = $nextEvent;
-        $days = str_replace(['-', '+'],'',Event::getDateDiffBetweenEventAndCurrentDate($nextEvent['DATE']));
+
+        $days = str_replace(['-', '+'],'',Event::getDateDiffBetweenEventAndCurrentDate(empty($nextEvent) ? null : $nextEvent['DATE']));
 
         switch(strlen($days)){
             case 1:

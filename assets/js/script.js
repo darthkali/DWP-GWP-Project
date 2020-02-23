@@ -22,7 +22,7 @@ function deleteQuestionEvent(link, eventID, pictureID) {
     return window.confirm("Wollen Sie das Event wirklich löschen?");
 }
 
-function changeCssWithJavaScriptForEventbox(){
+function changeCssWithJavaScript(){
     var elements = document.querySelectorAll("p[data-desc], img[data-img], button[data-button], div[data-statusText], h3[data-descTitle]");
     var showMoreButtons = document.querySelectorAll("#showMoreButton");
 
@@ -41,6 +41,8 @@ function changeCssWithJavaScriptForEventbox(){
             items.style.display = "block";
         });
     }
+
+    showImgOfGoogleMapsWhenJavaScriptIsOff();
  }
 
  function showMoreButtonClicked(button){
@@ -50,4 +52,15 @@ function changeCssWithJavaScriptForEventbox(){
         items.style.display = "block";
     });
     button.style.display = "none";
+ }
+
+ function showImgOfGoogleMapsWhenJavaScriptIsOff(){
+     var AboutUsMapImg = document.querySelectorAll("img[data-MapImg")
+     AboutUsMapImg.forEach(function (items) {
+         items.style.display = "none";
+     });
+     var AboutUsMap = document.querySelectorAll("iframe[data-Map]");
+     AboutUsMap.forEach(function (items) {
+         items.style.display = "block";
+     });
  }
