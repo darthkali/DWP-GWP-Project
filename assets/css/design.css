@@ -241,8 +241,10 @@ button#showMoreButton{
 }
 
 .SitePicture img {
-    height: 100%;
+    min-height: 100%;
     width: 100%;
+    overflow: fragments;
+    object-fit: fill;
 }
 
 /* ----------------------------------   Animation  ---------------------------------- */
