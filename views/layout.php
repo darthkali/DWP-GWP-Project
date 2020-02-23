@@ -37,7 +37,7 @@ if(!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] === false) {
         <link rel="stylesheet" href="<?=CSS_PATH.'normalMode.css'?>">
     <?endif;?>
 
-    <link rel="shortcut icon" type="image/png" href="<?=PAGE_IMAGE_PATH.'ailogo_groß.png'?>">
+    <link rel="shortcut icon" type="image/png" href="<?=PAGE_IMAGE_PATH.'ailogo_background.png'?>">
 </head>
     <body onresize="changeCssWithJavaScriptForEventbox()" onload="changeCssWithJavaScriptForEventbox()">
         <? include __DIR__ . '/shared/navMenuBar.php'; ?>
