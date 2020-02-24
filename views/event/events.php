@@ -81,7 +81,7 @@ $design = '';
                     <?else : ?>
                         <?if(Event::getDateDiffBetweenEventAndCurrentDate($event['DATE']) <= 0): ?>
                             <!--What happened when not logged in but event is in future -->
-                            <?$buttonText = 'Zum anmelden bitte anmelden!!'?>
+                            <?$buttonText = 'Zum anmelden bitte anmelden!'?>
                         <?else :?>
                             <!--What happened when not logged in and event is in past -->
                             <?$buttonText = 'Das Event ist vorbei!'?>
