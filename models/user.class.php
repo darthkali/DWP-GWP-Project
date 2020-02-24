@@ -300,13 +300,13 @@ class User extends BaseModel
 
         if ($newUser->__get('FIRSTNAME') === null) {
             array_push($eingabeError, 'Der Vorname muss augefüllt werden!');
-        }elseif (!preg_match('/^[A-Za-z]*$/', $newUser->__get('FIRSTNAME'))) {
+        }elseif (!preg_match('/^[A-Za-zßäöü]*$/', $newUser->__get('FIRSTNAME'))) {
            array_push($eingabeError, 'Der Vorname darf nur aus Buchstaben bestehen');
         }
 
         if ($newUser->__get('LASTNAME') === null) {
             array_push($eingabeError, 'Der Nachname muss augefüllt werden!');
-        } elseif (!preg_match('/^[A-Za-z]*$/', $newUser->__get('LASTNAME'))) {
+        } elseif (!preg_match('/^[A-Za-zßäöü]*$/', $newUser->__get('LASTNAME'))) {
             array_push($eingabeError, 'Der Nachname darf nur aus Buchstaben bestehen');
         }
 
