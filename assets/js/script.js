@@ -46,7 +46,7 @@ function changeCssWithJavaScript(){
  }
 
  function showMoreButtonClicked(button){
-    changeCssWithJavaScriptForEventbox();
+    changeCssWithJavaScript();
     var elements = button.parentNode.querySelectorAll("p[data-desc], img[data-img], button[data-button], div[data-statusText]");
     elements.forEach(function (items) {
         items.style.display = "block";
