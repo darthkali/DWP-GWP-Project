@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(contactName,'Der Name muss mindestens 2 Zeichen besitzen!', 'contactName');
         }else if(contactName.value.length > 50){
             validate = setErrorInput(contactName,'Der Name darf maximal 50 Zeichen besitzen!', 'contactName');
-        }else if(contactName.value.match(/^[A-Za-z -]*$/i) === null){
+        }else if(contactName.value.match(/^[A-Za-z -ßäöü]*$/i) === null){
             validate = setErrorInput(contactName,'Der Name darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!', 'contactName');
         }else{
             contactName.parentNode.className = contactName.parentNode.className.split(" errorinput").join("");
