@@ -45,7 +45,7 @@
         <!-- text -->
         <div class="input">
             <label for="text">DEIN ANLIEGEN</label>
-            <textarea type = "textarea" id="text" name="text" required placeholder="Dein Anliegen"><?=isset($_POST['textarea']) ? htmlspecialchars($_POST['textarea']) : ''?></textarea>
+            <textarea type = "textarea" id="text" name="text" required placeholder="Dein Anliegen"><?=isset($_POST['text']) ? htmlspecialchars($_POST['text']) : ''?></textarea>
             <span class="error-message" id="errorText"></span>
         </div>
 

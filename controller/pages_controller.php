@@ -67,9 +67,13 @@ class PagesController extends Controller{
             //mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header)); //TODO: Ajax geht nur ohne diese Zeile!
 
             if(isset($_GET['ajax'])) {
+                debug_to_logFile("adasdasd");
                 echo json_encode(['error' => null]);
                 exit(0); // Valid EXIT with JSON OUTPUT
+            }else{
+                sendHeaderByControllerAndAction('pages', 'start');
             }
+
         }
     }
 
