@@ -91,4 +91,8 @@ class PagesController extends Controller{
         User::checkUserPermissionForPage($accessUser);
         $this->_params['title'] = 'Nutzer Löschen';
     }
+
+    public function actionDocumentation(){
+        $this->_params['title'] = 'Dokumentation';
+    }
 }

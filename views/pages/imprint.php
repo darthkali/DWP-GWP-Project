@@ -3,7 +3,7 @@
 </div>
 <div class="Content" id="fadeIn">
 
-    <a href=<?=DOC_PATH.'Projektdokumentation.html'?>>avsdvsdfv</a>
+    <a href="?c=pages&a=documentation"><h3>Dokumentation!</h3></a>
     <h1>Impressum</h1>
     <p>Informationspflicht laut § 5 TMG.</p>
 
