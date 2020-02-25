@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         resJson = JSON.parse(this.response);
                     }
                     catch(err) {
+                        form.style.pointerEvents = "all";
                         console.log('JSON invalid!');
                     }
 
