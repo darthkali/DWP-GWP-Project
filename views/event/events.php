@@ -53,9 +53,9 @@ $design = '';
         <?for($i = 0; $i <= 1; $i++) : ?>
             <?foreach($eventList as $event) :?>
                 <div class="ContentEvents" <?=$design?> id="event-<?=$event['ID'];?>">
-                    <img data-img class="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                     <div>
                         <h2><?=$event['NAME']?></h2>
+                        <img data-img class="eventBox" src=<?=EVENT_PICTURE_PATH.$event['PICTURE']?> alt = "Eventbild">
                         <p>
                             <strong>Datum: </strong><?=date_format(date_create($event['DATE']), 'd.m.Y')?><br>
                             <strong>Ort: </strong><?=Location::buildLocationDetails($event['LOCATION_ID']);?> </p>
