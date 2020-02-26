@@ -64,10 +64,11 @@ class PagesController extends Controller{
             $header[] = "Reply-To: " . $_POST['mail'];
             $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">\r\n\r\n" . $_POST['text'];
 
-            //mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header)); //TODO: Ajax geht nur ohne diese Zeile!
+            //TODO: Kann erst genutzt werden, wenn der Mailserver eingerichtet ist
+            //mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header));
+
 
             if(isset($_GET['ajax'])) {
-                debug_to_logFile("adasdasd");
                 echo json_encode(['error' => null]);
                 exit(0); // Valid EXIT with JSON OUTPUT
             }else{
