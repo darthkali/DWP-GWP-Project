@@ -64,6 +64,7 @@ class PagesController extends Controller{
             $header[] = "Reply-To: " . $_POST['mail'];
             $msg = "Gesendet am: " . date("d.m.Y H:i:s") . "\r\nGesendet von: " . $_POST['name'] . " <" . $_POST['mail'] . ">\r\n\r\n" . $_POST['text'];
 
+            Contact::sendMail($msg, $header);
             //mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header)); //TODO: Ajax geht nur ohne diese Zeile!
 
             if(isset($_GET['ajax'])) {
