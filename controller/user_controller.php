@@ -162,7 +162,7 @@ class UserController extends Controller{
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
-
+            debug_to_logFile('1');
             if(!is_null($pictureName)){
                 User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
             }
@@ -174,6 +174,7 @@ class UserController extends Controller{
              }
 
             if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == null) {
+                debug_to_logFile('1');
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
@@ -182,11 +183,21 @@ class UserController extends Controller{
                     User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
                 }
 
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(["error" => null]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
+
                 // based on the incoming action: send the user to his main page (Profil, UserManagemant)
                 sendHeaderByControllerAndAction('user', $userProfilInformations['action']);
 
             } else {
+                debug_to_logFile('1');
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => $this->_params['errorMessage']]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
             }
 
             // check if the darkMode is enabled and create the cookie if its necessary

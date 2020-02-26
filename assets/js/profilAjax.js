@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    var form = document.getElementById('formRegistration');
-    var submit = document.getElementById('submitRegistration');
-    var email = document.getElementById('emailRegistration');
+    var form = document.getElementById('formProfil');
+    var submit = document.getElementById('submitProfil');
+    var email = document.getElementById('emailProfil');
 
     submit.addEventListener('click', function(event){
         event.stopPropagation(); // no send to the top element
@@ -28,20 +28,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
                     if(resJson !== null) {
                         if(resJson.error !== null) {
-                            setErrorInput(email,resJson.error, 'errorEmailRegistration');
-                            form.style.pointerEvents = "all";
-                        } else {
-                            location.replace("?c=user&a=login");
+                            setErrorInput(email,resJson.error, 'errorEmailProfil');
                         }
                     }
                 }else{
                     console.log('Worng Status Code, because of: ' + this.statusText);
                 }
+                form.style.pointerEvents = "all";
             }
         };
 
         var formData = new FormData(form);
-        formData.append('submitRegistration', '1');
+        formData.append('submitProfil', '1');
         request.send(formData);
     });
 });

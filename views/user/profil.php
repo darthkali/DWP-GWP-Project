@@ -125,3 +125,4 @@ use FSR_AI\role;
 </div>
 
 <script src="<?=JAVA_SCRIPT_PATH.'validateRegistrationProfil.js'?>"></script>
+<script src="<?=JAVA_SCRIPT_PATH.'profilAjax.js'?>"></script>
