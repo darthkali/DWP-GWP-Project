@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', function(){
                     }
 
                     if(resJson !== null) {
-                        if(resJson.error !== null) {
+                        if(resJson.error !== 0) {
                             setErrorInput(email,resJson.error, 'errorEmailProfil');
+                        }else{
+                            location.reload();
                         }
                     }
                 }else{

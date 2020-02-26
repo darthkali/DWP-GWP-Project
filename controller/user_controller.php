@@ -183,16 +183,28 @@ class UserController extends Controller{
                     User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
                 }
 
-                if(isset($_GET['ajax'])) {
-                    echo json_encode(["error" => null]);
-                    exit(0); // Valid EXIT with JSON OUTPUT
+
+                // check if the darkMode is enabled and create the cookie if its necessary
+                if (!isset($_GET['userId'])) {
+                    if (isset($_POST['colorCheckbox'])) {
+                        $colorModeData = array("colorMode" => true);
+                        User::createLongLifeCookie($colorModeData);
+                    } else {
+                        if (isset($_COOKIE['colorMode'])) {
+                            $colorModeData = array("colorMode" => false);
+                            User::createLongLifeCookie($colorModeData);
+                        }
+                    }
                 }
 
+                if(isset($_GET['ajax'])) {
+                    echo json_encode(['error' => 0]);
+                    exit(0); // Valid EXIT with JSON OUTPUT
+                }
                 // based on the incoming action: send the user to his main page (Profil, UserManagemant)
                 sendHeaderByControllerAndAction('user', $userProfilInformations['action']);
 
             } else {
-                debug_to_logFile('1');
                 $this->_params['errorMessage'] = "Diese E-Mail wurde schon einmal verwendet. Bitte wählen Sie eine andere!";
                 if(isset($_GET['ajax'])) {
                     echo json_encode(['error' => $this->_params['errorMessage']]);
@@ -200,18 +212,8 @@ class UserController extends Controller{
                 }
             }
 
-            // check if the darkMode is enabled and create the cookie if its necessary
-            if (!isset($_GET['userId'])) {
-                if (isset($_POST['colorCheckbox'])) {
-                    $colorModeData = array("colorMode" => true);
-                    User::createLongLifeCookie($colorModeData);
-                } else {
-                    if (isset($_COOKIE['colorMode'])) {
-                        $colorModeData = array("colorMode" => false);
-                        User::createLongLifeCookie($colorModeData);
-                    }
-                }
-            }
+
+
         }
     }
 
