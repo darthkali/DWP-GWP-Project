@@ -811,6 +811,29 @@ table input:hover{
 }
 /* ----------------------------------   Dokumentation   ---------------------------------- */
 .documentation p{
-    margin: 50px;
+    margin-left: 40px;
+}
 
+.documentation ol{
+    margin-left: 10px;
+}
+
+.documentation ul{
+    margin-left: 60px;
+}
+.documentation img{
+    margin-right: 0!important;
+    margin-left: 60px;
+    max-width: 800px;
+    max-height: 1000px;
+}
+
+.documentation h1{
+    text-align: left;
+    margin: 10px 10px;
+}
+
+.documentation h3{
+    text-align: left;
+    margin: 5px 0 5px 20px;
 }

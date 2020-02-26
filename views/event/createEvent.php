@@ -26,7 +26,7 @@ use FSR_AI\location; ?>
         <div class="input">
             <label for="eventName">EVENTNAME</label>
             <input type = "text" id="eventName" name="eventName" placeholder="Eventname" required
-                   value="<?=isset($eventData['NAME']) ? htmlspecialchars($eventData['NAME']) : ''?>">
+                   value="<?=isset($eventData['NAME']) ? htmlspecialchars($eventData['NAME']) :  ''?>">
                 <span class="error-message" id="errorEventName"></span>
         </div>
 
@@ -59,7 +59,7 @@ use FSR_AI\location; ?>
         </div>
 
         <label for="picture">BILD</label>
-        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required) ? $required : ''?>>
+        <input type = "file"  accept=".jpg, .jpeg, .png" id="eventPicture" name="eventPicture" <?=isset($required) ? $required : ''?> value="<?=isset($eventData['PICTURE']) ? $eventData['PICTURE'] : ''?>">
 
         <!-- button -->
         <button type="submit" name="submitEvent" id="submitEvent"><?=$htmlButton?><i class="far fa-save" aria-hidden="true"></i></i></button>

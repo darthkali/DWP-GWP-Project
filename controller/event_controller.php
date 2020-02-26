@@ -91,6 +91,11 @@ class EventController extends Controller
 
         if(isset($_POST['submitEvent'])){
 
+            $this->_params['eventData']['NAME'] = $_POST['eventName'];
+            $this->_params['eventData']['DATE'] = $_POST['eventDate'];
+            $this->_params['eventData']['LOCATION_ID'] = $_POST['eventLocation'];
+            $this->_params['eventData']['DESCRIPTION'] = $_POST['eventDescription'];
+
             $eventId = $_GET['eventId'] ?? null;
             if($_FILES['eventPicture']['name'] != null){
                 $pictureName = Event::createUploadedPictureName('eventPicture');
