@@ -97,7 +97,7 @@
             <tbody>
             <tr>
                 <td colspan="2" width="649">
-                    <p>Danny Steinbrecher</p>
+                    <p><strong>Danny Steinbrecher</strong></p>
                 </td>
             </tr>
             <tr>
@@ -220,7 +220,7 @@
             <tbody>
             <tr>
                 <td colspan="2" width="649">
-                    <p>Niclas Jarowsky</p>
+                    <p><strong>Niclas Jarowsky</strong></p>
                 </td>
             </tr>
             <tr>

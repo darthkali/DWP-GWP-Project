@@ -823,7 +823,7 @@ table input:hover{
 }
 
 .documentation table{
-
+    margin-bottom: 20px;
     margin-left: 40px!important;
     background-color: white!important;
     border: 1px solid black!important;
