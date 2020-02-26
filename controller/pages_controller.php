@@ -69,7 +69,6 @@ class PagesController extends Controller{
 
 
             if(isset($_GET['ajax'])) {
-                debug_to_logFile("adasdasd");
                 echo json_encode(['error' => null]);
                 exit(0); // Valid EXIT with JSON OUTPUT
             }else{
