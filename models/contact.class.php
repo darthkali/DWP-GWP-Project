@@ -42,7 +42,4 @@ class Contact extends BaseModel{
         }
     }
 
-    public static function sendMail($msg, $header){
-        mail("bratwurststinkt@web.de", utf8_decode($_POST['subject']), $msg, implode("\r\n", $header));
-    }
 }
