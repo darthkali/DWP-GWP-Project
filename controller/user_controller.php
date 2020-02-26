@@ -180,7 +180,11 @@ class UserController extends Controller{
                 $where = 'ID = ' . $_SESSION['userId'];
                 $userAdmin = User::findOne($where);
                 if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
-                    User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $userAdmin['ROLE_ID'], $_POST['functionFSRProfil']);
+                    if(isset($_GET['userId'])) {
+                        User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+                    }else{
+                        User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $userAdmin['ROLE_ID'], $_POST['functionFSRProfil']);
+                    }
                 }
 
 
