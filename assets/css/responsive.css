@@ -80,6 +80,15 @@
         width: 120%;
         left: -10%;
     }
+
+}
+
+@media (max-width: 400px) {
+    form button{
+        float: right;
+        /*margin: 5px 0 5px auto;*/
+        display: inline-grid;
+    }
 }
 
 @media (max-height: 400px) {

@@ -139,20 +139,24 @@ class UserController extends Controller{
 
             $pictureName = null;
             // generate a Filename and replace the old File(Picture) with the new one
-            if(($userProfilInformations['userRole'] == Role::ADMIN or $userProfilInformations['userRole'] == Role::MEMBER) and $_FILES['pictureProfil']['name'] != null){
-                $pictureName = User::createUploadedPictureName('pictureProfil');
-                $params['PICTURE' ]     =  $pictureName;
-                $params['DESCRIPTION' ] = ( $_POST['descriptionProfil']    === '')  ? null : $_POST['descriptionProfil'];
+            if(($userProfilInformations['userRole'] == Role::ADMIN or $userProfilInformations['userRole'] == Role::MEMBER)){
+                if($_FILES['pictureProfil']['name'] != null) {
+                    $pictureName = User::createUploadedPictureName('pictureProfil');
+                    $params['PICTURE'] = $pictureName;
+                }
+                $params['DESCRIPTION' ] = ( $_POST['descriptionProfil'] === '')  ? null : $_POST['descriptionProfil'];
+
             }
 
 
             if(isset($_POST['passwordProfil'])){
-                $params['PASSWORD' ] = ( $_POST['passwordProfil']    === '')  ? null : $_POST['passwordProfil'];
+                $params['PASSWORD' ] = ( $_POST['passwordProfil'] === '')  ? null : $_POST['passwordProfil'];
             }
 
             $newUser = new User($params);
 
             $eingabeError = [];
+
 
             if(!User::validateUser($newUser, $eingabeError)){
                 $this->_params['eingabeError'] = $eingabeError;

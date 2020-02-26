@@ -322,6 +322,14 @@ class User extends BaseModel
             array_push($eingabeError, 'Das Datum muss dem Fomat TT.MM-YYY entsprechen');
         }
 
+        $user = User::findUserBySessionUserID();
+
+        if(!$user['ROLE_ID'] == Role::USER){
+            if ($newUser->__get('DESCRIPTION') === null) {
+                array_push($eingabeError, 'Es muss eine Beschreibung eingegeben werden!');
+            }
+        }
+
         if(count($eingabeError) == 0){
             return true;
         }else{
