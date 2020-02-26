@@ -162,7 +162,7 @@ class UserController extends Controller{
                 $this->_params['eingabeError'] = $eingabeError;
                 return false;
             }
-            debug_to_logFile('1');
+
             if(!is_null($pictureName)){
                 User::putTheUploadedFileOnTheServerAndRemoveTheOldOne('pictureProfil', 'assets/images/upload/users/' , $userProfilInformations['userProfil']['PICTURE'], $pictureName);
             }
@@ -174,13 +174,13 @@ class UserController extends Controller{
              }
 
             if (User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == $userProfilInformations['userProfil']['ID'] || User::checkUniqueUserEntityAndReturnID($params['EMAIL']) == null) {
-                debug_to_logFile('1');
+
                 $newUser->save();
 
                 $where = 'ID = ' . $_SESSION['userId'];
                 $userAdmin = User::findOne($where);
                 if ($userAdmin['ROLE_ID'] == Role::ADMIN) {
-                    User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $_POST['roleProfil'], $_POST['functionFSRProfil']);
+                    User::changeUserRoleAndFunction($userProfilInformations['userProfil']['ID'], $userAdmin['ROLE_ID'], $_POST['functionFSRProfil']);
                 }
 
 
