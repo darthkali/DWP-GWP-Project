@@ -60,7 +60,7 @@ class Event extends BaseModel{
 
         if ($newEvent->__get('NAME') === null) {
             array_push($eingabeError, 'Der Eventname muss augefüllt werden!');
-        }else if (!preg_match('/^[A-Za-z0-9 -]*$/', $newEvent->__get('NAME'))) {
+        }else if (!preg_match('/^[A-Za-z0-9-ßäöü][A-Za-z0-9 -ßäöü]*$/', $newEvent->__get('NAME'))) {
             array_push($eingabeError, 'Der Eventname darf nur aus Buchstaben und Zahlen bestehen bestehen');
         }
 

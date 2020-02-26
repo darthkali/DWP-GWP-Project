@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(firstname,'Der Vorname muss mindestens 2 Zeichen besitzen!', 'firstname' + pageName);
         }else if(firstname.value.length > 21){
             validate = setErrorInput(firstname,'Der Vorname darf maximal 21 Zeichen besitzen!','firstname' + pageName);
-        }else if(firstname.value.match(/^[A-Za-zßäöü]*$/i) === null){
+        }else if(firstname.value.match(/^[A-Za-zßäöü][A-Za-z ßäöü]*$/i) === null){
             validate = setErrorInput(firstname,'Der Vorname darf nur aus Buchstaben bestehen!','firstname' + pageName);
         }else{
             firstname.parentNode.className = firstname.parentNode.className.split(" errorinput").join("");
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(lastname,'Der Nachname muss mindestens 2 Zeichen besitzen!', 'lastname' + pageName);
         }else if(lastname.value.length > 24){
             validate = setErrorInput(lastname,'Der Nachname darf maximal 24 Zeichen besitzen!', 'lastname' + pageName);
-        }else if(lastname.value.match(/^[A-Za-zßäöü]*$/i) === null){
+        }else if(lastname.value.match(/^[A-Za-zßäöü][A-Za-z ßäöü]*$/i) === null){
             validate = setErrorInput(lastname,'Der Nachname darf nur aus Buchstaben bestehen!', 'lastname' + pageName);
         }else{
             lastname.parentNode.className = lastname.parentNode.className.split(" errorinput").join("");

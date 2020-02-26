@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
             validate = setErrorInput(eventName,'Der Eventname muss mindestens 8 Zeichen besitzen!');
         }else if(eventName.value.length > 64){
             validate = setErrorInput(eventName,'Der Eventname darf maximal 64 Zeichen besitzen!');
-        }else if(eventName.value.match(/^[A-Za-z0-9 -ßäöü]*$/i) === null){
+        }else if(eventName.value.match(/^[A-Za-z0-9-ßäöü][A-Za-z0-9 -ßäöü]*$/i) === null){
             validate = setErrorInput(eventNlocationStreetame,'Der Eventname darf nur aus Buchstaben, Zahlen, Leerzeichen und Bindestrichen bestehen!');
         }else{
             eventName.parentNode.className = eventName.parentNode.className.split(" errorinput").join("");

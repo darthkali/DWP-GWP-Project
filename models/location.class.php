@@ -28,7 +28,7 @@ class Location extends BaseModel{
 
         if ($newLocation->__get('STREET') === null) {
             array_push($eingabeError, 'Der Straßenname muss augefüllt werden!');
-        }else  if (!preg_match('/^[A-Za-z -ßäöü]*$/', $newLocation->__get('STREET'))) {
+        }else  if (!preg_match('/^[A-Za-z-ßäöü][A-Za-z -ßäöü]*$/', $newLocation->__get('STREET'))) {
            array_push($eingabeError, 'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }
 
@@ -46,7 +46,7 @@ class Location extends BaseModel{
 
         if ($newLocation->__get('CITY') === null) {
             array_push($eingabeError, 'Die Stadt muss augefüllt werden!');
-        }else if (!preg_match('/^[A-Za-z -ßäöü]*$/', $newLocation->__get('CITY'))) {
+        }else if (!preg_match('/^[A-Za-z-ßäöü][A-Za-z -ßäöü]*$/', $newLocation->__get('CITY'))) {
             array_push($eingabeError, 'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!');
         }
 
