@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }else if(locationStreet.value.length > 50){
             validate = setErrorInput(locationStreet,'Die Straße darf maximal 50 Zeichen besitzen!', 'locationStreet');
             window.location.hash = "locationStreet";
-        }else if(locationStreet.value.match(/^[A-Za-z-ßäöü][A-Za-z -ßäöü]*$/i) === null){
+        }else if(locationStreet.value.match(/^[A-Za-zßäöü][A-Za-z \-ßäöü]*$/i) === null){
             validate = setErrorInput(locationStreet,'Der Straßenname darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!', 'locationStreet');
             window.location.hash = "locationStreet";
         }else{
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }else if(locationCity.value.length > 58){
             validate = setErrorInput(locationCity,'Die Stadt darf maximal 58 Zeichen besitzen!', 'locationCity');
             window.location.hash = "locationCity";
-        }else if(locationCity.value.match(/^[A-Za-z-ßäöü][A-Za-z -ßäöü]*$/i) === null){
+        }else if(locationCity.value.match(/^[A-Za-zßäöü][A-Za-z \-ßäöü]*$/i) === null){
             validate = setErrorInput(locationCity,'Die Stadt darf nur aus Buchstaben, Leerzeichen und Bindestrichen bestehen!', 'locationCity');
             window.location.hash = "locationCity";
         }else{

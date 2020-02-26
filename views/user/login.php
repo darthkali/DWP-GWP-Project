@@ -13,7 +13,7 @@
         </div>
         <!-- username -->
         <label for="email">EMAIL </label>
-        <input type = "text" id="email" name="email" required
+        <input type = "email" id="email" name="email" required
                value = "<?=isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''?>">
 
         <!-- password -->
