@@ -1,11 +1,11 @@
 <?php
-    $i = 0;
+    $i = 1;
 ?>
 <div class="Content" id="fadeIn">
     <div class="documentation" id="fadeIn">
         <h2><strong>Projektdokumentation</strong>&nbsp;</h2>
         <h4>Internetauftritt des Fachschaftsrates der Angewandten Informatik</h4>
-        <p>Inhaltsverzeichnis</p>
+        <p style="margin: 10px 0 5px 0"><strong>Inhaltsverzeichnis</strong></p>
         <ol>
             <li><a href="#_Toc30236245"> Projektteam</a></li>
         </ol>
@@ -76,16 +76,15 @@
             <li><a href="#_Toc30236299">Besprechungsprotokolle</a></li>
         </ol>
         <p><a href="#_Toc30236300">9.1 1.P&auml;sentation</a></p>
-        <p><a href="#_Toc30236301">9.2 Besprechung mit Herrn Friess <em>(15.11.2019)</em></a></p>
-        <p><a href="#_Toc30236302">9.3 Besprechung mit Herrn Friess (<em>24.11.2019)</em></a></p>
-        <p><a href="#_Toc30236303">9.4 Besprechung mit Herrn Friess (<em>07.12.2019)</em></a></p>
-        <p><a href="#_Toc30236304"><em>9.5</em> Besprechung mit Herrn Kruse (<em>18.12.2019)</em></a></p>
-        <p><a href="#_Toc30236305"><em>9.6</em> Zwischenpr&auml;sentation <em>(14.01.2019)</em></a></p>
+        <p><a href="#_Toc30236301">9.2 Besprechung mit Herrn Friess    <em>(15.11.2019)</em></a></p>
+        <p><a href="#_Toc30236302">9.3 Besprechung mit Herrn Friess    <em>(24.11.2019)</em></a></p>
+        <p><a href="#_Toc30236303">9.4 Besprechung mit Herrn Friess    <em>(07.12.2019)</em></a></p>
+        <p><a href="#_Toc30236304">9.5 Besprechung mit Herrn Kruse     <em>(18.12.2019)</em></a></p>
+        <p><a href="#_Toc30236305">9.6 Zwischenpr&auml;sentation            <em>(14.01.2019)</em></a></p>
         <ol start="10">
             <li><a href="#_Toc30236306">Software</a></li>
         </ol>
         <h1><a name="_Toc30236245"></a>1. Projektteam</h1>
-        <p><img src="<?=DOCUMENTATION_IMAGE_PATH.$i.'.png'; $i++;?>"src ="" alt="Bild des Teams" /></p>
         <h3><a name="_Toc30236246"></a>1.1 Projektteam</h3>
         <p>Die Webseite entstand in Zusammenarbeit mit Niclas Jarowsky und Danny Steinbrecher im Rahmen des Fach&uuml;bergreifendes Projektes von Grundlagen- und Dynamische Webprogrammierung</p>
         <h3><a name="_Toc30236247"></a>1.2 Teammitglieder und Projektrollen</h3>

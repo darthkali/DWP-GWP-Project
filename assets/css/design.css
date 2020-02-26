@@ -831,12 +831,8 @@ table input:hover{
     border-collapse: collapse!important;
 }
 
-.documentation ol{
-    margin-left: 10px;
-}
-
 .documentation ol li {
-    margin-left: 50px;
+    margin-left: 40px;
 }
 
 .documentation ul{
