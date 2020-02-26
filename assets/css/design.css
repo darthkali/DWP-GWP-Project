@@ -814,8 +814,37 @@ table input:hover{
     margin-left: 40px;
 }
 
+.documentation{
+    max-width: 1000px;
+}
+
+.documentation table:hover{
+    --hover-color: none!important;
+}
+
+.documentation table{
+
+    margin-left: 40px!important;
+    background-color: white!important;
+    border: 1px solid black!important;
+    border-collapse: collapse!important;
+}
+
+.documentation table tr{
+    border: 1px solid black!important;
+    border-collapse: collapse!important;
+}
+.documentation table tr td{
+    border: 1px solid black!important;
+    border-collapse: collapse!important;
+}
+
 .documentation ol{
     margin-left: 10px;
+}
+
+.documentation ol li {
+    margin-left: 50px;
 }
 
 .documentation ul{
