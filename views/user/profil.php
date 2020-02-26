@@ -6,7 +6,7 @@ use FSR_AI\role;
 </div>
 
 <div class="Content" id="fadeIn">
-    <form autocomplete= "off" action="?c=user&a=profil<?=$userInformation?>" method="post" enctype="multipart/form-data" >
+    <form autocomplete= "off" action="?c=user&a=profil<?=$userInformation?>" method="post" id="formProfil" enctype="multipart/form-data" >
         <h1><?=$pageTopic?></h1>
         <h5><?=$pageSubTopic?></h5>
 
