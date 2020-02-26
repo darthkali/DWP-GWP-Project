@@ -119,8 +119,7 @@ use FSR_AI\role;
 
         <!-- buttons -->
         <button type="submit" name="submitProfil" id="submitProfil">Speichern<i class="far fa-save" aria-hidden="true"></i></button>
-<!--        <button type="reset"> Verwerfen</button>-->
-        <button type="reset"> Eingabe Löschen <i class="fa fa-times" aria-hidden="true"></i> </button>
+
     </form>
 </div>
 

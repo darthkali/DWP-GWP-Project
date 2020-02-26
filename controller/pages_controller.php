@@ -90,10 +90,28 @@ class PagesController extends Controller{
     }
 
     public function actionDeleteQuestion(){
+
+        $this->_params['title'] = 'Registrieren';
         //Permissions for the page
-        $accessUser = role::ADMIN;    // which user(role_id) has permission to join the page
+        if(isset($_GET['eventId'])){
+            $accessUser = [Role::ADMIN, Role::MEMBER];    // which user(role_id) has permission to join the page
+
+            $this->_params['title'] = 'Wollen Sie das Event:';
+            $event = Event::findOne('ID = ' . $_GET['eventId']);
+            $this->_params['Name'] = $event['NAME'];
+            $this->_params['hrefTarget'] = '?c=event&a=eventManagement';
+            $this->_params['hrefDelete'] = '&eventId='. $_GET['eventId'] . '&pictureName='.$_GET['pictureName'];
+        }else{
+            $accessUser = Role::ADMIN;    // which user(role_id) has permission to join the page
+
+            $this->_params['title'] = 'Wollen Sie den Nutzer:';
+            $user = User::findOne('ID = ' . $_GET['userId']);
+            $this->_params['Name'] = User::getFullName($user['FIRSTNAME'], $user['LASTNAME']);
+            $this->_params['hrefTarget'] = '?c=user&a=userManagement';
+            $this->_params['hrefDelete'] = '&userId=' . $_GET['userId'];
+        }
         User::checkUserPermissionForPage($accessUser);
-        $this->_params['title'] = 'Nutzer Löschen';
+
     }
 
     public function actionDocumentation(){
