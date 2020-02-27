@@ -323,12 +323,14 @@ class User extends BaseModel
         }
 
         $user = User::findUserBySessionUserID();
-
-        if(!$user['ROLE_ID'] == Role::USER){
-            if ($newUser->__get('DESCRIPTION') === null) {
-                array_push($eingabeError, 'Es muss eine Beschreibung eingegeben werden!');
+        if($user != null){
+            if($user['ROLE_ID'] == Role::USER){
+                if ($newUser->__get('DESCRIPTION') === null) {
+                    array_push($eingabeError, 'Es muss eine Beschreibung eingegeben werden!');
+                }
             }
         }
+
 
         if(count($eingabeError) == 0){
             return true;
